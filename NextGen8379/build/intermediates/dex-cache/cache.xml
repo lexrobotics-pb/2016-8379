@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/exploded-aar/ftc_sdk.lib/FtcCommon/unspecified/libs/WirelessP2p.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fd3a5e62d1e49a162af6a2f31c7993f71ab3ae15">
+        <dex dex="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/WirelessP2p-165032c4f9311b0d038f4addcc600b074bb6bd09.jar" />
+    </item>
+    <item
+        jar="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/exploded-aar/ftc_sdk.lib/RobotCore/unspecified/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b3023fe9335537c6479d1f560eeb7409591fd007">
+        <dex dex="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/classes-92b0f6e903efd7af9cc3ddf646ca5bf0067564c1.jar" />
+    </item>
+    <item
+        jar="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/exploded-aar/ftc_sdk.lib/FtcCommon/unspecified/libs/HiTechnic.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5cc8877cbdcd8ea04302683bd8a1971b759f3b80">
+        <dex dex="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/HiTechnic-2b43f6dd3077c210ea6622685a69031e52895377.jar" />
+    </item>
+    <item
+        jar="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/exploded-aar/ftc_sdk.lib/FtcCommon/unspecified/libs/d2xx.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="549d88cce99830dc2ae951a13d5a8b897362351b">
+        <dex dex="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/d2xx-6554fdd42c2ca81f45d3ca5d9657f36582c73d64.jar" />
+    </item>
+    <item
+        jar="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/exploded-aar/ftc_sdk.lib/FtcCommon/unspecified/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9fe0cc3856993dac7a093fd752e382b13dcd318b">
+        <dex dex="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/classes-dedf909c0f1e7ba5c71536e78be8c217cdc4cb56.jar" />
+    </item>
+
+</items>

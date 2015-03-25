@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+  <PreferenceCategory
+    android:title="@string/pref_gamepad_title" >
+
+    <ListPreference
+      android:key="@string/pref_gamepad_type_key"
+      android:title="@string/pref_gamepad_type_title"
+      android:summary="%s"
+      android:defaultValue="@string/gamepad_default"
+      android:dialogTitle="@string/pref_gamepad_type_title"
+      android:entries="@array/pref_gamepad_type_entries"
+      android:entryValues="@array/pref_gamepad_type_entries" />
+
+  </PreferenceCategory>
+
+  <PreferenceCategory
+    android:title="@string/pref_logging_title" >
+
+    <CheckBoxPreference
+      android:key="@string/pref_log_network_traffic_key"
+      android:title="@string/pref_log_network_traffic_title"
+      android:summary="@string/pref_log_network_traffic_summary"
+      android:defaultValue="false" />
+
+  </PreferenceCategory>
+
+</PreferenceScreen>

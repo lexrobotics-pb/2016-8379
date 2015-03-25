@@ -1,0 +1,6 @@
+/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/classes/debug
+/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/classes-dedf909c0f1e7ba5c71536e78be8c217cdc4cb56.jar
+/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/WirelessP2p-165032c4f9311b0d038f4addcc600b074bb6bd09.jar
+/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/HiTechnic-2b43f6dd3077c210ea6622685a69031e52895377.jar
+/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/d2xx-6554fdd42c2ca81f45d3ca5d9657f36582c73d64.jar
+/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/classes-92b0f6e903efd7af9cc3ddf646ca5bf0067564c1.jar

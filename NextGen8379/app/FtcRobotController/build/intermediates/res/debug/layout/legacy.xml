@@ -336,4 +336,8 @@
         </TableLayout>
     </LinearLayout>
   </ScrollView>
+<<<<<<< HEAD
 </LinearLayout><!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/app/FtcRobotController/src/main/res/layout/legacy.xml -->
+=======
+</LinearLayout><!-- From: file:/C:/Programming/2016-8379/NextGen8379/app/FtcRobotController/src/main/res/layout/legacy.xml -->
+>>>>>>> 45f18ffe3b278c08ca45292fc12632daaab213a6

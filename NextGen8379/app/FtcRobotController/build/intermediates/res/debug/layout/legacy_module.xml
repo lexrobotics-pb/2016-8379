@@ -78,4 +78,8 @@
                     android:visibility="invisible"/>
             </RelativeLayout>
         </LinearLayout>
+<<<<<<< HEAD
 </merge><!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/app/FtcRobotController/src/main/res/layout/legacy_module.xml -->
+=======
+</merge><!-- From: file:/C:/Programming/2016-8379/NextGen8379/app/FtcRobotController/src/main/res/layout/legacy_module.xml -->
+>>>>>>> 45f18ffe3b278c08ca45292fc12632daaab213a6

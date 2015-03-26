@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/lib/FtcCommon/build/intermediates/bundles/debug/res/values/values.xml -->
+=======
+    <!-- From: file:/C:/Programming/2016-8379/NextGen8379/lib/FtcCommon/build/intermediates/bundles/debug/res/values/values.xml -->
+>>>>>>> 45f18ffe3b278c08ca45292fc12632daaab213a6
     <eat-comment/>
     <string name="app_name">FtcCommon</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">

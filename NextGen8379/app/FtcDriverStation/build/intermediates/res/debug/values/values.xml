@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/app/FtcDriverStation/src/main/res/values/strings.xml -->
+=======
+    <!-- From: file:/C:/Programming/2016-8379/NextGen8379/app/FtcDriverStation/src/main/res/values/strings.xml -->
+>>>>>>> 45f18ffe3b278c08ca45292fc12632daaab213a6
     <eat-comment/>
     <string-array name="pref_gamepad_type_entries">
     <item>@string/gamepad_logitech_f310</item>
@@ -23,11 +27,19 @@
     <item>5GHz, Channel 157</item>
     <item>5GHz, Channel 161</item>
   </string-array>
+<<<<<<< HEAD
     <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/app/FtcDriverStation/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/app/FtcDriverStation/src/main/res/values/strings.xml -->
+=======
+    <!-- From: file:/C:/Programming/2016-8379/NextGen8379/app/FtcDriverStation/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/C:/Programming/2016-8379/NextGen8379/app/FtcDriverStation/src/main/res/values/strings.xml -->
+>>>>>>> 45f18ffe3b278c08ca45292fc12632daaab213a6
     <eat-comment/>
     <string name="about_activity">About</string>
     <string name="action_configuration">Configure Robot</string>
@@ -62,7 +74,11 @@
     <string name="wifi_direct_update_settings">
     Please wait while we update the Wifi Direct settings on this device.
   </string>
+<<<<<<< HEAD
     <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/app/FtcDriverStation/src/main/res/values/styles.xml -->
+=======
+    <!-- From: file:/C:/Programming/2016-8379/NextGen8379/app/FtcDriverStation/src/main/res/values/styles.xml -->
+>>>>>>> 45f18ffe3b278c08ca45292fc12632daaab213a6
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

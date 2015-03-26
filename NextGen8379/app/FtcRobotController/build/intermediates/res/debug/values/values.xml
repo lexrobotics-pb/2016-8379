@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/app/FtcRobotController/src/main/res/values/strings.xml -->
+=======
+    <!-- From: file:/C:/Programming/2016-8379/NextGen8379/app/FtcRobotController/src/main/res/values/strings.xml -->
+>>>>>>> 45f18ffe3b278c08ca45292fc12632daaab213a6
     <eat-comment/>
     <string-array name="choice_array">
       <item>GYRO</item>
@@ -12,11 +16,19 @@
       <item>SERVO_CONTROLLER</item>
       <item>NOTHING</item>
   </string-array>
+<<<<<<< HEAD
     <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/app/FtcRobotController/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/app/FtcRobotController/src/main/res/values/strings.xml -->
+=======
+    <!-- From: file:/C:/Programming/2016-8379/NextGen8379/app/FtcRobotController/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/C:/Programming/2016-8379/NextGen8379/app/FtcRobotController/src/main/res/values/strings.xml -->
+>>>>>>> 45f18ffe3b278c08ca45292fc12632daaab213a6
     <eat-comment/>
     <string name="about_activity">About</string>
     <string name="about_menu_item">About</string>
@@ -94,7 +106,11 @@
   </string>
     <string name="writeXML_prompt">Select an XML file to instantiate a Robot from that file</string>
     <string name="writeXML_text">Press this button to write the current configuration to an XML file</string>
+<<<<<<< HEAD
     <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/app/FtcRobotController/src/main/res/values/styles.xml -->
+=======
+    <!-- From: file:/C:/Programming/2016-8379/NextGen8379/app/FtcRobotController/src/main/res/values/styles.xml -->
+>>>>>>> 45f18ffe3b278c08ca45292fc12632daaab213a6
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

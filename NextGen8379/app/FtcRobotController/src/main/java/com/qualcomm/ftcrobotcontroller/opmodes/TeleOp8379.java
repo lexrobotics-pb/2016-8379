@@ -63,6 +63,7 @@ public class TeleOp8379 extends OpMode{
         posHood = 0.196;
         posTrigger = 0.714;
         posHolder = 0;//how does a continuous servo works? was 127 meaning stop
+
     }
 
     public void run (){
@@ -87,7 +88,6 @@ public class TeleOp8379 extends OpMode{
         }
 
         /*---------------------Movement----------------------------*/
-
         motorFrontLeft.setPower((gamepad1.left_stick_y + (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2);
         motorBackLeft.setPower((gamepad1.left_stick_y - (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2);
         motorFrontRight.setPower((gamepad1.right_stick_y - (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2);

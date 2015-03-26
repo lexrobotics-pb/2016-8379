@@ -38,4 +38,8 @@
     android:layout_alignParentBottom="true"
     android:text="@string/launch_wifi_settings" />
 
+<<<<<<< HEAD
 </RelativeLayout><!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/app/FtcDriverStation/src/main/res/layout/activity_ftc_wifi_channel_selector.xml -->
+=======
+</RelativeLayout><!-- From: file:/C:/Programming/2016-8379/NextGen8379/app/FtcDriverStation/src/main/res/layout/activity_ftc_wifi_channel_selector.xml -->
+>>>>>>> 45f18ffe3b278c08ca45292fc12632daaab213a6

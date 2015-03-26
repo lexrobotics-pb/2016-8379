@@ -59,6 +59,7 @@ public class TeleOp8379 extends OpMode{
         trigger = hardwareMap.servo.get("trigger");
 
         /*initialization*/
+        //Convert to range [-1, 1]
         posGrabber = 255;
         posHood = 50;
         posTrigger = 182;
@@ -87,11 +88,11 @@ public class TeleOp8379 extends OpMode{
         }
 
         /*---------------------Movement----------------------------*/
-
-        motorFrontLeft.setPower((gamepad1.left_stick_y + ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/2);
-        motorBackLeft.setPower((gamepad1.left_stick_y - ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/2);
-        motorFrontRight.setPower((gamepad1.right_stick_y - ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/2);
-        motorBackRight.setPower((gamepad1.right_stick_y + ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/2);
+        //scaled to range [-1, 1] - Kara
+        motorFrontLeft.setPower((gamepad1.left_stick_y + ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/200.0);
+        motorBackLeft.setPower((gamepad1.left_stick_y - ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/200.0);
+        motorFrontRight.setPower((gamepad1.right_stick_y - ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/200.0);
+        motorBackRight.setPower((gamepad1.right_stick_y + ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/200.0);
 
         /*------------------------Primary------------------------*/
         //Thrower

@@ -23,6 +23,7 @@ public class TeleOp8379 extends OpMode{
 
     DcMotor motorFrontRight;
     DcMotor motorBackRight;
+    DcMotor motorThrower;
     DcMotor motorLift;
     DcMotor motorBackLeft;
     DcMotor motorFrontLeft;
@@ -45,6 +46,7 @@ public class TeleOp8379 extends OpMode{
         motorFrontRight = hardwareMap.dcMotor.get("frontright");
         motorBackRight = hardwareMap.dcMotor.get("backright");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //reverses back right motor
+        motorThrower= hardwareMap.dcMotor.get("thrower");
         motorLift= hardwareMap.dcMotor.get("lift");
         motorFrontLeft = hardwareMap.dcMotor.get("frontleft");
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //reverse front left motor
@@ -66,28 +68,53 @@ public class TeleOp8379 extends OpMode{
     public void run (){
 
         /*Sets joystick deadzone. The joysticks we used before went to +/- 100,
-        but these tutorials all use +/- 1...I'm just going to assume we're using our stuff still.
+        but these tutorials all use +/- 1...so the deadzone should be .1 instead of 10, I guess?.
         Also, checking the documentation, there is a class called
         public void setJoystickDeadZone(float deadzone),
         but I couldn't figure out how to implement it*/
 
-        if (gamepad1.left_stick_x < DEADZONE){
+        if (Math.abs(gamepad1.left_stick_x) < DEADZONE){
             gamepad1.left_stick_x = 0;
         }
-        if (gamepad1.left_stick_y < DEADZONE){
+        if (Math.abs(gamepad1.left_stick_y) < DEADZONE){
             gamepad1.left_stick_y = 0;
         }
-        if (gamepad1.right_stick_x < DEADZONE){
-            gamepad1.left_stick_x = 0;
+        if (Math.abs(gamepad1.right_stick_x) < DEADZONE){
+            gamepad1.right_stick_x = 0;
         }
-        if (gamepad1.right_stick_y < DEADZONE){
+        if (Math.abs(gamepad1.right_stick_y) < DEADZONE){
             gamepad1.right_stick_y = 0;
         }
 
-        motorFrontLeft.setPower(-100.0/256 * (-gamepad1.left_stick_y - (((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2) * 1.2)));
-        motorBackLeft.setPower(-100.0/256 * (-gamepad1.left_stick_y + (((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2) * 1.2)));
-        motorFrontRight.setPower(-100.0/256 * (-gamepad1.right_stick_y + (((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2) * 1.2)));
-        motorBackRight.setPower(-100.0/256 * (-gamepad1.right_stick_y - (((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2) * 1.2)));
+        /*---------------------Movement----------------------------*/
+
+        motorFrontLeft.setPower((gamepad1.left_stick_y + ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/2);
+        motorBackLeft.setPower((gamepad1.left_stick_y - ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/2);
+        motorFrontRight.setPower((gamepad1.right_stick_y - ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/2);
+        motorBackRight.setPower((gamepad1.right_stick_y + ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/2);
+
+        /*------------------------Primary------------------------*/
+        //Thrower
+        if (gamepad1.x){ //thrower stop
+            motorThrower.setPower(0);
+        }
+        if (gamepad1.left_bumper){ //thrower forward
+            motorThrower.setPower(1);
+        }
+        /*if (gamepad1.left_trigger){ //thrower reverse
+            motorThrower.setPower(-.5);
+        }*/
+        //arm
+        if (gamepad1.right_bumper){ //arm out
+
+        }
+        //if (gamepad1.right_trigger){} //arm in
+
+
+
+
+        /*------------------------Secondary----------------------*/
+
 
 
     }

@@ -2,39 +2,39 @@
 <items version="2" >
 
     <item
-        jar="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/exploded-aar/ftc_sdk.lib/FtcCommon/unspecified/libs/WirelessP2p.jar"
+        jar="C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\exploded-aar\NextGen8379.lib\RobotCore\unspecified\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="fd3a5e62d1e49a162af6a2f31c7993f71ab3ae15">
-        <dex dex="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/WirelessP2p-165032c4f9311b0d038f4addcc600b074bb6bd09.jar" />
+        sha1="6a0737048314298377a2b7471d685b029af74b98">
+        <dex dex="C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-b948a403f42b26c01986ef0be1bf545830402e8e.jar" />
     </item>
     <item
-        jar="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/exploded-aar/ftc_sdk.lib/RobotCore/unspecified/classes.jar"
+        jar="C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\exploded-aar\NextGen8379.lib\FtcCommon\unspecified\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="b3023fe9335537c6479d1f560eeb7409591fd007">
-        <dex dex="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/classes-92b0f6e903efd7af9cc3ddf646ca5bf0067564c1.jar" />
+        sha1="6f4d71d5870c9187946978de3b4de2e7d9f7e256">
+        <dex dex="C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-5b66ea07b3e619e8274506e2f7511e0d0d704af4.jar" />
     </item>
     <item
-        jar="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/exploded-aar/ftc_sdk.lib/FtcCommon/unspecified/libs/HiTechnic.jar"
+        jar="C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\exploded-aar\NextGen8379.lib\FtcCommon\unspecified\libs\HiTechnic.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="5cc8877cbdcd8ea04302683bd8a1971b759f3b80">
-        <dex dex="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/HiTechnic-2b43f6dd3077c210ea6622685a69031e52895377.jar" />
+        <dex dex="C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\HiTechnic-d988f3b7c5e818ef3b9b73ce2012eeab13b791b2.jar" />
     </item>
     <item
-        jar="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/exploded-aar/ftc_sdk.lib/FtcCommon/unspecified/libs/d2xx.jar"
+        jar="C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\exploded-aar\NextGen8379.lib\FtcCommon\unspecified\libs\d2xx.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="549d88cce99830dc2ae951a13d5a8b897362351b">
-        <dex dex="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/d2xx-6554fdd42c2ca81f45d3ca5d9657f36582c73d64.jar" />
+        <dex dex="C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-bd4b4b18821a0c8a20c760aa5597c96ab236e882.jar" />
     </item>
     <item
-        jar="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/exploded-aar/ftc_sdk.lib/FtcCommon/unspecified/classes.jar"
+        jar="C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\exploded-aar\NextGen8379.lib\FtcCommon\unspecified\libs\WirelessP2p.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="9fe0cc3856993dac7a093fd752e382b13dcd318b">
-        <dex dex="/Users/tom/AndroidStudioProjects/ftc_sdk/app/FtcRobotController/build/intermediates/pre-dexed/debug/classes-dedf909c0f1e7ba5c71536e78be8c217cdc4cb56.jar" />
+        sha1="fd3a5e62d1e49a162af6a2f31c7993f71ab3ae15">
+        <dex dex="C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-41e265c74830f3722dc344a19f54d11b331dab88.jar" />
     </item>
 
 </items>

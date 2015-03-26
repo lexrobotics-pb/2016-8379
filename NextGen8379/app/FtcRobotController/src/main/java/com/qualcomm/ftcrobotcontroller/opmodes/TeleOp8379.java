@@ -32,7 +32,7 @@ public class TeleOp8379 extends OpMode{
     Servo grabber;
     Servo hood;
     Servo USbackservo;
-    Servo holder;
+    Servo holder;//nothing for continuous servo
     Servo trigger;
 
 
@@ -59,10 +59,10 @@ public class TeleOp8379 extends OpMode{
         trigger = hardwareMap.servo.get("trigger");
 
         /*initialization*/
-        posGrabber = 255;
-        posHood = 50;
-        posTrigger = 182;
-        posHolder = 127;
+        posGrabber = 1;
+        posHood = 0.196;
+        posTrigger = 0.714;
+        posHolder = 0;//how does a continuous servo works? was 127 meaning stop
     }
 
     public void run (){
@@ -88,10 +88,10 @@ public class TeleOp8379 extends OpMode{
 
         /*---------------------Movement----------------------------*/
 
-        motorFrontLeft.setPower((gamepad1.left_stick_y + ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/2);
-        motorBackLeft.setPower((gamepad1.left_stick_y - ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/2);
-        motorFrontRight.setPower((gamepad1.right_stick_y - ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/2);
-        motorBackRight.setPower((gamepad1.right_stick_y + ((gamepad1.right_stick_x + gamepad1.left_stick_x) / 2))/2);
+        motorFrontLeft.setPower((gamepad1.left_stick_y + (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2);
+        motorBackLeft.setPower((gamepad1.left_stick_y - (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2);
+        motorFrontRight.setPower((gamepad1.right_stick_y - (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2);
+        motorBackRight.setPower((gamepad1.right_stick_y + (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2);
 
         /*------------------------Primary------------------------*/
         //Thrower
@@ -101,21 +101,36 @@ public class TeleOp8379 extends OpMode{
         if (gamepad1.left_bumper){ //thrower forward
             motorThrower.setPower(1);
         }
-        /*if (gamepad1.left_trigger){ //thrower reverse
+        if (gamepad1.left_trigger==0  ? false:true){ //thrower reverse
             motorThrower.setPower(-.5);
-        }*/
-        //arm
-        if (gamepad1.right_bumper){ //arm out
-
         }
-        //if (gamepad1.right_trigger){} //arm in
-
-
-
+        //arm-----------------------------------------------------
+        if (gamepad1.right_bumper){}//arm out
+        if (gamepad1.right_trigger==0  ? false:true){} //arm in
+        //change direction----------------------------------------
+        if (gamepad1.a){}//grabber front
+        if (gamepad1.y){} // flipper front
 
         /*------------------------Secondary----------------------*/
 
+        //grabber-------------------------------------------------
+        if (gamepad2.y) {
+            grabber.setPosition(1.0);
+        }//grabber up
+        if (gamepad2.a) {
+            grabber.setPosition(0.588);
+        }//grabber down
 
+        //hood---------------------------------------------------
+        if (gamepad2.left_bumper){
+            holder.
+        }//hood in
+        if (gamepad2.left_trigger==0  ? false:true){} //hood out
+
+        //lift--------------------------------------------------
+        if (gamepad2.right_bumper){}//lift up
+        if (gamepad2.right_trigger==0  ? false:true){}//lift down
+        if (gamepad2.b){}//trigger down
 
     }
 

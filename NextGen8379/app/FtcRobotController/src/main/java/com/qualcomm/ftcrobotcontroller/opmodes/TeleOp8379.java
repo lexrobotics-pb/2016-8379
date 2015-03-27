@@ -123,7 +123,7 @@ public class TeleOp8379 extends OpMode{
 
         //hood---------------------------------------------------
         if (gamepad2.left_bumper){
-           
+
         }//hood in
         if (gamepad2.left_trigger==0  ? false:true){} //hood out
 

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< HEAD
     <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/NextGen8379/lib/FtcCommon/src/main/res/values-v11/styles.xml -->
-=======
-    <!-- From: file:/C:/Programming/2016-8379/NextGen8379/lib/FtcCommon/src/main/res/values-v11/styles.xml -->
->>>>>>> 45f18ffe3b278c08ca45292fc12632daaab213a6
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <!-- API 11 theme customizations can go here. -->

@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <merger version="3"><dataSet config="main"><source path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\lib\FtcCommon\src\main\assets"/></dataSet><dataSet config="release"><source path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\lib\FtcCommon\src\release\assets"/></dataSet></merger>
-=======
-<merger version="3"><dataSet config="main"><source path="C:\Programming\2016-8379\NextGen8379\lib\FtcCommon\src\main\assets"/></dataSet><dataSet config="release"><source path="C:\Programming\2016-8379\NextGen8379\lib\FtcCommon\src\release\assets"/></dataSet></merger>
->>>>>>> 45f18ffe3b278c08ca45292fc12632daaab213a6

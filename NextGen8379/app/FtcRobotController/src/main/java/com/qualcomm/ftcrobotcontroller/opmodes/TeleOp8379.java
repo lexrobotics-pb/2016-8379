@@ -62,7 +62,7 @@ public class TeleOp8379 extends OpMode{
         posGrabber = 1;
         posHood = 0.196;
         posTrigger = 0.714;
-        posHolder = 0;//how does a continuous servo works? was 127 meaning stop
+        posHolder = 127;//how does a continuous servo works? was 127 meaning stop
 
     }
 

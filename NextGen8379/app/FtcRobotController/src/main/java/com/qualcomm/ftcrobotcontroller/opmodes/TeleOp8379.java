@@ -60,9 +60,9 @@ public class TeleOp8379 extends OpMode{
 
         /*initialization*/
         posGrabber = 1;
-        posHood = 0.196;
-        posTrigger = 0.714;
-        posHolder = 127;//how does a continuous servo works? was 127 meaning stop
+        posHood = -0.606;
+        posTrigger = 0.433;
+        posHolder = 0;//how does a continuous servo works? was 127 meaning stop
 
     }
 
@@ -98,17 +98,18 @@ public class TeleOp8379 extends OpMode{
         if (gamepad1.x){ //thrower stop
             motorThrower.setPower(0);
         }
-        if (gamepad1.left_bumper){ //thrower forward
-            motorThrower.setPower(1);
+        if (gamepad1.left_bumper){ //thrower reverse
+            motorThrower.setPower(0.5);
         }
-        if (gamepad1.left_trigger==0  ? false:true){ //thrower reverse
-            motorThrower.setPower(-.5);
+        if (gamepad1.left_trigger==0  ? false:true){ //thrower forward
+            motorThrower.setPower(-1);
         }
         //arm-----------------------------------------------------
         if (gamepad1.right_bumper){}//arm out
         if (gamepad1.right_trigger==0  ? false:true){} //arm in
         //change direction----------------------------------------
-        if (gamepad1.a){}//grabber front
+        if (gamepad1.a){
+        }//grabber front
         if (gamepad1.y){} // flipper front
 
         /*------------------------Secondary----------------------*/
@@ -123,9 +124,11 @@ public class TeleOp8379 extends OpMode{
 
         //hood---------------------------------------------------
         if (gamepad2.left_bumper){
-
+            hood.setPosition(-0.92);
         }//hood in
-        if (gamepad2.left_trigger==0  ? false:true){} //hood out
+        if (gamepad2.left_trigger==0  ? false:true){
+            hood.setPosition(.016);
+        } //hood out
 
         //lift--------------------------------------------------
         if (gamepad2.right_bumper){}//lift up

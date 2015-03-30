@@ -1,6 +1,6 @@
-C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\classes\debug
-C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-5b66ea07b3e619e8274506e2f7511e0d0d704af4.jar
-C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-41e265c74830f3722dc344a19f54d11b331dab88.jar
-C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\HiTechnic-d988f3b7c5e818ef3b9b73ce2012eeab13b791b2.jar
-C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-bd4b4b18821a0c8a20c760aa5597c96ab236e882.jar
-C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-b948a403f42b26c01986ef0be1bf545830402e8e.jar
+C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\classes\debug
+C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-523adc021265d2185534da23a8b40858d893ef81.jar
+C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-7adfe16b1beea178a61a595f8eb84f04e73aad3c.jar
+C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\HiTechnic-d1d85bb44adf68c0bab13229b1e1524a1d80ec89.jar
+C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-8ce96c498efc8c9a5c7cd4faefa47853d724c32f.jar
+C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-850396c43fa403a669a45ef823ce4d59f2ade292.jar

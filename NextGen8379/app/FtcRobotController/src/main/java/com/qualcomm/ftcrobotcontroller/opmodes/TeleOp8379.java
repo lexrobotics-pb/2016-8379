@@ -107,45 +107,56 @@ public class TeleOp8379 extends OpMode{
         if (gamepad1.x){ //thrower stop
             motorThrower.setPower(0);
         }
-        if (gamepad1.left_bumper){ //thrower reverse
+        if (gamepad1.left_bumper){     //thrower reverse
             motorThrower.setPower(0.5);
         }
-        if (gamepad1.left_trigger>=0.1){ //thrower forward
+        if (gamepad1.left_trigger>=0.1){     //thrower forward
             motorThrower.setPower(-1);
         }
         //arm-----------------------------------------------------
-        if (gamepad1.right_bumper){}//arm out
-        if (gamepad1.right_trigger>=0.1){} //arm in
-        //change direction----------------------------------------
-        if (gamepad1.a){ //grabber front
+        if (gamepad1.right_bumper){     //arm out
 
         }
-        if (gamepad1.y){ // flipper front
+        if (gamepad1.right_trigger>=0.1){     //arm in
 
+        }
+        //change direction----------------------------------------
+        if (gamepad1.a){      //grabber front
+            frontback = -1;
+        }
+        if (gamepad1.y){      // flipper front
+               frontback = 1;
         }
 
         /*------------------------Secondary----------------------*/
 
         //grabber-------------------------------------------------
-        if (gamepad2.y) {
+        if (gamepad2.y) {   //grabber up
             grabber.setPosition(1.0);
-        }//grabber up
-        if (gamepad2.a) {
+        }
+        if (gamepad2.a) {   //grabber down
             grabber.setPosition(0.588);
-        }//grabber down
+        }
 
         //hood---------------------------------------------------
-        if (gamepad2.left_bumper){
+        if (gamepad2.left_bumper){    //hood in
             hood.setPosition(-0.92);
-        }//hood in
-        if (gamepad2.left_trigger>=0.1){
+            holder.setPosition(-.5); // I put a number in here so it wouldn't freak out IT IS A RANDOM NUMBER!!!!!
+        }
+        if (gamepad2.left_trigger>=0.1){     //hood out
+            holder.setPosition(.5); // I put a number in here so it wouldn't freak out IT IS A RANDOM NUMBER!!!!!
             hood.setPosition(.016);
-        } //hood out
-
+        }
         //lift--------------------------------------------------
-        if (gamepad2.right_bumper){}//lift up
-        if (gamepad2.right_trigger>=0.1){}//lift down
-        if (gamepad2.b){}//trigger down
+        if (gamepad2.right_bumper){   //lift up
+
+        }
+        if (gamepad2.right_trigger>=0.1){   //lift down
+
+        }
+        if (gamepad2.b){    //trigger down
+
+        }
 
     }
 

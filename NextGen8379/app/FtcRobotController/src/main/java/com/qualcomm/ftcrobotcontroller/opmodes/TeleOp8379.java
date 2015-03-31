@@ -21,6 +21,8 @@ public class TeleOp8379 extends OpMode{
 
     double posHolder;
 
+    int frontback;
+
     DcMotor motorFrontRight;
     DcMotor motorBackRight;
     DcMotor motorThrower;
@@ -63,6 +65,13 @@ public class TeleOp8379 extends OpMode{
         posHood = -0.606;
         posTrigger = 0.433;
         posHolder = 0;//how does a continuous servo works? was 127 meaning stop
+        frontback = 1;
+
+        grabber.setPosition(posGrabber);
+        hood.setPosition(posHood);
+        trigger.setPosition(posTrigger);
+        holder.setPosition(posHolder);
+
 
     }
 
@@ -88,10 +97,10 @@ public class TeleOp8379 extends OpMode{
         }
 
         /*---------------------Movement----------------------------*/
-        motorFrontLeft.setPower((gamepad1.left_stick_y + (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2);
-        motorBackLeft.setPower((gamepad1.left_stick_y - (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2);
-        motorFrontRight.setPower((gamepad1.right_stick_y - (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2);
-        motorBackRight.setPower((gamepad1.right_stick_y + (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2);
+        motorFrontLeft.setPower(frontback * ((gamepad1.left_stick_y + (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2));
+        motorBackLeft.setPower(frontback * ((gamepad1.left_stick_y - (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2));
+        motorFrontRight.setPower(frontback * ((gamepad1.right_stick_y - (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2));
+        motorBackRight.setPower(frontback * ((gamepad1.right_stick_y + (gamepad1.right_stick_x + gamepad1.left_stick_x) / 2)/2));
 
         /*------------------------Primary------------------------*/
         //Thrower
@@ -101,16 +110,19 @@ public class TeleOp8379 extends OpMode{
         if (gamepad1.left_bumper){ //thrower reverse
             motorThrower.setPower(0.5);
         }
-        if (gamepad1.left_trigger==0  ? false:true){ //thrower forward
+        if (gamepad1.left_trigger>=0.1){ //thrower forward
             motorThrower.setPower(-1);
         }
         //arm-----------------------------------------------------
         if (gamepad1.right_bumper){}//arm out
-        if (gamepad1.right_trigger==0  ? false:true){} //arm in
+        if (gamepad1.right_trigger>=0.1){} //arm in
         //change direction----------------------------------------
-        if (gamepad1.a){
-        }//grabber front
-        if (gamepad1.y){} // flipper front
+        if (gamepad1.a){ //grabber front
+
+        }
+        if (gamepad1.y){ // flipper front
+
+        }
 
         /*------------------------Secondary----------------------*/
 
@@ -126,13 +138,13 @@ public class TeleOp8379 extends OpMode{
         if (gamepad2.left_bumper){
             hood.setPosition(-0.92);
         }//hood in
-        if (gamepad2.left_trigger==0  ? false:true){
+        if (gamepad2.left_trigger>=0.1){
             hood.setPosition(.016);
         } //hood out
 
         //lift--------------------------------------------------
         if (gamepad2.right_bumper){}//lift up
-        if (gamepad2.right_trigger==0  ? false:true){}//lift down
+        if (gamepad2.right_trigger>=0.1){}//lift down
         if (gamepad2.b){}//trigger down
 
     }

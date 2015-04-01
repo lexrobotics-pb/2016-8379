@@ -140,11 +140,13 @@ public class TeleOp8379 extends OpMode{
 
         //hood---------------------------------------------------
         if (gamepad2.left_bumper){    //hood in
+            holder.setPosition(-0.646);//Add timer afterwards -Kara
             hood.setPosition(-0.92);
             holder.setPosition(-.5); // I put a number in here so it wouldn't freak out IT IS A RANDOM NUMBER!!!!!
         }
         if (gamepad2.left_trigger>=0.1){     //hood out
-            holder.setPosition(.5); // I put a number in here so it wouldn't freak out IT IS A RANDOM NUMBER!!!!!
+            holder.setPosition(-0.213); //Add timer afterwards -Kara
+            holder.setPosition(0);
             hood.setPosition(.016);
         }
         //lift--------------------------------------------------

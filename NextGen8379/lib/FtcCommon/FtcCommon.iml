@@ -86,9 +86,9 @@
     </content>
     <orderEntry type="jdk" jdkName="Android 5.0.1 Google APIs" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="d2xx" level="project" />
     <orderEntry type="library" exported="" name="HiTechnic" level="project" />
     <orderEntry type="library" exported="" name="WirelessP2p" level="project" />
-    <orderEntry type="library" exported="" name="d2xx" level="project" />
     <orderEntry type="module" module-name="RobotCore" exported="" />
   </component>
 </module>

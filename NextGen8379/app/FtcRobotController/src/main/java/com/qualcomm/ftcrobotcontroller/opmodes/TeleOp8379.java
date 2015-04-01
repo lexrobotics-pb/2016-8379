@@ -149,10 +149,12 @@ public class TeleOp8379 extends OpMode{
         }
         //lift--------------------------------------------------
         if (gamepad2.right_bumper){   //lift up
-
+            //Implement encoder
+            motorLift.setPower(1.00);
         }
         if (gamepad2.right_trigger>=0.1){   //lift down
-
+            //Implement encoder
+            motorLift.setPower(-1.00);
         }
         if (gamepad2.b){    //trigger down
 

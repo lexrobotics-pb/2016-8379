@@ -67,5 +67,6 @@ public class FtcOpModeRegister implements OpModeRegister {
     manager.register("TeleOp8379", TeleOp8379.class);
     manager.register("LM on NXT MC", UseLegacyModuleOnDcMotorController.class);
     manager.register("Mock API", MockReadFromNxtMotorControllerOpMode.class);
+    manager.register("Mock API", MockReadFromNxtMotorControllerOpMode.class);
   }
 }

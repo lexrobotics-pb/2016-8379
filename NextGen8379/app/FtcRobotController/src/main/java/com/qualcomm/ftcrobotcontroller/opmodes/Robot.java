@@ -5,26 +5,28 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.hardware.GyroSensor;
 /**
  * Created by Eula Zhong on 4/1/2015.
+ * This class holds basic functions of the robot of FTC team 8379 for the
+ * 2014 season. Sequential movement functions such as EndSequence() and
+ * alignRecursive() that are specific for a certain series of
+ * autonomous program are not included in this class.
  */
 public class Robot extends OpMode{
 
-    double posGrabber;
+    public double posGrabber;
 
-    double posHood;
+    public double posHood;
 
-    double posTrigger;
+    public double posTrigger;
 
-    double posHolder;
+    public double posHolder;
 
-    int frontback;
-
-    static double encoderScale=1120.0;
-    static double wheelRadius=((9.7)/2);
-    static double wheelCircumference=Math.PI*2*wheelRadius;
-    static int counter = 0;
-    static boolean isUp = false;
+    // everything is in cm
+    final double encoderScale=1120.0;
+    final double wheelRadius=((9.7)/2);
+    final double wheelCircumference=Math.PI*2*wheelRadius;
 
     DcMotor motorFrontRight;
     DcMotor motorBackRight;
@@ -42,6 +44,8 @@ public class Robot extends OpMode{
     UltrasonicSensor USfront;
     UltrasonicSensor USback;
 
+    GyroSensor gyro;
+
     public void Robot()
     {
         motorFrontRight = hardwareMap.dcMotor.get("frontright");
@@ -55,6 +59,8 @@ public class Robot extends OpMode{
 
         USfront = hardwareMap.ultrasonicSensor.get("USfront");
         USback = hardwareMap.ultrasonicSensor.get("USback");
+
+        gyro = hardwareMap.gyroSensor.get("gyro");
 
         grabber = hardwareMap.servo.get("grabber");
         hood = hardwareMap.servo.get("hood");
@@ -75,13 +81,22 @@ public class Robot extends OpMode{
         motorThrower.setPower(0.0);
     }
 
+    /**
+     * Delays the robot's next action for a period of time
+     * @param time in miliseconds or 1/1000 of a second
+     */
     public void wait1Msec(double time)
     {
         ElapsedTime waitTime = new ElapsedTime();
         waitTime.startTime();
         while (waitTime.time() < time / 1000){}
     }
-
+/**
+ * Tells the robot to move in a certain direction
+ * @param speed -1 to 1
+ * @param degrees angle/direction of the robot relative to the front in degrees
+ * @param speedRotation: -1 to 1
+ */
     public void mecJustMove(double speed, double degrees, double speedRotation)
     {
         degrees = toDegrees(degrees);
@@ -92,6 +107,14 @@ public class Robot extends OpMode{
 
     }
 
+    /**
+     * Robot moves in a certain direction at a certain speed
+     * @param speed -1 to 1
+     * @param degrees angle/direction of the robot relative to the front in degrees
+     * @param speedRotation -1 to 1, the speed the robot rotates on the spot
+     *                      speed and degrees should be left as 0 if this para != 0
+     * @param distance in centimeters
+     */
     public void mecMove(double speed, double degrees, double speedRotation, double distance)
     { //speed [-100,100], degrees [0, 360] to the right, speedRotation [-100,100], distance cm
         degrees=toDegrees(degrees);
@@ -111,12 +134,7 @@ public class Robot extends OpMode{
         }
 
         double scaled = Math.abs(encoderScale * (distance * min / wheelCircumference));
-
-        //writeDebugStreamLine("*************************");
-
         mecJustMove(speed, degrees, speedRotation);
-
-
 //        while((Math.abs(nMotorEncoder[FrontLeft])<scaled) && (abs(nMotorEncoder[FrontRight])<scaled) && (abs(nMotorEncoder[BackLeft])< scaled) && (abs(nMotorEncoder[BackRight])< scaled))
         {
             wait1Msec(5);
@@ -127,7 +145,20 @@ public class Robot extends OpMode{
         wait1Msec(10);
     }
 
-    void moveTillUS(double speed, double degrees, double speedRotation, double threshold, boolean till)//if till = true, move until sees something; if till = false, move until not seeing something
+    /**
+     * Moves until the ultrasonic sensors detects something or
+     * moves until the object is out of the range
+     * @param speed -1 to 1
+     * @param degrees angle/direction of the robot relative to the front in degrees
+     * @param speedRotation -1 to 1, the speed the robot rotates on the spot
+     *                      speed and degrees should be left as 0 if this para != 0
+     * @param threshold 0 to 255; optimal range from 20 to 100 in centimeter;
+     *                  becomes inaccurate when out of the ramge
+     * @param till true = move until detects something; false = move until
+     *             the object is not detected
+     */
+
+   public void moveTillUS(double speed, double degrees, double speedRotation, double threshold, boolean till)//if till = true, move until sees something; if till = false, move until not seeing something
     {
         mecJustMove(speed, degrees, speedRotation);
         if (till){
@@ -137,7 +168,16 @@ public class Robot extends OpMode{
         Stop();
     }
 
-    void moveTillTouch(double speed, double degrees, double speedRotation, boolean till)
+    /**
+     * Moves until one sensor is touched or moves until none of them is touched
+     * @param speed -1 to 1
+     * @param degrees angle/direction of the robot relative to the front in degrees
+     * @param speedRotation -1 to 1, the speed the robot rotates on the spot
+     *                      speed and degrees should be left as 0 if this para != 0
+     * @param till true = move until one of them is touched; false = move until
+     *             both sensors are not touched
+     */
+    public void moveTillTouch(double speed, double degrees, double speedRotation, boolean till)
     {
  /*       mecJustMove(speed, degrees, speedRotation);
         if (till){
@@ -159,13 +199,89 @@ public class Robot extends OpMode{
         Stop();
     }
 
+    /**
+     * stops the robot; all four wheels' power set to 0
+     */
     public void Stop()
     {
         motorBackLeft.setPower(0);
         motorBackRight.setPower(0);
         motorFrontLeft.setPower(0);
         motorFrontRight.setPower(0);
+        resetEncoders();
     }
+
+    /**
+     * turn the robot on the spot
+     * @param speedrotation the speed the robot turns
+     * @param degrees angle in degree not in radians
+     */
+    public void turnMecGyro(int speedrotation, float degrees) {
+        double delTime = 0;
+        double curRate = 0;
+        double currHeading = 0;
+        ElapsedTime Time1 = new ElapsedTime();
+        //no gyro initialization?
+        Stop();
+        mecJustMove (0, 0, speedrotation);//+ = right   - = turn left
+        while (Math.abs(currHeading) < Math.abs(degrees)) {
+            Time1.startTime();
+            curRate = gyro.getRotation();
+            if (Math.abs(curRate) > 3) {
+                currHeading += curRate * delTime; //Approximates the next heading by adding the rate*time.
+                if (currHeading > 360) currHeading -= 360;
+                else if (currHeading < -360) currHeading += 360;
+            }
+            wait1Msec(5);
+            delTime = ((double)Time1.time()) / 1000000; //set delta (zero first time around)
+        }
+        Stop();
+    }
+
+    /**
+     * parallel the robot with a flat surface using ultrasonic sensors
+     * doesn't work very well when it is extremely angled because the
+     * surface deflect the signal
+     */
+    public void parallel()
+    {
+        double difference=USfront.getUltrasonicLevel() > USback.getUltrasonicLevel()? 20:-20;//so that the sensors doesn't have to detect twice; to save batteries
+        mecJustMove(0, 0, difference);
+        while(Math.abs(USfront.getUltrasonicLevel()-USback.getUltrasonicLevel())>5)
+        {}
+        Stop();
+    }
+
+    /**
+     * read values ranging from 40 to 255 with filter at 40
+     * @param S a 2 elements array; S[0] = front US, S[1] = back US
+     */
+    void readUSavg(double[] S)
+    {
+        int f=0, b=0;
+        double tfront, tback;
+        double tcountF = 0.0, tcountB = 0.0;
+        for (int i=0; i<30; i++)
+        {
+            tfront = USfront.getUltrasonicLevel();
+            tback = USback.getUltrasonicLevel();
+            if (tfront > 40)//95
+            {
+                tcountF++;
+                f+=tfront;
+            }
+            if (tback > 40)//95
+            {
+                tcountB++;
+                b+=tback;
+            }
+            wait1Msec(50);
+        }
+        S[0]=f/tcountF;
+        S[1]=b/tcountB;
+        wait1Msec(1000);
+    }
+
 
     private double toDegrees (double angle) {
         return angle * (180.0 / Math.PI);

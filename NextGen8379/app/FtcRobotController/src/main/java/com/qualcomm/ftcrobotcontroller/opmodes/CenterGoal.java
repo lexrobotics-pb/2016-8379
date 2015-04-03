@@ -16,15 +16,10 @@ public class CenterGoal extends OpMode {
     public void CenterGoal() {
     }
 
-        trigger=hardwareMap.servo.get("trigger");
+
+    public void start(){
+        trigger = hardwareMap.servo.get("trigger");
     }
-
-
-
-
-
-
-    public void start(){}
     public void stop(){}
     public void run(){}
 }

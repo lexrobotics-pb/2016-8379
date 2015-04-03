@@ -60,7 +60,7 @@ public class CenterGoal extends OpMode {
             return result;
         }*/
 
- //       else
+        //       else
         {
             robot.moveTillTouch(0.1, 90, 0, true);
             result = alignRecursiveT();
@@ -77,9 +77,9 @@ public class CenterGoal extends OpMode {
 	{
 	}
 	motor[Lift]=0;*/
-       // nMotorEncoder[Lift]=0;
+        // nMotorEncoder[Lift]=0;
         motorLift.setPower(-1);
- //       while(Math.abs(nMotorEncoder[Lift])<encoderScale*10.7) //up ratio -38/(255-127) = -.297
+        //       while(Math.abs(nMotorEncoder[Lift])<encoderScale*10.7) //up ratio -38/(255-127) = -.297
         {
         }
         motorLift.setPower(0);
@@ -95,10 +95,10 @@ public class CenterGoal extends OpMode {
 
     public void liftDown()
     {
-     //   nMotorEncoder[Lift]=0;
+        //   nMotorEncoder[Lift]=0;
         motorLift.setPower(0.5);
         //	while(abs(nMotorEncoder[Lift])<encoderScale*9.0) //!!REMBER TO CHANGE TO THIS!!!
- //       while(abs(nMotorEncoder[Lift])<encoderScale*11.0)
+        //       while(abs(nMotorEncoder[Lift])<encoderScale*11.0)
         {
         }
         motorLift.setPower(0);
@@ -110,13 +110,13 @@ public class CenterGoal extends OpMode {
         robot.mecMove(0.7, 180, 0, 40);
         robot.turnMecGyro(-0.6, 82.0);
         robot.mecMove(-0.78, 0, 0, 25);
- //       armOut();
+        //       armOut();
         robot.mecMove(-0.78, 0, 0, 80);
         robot.mecMove(0.78, 0, 0, 100);
-   //     armIn();
+        //     armIn();
     }
 
-   public  void endSequence() //scores balls, lowers lift, and knocks kickstand
+    public  void endSequence() //scores balls, lowers lift, and knocks kickstand
     {
         alignRecursiveT(); //aligns robot so both touch sensors hit
         robot.wait1Msec(500);
@@ -139,3 +139,4 @@ public class CenterGoal extends OpMode {
     public void stop(){}
     public void run(){}
 }
+

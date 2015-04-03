@@ -91,12 +91,12 @@ public class Robot extends OpMode{
         waitTime.startTime();
         while (waitTime.time() < time / 1000){}
     }
-/**
- * Tells the robot to move in a certain direction
- * @param speed -1 to 1
- * @param degrees angle/direction of the robot relative to the front in degrees
- * @param speedRotation: -1 to 1
- */
+    /**
+     * Tells the robot to move in a certain direction
+     * @param speed -1 to 1
+     * @param degrees angle/direction of the robot relative to the front in degrees
+     * @param speedRotation: -1 to 1
+     */
     public void mecJustMove(double speed, double degrees, double speedRotation)
     {
         degrees = toDegrees(degrees);
@@ -158,7 +158,7 @@ public class Robot extends OpMode{
      *             the object is not detected
      */
 
-   public void moveTillUS(double speed, double degrees, double speedRotation, double threshold, boolean till)//if till = true, move until sees something; if till = false, move until not seeing something
+    public void moveTillUS(double speed, double degrees, double speedRotation, double threshold, boolean till)//if till = true, move until sees something; if till = false, move until not seeing something
     {
         mecJustMove(speed, degrees, speedRotation);
         if (till){

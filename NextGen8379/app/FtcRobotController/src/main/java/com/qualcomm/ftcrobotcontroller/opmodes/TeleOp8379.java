@@ -3,6 +3,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
  * Created by May Tomic on 3/25/2015.
@@ -34,8 +35,9 @@ public class TeleOp8379 extends OpMode{
     Servo USbackservo;
     Servo holder;//nothing for continuous servo
     Servo trigger;
+    Servo arm;
 
-
+    ElapsedTime waittime = new ElapsedTime();
 
     public TeleOp8379(){
 
@@ -57,6 +59,7 @@ public class TeleOp8379 extends OpMode{
         USbackservo = hardwareMap.servo.get("USbackservo");
         holder = hardwareMap.servo.get("holder");
         trigger = hardwareMap.servo.get("trigger");
+        arm = hardwareMap.servo.get("arm");
 
         /*initialization*/
         posGrabber = 1;
@@ -113,10 +116,16 @@ public class TeleOp8379 extends OpMode{
         }
         //arm-----------------------------------------------------
         if (gamepad1.right_bumper){     //arm out
-
+            arm.setPosition(0.5);//arbitary number, cuz don't know what direction it will go
+            while (gamepad1.right_bumper)
+            {}
+            arm.setPosition(0);//assuming that it stops
         }
         if (gamepad1.right_trigger>=0.1){     //arm in
-
+            arm.setPosition(-0.5);//arbitary number, cuz don't know what direction it will go
+            while (gamepad1.right_bumper)
+            {}
+            arm.setPosition(0);//assuming that it stops
         }
         //change direction----------------------------------------
         if (gamepad1.a){      //grabber front
@@ -138,27 +147,39 @@ public class TeleOp8379 extends OpMode{
 
         //hood---------------------------------------------------
         if (gamepad2.left_bumper){    //hood in
-            holder.setPosition(-0.646);//Add timer afterwards -Kara
+            holder.setPosition(-0.646);//what is the range for a normal servo and what is the range for a continuous servo? is it -1 to 1 or 0 to 1? - Eula
+            waittime.startTime();
+            while (waittime.time()*1000.0 < 50)
+            {}
+            holder.setPosition(0);//assuming that it stops
             hood.setPosition(-0.92);
-            holder.setPosition(-.5); // I put a number in here so it wouldn't freak out IT IS A RANDOM NUMBER!!!!!
         }
         if (gamepad2.left_trigger>=0.1){     //hood out
-            holder.setPosition(-0.213); //Add timer afterwards -Kara
-            holder.setPosition(0);
+            holder.setPosition(-0.213);
+            waittime.startTime();
+            while (waittime.time()*1000.0 < 50)
+            {}
+            holder.setPosition(0);//assuming that it stops
             hood.setPosition(.016);
         }
         //lift--------------------------------------------------
         while (gamepad2.right_bumper){   //lift up
             //Implement encoder
             motorLift.setPower(1.00);
+            while (gamepad2.right_bumper){}
+            motorLift.setPower(0.00);
+
         }
         while (gamepad2.right_trigger>=0.1){   //lift down
             //Implement encoder
             motorLift.setPower(-1.00);
+            while(gamepad2.right_trigger>=0.1)
+            {}
+            motorLift.setPower(0.00);
         }
-        motorLift.setPower(0.00);
-        if (gamepad2.b){    //trigger down
 
+        if (gamepad2.b){    //trigger down
+            trigger.setPosition(0.111);
         }
 
     }
@@ -166,6 +187,7 @@ public class TeleOp8379 extends OpMode{
 
 
     public void stop(){
+
 
     }
 }

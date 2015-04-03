@@ -69,8 +69,8 @@ public class Robot extends OpMode{
         trigger = hardwareMap.servo.get("trigger");
 
         grabber.setPosition(1);
-        hood.setPosition(-0.606);
-        trigger.setPosition(0.433);
+        hood.setPosition(0.235);
+        trigger.setPosition(0.714);
         holder.setPosition(0);
 
         motorBackLeft.setPower(0.0);
@@ -216,7 +216,7 @@ public class Robot extends OpMode{
      * @param speedrotation the speed the robot turns
      * @param degrees angle in degree not in radians
      */
-    public void turnMecGyro(int speedrotation, float degrees) {
+    public void turnMecGyro(double speedrotation, double degrees) {
         double delTime = 0;
         double curRate = 0;
         double currHeading = 0;
@@ -256,7 +256,7 @@ public class Robot extends OpMode{
      * read values ranging from 40 to 255 with filter at 40
      * @param S a 2 elements array; S[0] = front US, S[1] = back US
      */
-    void readUSavg(double[] S)
+    public void readUSavg(double[] S)
     {
         int f=0, b=0;
         double tfront, tback;
@@ -282,6 +282,21 @@ public class Robot extends OpMode{
         wait1Msec(1000);
     }
 
+    public void armOut(){
+        ElapsedTime armOut = new ElapsedTime();
+        armOut.startTime();
+        //   motor[arm] = -50;
+        while(armOut.time()<2){ }
+        //motor[arm] = 0;
+    }
+
+    public void armIn(){
+        ElapsedTime armIn = new ElapsedTime();
+        armIn.startTime();
+        //   motor[arm] = 50;
+        while(armIn.time()<2){ }
+        //motor[arm] = 0;
+    }
 
     private double toDegrees (double angle) {
         return angle * (180.0 / Math.PI);

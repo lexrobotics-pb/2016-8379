@@ -104,7 +104,6 @@ public class Robot extends OpMode{
         motorFrontRight.setPower(speed * Math.cos(degrees + 45) - speedRotation);
         motorBackLeft.setPower(speed * Math.cos(degrees + 45) + speedRotation);
         motorBackRight.setPower(speed * Math.sin(degrees + 45) -  speedRotation);
-
     }
 
     /**

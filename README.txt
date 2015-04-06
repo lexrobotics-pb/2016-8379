@@ -1,6 +1,11 @@
 ***************************************************************
 FIRST FTC TEAM #8379 REPOSITORY 2015-2016 SEASON
 ***************************************************************
-Please commit using your personal accounts, not the team account thx
+
+# Creating a class
+Please commit using your personal accounts, not the team account
 For each function, comment in name or contributer and date of contribution
-Before editing, consult contibuter
+Give a brief description of the class
+
+# Editing a class
+Before editing, consult contibutor

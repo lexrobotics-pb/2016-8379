@@ -12,6 +12,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.IrSeekerSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.robocol.Telemetry;
 
 /**
  * TeleOp Mode
@@ -21,6 +22,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class Sensors{
 
     HardwareMap hardwareMap = new HardwareMap();
+    Telemetry telemetry = new Telemetry();
     final static double MOTOR_POWER = 0.15; // Higher values will cause the robot to move faster
     final static double HOLD_IR_SIGNAL_STRENGTH = 0.50; // Higher values will cause the robot to follow closer
 
@@ -45,7 +47,6 @@ public class Sensors{
      *
      * @see com.qualcomm.robotcore.eventloop.opmode.OpMode#start()
      */
-    @Override
     public void start() {
 
 		/*
@@ -87,7 +88,6 @@ public class Sensors{
      *
      * @see com.qualcomm.robotcore.eventloop.opmode.OpMode#run()
      */
-    @Override
     public void run() {
         double angle = 0.0;
         double strength = 0.0;
@@ -178,14 +178,6 @@ public class Sensors{
         telemetry.addData("right tgt pwr", "right pwr: " + Double.toString(right));
     }
 
-    /*
-     * Code to run when the op mode is first disabled goes here
-     *
-     * @see com.qualcomm.robotcore.eventloop.opmode.OpMode#stop()
-     */
-    @Override
-    public void stop() {
 
-    }
 
 }

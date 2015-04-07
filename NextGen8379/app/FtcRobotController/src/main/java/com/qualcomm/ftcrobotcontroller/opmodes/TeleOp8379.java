@@ -32,7 +32,6 @@ public class TeleOp8379 extends OpMode{
 
     Servo grabber;
     Servo hood;
-    Servo USbackservo;
     Servo holder;//nothing for continuous servo
     Servo trigger;
     Servo arm;
@@ -56,7 +55,6 @@ public class TeleOp8379 extends OpMode{
 
         grabber = hardwareMap.servo.get("grabber");
         hood = hardwareMap.servo.get("hood");
-        USbackservo = hardwareMap.servo.get("USbackservo");
         holder = hardwareMap.servo.get("holder");
         trigger = hardwareMap.servo.get("trigger");
         arm = hardwareMap.servo.get("arm");

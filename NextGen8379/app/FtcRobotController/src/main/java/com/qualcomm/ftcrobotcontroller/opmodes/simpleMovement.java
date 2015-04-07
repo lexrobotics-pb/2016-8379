@@ -99,7 +99,7 @@ public class simpleMovement {
         motorFrontLeft.setPower(speed * Math.sin(radians + Math.PI/4) + speedRotation);
         motorFrontRight.setPower(speed * Math.cos(radians + Math.PI/4) - speedRotation);
         motorBackLeft.setPower(speed * Math.cos(radians + Math.PI/4) + speedRotation);
-        motorBackRight.setPower(speed * Math.sin(radians + Math.PI/4) -  speedRotation);=
+        motorBackRight.setPower(speed * Math.sin(radians + Math.PI/4) -  speedRotation);
     }
     
     public double toRadians (double degrees)

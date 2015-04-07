@@ -179,13 +179,9 @@ public class TeleOp8379 extends OpMode{
         if (gamepad2.b){    //trigger down
             trigger.setPosition(0.111);
         }
-
     }
 
 
 
-    public void stop(){
-
-
-    }
+    public void stop(){}
 }

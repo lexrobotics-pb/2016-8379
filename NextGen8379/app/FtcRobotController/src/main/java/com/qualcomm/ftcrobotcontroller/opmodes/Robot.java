@@ -228,6 +228,7 @@ public class Robot extends OpMode{
         double currHeading = 0;
         ElapsedTime Time1 = new ElapsedTime();
         //no gyro initialization?
+        wait1Msec(200);
         Stop();
         mecJustMove (0, 0, speedrotation);//+ = right   - = turn left
         while (Math.abs(currHeading) < Math.abs(degrees)) {

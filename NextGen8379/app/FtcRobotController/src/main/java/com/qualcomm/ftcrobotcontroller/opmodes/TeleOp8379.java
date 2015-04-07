@@ -65,7 +65,7 @@ public class TeleOp8379 extends OpMode{
         posGrabber = 1;
         posHood = -0.606;
         posTrigger = 0.433;
-        posHolder = 0;//how does a continuous servo works? was 127 meaning stop
+        posHolder = 0.5;
         frontback = 1;
 
         grabber.setPosition(posGrabber);
@@ -116,16 +116,16 @@ public class TeleOp8379 extends OpMode{
         }
         //arm-----------------------------------------------------
         if (gamepad1.right_bumper){     //arm out
-            arm.setPosition(0.5);//arbitary number, cuz don't know what direction it will go
+            arm.setPosition(1.0);//arbitary number, cuz don't know what direction it will go
             while (gamepad1.right_bumper)
             {}
-            arm.setPosition(0);//assuming that it stops
+            arm.setPosition(0.5);//assuming that it stops
         }
         if (gamepad1.right_trigger>=0.1){     //arm in
-            arm.setPosition(-0.5);//arbitary number, cuz don't know what direction it will go
+            arm.setPosition(0);//arbitary number, cuz don't know what direction it will go
             while (gamepad1.right_bumper)
             {}
-            arm.setPosition(0);//assuming that it stops
+            arm.setPosition(0.5);//assuming that it stops
         }
         //change direction----------------------------------------
         if (gamepad1.a){      //grabber front
@@ -164,14 +164,12 @@ public class TeleOp8379 extends OpMode{
         }
         //lift--------------------------------------------------
         while (gamepad2.right_bumper){   //lift up
-            //Implement encoder
             motorLift.setPower(1.00);
             while (gamepad2.right_bumper){}
             motorLift.setPower(0.00);
 
         }
         while (gamepad2.right_trigger>=0.1){   //lift down
-            //Implement encoder
             motorLift.setPower(-1.00);
             while(gamepad2.right_trigger>=0.1)
             {}

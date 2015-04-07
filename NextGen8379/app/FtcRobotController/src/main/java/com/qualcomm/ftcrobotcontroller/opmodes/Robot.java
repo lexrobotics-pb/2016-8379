@@ -12,6 +12,8 @@ import com.qualcomm.robotcore.hardware.GyroSensor;
  * 2014 season. Sequential movement functions such as EndSequence() and
  * alignRecursive() that are specific for a certain series of
  * autonomous program are not included in this class.
+ * This class is set to accommodate RobotC functions: motor range = [-100,100]
+ * servo range: [0, 255], time in milliseconds.
  */
 public class Robot extends OpMode{
 
@@ -89,34 +91,39 @@ public class Robot extends OpMode{
     {
         ElapsedTime waitTime = new ElapsedTime();
         waitTime.startTime();
-        while (waitTime.time() < time / 1000){}
+        while (waitTime.time() * 1000 < time){}
     }
     /**
      * Tells the robot to move in a certain direction
-     * @param speed -1 to 1
-     * @param degrees angle/direction of the robot relative to the front in degrees
-     * @param speedRotation: -1 to 1
+     * @param speed [-100,100]
+     * @param degrees angle/direction of the robot relative to the front in degrees, positive = clockwise
+     * @param speedRotation [-100,100], the speed the robot rotates on the spot
+     *                      speed and degrees should be left as 0 if this para != 0
      */
     public void mecJustMove(double speed, double degrees, double speedRotation)
     {
-        degrees = toDegrees(degrees);
-        motorFrontLeft.setPower(speed * Math.sin(degrees + 45) + speedRotation);
-        motorFrontRight.setPower(speed * Math.cos(degrees + 45) - speedRotation);
-        motorBackLeft.setPower(speed * Math.cos(degrees + 45) + speedRotation);
-        motorBackRight.setPower(speed * Math.sin(degrees + 45) -  speedRotation);
+        speed/=100.0;
+        speedRotation/=100.0;
+        degrees = toRadians(degrees);
+        motorFrontLeft.setPower(speed * Math.sin(degrees + Math.PI/4) + speedRotation);
+        motorFrontRight.setPower(speed * Math.cos(degrees + Math.PI/4) - speedRotation);
+        motorBackLeft.setPower(speed * Math.cos(degrees + Math.PI/4) + speedRotation);
+        motorBackRight.setPower(speed * Math.sin(degrees + Math.PI/4) -  speedRotation);
     }
 
     /**
      * Robot moves in a certain direction at a certain speed
-     * @param speed -1 to 1
-     * @param degrees angle/direction of the robot relative to the front in degrees
-     * @param speedRotation -1 to 1, the speed the robot rotates on the spot
+     * @param speed [-100,100]
+     * @param degrees angle/direction of the robot relative to the front in degrees, positive = clockwise
+     * @param speedRotation [-100,100], the speed the robot rotates on the spot
      *                      speed and degrees should be left as 0 if this para != 0
      * @param distance in centimeters
      */
     public void mecMove(double speed, double degrees, double speedRotation, double distance)
     { //speed [-100,100], degrees [0, 360] to the right, speedRotation [-100,100], distance cm
-        degrees=toDegrees(degrees);
+        speed/=100.0;
+        speedRotation/=100.0;
+        degrees=toRadians(degrees);
         resetEncoders();
         double min = 0.0;
         if (Math.cos(degrees) == 0.0 || Math.sin(degrees) == 0.0)
@@ -147,9 +154,9 @@ public class Robot extends OpMode{
     /**
      * Moves until the ultrasonic sensors detects something or
      * moves until the object is out of the range
-     * @param speed -1 to 1
-     * @param degrees angle/direction of the robot relative to the front in degrees
-     * @param speedRotation -1 to 1, the speed the robot rotates on the spot
+     * @param speed [-100,100]
+     * @param degrees angle/direction of the robot relative to the front in degrees, positive = clockwise
+     * @param speedRotation [-100,100], the speed the robot rotates on the spot
      *                      speed and degrees should be left as 0 if this para != 0
      * @param threshold 0 to 255; optimal range from 20 to 100 in centimeter;
      *                  becomes inaccurate when out of the ramge
@@ -169,9 +176,9 @@ public class Robot extends OpMode{
 
     /**
      * Moves until one sensor is touched or moves until none of them is touched
-     * @param speed -1 to 1
-     * @param degrees angle/direction of the robot relative to the front in degrees
-     * @param speedRotation -1 to 1, the speed the robot rotates on the spot
+     * @param speed [-100,100]
+     * @param degrees angle/direction of the robot relative to the front in degrees, positive = clockwise
+     * @param speedRotation [-100,100], the speed the robot rotates on the spot
      *                      speed and degrees should be left as 0 if this para != 0
      * @param till true = move until one of them is touched; false = move until
      *             both sensors are not touched
@@ -212,7 +219,7 @@ public class Robot extends OpMode{
 
     /**
      * turn the robot on the spot
-     * @param speedrotation the speed the robot turns
+     * @param speedrotation [-100,100]
      * @param degrees angle in degree not in radians
      */
     public void turnMecGyro(double speedrotation, double degrees) {
@@ -297,8 +304,10 @@ public class Robot extends OpMode{
         //motor[arm] = 0;
     }
 
-    private double toDegrees (double angle) {
-        return angle * (180.0 / Math.PI);
+    private double toRadians (double degrees)
+    {
+        double radians=degrees/180.0*Math.PI;
+        return radians;
     }
 
     private void resetEncoders(){
@@ -307,6 +316,56 @@ public class Robot extends OpMode{
 //        nMotorEncoder[BackLeft] = 0;
 //        nMotorEncoder[BackRight] = 0;
         wait1Msec(50);
+    }
+
+    /**
+     * @param position [0, 255]
+     */
+    public void setGrabber(double position)
+    {
+        position = position/255.0;
+        grabber.setPosition(position);
+    }
+
+    /**
+     * @param position [0, 255]
+     */
+    public void setTrigger(double position)
+    {
+        position = position/255.0;
+        trigger.setPosition(position);
+    }
+
+    /**
+     * @param position [0, 255]
+     */
+    public void setHood(double position)
+    {
+        position = position/255.0;
+        hood.setPosition(position);
+    }
+
+    public void hoodHolderRelease()
+    {
+        holder.setPosition(0.39);
+        wait1Msec(200.00);
+        holder.setPosition(0.5);
+    }
+
+    public void hoodHolderHold()
+    {
+        holder.setPosition(1);
+        wait1Msec(200.00);
+        holder.setPosition(0.5);
+    }
+
+    /**
+     * @param speed [-100,100]
+     */
+    public void setThrower(double speed)
+    {
+        speed/=100.0;
+        motorThrower.setPower(speed);
     }
 
     public void start(){}

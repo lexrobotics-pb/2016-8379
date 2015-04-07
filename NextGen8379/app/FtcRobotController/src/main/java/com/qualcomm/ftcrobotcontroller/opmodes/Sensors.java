@@ -20,6 +20,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
  */
 public class Sensors{
 
+    HardwareMap hardwareMap = new HardwareMap();
     final static double MOTOR_POWER = 0.15; // Higher values will cause the robot to move faster
     final static double HOLD_IR_SIGNAL_STRENGTH = 0.50; // Higher values will cause the robot to follow closer
 

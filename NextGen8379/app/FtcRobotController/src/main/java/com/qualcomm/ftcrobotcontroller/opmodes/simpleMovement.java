@@ -70,21 +70,22 @@ public class simpleMovement {
         double radians=toRadians(degrees);
         resetEncoders();
         double min = 0.0;
-        if (Math.cos(degrees) == 0.0 || Math.sin(degrees) == 0.0)
+        if (Math.cos(radians) == 0.0 || Math.sin(radians) == 0.0)
         {
             min = 1.0;
         }
-        else if (Math.abs(1.0/Math.cos(degrees))<= Math.abs(1.0 / Math.sin(degrees)))
+        else if (Math.abs(1.0/Math.cos(radians))<= Math.abs(1.0 / Math.sin(radians)))
         {
-            min = 1.0/Math.cos(degrees);
+            min = 1.0/Math.cos(radians);
         }
         else
         {
-            min = 1.0/Math.sin(degrees);
+            min = 1.0/Math.sin(radians);
         }
 
         double scaled = Math.abs(encoderScale * (distance * min / wheelCircumference));
-        justMove(speed, degrees, speedRotation);
+        justMove(speed, radians, speedRotation);
+        //while loop with encoders -- Eula
         {
             wait1MSec(5);
         }
@@ -126,7 +127,9 @@ public class simpleMovement {
     {
         ElapsedTime time = new ElapsedTime();
         time.startTime();
-        while (time.time()/1000.0<mSec){
+        while (time.time()*1000.0<mSec){
         }
     }
+
+
 }

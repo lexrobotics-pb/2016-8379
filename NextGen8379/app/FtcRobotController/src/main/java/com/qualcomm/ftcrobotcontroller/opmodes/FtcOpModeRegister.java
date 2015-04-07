@@ -68,6 +68,6 @@ public class FtcOpModeRegister implements OpModeRegister {
     manager.register("CenterGoal", CenterGoal.class);
     manager.register("LM on NXT MC", UseLegacyModuleOnDcMotorController.class);
     manager.register("Mock API", MockReadFromNxtMotorControllerOpMode.class);
-    manager.register("Mock API", MockReadFromNxtMotorControllerOpMode.class);
+    manager.register("R_30_right", R_30_right.class);
   }
 }

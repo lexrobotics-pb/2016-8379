@@ -8,20 +8,17 @@
 
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.CompassSensor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
 import com.qualcomm.robotcore.hardware.AccelerationSensor;
 import com.qualcomm.robotcore.hardware.IrSeekerSensor;
 import com.qualcomm.robotcore.hardware.LightSensor;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
 import com.qualcomm.robotcore.robocol.Telemetry;
 
 public class Sensors {
 
-    HardwareMap hardwareMap = new HardwareMap();
     Telemetry telemetry = new Telemetry();
 
     public double getUS(UltrasonicSensor US) {
@@ -40,7 +37,7 @@ public class Sensors {
         return light.getLightLevel();
     }
 
-    public AccelerationSensor.Acceleration getAccel (AccelerationSensor accel){
+    public AccelerationSensor.Acceleration getAcceleration (AccelerationSensor accel){
         return accel.getAcceleration();
     }
 

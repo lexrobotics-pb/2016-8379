@@ -107,12 +107,12 @@ public class CenterGoal extends OpMode {
 
     public void kickstand()
     {
-        robot.mecMove(0.7, 180, 0, 40);
-        robot.turnMecGyro(-0.6, 82.0);
-        robot.mecMove(-0.78, 0, 0, 25);
+        robot.mecMove(70, 180, 0, 40);
+        robot.turnMecGyro(-60, 82.0);
+        robot.mecMove(-78, 0, 0, 25);
         //       armOut();
-        robot.mecMove(-0.78, 0, 0, 80);
-        robot.mecMove(0.78, 0, 0, 100);
+        robot.mecMove(-78, 0, 0, 80);
+        robot.mecMove(78, 0, 0, 100);
         //     armIn();
     }
 
@@ -120,13 +120,13 @@ public class CenterGoal extends OpMode {
     {
         alignRecursiveT(); //aligns robot so both touch sensors hit
         robot.wait1Msec(500);
-        robot.mecMove(-0.55, 0, 0, 10.8); //shift right to align lift/ramp with center goal
+        robot.mecMove(-55, 0, 0, 10.8); //shift right to align lift/ramp with center goal
         robot.wait1Msec(500);
-        robot.mecMove(0.6, 270, 0, 3); //shift back
+        robot.mecMove(60, 270, 0, 3); //shift back
         robot.wait1Msec(500);
         //robot.ballRelease(); //release balls with servo
         robot.wait1Msec(2000);
-        robot.mecMove(0.6, 270, 0, 15);//move backwards
+        robot.mecMove(60, 270, 0, 15);//move backwards
     }
 
     public void start(){}

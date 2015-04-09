@@ -38,6 +38,7 @@ public class TeleOp8379 extends OpMode{
 
     ElapsedTime waittime = new ElapsedTime();
 
+    private TeleOpThreads threads = new TeleOpThreads();
     public TeleOp8379(){
 
     }

@@ -129,6 +129,12 @@ public class CenterGoal extends OpMode {
         robot.mecMove(60, 270, 0, 15);//move backwards
     }
 
+    void runner(){}
+    void runner(int hi)
+    {
+
+    }
+
     public void start(){}
     public void stop(){}
     public void run(){}

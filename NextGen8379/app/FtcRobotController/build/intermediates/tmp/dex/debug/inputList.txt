@@ -1,6 +1,6 @@
-C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\classes\debug
-C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-b7b61561ec22ad94c4b79950fd1dc8f71a44801b.jar
-C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-3ed31c97d7a84b3ce18946a076e054d863cd62ac.jar
-C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\HiTechnic-2b2d4c454984a94462448f4cadabd6506ca44a02.jar
-C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-d4e8a6f25f1803bc8a0fbe055ce78ad313559a7d.jar
-C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-308babe44249c1ec1994f995ed57a2ab46f49461.jar
+C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\classes\debug
+C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-523adc021265d2185534da23a8b40858d893ef81.jar
+C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-7adfe16b1beea178a61a595f8eb84f04e73aad3c.jar
+C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\HiTechnic-d1d85bb44adf68c0bab13229b1e1524a1d80ec89.jar
+C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-8ce96c498efc8c9a5c7cd4faefa47853d724c32f.jar
+C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-850396c43fa403a669a45ef823ce4d59f2ade292.jar

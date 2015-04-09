@@ -15,19 +15,26 @@ public class dataProcessing {
 
     /**
      *
-     * @param sensorType string, specifies sensor type: "US", "IR", "Light", "Compass", "Voltage"
+     * @param cls indetifies sensor type: "UltrasonicSensor", "IRSeekerSensor", "GyroSensor", "LightSensor", etc.
+     * @param typeName string, specifies sensor type: "US", "IR", "Light", "Compass", "Voltage"
      * @param sensorName string, specifies the name of the sensor
      * @param loop double, specifies number or readings to average
      * @return double, average value of sensor readings
      */
-    public double average(String sensorType, String sensorName, double loop){
+    public double average(Class<?> cls, String typeName, String sensorName, double loop){
         double returnValue=0.0;
-        String methodName="get"+sensorType;
+        String methodName="get"+typeName;
+        java.lang.reflect.Method method;
         try {
-            Method method = getClass().getMethod(methodName);
+            method = Sensors.getMethod(methodName, cls);
         } catch (NoSuchMethodException e) {
             System.out.println("No such method, please verify specified sensor type");
         }
+        try {
+            method.invoke();
+        } catch (IllegalArgumentException e) {
+        } catch (IllegalAccessException e) {
+        } catch (InvocationTargetException e) {
         for(int i=0; i<loop; i++){
         }
         return returnValue;

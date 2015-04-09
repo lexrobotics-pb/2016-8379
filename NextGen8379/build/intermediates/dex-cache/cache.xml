@@ -2,39 +2,32 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\exploded-aar\NextGen8379.lib\FtcCommon\unspecified\classes.jar"
+        jar="C:\Programming\2016-8379\NextGen8379\app\FtcDriverStation\build\intermediates\exploded-aar\NextGen8379.lib\RobotCore\unspecified\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="b881229bf2e5ec45aa2dfd533dd3d8325b5e9a32">
-        <dex dex="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-b7b61561ec22ad94c4b79950fd1dc8f71a44801b.jar" />
+        sha1="9d86e16b43184d9cd3cc326453a45cc5f4f0aa0c">
+        <dex dex="C:\Programming\2016-8379\NextGen8379\app\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-daa0a7003d5430f2c8f742c739b6b77fc19127bb.jar" />
     </item>
     <item
-        jar="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\exploded-aar\NextGen8379.lib\RobotCore\unspecified\classes.jar"
+        jar="C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\exploded-aar\NextGen8379.lib\FtcCommon\unspecified\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="c64c7e6bb63e69d340ec8606844d9b31b8287ca0">
-        <dex dex="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-308babe44249c1ec1994f995ed57a2ab46f49461.jar" />
+        sha1="e9bd66d712d8dbadbd9895cf1272f2f1b9b8c47c">
+        <dex dex="C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-523adc021265d2185534da23a8b40858d893ef81.jar" />
     </item>
     <item
-        jar="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\exploded-aar\NextGen8379.lib\FtcCommon\unspecified\libs\HiTechnic.jar"
+        jar="C:\Programming\2016-8379\NextGen8379\app\FtcDriverStation\build\intermediates\exploded-aar\NextGen8379.lib\FtcCommon\unspecified\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="5cc8877cbdcd8ea04302683bd8a1971b759f3b80">
-        <dex dex="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\HiTechnic-2b2d4c454984a94462448f4cadabd6506ca44a02.jar" />
+        sha1="e9bd66d712d8dbadbd9895cf1272f2f1b9b8c47c">
+        <dex dex="C:\Programming\2016-8379\NextGen8379\app\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-6c8b2cc85a2afb1b73476d04314504070ea22177.jar" />
     </item>
     <item
-        jar="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\exploded-aar\NextGen8379.lib\FtcCommon\unspecified\libs\WirelessP2p.jar"
+        jar="C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\exploded-aar\NextGen8379.lib\RobotCore\unspecified\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="fd3a5e62d1e49a162af6a2f31c7993f71ab3ae15">
-        <dex dex="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-3ed31c97d7a84b3ce18946a076e054d863cd62ac.jar" />
-    </item>
-    <item
-        jar="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\exploded-aar\NextGen8379.lib\FtcCommon\unspecified\libs\d2xx.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="549d88cce99830dc2ae951a13d5a8b897362351b">
-        <dex dex="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-d4e8a6f25f1803bc8a0fbe055ce78ad313559a7d.jar" />
+        sha1="9d86e16b43184d9cd3cc326453a45cc5f4f0aa0c">
+        <dex dex="C:\Programming\2016-8379\NextGen8379\app\FtcRobotController\build\intermediates\pre-dexed\debug\classes-850396c43fa403a669a45ef823ce4d59f2ade292.jar" />
     </item>
 
 </items>

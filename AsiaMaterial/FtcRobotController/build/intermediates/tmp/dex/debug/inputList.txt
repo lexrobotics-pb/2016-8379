@@ -1,0 +1,6 @@
+C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\classes\debug
+C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\classes-876986d5afc2d6c37db2aadf76daeed1348b1924.jar
+C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-424ff0b63dfffe1cddde5d04803993730b0685c5.jar
+C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\ModernRobotics-36679c9306f1deba83c75bdd1ba8252f8ede0e2c.jar
+C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-683ff5e4bd1733d0479757796e2c879b37b6efb5.jar
+C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\classes-682b089b3a6b4caaa33250cd9ceac4d357af8638.jar

@@ -4,6 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.robocol.Telemetry;
+
 
 /**
  * Created by May Tomic on 3/25/2015.
@@ -16,9 +18,14 @@ public class TeleOp8379 extends OpMode{
 
     double posHood;
 
+    double posArm;
+
+    double incArm;
+
     double posTrigger;
 
     double posHolder;
+
 
     int frontback;
 
@@ -32,9 +39,11 @@ public class TeleOp8379 extends OpMode{
 
     Servo grabber;
     Servo hood;
-    //Servo arm;
+    Servo arm;
     Servo holder;//nothing for continuous servo
     Servo trigger;
+
+    Telemetry telemetry = new Telemetry();
 
     //ElapsedTime waittime = new ElapsedTime();
 
@@ -58,19 +67,21 @@ public class TeleOp8379 extends OpMode{
         hood = hardwareMap.servo.get("hood");
         holder = hardwareMap.servo.get("holder");
         trigger = hardwareMap.servo.get("trigger");
-        //arm = hardwareMap.servo.get("arm");
+        arm = hardwareMap.servo.get("arm");
 
         /*initialization*/
         posGrabber = 1;
-        posHood = 0.196;
+        posHood = 0.4;
         posTrigger = 0.714;
         posHolder = 0.5;
+        posArm = (130.00/255.00); ///0.00 ccw top speed, 1.00 cw top speed, .51 stop speed...or is it 129/255?
         frontback = 1;
 
         grabber.setPosition(posGrabber);
         hood.setPosition(posHood);
         trigger.setPosition(posTrigger);
         holder.setPosition(posHolder);
+        arm.setPosition(posArm);
 
 
     }
@@ -114,24 +125,24 @@ public class TeleOp8379 extends OpMode{
             motorThrower.setPower(-1);
         }
         //arm-----------------------------------------------------
-       /* if (gamepad1.right_bumper){     //arm out
-            arm.setPosition(1.0);//arbitary number, cuz don't know what direction it will go
+        if (gamepad1.right_bumper){     //arm out
+            arm.setPosition(0.4);//ccw rotation
             while (gamepad1.right_bumper)
             {}
-            arm.setPosition(0.5);//assuming that it stops
+            arm.setPosition(130.00/255.00);//stop value
         }
         if (gamepad1.right_trigger>=0.1){     //arm in
-            arm.setPosition(0);//arbitary number, cuz don't know what direction it will go
-            while (gamepad1.right_bumper)
+            arm.setPosition(0.6);//cw rotation
+            while (gamepad1.right_trigger>=0.1)
             {}
-            arm.setPosition(0.5);//assuming that it stops
-        }*/
+            arm.setPosition(130.00/255.00);//stop value
+        }
         //change direction----------------------------------------
         if (gamepad1.a){      //grabber front
             frontback = -1;
         }
         if (gamepad1.y){      // flipper front
-               frontback = 1;
+            frontback = 1;
         }
 
         /*------------------------Secondary----------------------*/
@@ -146,20 +157,20 @@ public class TeleOp8379 extends OpMode{
 
         //hood---------------------------------------------------
         if (gamepad2.left_bumper){    //hood in
-            holder.setPosition(0.176);//what is the range for a normal servo and what is the range for a continuous servo? is it -1 to 1 or 0 to 1? - Eula
+//            holder.setPosition(0.176);//what is the range for a normal servo and what is the range for a continuous servo? is it -1 to 1 or 0 to 1? - Eula
             //waittime.startTime();
             //while (waittime.time()*1000.0 < 50)
-           // {}
-            holder.setPosition(1.00);//assuming that it stops
-            hood.setPosition(0.51);
+            // {}
+            //holder.setPosition(1.00);
+            hood.setPosition(0.3);
         }
         if (gamepad2.left_trigger>=0.1){     //hood out
-            holder.setPosition(0.392);
-          //  waittime.startTime();
-           // while (waittime.time()*1000.0 < 50)
+//            holder.setPosition(0.392);
+            //  waittime.startTime();
+            // while (waittime.time()*1000.0 < 50)
             //{}
-            holder.setPosition(0.5);//assuming that it stops
-            hood.setPosition(.51);
+            //holder.setPosition(0.5);
+            hood.setPosition(0.7);
         }
         //lift--------------------------------------------------
         while (gamepad2.right_bumper){   //lift up

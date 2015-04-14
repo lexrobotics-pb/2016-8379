@@ -1,6 +1,6 @@
-C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\classes\debug
-C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\classes-b60dfd15d6f7c53b33cb96217853b943271b5f42.jar
-C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-6f89ad32cf738e1e6b44bcc0b6ed9dc59d26c522.jar
-C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\ModernRobotics-73cdddfd79f9bc690ff94a08f9a3fd3b085c4a34.jar
-C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-f6dd31edbc04d28376b09fda096f0fffb1c124e8.jar
-C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\classes-cea72a0c8b98f2e506de615b5edc2470face25e6.jar
+C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\classes\debug
+C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\classes-4a9380471c321d86322ea9ef8971dd1c255e7267.jar
+C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-10b4689a8369c726a7942989a92aaebf9f66054f.jar
+C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\ModernRobotics-6c5167619f3992b1a4dab1d11d62283ca128b69a.jar
+C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-e85f5c40a9b7d144e443da928aee437011aa264f.jar
+C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\classes-5ad5401ddde0062f514b31123b4068f345459100.jar

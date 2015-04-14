@@ -1,6 +1,6 @@
-C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\classes\debug
-C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-f30cb732fa7b3074ba10165a09c8b3ec45a63dc3.jar
-C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\WirelessP2p-5dd644dc38eee236125bb183a35e2ad65bc640ed.jar
-C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\ModernRobotics-01b4f10342531d863c4bac63cfddb224347cfec3.jar
-C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\d2xx-f2036c2cc29860fd845f4deb6eb639cfeb7cba7f.jar
-C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-d3802aa1bf59694f38342a1390375a2067ad9c1d.jar
+C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\classes\debug
+C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-37cfebe8bf084d260b53b19011b2bca825d0d66a.jar
+C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\WirelessP2p-cea5850a17d48fbd9ced56642751d9f286d2c167.jar
+C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\ModernRobotics-9b18372f51306f0153ff5fa33afb00122d598cc4.jar
+C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\d2xx-240da0b6d0b97c93a7a8d5a286e94be51e75436a.jar
+C:\Users\Pamela Tomic\AndroidStudioProjects\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-e06f4bad2e3d9f2c2ae636a35dc95ea5d4155aed.jar

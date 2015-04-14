@@ -16,28 +16,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.qualcomm.ftcdriverstation" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9b225a-55f4-4c69-8d44-668b8fd6651f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AsiaMaterial.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/simple_tube.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/CenterGoal.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/CenterGoal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcCommon/FtcCommon.iml" afterPath="$PROJECT_DIR$/FtcCommon/FtcCommon.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcDriverStation/FtcDriverStation.iml" afterPath="$PROJECT_DIR$/FtcDriverStation/FtcDriverStation.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" afterPath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/ModernRobotics.xml" afterPath="$PROJECT_DIR$/.idea/libraries/ModernRobotics.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/Robot.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/Robot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RobotCore/RobotCore.iml" afterPath="$PROJECT_DIR$/RobotCore/RobotCore.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/WirelessP2p.xml" afterPath="$PROJECT_DIR$/.idea/libraries/WirelessP2p.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/d2xx.xml" afterPath="$PROJECT_DIR$/.idea/libraries/d2xx.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/tmp/dex/debug/inputList.txt" afterPath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/tmp/dex/debug/inputList.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/tmp/dex/debug/inputList.txt" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/tmp/dex/debug/inputList.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="bc9b225a-55f4-4c69-8d44-668b8fd6651f" name="Default" comment="" />
     <ignored path="ftc_sdk.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -119,7 +98,7 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="767" max-vertical-offset="53686">
               <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
               <folding>
-                <marker date="1429044039433" expanded="true" signature="218022:218037" placeholder="..." />
+                <marker date="1429044733653" expanded="true" signature="218028:218043" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -2646,11 +2625,15 @@
       <created>1428928477402</created>
       <updated>1428928477402</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="autonomous testing&#10;">
+      <created>1429044771992</created>
+      <updated>1429044771992</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -2700,7 +2683,8 @@
     <MESSAGE value="test push new sdk&#10;" />
     <MESSAGE value="tele-op changes" />
     <MESSAGE value="sync github" />
-    <option name="LAST_COMMIT_MESSAGE" value="sync github" />
+    <MESSAGE value="autonomous testing&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="autonomous testing&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -3088,7 +3072,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="767" max-vertical-offset="53686">
           <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
           <folding>
-            <marker date="1429044039433" expanded="true" signature="218022:218037" placeholder="..." />
+            <marker date="1429044733653" expanded="true" signature="218028:218043" placeholder="..." />
           </folding>
         </state>
       </provider>

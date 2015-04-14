@@ -1,6 +1,6 @@
-C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\classes\debug
-C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-bb278e51ea65a6e64d6d072ee0a276a42c9d796f.jar
-C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\WirelessP2p-f6d559a605b7de5659b99107986eb8a9707c9006.jar
-C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\ModernRobotics-d237e2b18a92d40c136ed0b9c07b50495a2a61d1.jar
-C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\d2xx-713286e45f875d2f8fc2ca8258f0a4ed271e9712.jar
-C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-12c32fd8cac8c1e9a59e04ecc0a5307cfe43995b.jar
+C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\classes\debug
+C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-f30cb732fa7b3074ba10165a09c8b3ec45a63dc3.jar
+C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\WirelessP2p-5dd644dc38eee236125bb183a35e2ad65bc640ed.jar
+C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\ModernRobotics-01b4f10342531d863c4bac63cfddb224347cfec3.jar
+C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\d2xx-f2036c2cc29860fd845f4deb6eb639cfeb7cba7f.jar
+C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-d3802aa1bf59694f38342a1390375a2067ad9c1d.jar

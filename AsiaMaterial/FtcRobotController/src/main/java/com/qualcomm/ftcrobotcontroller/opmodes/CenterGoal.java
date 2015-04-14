@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.robocol.Telemetry;
 
 /**
  * Created by zht on 4/2/2015.
@@ -13,7 +14,9 @@ public class CenterGoal extends OpMode {
     private Robot robot = new Robot();
     DcMotor motorLift;
     Servo trigger;
+    Telemetry telemetry = new Telemetry();
     public boolean isUp = false;
+
 
     private int counter = 0;
 
@@ -21,6 +24,7 @@ public class CenterGoal extends OpMode {
 
         trigger=hardwareMap.servo.get("trigger");
         motorLift= hardwareMap.dcMotor.get("lift");
+        telemetry.addData("*", "hardwaremap done");
     }
 
     public boolean alignRecursiveT()//true = we are all set, false = nope not even touching now and need to realign
@@ -116,7 +120,7 @@ public class CenterGoal extends OpMode {
         //     armIn();
     }
 
-    public  void endSequence() //scores balls, lowers lift, and knocks kickstand
+    public void endSequence() //scores balls, lowers lift, and knocks kickstand
     {
         alignRecursiveT(); //aligns robot so both touch sensors hit
         robot.wait1Msec(500);
@@ -130,11 +134,6 @@ public class CenterGoal extends OpMode {
     }
 
     void runner(){}
-    void runner(int hi)
-    {
-
-    }
-
     public void start(){}
     public void stop(){}
     public void run(){}

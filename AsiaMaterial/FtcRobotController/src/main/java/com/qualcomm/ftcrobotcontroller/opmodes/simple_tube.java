@@ -1,33 +1,17 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
-
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.UltrasonicSensor;
-import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
+import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.UltrasonicSensor;
 import com.qualcomm.robotcore.robocol.Telemetry;
+import com.qualcomm.robotcore.util.ElapsedTime;
+
 /**
- * Created by Eula Zhong on 4/1/2015.
- * This class holds basic functions of the robot of FTC team 8379 for the
- * 2014 season. Sequential movement functions such as EndSequence() and
- * alignRecursive() that are specific for a certain series of
- * autonomous program are not included in this class.
- * This class is set to accommodate RobotC functions: motor range = [-100,100]
- * servo range: [0, 255], time in milliseconds.
+ * Created by EULA on 4/7/2015.
+ * For now the values remain as those from RobotC
  */
-public class Robot extends OpMode{
-
-Telemetry telemetry = new Telemetry();
-
-    public double posGrabber;
-
-    public double posHood;
-
-    public double posTrigger;
-
-    public double posHolder;
-
+public class simple_tube extends OpMode{
     // everything is in cm
     final double encoderScale=1120.0;
     final double wheelRadius=((9.7)/2);
@@ -56,8 +40,11 @@ Telemetry telemetry = new Telemetry();
     double encoderBackLeft=Math.abs(motorBackLeft.getCurrentPosition());
     double encoderBackRight=Math.abs(motorBackRight.getCurrentPosition());
 
-    public void Robot()
+    public simple_tube()
     {
+    }
+
+    public void start(){
         telemetry.addData("Robot", "Constructor start");
         motorFrontRight = hardwareMap.dcMotor.get("frontright");
         motorBackRight = hardwareMap.dcMotor.get("backright");
@@ -93,10 +80,6 @@ Telemetry telemetry = new Telemetry();
         telemetry.addData("Robot","Construction end");
     }
 
-    /**
-     * Delays the robot's next action for a period of time
-     * @param time in miliseconds or 1/1000 of a second
-     */
     public void wait1Msec(double time)
     {
         ElapsedTime waitTime = new ElapsedTime();
@@ -386,7 +369,36 @@ Telemetry telemetry = new Telemetry();
         motorThrower.setPower(speed);
     }
 
-    public void start(){}
-    public void stop(){}
-    public void run(){}
+    public void run(){
+        telemetry.addData("*","begin movement");
+        mecJustMove(60, 0, 0);
+        wait1Msec(3500);
+        telemetry.addData("*","wait done, stop");
+        Stop();
+        wait1Msec(250);
+
+        mecMove(-78, 90, 0,  52.0);//strafe left
+        wait1Msec(250);
+
+        mecMove(78, 0, 0, 150.0);//forward toward goal
+        setGrabber(150);
+        wait1Msec(500);
+        mecMove(-78, 0, 0, 10.0);//back a bit
+        wait1Msec(100);
+        setHood(130);//hood in place
+        mecMove(-78, 90, 0, 10.0);//side shift a bit
+
+        setThrower(-100.0); //start thrower motor
+        mecMove(-78.0, 0, 0, 240.0);//**length: move pass the kick stand
+        wait1Msec(250);
+        turnMecGyro(-60.0,180.0);//turn inside pz
+        wait1Msec(250);
+        mecMove(78.0, 90, 0, 120.0);//right strafe significantly pz
+    }
+
+    public void stop(){
+        setHood(60);
+        hoodHolderHold();
+    }
+
 }

@@ -66,6 +66,8 @@ public class FtcOpModeRegister implements OpModeRegister {
     manager.register("K9AutoTime", K9AutoTime.class);
     manager.register("K9IrSeeker", K9IrSeeker.class);
     manager.register("K9Line", K9Line.class);
+    manager.register("R_30_right", R_30_right.class);
+    manager.register("simple_tube", simple_tube.class);
     manager.register("TeleOp8379", TeleOp8379.class);
     manager.register("CenterGoal", CenterGoal.class);
     manager.register("NullOp", NullOp.class);

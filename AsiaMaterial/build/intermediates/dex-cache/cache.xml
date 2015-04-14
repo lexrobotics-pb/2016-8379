@@ -2,74 +2,74 @@
 <items version="2" >
 
     <item
-        jar="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\ModernRobotics.jar"
+        jar="C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\exploded-aar\AsiaMaterial\FtcCommon\unspecified\libs\ModernRobotics.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="3adb8e7e40fce26a81c3c42a144d3cc9b2529f34">
-        <dex dex="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\ModernRobotics-d237e2b18a92d40c136ed0b9c07b50495a2a61d1.jar" />
+        <dex dex="C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\ModernRobotics-73cdddfd79f9bc690ff94a08f9a3fd3b085c4a34.jar" />
     </item>
     <item
-        jar="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\d2xx.jar"
+        jar="C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\exploded-aar\AsiaMaterial\RobotCore\unspecified\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6b5a27f01c8766eb076dcd9d3fd0bf06f1314931">
+        <dex dex="C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\classes-cea72a0c8b98f2e506de615b5edc2470face25e6.jar" />
+    </item>
+    <item
+        jar="C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\exploded-aar\AsiaMaterial\FtcCommon\unspecified\libs\WirelessP2p.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0a64e5d02dc2a26c0219421f07d56ba469c2b51d">
+        <dex dex="C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-6f89ad32cf738e1e6b44bcc0b6ed9dc59d26c522.jar" />
+    </item>
+    <item
+        jar="C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\exploded-aar\AsiaMaterial\RobotCore\unspecified\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6b5a27f01c8766eb076dcd9d3fd0bf06f1314931">
+        <dex dex="C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-d3802aa1bf59694f38342a1390375a2067ad9c1d.jar" />
+    </item>
+    <item
+        jar="C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\exploded-aar\AsiaMaterial\FtcCommon\unspecified\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7c2035a38f90995b957f5ab792ddea5e0428e461">
+        <dex dex="C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-f30cb732fa7b3074ba10165a09c8b3ec45a63dc3.jar" />
+    </item>
+    <item
+        jar="C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\exploded-aar\AsiaMaterial\FtcCommon\unspecified\libs\d2xx.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="549d88cce99830dc2ae951a13d5a8b897362351b">
-        <dex dex="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-683ff5e4bd1733d0479757796e2c879b37b6efb5.jar" />
+        <dex dex="C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\d2xx-f2036c2cc29860fd845f4deb6eb639cfeb7cba7f.jar" />
     </item>
     <item
-        jar="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\d2xx.jar"
+        jar="C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\exploded-aar\AsiaMaterial\FtcCommon\unspecified\libs\WirelessP2p.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0a64e5d02dc2a26c0219421f07d56ba469c2b51d">
+        <dex dex="C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\WirelessP2p-5dd644dc38eee236125bb183a35e2ad65bc640ed.jar" />
+    </item>
+    <item
+        jar="C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\exploded-aar\AsiaMaterial\FtcCommon\unspecified\libs\d2xx.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="549d88cce99830dc2ae951a13d5a8b897362351b">
-        <dex dex="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\d2xx-713286e45f875d2f8fc2ca8258f0a4ed271e9712.jar" />
+        <dex dex="C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-f6dd31edbc04d28376b09fda096f0fffb1c124e8.jar" />
     </item>
     <item
-        jar="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\ModernRobotics.jar"
+        jar="C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\exploded-aar\AsiaMaterial\FtcCommon\unspecified\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7c2035a38f90995b957f5ab792ddea5e0428e461">
+        <dex dex="C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\classes-b60dfd15d6f7c53b33cb96217853b943271b5f42.jar" />
+    </item>
+    <item
+        jar="C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\exploded-aar\AsiaMaterial\FtcCommon\unspecified\libs\ModernRobotics.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="3adb8e7e40fce26a81c3c42a144d3cc9b2529f34">
-        <dex dex="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\ModernRobotics-36679c9306f1deba83c75bdd1ba8252f8ede0e2c.jar" />
-    </item>
-    <item
-        jar="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d87b835ba259c5a03d1b5c8e9b758e26d71214bb">
-        <dex dex="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-bb278e51ea65a6e64d6d072ee0a276a42c9d796f.jar" />
-    </item>
-    <item
-        jar="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d87b835ba259c5a03d1b5c8e9b758e26d71214bb">
-        <dex dex="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\classes-876986d5afc2d6c37db2aadf76daeed1348b1924.jar" />
-    </item>
-    <item
-        jar="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\exploded-aar\ftc_sdk\RobotCore\unspecified\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="5cee3c69a33f22aec75f15d4d466859ed56f0048">
-        <dex dex="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-12c32fd8cac8c1e9a59e04ecc0a5307cfe43995b.jar" />
-    </item>
-    <item
-        jar="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\WirelessP2p.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="0a64e5d02dc2a26c0219421f07d56ba469c2b51d">
-        <dex dex="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\WirelessP2p-f6d559a605b7de5659b99107986eb8a9707c9006.jar" />
-    </item>
-    <item
-        jar="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\RobotCore\unspecified\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="5cee3c69a33f22aec75f15d4d466859ed56f0048">
-        <dex dex="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\classes-682b089b3a6b4caaa33250cd9ceac4d357af8638.jar" />
-    </item>
-    <item
-        jar="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\WirelessP2p.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="0a64e5d02dc2a26c0219421f07d56ba469c2b51d">
-        <dex dex="C:\Programming\2016-8379\AsiaMaterial\ftc_sdk\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-424ff0b63dfffe1cddde5d04803993730b0685c5.jar" />
+        <dex dex="C:\Programming\2016-8379\AsiaMaterial\FtcDriverStation\build\intermediates\pre-dexed\debug\ModernRobotics-01b4f10342531d863c4bac63cfddb224347cfec3.jar" />
     </item>
 
 </items>

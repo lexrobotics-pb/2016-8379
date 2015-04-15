@@ -1,6 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
@@ -51,12 +52,8 @@ Telemetry telemetry = new Telemetry();
 
     GyroSensor gyro;
 
-    double encoderFrontLeft=Math.abs(motorFrontLeft.getCurrentPosition());
-    double encoderFrontRight=Math.abs(motorFrontRight.getCurrentPosition());
-    double encoderBackLeft=Math.abs(motorBackLeft.getCurrentPosition());
-    double encoderBackRight=Math.abs(motorBackRight.getCurrentPosition());
 
-    public void Robot()
+    public Robot()
     {
         telemetry.addData("Robot", "Constructor start");
         motorFrontRight = hardwareMap.dcMotor.get("frontright");
@@ -153,13 +150,12 @@ Telemetry telemetry = new Telemetry();
 
 
         mecJustMove(speed, degrees, speedRotation);
-        while(encoderBackLeft<scaled&& encoderBackRight <scaled && encoderFrontLeft< scaled &&encoderFrontRight < scaled)
+        while(Math.abs(motorFrontLeft.getCurrentPosition())<scaled
+                && Math.abs(motorFrontRight.getCurrentPosition()) <scaled
+                && Math.abs(motorBackLeft.getCurrentPosition())< scaled
+                && Math.abs(motorBackRight.getCurrentPosition()) < scaled)
         {
             mecJustMove(speed, degrees, speedRotation);
-            encoderFrontLeft=Math.abs(motorFrontLeft.getCurrentPosition());
-            encoderFrontRight=Math.abs(motorFrontRight.getCurrentPosition());
-            encoderBackLeft=Math.abs(motorBackLeft.getCurrentPosition());
-            encoderBackRight=Math.abs(motorBackRight.getCurrentPosition());
             wait1Msec(5);
 //		writeDebugStreamLine("%d, %d, %d, %d ", (nMotorEncoder[FrontLeft]), (nMotorEncoder[FrontRight]), (nMotorEncoder[BackLeft]), (nMotorEncoder[BackRight]));
         }
@@ -309,6 +305,7 @@ Telemetry telemetry = new Telemetry();
     public void armOut(){
         ElapsedTime armOut = new ElapsedTime();
         armOut.startTime();
+
         //   motor[arm] = -50;
         while(armOut.time()<2){ }
         //motor[arm] = 0;
@@ -329,10 +326,10 @@ Telemetry telemetry = new Telemetry();
     }
 
     private void resetEncoders(){
-        encoderFrontLeft=0;
-        encoderFrontRight=0;
-        encoderBackLeft=0;
-        encoderBackRight=0;
+        motorFrontLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        motorFrontRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        motorBackLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        motorBackRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         wait1Msec(50);
     }
 

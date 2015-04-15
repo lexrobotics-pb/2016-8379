@@ -5,10 +5,11 @@ import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
 import com.qualcomm.robotcore.robocol.Telemetry;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
- * Created by EULA on 4/7/2015.
+ * Created by Kara on 4/14/2015.
  * For now the values remain as those from RobotC
  */
 public class simple_tube extends OpMode{
@@ -34,11 +35,6 @@ public class simple_tube extends OpMode{
     UltrasonicSensor USback;
 
     GyroSensor gyro;
-
-    double encoderFrontLeft=Math.abs(motorFrontLeft.getCurrentPosition());
-    double encoderFrontRight=Math.abs(motorFrontRight.getCurrentPosition());
-    double encoderBackLeft=Math.abs(motorBackLeft.getCurrentPosition());
-    double encoderBackRight=Math.abs(motorBackRight.getCurrentPosition());
 
     public simple_tube()
     {
@@ -136,13 +132,12 @@ public class simple_tube extends OpMode{
 
 
         mecJustMove(speed, degrees, speedRotation);
-        while(encoderBackLeft<scaled&& encoderBackRight <scaled && encoderFrontLeft< scaled &&encoderFrontRight < scaled)
+        while(Math.abs(motorFrontLeft.getCurrentPosition())<scaled
+                && Math.abs(motorFrontRight.getCurrentPosition()) <scaled
+                && Math.abs(motorBackLeft.getCurrentPosition())< scaled
+                && Math.abs(motorBackRight.getCurrentPosition()) < scaled)
         {
             mecJustMove(speed, degrees, speedRotation);
-            encoderFrontLeft=Math.abs(motorFrontLeft.getCurrentPosition());
-            encoderFrontRight=Math.abs(motorFrontRight.getCurrentPosition());
-            encoderBackLeft=Math.abs(motorBackLeft.getCurrentPosition());
-            encoderBackRight=Math.abs(motorBackRight.getCurrentPosition());
             wait1Msec(5);
 //		writeDebugStreamLine("%d, %d, %d, %d ", (nMotorEncoder[FrontLeft]), (nMotorEncoder[FrontRight]), (nMotorEncoder[BackLeft]), (nMotorEncoder[BackRight]));
         }
@@ -312,10 +307,10 @@ public class simple_tube extends OpMode{
     }
 
     private void resetEncoders(){
-        encoderFrontLeft=0;
-        encoderFrontRight=0;
-        encoderBackLeft=0;
-        encoderBackRight=0;
+        motorFrontLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        motorFrontRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        motorBackLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        motorBackRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         wait1Msec(50);
     }
 

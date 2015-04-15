@@ -296,14 +296,13 @@ public class simple_tube extends OpMode{
         ElapsedTime armIn = new ElapsedTime();
         armIn.startTime();
         //   motor[arm] = 50;
-        while(armIn.time()<2){ }
+        while(armIn.time()<2){}
         //motor[arm] = 0;
     }
 
     private double toRadians (double degrees)
     {
-        double radians=degrees/180.0*Math.PI;
-        return radians;
+        return degrees/180.0*Math.PI;
     }
 
     private void resetEncoders(){
@@ -321,15 +320,6 @@ public class simple_tube extends OpMode{
     {
         position = position/255.0;
         grabber.setPosition(position);
-    }
-
-    /**
-     * @param position [0, 255]
-     */
-    public void setTrigger(double position)
-    {
-        position = position/255.0;
-        trigger.setPosition(position);
     }
 
     /**

@@ -90,13 +90,10 @@ Telemetry telemetry = new Telemetry();
         telemetry.addData("Robot","Construction end");
     }
 
-    /**
-     * Delays the robot's next action for a period of time
-     * @param time in miliseconds or 1/1000 of a second
-     */
     public void wait1Msec(double time)
     {
         ElapsedTime waitTime = new ElapsedTime();
+        waitTime.reset();
         waitTime.startTime();
         while (waitTime.time() * 1000 < time){}
     }
@@ -109,13 +106,15 @@ Telemetry telemetry = new Telemetry();
      */
     public void mecJustMove(double speed, double degrees, double speedRotation)
     {
+        switchAllToWrite();
         speed/=100.0;
         speedRotation/=100.0;
-        degrees = toRadians(degrees);
-        motorFrontLeft.setPower(speed * Math.sin(degrees + Math.PI/4) + speedRotation);
-        motorFrontRight.setPower(speed * Math.cos(degrees + Math.PI/4) - speedRotation);
-        motorBackLeft.setPower(speed * Math.cos(degrees + Math.PI/4) + speedRotation);
-        motorBackRight.setPower(speed * Math.sin(degrees + Math.PI/4) -  speedRotation);
+        double radians = toRadians(degrees);
+        motorFrontLeft.setPower(speed * Math.sin(radians + Math.PI/4) + speedRotation);
+        motorFrontRight.setPower(speed * Math.cos(radians + Math.PI/4) - speedRotation);
+        motorBackLeft.setPower(speed * Math.cos(radians + Math.PI/4) + speedRotation);
+        motorBackRight.setPower(speed * Math.sin(radians + Math.PI/4) -  speedRotation);
+        switchAllToRead();
     }
 
     /**
@@ -127,41 +126,49 @@ Telemetry telemetry = new Telemetry();
      * @param distance in centimeters
      */
     public void mecMove(double speed, double degrees, double speedRotation, double distance)
-    { //speed [-100,100], degrees [0, 360] to the right, speedRotation [-100,100], distance cm
+    {
         speed/=100.0;
         speedRotation/=100.0;
-        degrees=toRadians(degrees);
+        double radians=toRadians(degrees);
         resetEncoders();
         double min = 0.0;
-        if (Math.cos(degrees) == 0.0 || Math.sin(degrees) == 0.0)
+        if (Math.cos(radians) == 0.0 || Math.sin(radians) == 0.0)
         {
             min = 1.0;
         }
-        else if (Math.abs(1.0/Math.cos(degrees))<= Math.abs(1.0 / Math.sin(degrees)))
+        else if (Math.abs(1.0/Math.cos(radians))<= Math.abs(1.0 / Math.sin(radians)))
         {
-            min = 1.0/Math.cos(degrees);
+            min = 1.0/Math.cos(radians);
         }
         else
         {
-            min = 1.0/Math.sin(degrees);
+            min = 1.0/Math.sin(radians);
         }
 
         double scaled = Math.abs(encoderScale * (distance * min / wheelCircumference));
-
-
         mecJustMove(speed, degrees, speedRotation);
         while(Math.abs(motorFrontLeft.getCurrentPosition())<scaled
                 && Math.abs(motorFrontRight.getCurrentPosition()) <scaled
                 && Math.abs(motorBackLeft.getCurrentPosition())< scaled
-                && Math.abs(motorBackRight.getCurrentPosition()) < scaled)
-        {
-            mecJustMove(speed, degrees, speedRotation);
-            wait1Msec(5);
-//		writeDebugStreamLine("%d, %d, %d, %d ", (nMotorEncoder[FrontLeft]), (nMotorEncoder[FrontRight]), (nMotorEncoder[BackLeft]), (nMotorEncoder[BackRight]));
-        }
+                && Math.abs(motorBackRight.getCurrentPosition()) < scaled){}
         Stop();
+
         resetEncoders();
         wait1Msec(10);
+    }
+
+    public void switchAllToRead(){
+        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+    }
+
+    public void switchAllToWrite(){
+        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
     }
 
     /**
@@ -176,6 +183,7 @@ Telemetry telemetry = new Telemetry();
      * @param till true = move until detects something; false = move until
      *             the object is not detected
      */
+
 
     public void moveTillUS(double speed, double degrees, double speedRotation, double threshold, boolean till)//if till = true, move until sees something; if till = false, move until not seeing something
     {

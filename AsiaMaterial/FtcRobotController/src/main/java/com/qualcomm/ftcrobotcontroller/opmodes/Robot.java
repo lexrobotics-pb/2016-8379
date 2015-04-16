@@ -56,14 +56,14 @@ Telemetry telemetry = new Telemetry();
     public Robot()
     {
         telemetry.addData("Robot", "Constructor start");
-        motorFrontRight = hardwareMap.dcMotor.get("frontright");
-        motorBackRight = hardwareMap.dcMotor.get("backright");
+        motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
+        motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //reverses back right motor
-        motorThrower= hardwareMap.dcMotor.get("thrower");
-        motorLift= hardwareMap.dcMotor.get("lift");
-        motorFrontLeft = hardwareMap.dcMotor.get("frontleft");
+        motorThrower = hardwareMap.dcMotor.get("motorThrower");
+        motorLift = hardwareMap.dcMotor.get("motorLift");
+        motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //reverse front left motor
-        motorBackLeft = hardwareMap.dcMotor.get("backleft");
+        motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");
 
         USfront = hardwareMap.ultrasonicSensor.get("USfront");
         USback = hardwareMap.ultrasonicSensor.get("USback");

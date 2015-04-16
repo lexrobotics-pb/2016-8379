@@ -42,23 +42,23 @@ public class simple_tube extends OpMode{
 
     public void start(){
         telemetry.addData("Robot", "Constructor start");
-        motorFrontRight = hardwareMap.dcMotor.get("frontright");
-        motorBackRight = hardwareMap.dcMotor.get("backright");
+        motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
+        motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //reverses back right motor
-        motorThrower= hardwareMap.dcMotor.get("thrower");
-        motorLift= hardwareMap.dcMotor.get("lift");
-        motorFrontLeft = hardwareMap.dcMotor.get("frontleft");
+        motorThrower= hardwareMap.dcMotor.get("motorThrower");
+        motorLift= hardwareMap.dcMotor.get("motorLift");
+        motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //reverse front left motor
-        motorBackLeft = hardwareMap.dcMotor.get("backleft");
+        motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");
 
-        USfront = hardwareMap.ultrasonicSensor.get("USfront");
-        USback = hardwareMap.ultrasonicSensor.get("USback");
+        //USfront = hardwareMap.ultrasonicSensor.get("USfront");
+        //USback = hardwareMap.ultrasonicSensor.get("USback");
 
         gyro = hardwareMap.gyroSensor.get("gyro");
 
         grabber = hardwareMap.servo.get("grabber");
         hood = hardwareMap.servo.get("hood");
-        USbackservo = hardwareMap.servo.get("USbackservo");
+        //USbackservo = hardwareMap.servo.get("USbackservo");
         holder = hardwareMap.servo.get("holder");
         trigger = hardwareMap.servo.get("trigger");
 
@@ -66,13 +66,14 @@ public class simple_tube extends OpMode{
         hood.setPosition(0.235);
         trigger.setPosition(0.714);
         holder.setPosition(0);
-
+        switchAllToWrite();
         motorBackLeft.setPower(0.0);
         motorBackRight.setPower(0.0);
         motorFrontLeft.setPower(0.0);
         motorFrontRight.setPower(0.0);
         motorLift.setPower(0.0);
         motorThrower.setPower(0.0);
+        switchAllToRead();
         telemetry.addData("Robot","Construction end");
     }
 
@@ -91,6 +92,7 @@ public class simple_tube extends OpMode{
      */
     public void mecJustMove(double speed, double degrees, double speedRotation)
     {
+        switchAllToWrite();
         speed/=100.0;
         speedRotation/=100.0;
         degrees = toRadians(degrees);
@@ -98,6 +100,7 @@ public class simple_tube extends OpMode{
         motorFrontRight.setPower(speed * Math.cos(degrees + Math.PI/4) - speedRotation);
         motorBackLeft.setPower(speed * Math.cos(degrees + Math.PI/4) + speedRotation);
         motorBackRight.setPower(speed * Math.sin(degrees + Math.PI/4) -  speedRotation);
+        switchAllToRead();
     }
 
     /**
@@ -129,8 +132,6 @@ public class simple_tube extends OpMode{
         }
 
         double scaled = Math.abs(encoderScale * (distance * min / wheelCircumference));
-
-
         mecJustMove(speed, degrees, speedRotation);
         while(Math.abs(motorFrontLeft.getCurrentPosition())<scaled
                 && Math.abs(motorFrontRight.getCurrentPosition()) <scaled
@@ -138,12 +139,27 @@ public class simple_tube extends OpMode{
                 && Math.abs(motorBackRight.getCurrentPosition()) < scaled)
         {
             mecJustMove(speed, degrees, speedRotation);
-            wait1Msec(5);
+          //  wait1Msec(5);
 //		writeDebugStreamLine("%d, %d, %d, %d ", (nMotorEncoder[FrontLeft]), (nMotorEncoder[FrontRight]), (nMotorEncoder[BackLeft]), (nMotorEncoder[BackRight]));
         }
         Stop();
+
         resetEncoders();
-        wait1Msec(10);
+       // wait1Msec(10);
+    }
+
+    public void switchAllToRead(){
+        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+    }
+
+    public void switchAllToWrite(){
+        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
     }
 
     /**
@@ -205,11 +221,13 @@ public class simple_tube extends OpMode{
      */
     public void Stop()
     {
+        switchAllToWrite();
         motorBackLeft.setPower(0);
         motorBackRight.setPower(0);
         motorFrontLeft.setPower(0);
         motorFrontRight.setPower(0);
         resetEncoders();
+        switchAllToRead();
     }
 
     /**
@@ -223,7 +241,7 @@ public class simple_tube extends OpMode{
         double currHeading = 0;
         ElapsedTime Time1 = new ElapsedTime();
         //no gyro initialization?
-        wait1Msec(200);
+       // wait1Msec(200);
         Stop();
         mecJustMove (0, 0, speedrotation);//+ = right   - = turn left
         while (Math.abs(currHeading) < Math.abs(degrees)) {
@@ -234,7 +252,7 @@ public class simple_tube extends OpMode{
                 if (currHeading > 360) currHeading -= 360;
                 else if (currHeading < -360) currHeading += 360;
             }
-            wait1Msec(5);
+          //  wait1Msec(5);
             delTime = ((double)Time1.time()) / 1000000; //set delta (zero first time around)
         }
         Stop();
@@ -277,14 +295,14 @@ public class simple_tube extends OpMode{
                 tcountB++;
                 b+=tback;
             }
-            wait1Msec(50);
+           // wait1Msec(50);
         }
         S[0]=f/tcountF;
         S[1]=b/tcountB;
-        wait1Msec(1000);
+       // wait1Msec(1000);
     }
 
-    public void armOut(){
+  /*  public void armOut(){
         ElapsedTime armOut = new ElapsedTime();
         armOut.startTime();
         //   motor[arm] = -50;
@@ -298,7 +316,7 @@ public class simple_tube extends OpMode{
         //   motor[arm] = 50;
         while(armIn.time()<2){}
         //motor[arm] = 0;
-    }
+    }*/
 
     private double toRadians (double degrees)
     {
@@ -306,11 +324,13 @@ public class simple_tube extends OpMode{
     }
 
     private void resetEncoders(){
+        switchAllToWrite();
         motorFrontLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         motorFrontRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         motorBackLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         motorBackRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        wait1Msec(50);
+        //wait1Msec(50);
+        switchAllToRead();
     }
 
     /**
@@ -334,14 +354,14 @@ public class simple_tube extends OpMode{
     public void hoodHolderRelease()
     {
         holder.setPosition(0.39);
-        wait1Msec(200.00);
+        //wait1Msec(200.00);
         holder.setPosition(0.5);
     }
 
     public void hoodHolderHold()
     {
         holder.setPosition(1);
-        wait1Msec(200.00);
+        //wait1Msec(200.00);
         holder.setPosition(0.5);
     }
 
@@ -351,14 +371,16 @@ public class simple_tube extends OpMode{
     public void setThrower(double speed)
     {
         speed/=100.0;
+        switchAllToWrite();
         motorThrower.setPower(speed);
+        switchAllToRead();
     }
 
     public void run(){
-        telemetry.addData("*","begin movement");
+        //telemetry.addData("*","begin movement");
         mecJustMove(60, 0, 0);
-        wait1Msec(3500);
-        telemetry.addData("*","wait done, stop");
+        /*wait1Msec(3500);
+        //telemetry.addData("*","wait done, stop");
         Stop();
         wait1Msec(250);
 
@@ -378,7 +400,7 @@ public class simple_tube extends OpMode{
         wait1Msec(250);
         turnMecGyro(-60.0,180.0);//turn inside pz
         wait1Msec(250);
-        mecMove(78.0, 90, 0, 120.0);//right strafe significantly pz
+        mecMove(78.0, 90, 0, 120.0);//right strafe significantly pz*/
     }
 
     public void stop(){

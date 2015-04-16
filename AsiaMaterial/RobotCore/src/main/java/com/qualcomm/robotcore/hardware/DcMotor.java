@@ -47,7 +47,7 @@ public class DcMotor {
   protected DcMotorController controller = null;
   protected int portNumber = -1;
   protected DcMotorController.RunMode mode = DcMotorController.RunMode.RUN_WITHOUT_ENCODERS;
-  protected DcMotorController.DeviceMode devMode = DcMotorController.DeviceMode.WRITE_ONLY;
+  protected DcMotorController.DeviceMode devMode = DcMotorController.DeviceMode.READ_WRITE;//used to be WRITE_ONLY
 
 
   /**
@@ -185,6 +185,13 @@ public class DcMotor {
     this.mode = mode;
     controller.setMotorChannelMode(portNumber, mode);
   }
+
+    //hack
+
+    public void setDeviceMode(DcMotorController.DeviceMode mode) {
+        this.devMode = mode;
+        controller.setMotorControllerDeviceMode(mode);
+    }
 
 
   /**

@@ -52,7 +52,7 @@ public class HardwareMap {
         String msg = String.format("Unable to find a hardware device with the name \"%s\"", deviceName);
         throw new IllegalArgumentException(msg);
       }
-      return device;
+        return device;
     }
 
     public void put(String deviceName, DEVICE_TYPE device) {

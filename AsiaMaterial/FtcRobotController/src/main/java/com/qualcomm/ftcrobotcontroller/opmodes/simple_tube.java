@@ -10,6 +10,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
  * Created by Kara on 4/14/2015.
+ * Last Updated: 4/16/15
  * For now the values remain as those from RobotC
  */
 public class simple_tube extends OpMode{
@@ -27,8 +28,8 @@ public class simple_tube extends OpMode{
 
     Servo grabber;
     Servo hood;
-//    Servo USbackservo;
-    Servo holder;//nothing for continuous servo
+    Servo arm;
+    Servo holder;
     Servo trigger;
 
     UltrasonicSensor USfront;
@@ -39,8 +40,9 @@ public class simple_tube extends OpMode{
     public simple_tube()
     {}
 
+    @Override
     public void start(){
-        telemetry.addData("Robot", "Constructor start");
+       //telemetry.addData("Robot", "Constructor start");
         motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
         motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //reverses back right motor
@@ -53,24 +55,64 @@ public class simple_tube extends OpMode{
         gyro = hardwareMap.gyroSensor.get("gyro");
 
         grabber = hardwareMap.servo.get("grabber");
+        arm = hardwareMap.servo.get("arm");
         hood = hardwareMap.servo.get("hood");
         holder = hardwareMap.servo.get("holder");
         trigger = hardwareMap.servo.get("trigger");
 
         grabber.setPosition(1);
+        arm.setPosition(0.51);
         hood.setPosition(0.235);
         trigger.setPosition(0.714);
-        holder.setPosition(0);
-        switchAllToWrite();
-        motorBackLeft.setPower(0.0);
-        motorBackRight.setPower(0.0);
-        motorFrontLeft.setPower(0.0);
-        motorFrontRight.setPower(0.0);
-        motorLift.setPower(0.0);
-        motorThrower.setPower(0.0);
+        holder.setPosition(0.51);
         switchAllToRead();
-        telemetry.addData("Robot","Construction end");
     }
+
+    @Override
+    public void run(){
+        motorThrower.setPower(-1.00);
+        wait1Msec(2000);
+        motorThrower.setPower(0.00);
+        wait1Msec(1000);
+        motorThrower.setPower(1.00);
+        //wait1Msec(2000);
+
+        /*//Movement
+        mecJustMove(60, 0, 0);
+        wait1Msec(3500);
+        Stop();
+        wait1Msec(250);
+
+        mecMove(-78, 90, 0,  52.0);//strafe left
+        wait1Msec(250);
+
+        mecMove(78, 0, 0, 150.0);//forward toward goal
+        double grabberDelayTime = 3.0;
+        wait1Msec(grabberDelayTime*1000.0);
+        setGrabber(150);
+
+        wait1Msec(500);
+        mecMove(-78, 0, 0, 10.0);//back a bit
+        wait1Msec(100);
+        setHood(130); //hood in place
+        mecMove(-78, 90, 0, 10.0);//side shift a bit
+
+        //turnMecGyro(-60.0,155.0);//turn toward the PK
+        motorThrower.setPower(-1.0); //start thrower motor
+        mecMove(-78.0, 0, 0, 240.0);//**length: move pass the kick stand
+        wait1Msec(250);
+        turnMecGyro(-60.0,180.0);//turn inside pz
+        wait1Msec(250);
+        mecMove(78.0, 90, 0, 120.0);//**right strafe significantly pz
+        wait1Msec(15000);*/
+    }
+
+    @Override
+    public void stop(){
+        setHood(60);
+        hoodHolderHold();
+    }
+
 
     public void wait1Msec(double time)
     {
@@ -92,10 +134,14 @@ public class simple_tube extends OpMode{
         speed/=100.0;
         speedRotation/=100.0;
         double radians = toRadians(degrees);
-        motorFrontLeft.setPower(speed * Math.sin(radians + Math.PI/4) + speedRotation);
+        motorFrontLeft.setPower(1.00);
+        motorFrontRight.setPower(1.00);
+        motorBackLeft.setPower(1.00);
+        motorBackRight.setPower(1.00);
+        /*motorFrontLeft.setPower(speed * Math.sin(radians + Math.PI/4) + speedRotation);
         motorFrontRight.setPower(speed * Math.cos(radians + Math.PI/4) - speedRotation);
         motorBackLeft.setPower(speed * Math.cos(radians + Math.PI/4) + speedRotation);
-        motorBackRight.setPower(speed * Math.sin(radians + Math.PI/4) -  speedRotation);
+        motorBackRight.setPower(speed * Math.sin(radians + Math.PI/4) -  speedRotation);*/
         switchAllToRead();
     }
 
@@ -245,7 +291,7 @@ public class simple_tube extends OpMode{
                 if (currHeading > 360) currHeading -= 360;
                 else if (currHeading < -360) currHeading += 360;
             }
-          //  wait1Msec(5);
+            //  wait1Msec(5);
             delTime = ((double)Time1.time()) / 1000000; //set delta (zero first time around)
         }
         Stop();
@@ -288,11 +334,11 @@ public class simple_tube extends OpMode{
                 tcountB++;
                 b+=tback;
             }
-           // wait1Msec(50);
+            // wait1Msec(50);
         }
         S[0]=f/tcountF;
         S[1]=b/tcountB;
-       // wait1Msec(1000);
+        // wait1Msec(1000);
     }
 
   /*  public void armOut(){
@@ -369,70 +415,6 @@ public class simple_tube extends OpMode{
         switchAllToRead();
     }
 
-    public void run(){
-        //stop robot when autonomous time is over
-        if(this.time>30d){
-            stop();
-        }
 
-        //Movement
-        mecJustMove(60, 0, 0);
-        wait1Msec(3500);
-        Stop();
-        wait1Msec(250);
-
-        mecMove(-78, 90, 0,  52.0);//strafe left
-        wait1Msec(250);
-
-        mecMove(78, 0, 0, 150.0);//forward toward goal
-        double grabberDelayTime = 3.0;
-        wait1Msec(grabberDelayTime*1000.0);
-        setGrabber(150);
-
-        wait1Msec(500);
-        mecMove(-78, 0, 0, 10.0);//back a bit
-        wait1Msec(100);
-        setHood(130); //hood in place
-        mecMove(-78, 90, 0, 10.0);//side shift a bit
-
-        //turnMecGyro(-60.0,155.0);//turn toward the PK
-        motorThrower.setPower(-1.0); //start thrower motor
-        mecMove(-78.0, 0, 0, 240.0);//**length: move pass the kick stand
-        wait1Msec(250);
-        turnMecGyro(-60.0,180.0);//turn inside pz
-        wait1Msec(250);
-        mecMove(78.0, 90, 0, 120.0);//**right strafe significantly pz
-        wait1Msec(15000);
-
-        /*telemetry.addData("*","begin movement");
-        mecJustMove(60, 0, 0);
-        wait1Msec(3500);
-        //telemetry.addData("*","wait done, stop");
-        Stop();
-        wait1Msec(250);
-
-        mecMove(-78, 90, 0,  52.0);//strafe left
-        wait1Msec(250);
-
-        mecMove(78, 0, 0, 150.0);//forward toward goal
-        setGrabber(150);
-        wait1Msec(500);
-        mecMove(-78, 0, 0, 10.0);//back a bit
-        wait1Msec(100);
-        setHood(130);//hood in place
-        mecMove(-78, 90, 0, 10.0);//side shift a bit
-
-        setThrower(-100.0); //start thrower motor
-        mecMove(-78.0, 0, 0, 240.0);//**length: move pass the kick stand
-        wait1Msec(250);
-        turnMecGyro(-60.0,180.0);//turn inside pz
-        wait1Msec(250);
-        mecMove(78.0, 90, 0, 120.0);//right strafe significantly pz*/
-    }
-
-    public void stop(){
-        setHood(60);
-        hoodHolderHold();
-    }
 
 }

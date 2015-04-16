@@ -80,6 +80,7 @@ public class simple_tube extends OpMode{
     public void wait1Msec(double time)
     {
         ElapsedTime waitTime = new ElapsedTime();
+        waitTime.reset();
         waitTime.startTime();
         while (waitTime.time() * 1000 < time){}
     }
@@ -95,11 +96,11 @@ public class simple_tube extends OpMode{
         switchAllToWrite();
         speed/=100.0;
         speedRotation/=100.0;
-        degrees = toRadians(degrees);
-        motorFrontLeft.setPower(speed * Math.sin(degrees + Math.PI/4) + speedRotation);
-        motorFrontRight.setPower(speed * Math.cos(degrees + Math.PI/4) - speedRotation);
-        motorBackLeft.setPower(speed * Math.cos(degrees + Math.PI/4) + speedRotation);
-        motorBackRight.setPower(speed * Math.sin(degrees + Math.PI/4) -  speedRotation);
+        double radians = toRadians(degrees);
+        motorFrontLeft.setPower(speed * Math.sin(radians + Math.PI/4) + speedRotation);
+        motorFrontRight.setPower(speed * Math.cos(radians + Math.PI/4) - speedRotation);
+        motorBackLeft.setPower(speed * Math.cos(radians + Math.PI/4) + speedRotation);
+        motorBackRight.setPower(speed * Math.sin(radians + Math.PI/4) -  speedRotation);
         switchAllToRead();
     }
 
@@ -112,23 +113,23 @@ public class simple_tube extends OpMode{
      * @param distance in centimeters
      */
     public void mecMove(double speed, double degrees, double speedRotation, double distance)
-    { //speed [-100,100], degrees [0, 360] to the right, speedRotation [-100,100], distance cm
+    {
         speed/=100.0;
         speedRotation/=100.0;
-        degrees=toRadians(degrees);
+        double radians=toRadians(degrees);
         resetEncoders();
         double min = 0.0;
-        if (Math.cos(degrees) == 0.0 || Math.sin(degrees) == 0.0)
+        if (Math.cos(radians) == 0.0 || Math.sin(radians) == 0.0)
         {
             min = 1.0;
         }
-        else if (Math.abs(1.0/Math.cos(degrees))<= Math.abs(1.0 / Math.sin(degrees)))
+        else if (Math.abs(1.0/Math.cos(radians))<= Math.abs(1.0 / Math.sin(radians)))
         {
-            min = 1.0/Math.cos(degrees);
+            min = 1.0/Math.cos(radians);
         }
         else
         {
-            min = 1.0/Math.sin(degrees);
+            min = 1.0/Math.sin(radians);
         }
 
         double scaled = Math.abs(encoderScale * (distance * min / wheelCircumference));
@@ -136,16 +137,11 @@ public class simple_tube extends OpMode{
         while(Math.abs(motorFrontLeft.getCurrentPosition())<scaled
                 && Math.abs(motorFrontRight.getCurrentPosition()) <scaled
                 && Math.abs(motorBackLeft.getCurrentPosition())< scaled
-                && Math.abs(motorBackRight.getCurrentPosition()) < scaled)
-        {
-            mecJustMove(speed, degrees, speedRotation);
-          //  wait1Msec(5);
-//		writeDebugStreamLine("%d, %d, %d, %d ", (nMotorEncoder[FrontLeft]), (nMotorEncoder[FrontRight]), (nMotorEncoder[BackLeft]), (nMotorEncoder[BackRight]));
-        }
+                && Math.abs(motorBackRight.getCurrentPosition()) < scaled){}
         Stop();
 
         resetEncoders();
-       // wait1Msec(10);
+        wait1Msec(10);
     }
 
     public void switchAllToRead(){
@@ -241,7 +237,7 @@ public class simple_tube extends OpMode{
         double currHeading = 0;
         ElapsedTime Time1 = new ElapsedTime();
         //no gyro initialization?
-       // wait1Msec(200);
+        wait1Msec(200);
         Stop();
         mecJustMove (0, 0, speedrotation);//+ = right   - = turn left
         while (Math.abs(currHeading) < Math.abs(degrees)) {
@@ -329,7 +325,7 @@ public class simple_tube extends OpMode{
         motorFrontRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         motorBackLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         motorBackRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        //wait1Msec(50);
+        wait1Msec(50);
         switchAllToRead();
     }
 
@@ -377,9 +373,43 @@ public class simple_tube extends OpMode{
     }
 
     public void run(){
-        //telemetry.addData("*","begin movement");
+        //stop robot when autonomous time is over
+        if(this.time>30d){
+            stop();
+        }
+
+        //Movement
         mecJustMove(60, 0, 0);
-        /*wait1Msec(3500);
+        wait1Msec(3500);
+        Stop();
+        wait1Msec(250);
+
+        mecMove(-78, 90, 0,  52.0);//strafe left
+        wait1Msec(250);
+
+        mecMove(78, 0, 0, 150.0);//forward toward goal
+        double grabberDelayTime = 3.0;
+        wait1Msec(grabberDelayTime*1000.0);
+        setGrabber(150);
+
+        wait1Msec(500);
+        mecMove(-78, 0, 0, 10.0);//back a bit
+        wait1Msec(100);
+        setHood(130); //hood in place
+        mecMove(-78, 90, 0, 10.0);//side shift a bit
+
+        //turnMecGyro(-60.0,155.0);//turn toward the PK
+        motorThrower.setPower(-1.0); //start thrower motor
+        mecMove(-78.0, 0, 0, 240.0);//**length: move pass the kick stand
+        wait1Msec(250);
+        turnMecGyro(-60.0,180.0);//turn inside pz
+        wait1Msec(250);
+        mecMove(78.0, 90, 0, 120.0);//**right strafe significantly pz
+        wait1Msec(15000);
+
+        /*telemetry.addData("*","begin movement");
+        mecJustMove(60, 0, 0);
+        wait1Msec(3500);
         //telemetry.addData("*","wait done, stop");
         Stop();
         wait1Msec(250);

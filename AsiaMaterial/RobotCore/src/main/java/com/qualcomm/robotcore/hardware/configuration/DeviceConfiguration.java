@@ -43,6 +43,7 @@ public class DeviceConfiguration implements Serializable {
                         IR_SEEKER,
                         LIGHT_SENSOR,
                         ACCELEROMETER,
+                        ULTRASONIC_SENSOR,
                         MOTOR_CONTROLLER,
                         SERVO_CONTROLLER,
                         LEGACY_MODULE_CONTROLLER,

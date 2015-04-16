@@ -123,6 +123,7 @@ public class ReadXMLFileHandler {
                 tagname.equalsIgnoreCase(DeviceConfiguration.ConfigurationType.IR_SEEKER.toString()) ||
                 tagname.equalsIgnoreCase(DeviceConfiguration.ConfigurationType.ACCELEROMETER.toString()) ||
                 tagname.equalsIgnoreCase(DeviceConfiguration.ConfigurationType.GYRO.toString()) ||
+                tagname.equalsIgnoreCase(DeviceConfiguration.ConfigurationType.ULTRASONIC_SENSOR.toString()) ||
                 tagname.equalsIgnoreCase(DeviceConfiguration.ConfigurationType.NOTHING.toString())){
           modules.add(handleDevice());
         }

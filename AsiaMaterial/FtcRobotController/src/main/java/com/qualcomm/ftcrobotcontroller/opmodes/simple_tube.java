@@ -27,7 +27,7 @@ public class simple_tube extends OpMode{
 
     Servo grabber;
     Servo hood;
-    Servo USbackservo;
+//    Servo USbackservo;
     Servo holder;//nothing for continuous servo
     Servo trigger;
 
@@ -37,8 +37,7 @@ public class simple_tube extends OpMode{
     GyroSensor gyro;
 
     public simple_tube()
-    {
-    }
+    {}
 
     public void start(){
         telemetry.addData("Robot", "Constructor start");
@@ -51,14 +50,10 @@ public class simple_tube extends OpMode{
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //reverse front left motor
         motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");
 
-        //USfront = hardwareMap.ultrasonicSensor.get("USfront");
-        //USback = hardwareMap.ultrasonicSensor.get("USback");
-
         gyro = hardwareMap.gyroSensor.get("gyro");
 
         grabber = hardwareMap.servo.get("grabber");
         hood = hardwareMap.servo.get("hood");
-        //USbackservo = hardwareMap.servo.get("USbackservo");
         holder = hardwareMap.servo.get("holder");
         trigger = hardwareMap.servo.get("trigger");
 
@@ -114,6 +109,7 @@ public class simple_tube extends OpMode{
      */
     public void mecMove(double speed, double degrees, double speedRotation, double distance)
     {
+        switchAllToWrite();
         speed/=100.0;
         speedRotation/=100.0;
         double radians=toRadians(degrees);
@@ -141,6 +137,7 @@ public class simple_tube extends OpMode{
         Stop();
 
         resetEncoders();
+        switchAllToRead();
         wait1Msec(10);
     }
 

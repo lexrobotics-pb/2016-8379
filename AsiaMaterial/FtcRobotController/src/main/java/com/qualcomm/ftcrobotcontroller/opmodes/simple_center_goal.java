@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.LegacyModule;
+import com.qualcomm.robotcore.hardware.LegacyModule;
 /**
  * Created by zht on 4/16/2015.
  */
@@ -55,7 +55,7 @@ public class simple_center_goal extends OpMode{
 
     public boolean alignRecursiveT()//true = we are all set, false = nope not even touching now and need to realign
     {
-//        if (TSreadState(TOUCHfront) == 1 && TSreadState(TOUCHback) == 1)// if both of them are touching
+        if (TSreadState(TOUCHfront) == 1 && TSreadState(TOUCHback) == 1)// if both of them are touching
         {
             //playSound(soundUpwardTones);
             //robot.wait1Msec(1000);

@@ -70,11 +70,26 @@ public class simple_tube extends OpMode{
 
     @Override
     public void run(){
+        //Test movement
+        switchAllToWrite();
+
+        motorBackRight.setPower(1.00);
+        motorFrontRight.setPower(1.00);
+        motorFrontLeft.setPower(1.00);
+        motorBackLeft.setPower(1.00);
+//        wait1Msec(1000);
+//        motorBackRight.setPower(0.00);
+//        motorFrontRight.setPower(0.00);
+//        motorFrontLeft.setPower(0.00);
+//        motorBackLeft.setPower(0.00);
+        //switchAllToRead();
+        /* Test thrower
         motorThrower.setPower(-1.00);
         wait1Msec(2000);
         motorThrower.setPower(0.00);
         wait1Msec(1000);
-        motorThrower.setPower(1.00);
+        motorThrower.setPower(1.00);*/
+
         //wait1Msec(2000);
 
         /*//Movement
@@ -309,36 +324,6 @@ public class simple_tube extends OpMode{
         while(Math.abs(USfront.getUltrasonicLevel()-USback.getUltrasonicLevel())>5)
         {}
         Stop();
-    }
-
-    /**
-     * read values ranging from 40 to 255 with filter at 40
-     * @param S a 2 elements array; S[0] = front US, S[1] = back US
-     */
-    public void readUSavg(double[] S)
-    {
-        int f=0, b=0;
-        double tfront, tback;
-        double tcountF = 0.0, tcountB = 0.0;
-        for (int i=0; i<30; i++)
-        {
-            tfront = USfront.getUltrasonicLevel();
-            tback = USback.getUltrasonicLevel();
-            if (tfront > 40)//95
-            {
-                tcountF++;
-                f+=tfront;
-            }
-            if (tback > 40)//95
-            {
-                tcountB++;
-                b+=tback;
-            }
-            // wait1Msec(50);
-        }
-        S[0]=f/tcountF;
-        S[1]=b/tcountB;
-        // wait1Msec(1000);
     }
 
   /*  public void armOut(){

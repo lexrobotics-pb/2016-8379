@@ -203,6 +203,10 @@ public class DcMotor {
     return controller.getMotorChannelMode(portNumber);
   }
 
+   public DcMotorController.DeviceMode getDeviceMode(){
+     return controller.getMotorControllerDeviceMode();
+    }
+
   /**
    * mock API
    *

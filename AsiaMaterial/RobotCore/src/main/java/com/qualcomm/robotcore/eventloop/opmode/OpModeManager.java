@@ -103,7 +103,7 @@ public class OpModeManager {
     activeOpModeName = name;
     opModeSwapNeeded = true;
   }
-
+    //assembleDebug
   public void startActiveOpMode() {
     activeOpMode.hardwareMap = hardwareMap;
     activeOpMode.start();

@@ -17,6 +17,12 @@ public class CenterGoal extends OpMode {
     Telemetry telemetry = new Telemetry();
     public boolean isUp = false;
 
+    int TouchFrontPort = 0, TouchBackPort = 3;
+    //front touch/light sensor: 0    back: 3
+    //lm.enableAnalogReadMode(portNumber, i2cAddress);
+
+    //lm.readAnalog(portNumber);
+
 
     private int counter = 0;
 
@@ -24,16 +30,17 @@ public class CenterGoal extends OpMode {
 
         trigger=hardwareMap.servo.get("trigger");
         motorLift= hardwareMap.dcMotor.get("lift");
+        lm.enableAnalogReadMode(portNumber, i2cAddress);
         telemetry.addData("*", "hardwaremap done");
     }
 
     public boolean alignRecursiveT()//true = we are all set, false = nope not even touching now and need to realign
     {
-//        if (TSreadState(TOUCHfront) == 1 && TSreadState(TOUCHback) == 1)// if both of them are touching
+       if (TSreadState(TOUCHfront) == 1 && TSreadState(TOUCHback) == 1)// if both of them are touching
         {
             //playSound(soundUpwardTones);
             //robot.wait1Msec(1000);
-            //return true;
+            return true;
         }
         if (counter >= 10){
             //playSound(soundDownwardTones);

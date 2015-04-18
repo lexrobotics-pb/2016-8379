@@ -5,8 +5,36 @@
         jar="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\exploded-aar\AsiaMaterial\RobotCore\unspecified\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="815afa4bc8d3e9fcc5d5e9cd96d572e6bf3d3627">
+        sha1="11d87025f390d7ae16beb6fd7daef9271b39e3d3">
         <dex dex="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\classes-532967a72ff10f7e455a6d1e4fc1ac18a73c81f7.jar" />
+    </item>
+    <item
+        jar="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\exploded-aar\AsiaMaterial\FtcCommon\unspecified\libs\ModernRobotics.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3adb8e7e40fce26a81c3c42a144d3cc9b2529f34">
+        <dex dex="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\ModernRobotics-cd59e1fe576b1a346efeae2e423e8a26ed9feb57.jar" />
+    </item>
+    <item
+        jar="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\exploded-aar\AsiaMaterial\FtcCommon\unspecified\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3842efdec8d4d099c72b2223dedd6d06e9f42a59">
+        <dex dex="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\classes-b96ea2561d043dfa525eb0215384d96b75919dc4.jar" />
+    </item>
+    <item
+        jar="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\exploded-aar\AsiaMaterial\FtcCommon\unspecified\libs\WirelessP2p.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0a64e5d02dc2a26c0219421f07d56ba469c2b51d">
+        <dex dex="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-8340e11ff44bb5cde36f7247d840d10028fc3062.jar" />
+    </item>
+    <item
+        jar="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\exploded-aar\AsiaMaterial\FtcCommon\unspecified\libs\d2xx.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="549d88cce99830dc2ae951a13d5a8b897362351b">
+        <dex dex="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-c50ad9fbe7b35a721166da300367210bb3c7f110.jar" />
     </item>
 
 </items>

@@ -57,6 +57,7 @@ public class MecMove extends Action {
 
     @Override
     boolean update(RobotState state) {
+        return true;
     }
 
     @Override

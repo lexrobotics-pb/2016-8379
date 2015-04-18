@@ -55,17 +55,17 @@ public class simple_center_goal extends OpMode{
 
     public boolean alignRecursiveT()//true = we are all set, false = nope not even touching now and need to realign
     {
-        if (TSreadState(TOUCHfront) == 1 && TSreadState(TOUCHback) == 1)// if both of them are touching
-        {
-            //playSound(soundUpwardTones);
-            //robot.wait1Msec(1000);
-            //return true;
-        }
-        if (counter >= 10){
-            //playSound(soundDownwardTones);
-            robot.wait1Msec(1000);
-            return false;
-        }
+//        if (TSreadState(TOUCHfront) == 1 && TSreadState(TOUCHback) == 1)// if both of them are touching
+//        {
+//            //playSound(soundUpwardTones);
+//            //robot.wait1Msec(1000);
+//            //return true;
+//        }
+//        if (counter >= 10){
+//            //playSound(soundDownwardTones);
+//            robot.wait1Msec(1000);
+//            return false;
+//        }
 
         counter++;
         boolean result;
@@ -92,7 +92,7 @@ public class simple_center_goal extends OpMode{
 
         //       else
         {
-            robot.moveTillTouch(0.1, 90, 0, true);
+            //robot.moveTillTouch(0.1, 90, 0, true);
             result = alignRecursiveT();
             //		result==true?	playSound(soundUpwardTones): playSound(soundDownwardTones);
             return result;

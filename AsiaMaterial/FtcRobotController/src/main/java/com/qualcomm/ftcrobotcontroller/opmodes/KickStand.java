@@ -1,42 +1,18 @@
-/* Copyright (c) 2014 Qualcomm Technologies Inc
-
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification,
-are permitted (subject to the limitations in the disclaimer below) provided that
-the following conditions are met:
-
-Redistributions of source code must retain the above copyright notice, this list
-of conditions and the following disclaimer.
-
-Redistributions in binary form must reproduce the above copyright notice, this
-list of conditions and the following disclaimer in the documentation and/or
-other materials provided with the distribution.
-
-Neither the name of Qualcomm Technologies Inc nor the names of its contributors
-may be used to endorse or promote products derived from this software without
-specific prior written permission.
-
-NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY THIS
-LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
-THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
+/* Contributor: Kara Luo
+ * Last Modified:
+ */
 
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorController;
+import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class KickStand extends OpMode {
+    final double encoderScale=1120.0;
+    final double wheelRadius=((9.7)/2);
+    final double wheelCircumference=Math.PI*2*wheelRadius;
 
     DcMotor motorFrontRight;
     DcMotor motorBackRight;
@@ -51,6 +27,9 @@ public class KickStand extends OpMode {
     Servo holder;
     Servo trigger;
 
+    GyroSensor gyro;
+
+
 	/**
 	 * Constructor
 	 */
@@ -64,30 +43,80 @@ public class KickStand extends OpMode {
         motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
         motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //reverses back right motor
+        motorThrower= hardwareMap.dcMotor.get("motorThrower");
+        motorLift= hardwareMap.dcMotor.get("motorLift");
         motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //reverse front left motor
         motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");
+
+        gyro = hardwareMap.gyroSensor.get("gyro");
+
+        grabber = hardwareMap.servo.get("grabber");
+        arm = hardwareMap.servo.get("arm");
+        hood = hardwareMap.servo.get("hood");
+        holder = hardwareMap.servo.get("holder");
+        trigger = hardwareMap.servo.get("trigger");
+
+        grabber.setPosition(1);
+        arm.setPosition(0.51);
+        hood.setPosition(0.235);
+        trigger.setPosition(0.714);
+        holder.setPosition(0.51);
 	}
 
 	@Override
 	public void run() {
-        if (this.time <= 5) {
-            mecJustMove(78, 90, 0);
+        grabber.setPosition(1.00);
+        arm.setPosition(0.8);
+        hood.setPosition(0.235);
+        holder.setPosition(0.51);
+
+        double FrontLeft=0.0, BackLeft=0.0, FrontRight=0.0, BackRight=0.0;
+
+        if (this.time <= 3.3) {
+            //mecJustMove(78, 90, 0);
+            FrontLeft=(Math.sin(Math.PI/4*3));
+            FrontRight=(Math.cos(Math.PI/4*3));
+            BackLeft=(Math.cos(Math.PI/4*3));
+            BackRight=(Math.sin(Math.PI/4*3));
             armOut();
-        } else if (this.time > 5 && this.time <= 9) {
-            mecJustMove(78, 0, 0);
-            armIn();
-        } else if (this.time > 9 && this.time <= 12) {
-            mecJustMove(78, 0, 0);
-            armIn();
-        } else if (this.time > 12 && this.time <= 18) {
-            mecJustMove(78, -90, 0);
+        } else if (this.time > 5 && this.time <= 7) {
+           //mecJustMove(78, 0, 0);
+            FrontLeft=(-Math.sin(Math.PI/4));
+            FrontRight=(-Math.cos(Math.PI/4));
+            BackLeft=(-Math.cos(Math.PI/4));
+            BackRight=(-Math.sin(Math.PI/4));
+        } else if (this.time > 9 && this.time <= 11) {
+            //mecJustMove(-78, 0, 0);
+            FrontLeft=(Math.sin(Math.PI/4));
+            FrontRight=(Math.cos(Math.PI/4));
+            BackLeft=(Math.cos(Math.PI/4));
+            BackRight=(Math.sin(Math.PI/4));
+        } else if (this.time > 12 && this.time <= 16) {
+            //mecJustMove(78, -90, 0);
+            FrontLeft=(Math.sin(-Math.PI/4));
+            FrontRight=(Math.cos(-Math.PI/4));
+            BackLeft=(Math.cos(-Math.PI/4));
+            BackRight=(Math.sin(-Math.PI/4));
         } else if (this.time >18 && this.time<=18.5){
-            mecJustMove(78,90,0);
-        } else if(this.time > 18.5 && this.time <=21.5)
-        {
-            mecJustMove(78, 0, 0);
+            //mecJustMove(78,90,0);
+            FrontLeft=(Math.sin(Math.PI/4*3));
+            FrontRight=(Math.cos(Math.PI/4*3));
+            BackLeft=(Math.cos(Math.PI/4*3));
+            BackRight=(Math.sin(Math.PI/4*3));
+        } else if(this.time > 18.5 && this.time <=19.5){
+           //mecJustMove(78, 0, 0);
+            FrontLeft=(-Math.sin(Math.PI/4));
+            FrontRight=(-Math.cos(Math.PI/4));
+            BackLeft=(-Math.cos(Math.PI/4));
+            BackRight=(-Math.sin(Math.PI/4));
+            armIn();
         }
+
+        motorBackLeft.setPower(BackLeft);
+        motorBackRight.setPower(BackRight);
+        motorFrontLeft.setPower(FrontLeft);
+        motorFrontRight.setPower(FrontRight);
 
 	}
 
@@ -96,7 +125,7 @@ public class KickStand extends OpMode {
 
 	}
 
-    public void mecJustMove(double speed, double degrees, double speedRotation)
+   /* public void mecJustMove(double speed, double degrees, double speedRotation)
     {
         speed/=100.0;
         speedRotation/=100.0;
@@ -110,36 +139,13 @@ public class KickStand extends OpMode {
     private double toRadians (double degrees)
     {
         return degrees/180.0*Math.PI;
-    }
+    }*/
+
     public void armOut(){
-        double start = this.time;
-        arm.setPosition(0.75);
-        while(this.time-start<2)
-        {
-        }
-        arm.setPosition(0.51);
+        arm.setPosition(0.8);
     }
 
     public void armIn(){
-        double start = this.time;
-        arm.setPosition(-0.75);
-        while(this.time-start<2)
-        {
-        }
-        arm.setPosition(0.51);
-    }
-
-    public void switchAllToRead(){
-        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
-        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
-        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
-        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
-    }
-
-    public void switchAllToWrite(){
-        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
-        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
-        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
-        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+        arm.setPosition(0.1);
     }
 }

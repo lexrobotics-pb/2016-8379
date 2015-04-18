@@ -1,4 +1,4 @@
-package com.qualcomm.ftcrobotcontroller.opmodes;
+/*package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -7,9 +7,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.robocol.Telemetry;
 
 /**
-* Created by zht on 4/2/2015.
-*/
-public class CenterGoal extends OpMode {
+ * Created by zht on 4/2/2015.
+ */
+/*public class CenterGoal extends OpMode {
 
     private Robot robot = new Robot();
     DcMotor motorLift;
@@ -30,27 +30,27 @@ public class CenterGoal extends OpMode {
 
         trigger=hardwareMap.servo.get("trigger");
         motorLift= hardwareMap.dcMotor.get("lift");
-//        lm.enableAnalogReadMode(portNumber, i2cAddress);
+        //lm.enableAnalogReadMode(portNumber, i2cAddress);
         telemetry.addData("*", "hardwaremap done");
     }
 
     public boolean alignRecursiveT()//true = we are all set, false = nope not even touching now and need to realign
     {
- //      if (TSreadState(TOUCHfront) == 1 && TSreadState(TOUCHback) == 1)// if both of them are touching
+       /*if (TSreadState(TOUCHfront) == 1 && TSreadState(TOUCHback) == 1)// if both of them are touching
         {
             //playSound(soundUpwardTones);
             //robot.wait1Msec(1000);
             return true;
         }
-//        if (counter >= 10){
-//            //playSound(soundDownwardTones);
-// //           robot.wait1Msec(1000);
-// //           return false;
-//        }
+        if (counter >= 10){
+            //playSound(soundDownwardTones);
+            robot.wait1Msec(1000);
+            return false;
+        }
 
-//        counter++;
-//        boolean result;
-/*       if (TSreadState(TOUCHfront) == 1 || TSreadState(TOUCHback) == 1)//run if at least one of them is touching, else... it is just unfortunate
+        counter++;
+        boolean result;
+ /*       if (TSreadState(TOUCHfront) == 1 || TSreadState(TOUCHback) == 1)//run if at least one of them is touching, else... it is just unfortunate
         {
 
             //		nxtDisplayCenteredTextLine(2, "%d, %d", TSreadState(TOUCHfront), TSreadState(TOUCHback));
@@ -72,12 +72,12 @@ public class CenterGoal extends OpMode {
         }*/
 
         //       else
-//        {
-////            robot.moveTillTouch(0.1, 90, 0, true);
-////            result = alignRecursiveT();
-////            //		result==true?	playSound(soundUpwardTones): playSound(soundDownwardTones);
-////            return result;
-//        }
+  /*      {
+            robot.moveTillTouch(0.1, 90, 0, true);
+            result = alignRecursiveT();
+            //		result==true?	playSound(soundUpwardTones): playSound(soundDownwardTones);
+            return result;
+        }
     }
 
     public void liftUp()
@@ -89,7 +89,7 @@ public class CenterGoal extends OpMode {
 	}
 	motor[Lift]=0;*/
         // nMotorEncoder[Lift]=0;
-        motorLift.setPower(-1);
+    /*    motorLift.setPower(-1);
         //       while(Math.abs(nMotorEncoder[Lift])<encoderScale*10.7) //up ratio -38/(255-127) = -.297
         {
         }
@@ -145,4 +145,4 @@ public class CenterGoal extends OpMode {
     public void stop(){}
     public void run(){}
 }
-
+*/

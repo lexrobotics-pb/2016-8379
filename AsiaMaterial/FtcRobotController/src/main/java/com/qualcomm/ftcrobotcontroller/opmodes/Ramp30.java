@@ -38,7 +38,6 @@ public class Ramp30 extends OpMode{
         gyro = hardwareMap.gyroSensor.get("gyro");
         grabber = hardwareMap.servo.get("grabber");
         hood = hardwareMap.servo.get("hood");
-        gyro = hardwareMap.gyroSensor.get("gyro");
         grabber.setPosition(1);
         hood.setPosition(0.3);
     }

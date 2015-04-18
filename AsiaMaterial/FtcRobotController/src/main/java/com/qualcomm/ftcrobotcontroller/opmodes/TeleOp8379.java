@@ -20,8 +20,6 @@ public class TeleOp8379 extends OpMode{
 
     double posArm;
 
-    double incArm;
-
     double posTrigger;
 
     double posHolder;
@@ -43,9 +41,9 @@ public class TeleOp8379 extends OpMode{
     Servo holder;//nothing for continuous servo
     Servo trigger;
 
-    Telemetry telemetry = new Telemetry();
+    //Telemetry telemetry = new Telemetry();
 
-    //ElapsedTime waittime = new ElapsedTime();
+    ElapsedTime totaltime = new ElapsedTime();
 
     //private TeleOpThreads threads = new TeleOpThreads();
     public TeleOp8379(){
@@ -74,8 +72,8 @@ public class TeleOp8379 extends OpMode{
         posHood = 0.4;
         posTrigger = 0.714;
         posHolder = 0.5;
-        posArm = (130.00/255.00); ///0.00 ccw top speed, 1.00 cw top speed, .51 stop speed...or is it 129/255?
-        frontback = 1;
+        posArm = 0.1; // NO LONGER CONTINUOUS....but 0.00 ccw top speed, 1.00 cw top speed, .511 stop speed for continuous
+        frontback = -1;
 
         grabber.setPosition(posGrabber);
         hood.setPosition(posHood);
@@ -118,77 +116,63 @@ public class TeleOp8379 extends OpMode{
         if (gamepad1.x){ //thrower stop
             motorThrower.setPower(0);
         }
-        if (gamepad1.left_bumper){     //thrower reverse
+        if (gamepad1.back){     //thrower reverse
             motorThrower.setPower(0.5);
         }
-        if (gamepad1.left_trigger>=0.1){     //thrower forward
+        if (gamepad1.b){     //thrower forward
             motorThrower.setPower(-1);
         }
         //arm-----------------------------------------------------
         if (gamepad1.right_bumper){     //arm out
-            arm.setPosition(0.4);//ccw rotation
-            while (gamepad1.right_bumper)
-            {}
-            arm.setPosition(130.00/255.00);//stop value
+            arm.setPosition(.87);//ccw rotation
         }
         if (gamepad1.right_trigger>=0.1){     //arm in
-            arm.setPosition(0.6);//cw rotation
-            while (gamepad1.right_trigger>=0.1)
-            {}
-            arm.setPosition(130.00/255.00);//stop value
+            arm.setPosition(0.1);//cw rotation
         }
         //change direction----------------------------------------
-        if (gamepad1.a){      //grabber front
+       /* if (gamepad1.a){      //grabber front
             frontback = -1;
         }
         if (gamepad1.y){      // flipper front
             frontback = 1;
-        }
+        }*/
 
         /*------------------------Secondary----------------------*/
 
         //grabber-------------------------------------------------
-        if (gamepad2.y) {   //grabber up
+        if (gamepad1.y) {   //grabber up
             grabber.setPosition(1.0);
         }
-        if (gamepad2.a) {   //grabber down
+        if (gamepad1.a) {   //grabber down
             grabber.setPosition(0.588);
         }
 
         //hood---------------------------------------------------
-        if (gamepad2.left_bumper){    //hood in
-//            holder.setPosition(0.176);//what is the range for a normal servo and what is the range for a continuous servo? is it -1 to 1 or 0 to 1? - Eula
-            //waittime.startTime();
-            //while (waittime.time()*1000.0 < 50)
-            // {}
-            //holder.setPosition(1.00);
-            hood.setPosition(0.3);
+        if (gamepad1.left_bumper){    //hood in
+            //holder.setPosition(0.176);
+            hood.setPosition(0.34);
         }
-        if (gamepad2.left_trigger>=0.1){     //hood out
-//            holder.setPosition(0.392);
-            //  waittime.startTime();
-            // while (waittime.time()*1000.0 < 50)
-            //{}
-            //holder.setPosition(0.5);
-            hood.setPosition(0.7);
+        if (gamepad1.left_trigger>=0.1){     //hood out
+            //holder.setPosition(0.392);
+            hood.setPosition(0.5);
         }
         //lift--------------------------------------------------
-        while (gamepad2.right_bumper){   //lift up
-            motorLift.setPower(1.00);
-            while (gamepad2.right_bumper){}
-            motorLift.setPower(0.00);
+        /*while (gamepad1.dpad_up){   //lift up
+           motorLift.setPower(0.50);
+           // while (gamepad2.right_bumper){}
+           // motorLift.setPower(0.00);
 
         }
-        while (gamepad2.right_trigger>=0.1){   //lift down
-            motorLift.setPower(-1.00);
-            while(gamepad2.right_trigger>=0.1)
-            {}
-            motorLift.setPower(0.00);
+        while (gamepad1.dpad_down){   //lift down
+            motorLift.setPower(-0.50);
+            //while(gamepad2.right_trigger>=0.1)
+            //{}
+            //motorLift.setPower(0.00);
         }
 
         if (gamepad2.b){    //trigger down
-            trigger.setPosition(0.111);
-        }
+           trigger.setPosition(0.111);
+        }*/
     }
 
 

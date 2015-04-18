@@ -71,6 +71,8 @@ public class FtcOpModeRegister implements OpModeRegister {
     manager.register("TeleOp8379", TeleOp8379.class);
     manager.register("CenterGoal", CenterGoal.class);
     manager.register("NullOp", NullOp.class);
+    manager.register("Ramp30", Ramp30.class);
+
 
 /*
     manager.register("TeleOp", TeleOp.class);

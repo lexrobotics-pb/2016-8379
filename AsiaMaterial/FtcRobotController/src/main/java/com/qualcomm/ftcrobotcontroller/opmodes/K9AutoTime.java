@@ -40,7 +40,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Example autonomous program.
  * <p>
  * This example program uses elapsed time to determine how to move the robot.
- * The OpMode.java class has some class members that provide time information
+ * The Meow.java class has some class members that provide time information
  * for the current op mode.
  * The public member variable 'time' is updated before each call to the run() event.
  * The method getRunTime() returns the time that has elapsed since the op mode

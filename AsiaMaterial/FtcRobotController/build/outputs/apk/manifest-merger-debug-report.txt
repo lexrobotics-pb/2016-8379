@@ -65,7 +65,7 @@ ADDED from AndroidManifest.xml:32:3
 		ADDED from AndroidManifest.xml:32:17
 application
 ADDED from AndroidManifest.xml:34:3
-MERGED from ftc_sdk:FtcCommon:unspecified:11:5
+MERGED from AsiaMaterial:FtcCommon:unspecified:11:5
 	android:label
 		ADDED from AndroidManifest.xml:37:5
 	android:allowBackup
@@ -184,8 +184,8 @@ ADDED from AndroidManifest.xml:102:5
 		ADDED from AndroidManifest.xml:103:7
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
-MERGED from ftc_sdk:FtcCommon:unspecified:7:5
-MERGED from ftc_sdk:RobotCore:unspecified:7:5
+MERGED from AsiaMaterial:FtcCommon:unspecified:7:5
+MERGED from AsiaMaterial:RobotCore:unspecified:7:5
 	android:targetSdkVersion
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
@@ -193,6 +193,6 @@ MERGED from ftc_sdk:RobotCore:unspecified:7:5
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
 uses-feature#0x00020000
-ADDED from ftc_sdk:RobotCore:unspecified:11:5
+ADDED from AsiaMaterial:RobotCore:unspecified:11:5
 	android:glEsVersion
-		ADDED from ftc_sdk:RobotCore:unspecified:11:19
+		ADDED from AsiaMaterial:RobotCore:unspecified:11:19

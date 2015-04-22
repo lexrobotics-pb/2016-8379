@@ -16,21 +16,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.qualcomm.ftcrobotcontroller" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9b225a-55f4-4c69-8d44-668b8fd6651f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/CenterGoal.java" afterPath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/CenterGoal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/FtcRobotController.iml" afterPath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/FtcRobotController.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/KickStand.java" afterPath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/KickStand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/KickStand2.java" afterPath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/KickStand2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/KickStand3.java" afterPath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/KickStand3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/R_30_right.java" afterPath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/R_30_right.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/Ramp.java" afterPath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/Ramp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/Ramp30.java" afterPath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/Ramp30.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/Robot.java" afterPath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/Robot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/TeleOp8379.java" afterPath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/TeleOp8379.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/simple_center_goal.java" afterPath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/simple_center_goal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/simple_tube.java" afterPath="$PROJECT_DIR$/../8379NextGen3/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/simple_tube.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="bc9b225a-55f4-4c69-8d44-668b8fd6651f" name="Default" comment="" />
     <ignored path="ftc_sdk.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />

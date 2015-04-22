@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="app_name">FTC Robot Controller</string>
+  <string name="ok">OK</string>
+
+  <!-- Fix Misconfigured Wifi Direct -->
+  <string name="title_activity_config_wifi_direct">Configure Wifi Direct</string>
+  <string name="wifi_direct_update_settings">
+    Please wait while we update the Wifi Direct settings on this device.
+  </string>
+
+  <string name="action_settings">Settings</string>
+
+</resources>

@@ -16,40 +16,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.qualcomm.ftcrobotcontroller" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9b225a-55f4-4c69-8d44-668b8fd6651f" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\ftc_sdk_4_04_beta_04\ftc_sdk\.idea\libraries\ModernRobotics.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\ftc_sdk_4_04_beta_04\ftc_sdk\.idea\libraries\WirelessP2p.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\ftc_sdk_4_04_beta_04\ftc_sdk\.idea\libraries\d2xx.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\ftc_sdk_4_04_beta_04\ftc_sdk\FtcCommon\FtcCommon.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\ftc_sdk_4_04_beta_04\ftc_sdk\FtcDriverStation\FtcDriverStation.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\ftc_sdk_4_04_beta_04\ftc_sdk\FtcRobotController\FtcRobotController.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\ftc_sdk_4_04_beta_04\ftc_sdk\RobotCore\RobotCore.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\ftc_sdk_4_04_beta_04\ftc_sdk\ftc_sdk.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcCommon/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/classes.jar" afterPath="$PROJECT_DIR$/FtcCommon/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/classes.jar" afterPath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/classes.jar" afterPath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/classes.jar" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/classes.jar" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcDriverStation/FtcDriverStation.iml" afterPath="$PROJECT_DIR$/FtcDriverStation/FtcDriverStation.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcCommon/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/FtcCommon/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcCommon/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values-v11/values.xml" afterPath="$PROJECT_DIR$/FtcCommon/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values-v11/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcCommon/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values-v14/values.xml" afterPath="$PROJECT_DIR$/FtcCommon/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values-v14/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/res/values-v11/values.xml" afterPath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/res/values-v11/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/res/values-v14/values.xml" afterPath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/res/values-v14/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values-v11/values.xml" afterPath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values-v11/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values-v14/values.xml" afterPath="$PROJECT_DIR$/FtcDriverStation/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values-v14/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/res/values-v11/values.xml" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/res/values-v11/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/res/values-v14/values.xml" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/FtcCommon/unspecified/res/values-v14/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values-v11/values.xml" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values-v11/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values-v14/values.xml" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/exploded-aar/AsiaMaterial/RobotCore/unspecified/res/values-v14/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="bc9b225a-55f4-4c69-8d44-668b8fd6651f" name="Default" comment="" />
     <ignored path="ftc_sdk.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -2758,7 +2725,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="720" y="0" width="720" height="870" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.053424656" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

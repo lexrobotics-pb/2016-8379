@@ -16,7 +16,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.qualcomm.ftcrobotcontroller" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9b225a-55f4-4c69-8d44-668b8fd6651f" name="Default" comment="" />
+    <list default="true" id="bc9b225a-55f4-4c69-8d44-668b8fd6651f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="ftc_sdk.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -2725,7 +2727,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="720" y="0" width="720" height="870" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.053424656" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

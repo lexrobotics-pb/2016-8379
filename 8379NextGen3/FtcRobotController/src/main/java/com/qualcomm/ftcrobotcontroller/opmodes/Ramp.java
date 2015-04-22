@@ -85,7 +85,7 @@ public class Ramp extends OpMode {
 	}
 
 	@Override
-	public void run() {
+	public void loop() {
         if (this.time <= 7) {
             motorFrontLeft.setPower(-1.00);
             motorFrontRight.setPower(-1.00);

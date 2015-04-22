@@ -43,7 +43,7 @@ public class Ramp30 extends OpMode{
     }
 
     @Override
-    public void run() {
+    public void loop() {
         speeds = speed;
         if (this.time <= 3.5) {
             speeds = mecJustMove(-60.0, 0, 0);

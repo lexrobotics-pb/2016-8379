@@ -68,7 +68,7 @@ public class KickStand2 extends OpMode {
 	}
 
 	@Override
-	public void run() {
+	public void loop() {
         grabber.setPosition(1.00);
         arm.setPosition(0.8);
         hood.setPosition(0.235);

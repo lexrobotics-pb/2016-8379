@@ -11,6 +11,7 @@ public class R_30_right extends OpMode{
     Telemetry telemetry = new Telemetry();
     Robot robot = new Robot();
 
+    @Override
     public void start(){
         //telemetry.addData("*","initialization start");
         robot.setGrabber(255);
@@ -20,7 +21,8 @@ public class R_30_right extends OpMode{
         //telemetry.addData("*","Initialization done");
     }
 
-    public void run(){
+    @Override
+    public void loop(){
         telemetry.addData("*","begin movement");
         robot.mecJustMove(60, 0, 0);
         robot.wait1Msec(3500);
@@ -47,6 +49,7 @@ public class R_30_right extends OpMode{
         robot.mecMove(78.0, 90, 0, 120.0);//right strafe significantly pz
     }
 
+    @Override
     public void stop(){
         robot.setHood(60);
         robot.hoodHolderHold();

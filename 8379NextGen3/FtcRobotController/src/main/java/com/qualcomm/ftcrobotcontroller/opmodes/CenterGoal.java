@@ -135,8 +135,11 @@ public class CenterGoal extends OpMode {
 
     }
 
+    @Override
     public void start(){}
+    @Override
     public void stop(){}
-    public void run(){}
+    @Override
+    public void loop(){}
 }
 

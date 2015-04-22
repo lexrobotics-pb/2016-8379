@@ -65,13 +65,13 @@ public class simple_tube extends OpMode{
         hood.setPosition(0.235);
         trigger.setPosition(0.714);
         holder.setPosition(0.51);
-        switchAllToRead();
+//        switchAllToRead();
     }
 
     @Override
-    public void run(){
+    public void loop(){
         //Test movement
-        switchAllToWrite();
+//        switchAllToWrite();
 
         motorBackRight.setPower(1.00);
         motorFrontRight.setPower(1.00);
@@ -145,7 +145,7 @@ public class simple_tube extends OpMode{
      */
     public void mecJustMove(double speed, double degrees, double speedRotation)
     {
-        switchAllToWrite();
+ //       switchAllToWrite();
         speed/=100.0;
         speedRotation/=100.0;
         double radians = toRadians(degrees);
@@ -157,7 +157,7 @@ public class simple_tube extends OpMode{
         motorFrontRight.setPower(speed * Math.cos(radians + Math.PI/4) - speedRotation);
         motorBackLeft.setPower(speed * Math.cos(radians + Math.PI/4) + speedRotation);
         motorBackRight.setPower(speed * Math.sin(radians + Math.PI/4) -  speedRotation);*/
-        switchAllToRead();
+//        switchAllToRead();
     }
 
     /**
@@ -170,7 +170,7 @@ public class simple_tube extends OpMode{
      */
     public void mecMove(double speed, double degrees, double speedRotation, double distance)
     {
-        switchAllToWrite();
+//        switchAllToWrite();
         speed/=100.0;
         speedRotation/=100.0;
         double radians=toRadians(degrees);
@@ -198,23 +198,23 @@ public class simple_tube extends OpMode{
         Stop();
 
         resetEncoders();
-        switchAllToRead();
+//        switchAllToRead();
         wait1Msec(10);
     }
 
-    public void switchAllToRead(){
-        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
-        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
-        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
-        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
-    }
-
-    public void switchAllToWrite(){
-        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
-        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
-        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
-        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
-    }
+//    public void switchAllToRead(){
+//        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+//        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+//        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+//        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+//    }
+//
+//    public void switchAllToWrite(){
+//        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+//        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+//        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+//        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+//    }
 
     /**
      * Moves until the ultrasonic sensors detects something or
@@ -275,13 +275,13 @@ public class simple_tube extends OpMode{
      */
     public void Stop()
     {
-        switchAllToWrite();
+        //switchAllToWrite();
         motorBackLeft.setPower(0);
         motorBackRight.setPower(0);
         motorFrontLeft.setPower(0);
         motorFrontRight.setPower(0);
         resetEncoders();
-        switchAllToRead();
+//        switchAllToRead();
     }
 
     /**
@@ -348,13 +348,13 @@ public class simple_tube extends OpMode{
     }
 
     private void resetEncoders(){
-        switchAllToWrite();
+//        switchAllToWrite();
         motorFrontLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         motorFrontRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         motorBackLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         motorBackRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         wait1Msec(50);
-        switchAllToRead();
+//        switchAllToRead();
     }
 
     /**
@@ -395,9 +395,9 @@ public class simple_tube extends OpMode{
     public void setThrower(double speed)
     {
         speed/=100.0;
-        switchAllToWrite();
+//        switchAllToWrite();
         motorThrower.setPower(speed);
-        switchAllToRead();
+//        switchAllToRead();
     }
 
 

@@ -84,7 +84,8 @@ public class TeleOp8379 extends OpMode{
 
     }
 
-    public void run (){
+    @Override
+    public void loop (){
 
         /*Sets joystick deadzone. The joysticks we used before went to +/- 100,
         but these tutorials all use +/- 1...so the deadzone should be .1 instead of 10, I guess?.
@@ -176,6 +177,6 @@ public class TeleOp8379 extends OpMode{
     }
 
 
-
+    @Override
     public void stop(){}
 }

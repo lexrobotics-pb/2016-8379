@@ -44,7 +44,7 @@ public class simple_center_goal extends OpMode{
     }
 
     @Override
-    public void run(){
+    public void loop(){
 
 
     }

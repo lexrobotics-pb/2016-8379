@@ -106,7 +106,7 @@ Telemetry telemetry = new Telemetry();
      */
     public void mecJustMove(double speed, double degrees, double speedRotation)
     {
-        switchAllToWrite();
+//        switchAllToWrite();
         speed/=100.0;
         speedRotation/=100.0;
         double radians = toRadians(degrees);
@@ -114,7 +114,7 @@ Telemetry telemetry = new Telemetry();
         motorFrontRight.setPower(speed * Math.cos(radians + Math.PI/4) - speedRotation);
         motorBackLeft.setPower(speed * Math.cos(radians + Math.PI/4) + speedRotation);
         motorBackRight.setPower(speed * Math.sin(radians + Math.PI/4) -  speedRotation);
-        switchAllToRead();
+//        switchAllToRead();
     }
 
     /**
@@ -157,19 +157,19 @@ Telemetry telemetry = new Telemetry();
         wait1Msec(10);
     }
 
-    public void switchAllToRead(){
-        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
-        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
-        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
-        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
-    }
-
-    public void switchAllToWrite(){
-        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
-        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
-        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
-        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
-    }
+//    public void switchAllToRead(){
+//        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+//        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+//        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+//        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+//    }
+//
+//    public void switchAllToWrite(){
+//        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+//        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+//        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+//        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+//    }
 
     /**
      * Moves until the ultrasonic sensors detects something or
@@ -393,5 +393,5 @@ Telemetry telemetry = new Telemetry();
 
     public void start(){}
     public void stop(){}
-    public void run(){}
+    public void loop(){}
 }

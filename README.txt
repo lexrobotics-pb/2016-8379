@@ -2,6 +2,14 @@
 FIRST FTC TEAM #8379 REPOSITORY 2015-2016 SEASON
 ***************************************************************
 # HELLO WORLD
+> Welcome to this wonderful document that guides you through the trek of software development
+> Please follow these guidelines if you do not wish to be eaten by other programmers
+> As we are a group that functions like any other normal, social group of people, plz follow the same moral standards. Aka
+  > Give proper credit to people who have worked on things
+  > Be respectful of other ideas and keep an open mind, software is flexible and allows for different ways of implementation
+  > Write READABLE code, add comments when appropriate
+  > Moderate trolling is allowed, but don't go overboard
+  > When in doubt, stay classy
 
 # CREATING A CLASS
 > Please commit using your personal accounts, not the team account
@@ -9,9 +17,18 @@ FIRST FTC TEAM #8379 REPOSITORY 2015-2016 SEASON
 > Give a brief description of the class. Include:
   > Function of class
   > General framework, methods involved if applicable
+> Add comments if appropriate
+  > In general, each method should have comments specifying parameters and return value, as well as method use 
 
 # EDITING A CLASS
+> Change the date of last edit
 > Before editing, consult contibutor
+
+# USING GITHUB
+> In general, the VCS in Android Studio is a useful tool
+> Always pull before making any edits
+> Give descriptive commit messages
+> Read through merge messages before making decisions, don't overwrite other people's hardwork
 
 # TROUBLESHOOTING
   # Code

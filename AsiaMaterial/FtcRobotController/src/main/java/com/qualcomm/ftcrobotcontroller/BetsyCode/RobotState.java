@@ -58,5 +58,6 @@ public class RobotState {
         GyroR = gyro.getRotation();
     }
 
+
     //partially update something?
 }

@@ -4,15 +4,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 
 /**
- * Created by zht on 4/18/2015.
+ * Created by eula on 4/18/2015 from
+ *
  */
 public class MecMove extends Action {
-
-    DcMotor motorFrontRight;
-    DcMotor motorBackRight;
-    DcMotor motorBackLeft;
-    DcMotor motorFrontLeft;
-
 
     final double encoderScale=1120.0;
     final double wheelRadius=((9.7)/2);
@@ -45,10 +40,10 @@ public class MecMove extends Action {
 
     @Override
     boolean isFinished(RobotState state) {
-        return Math.abs(state.EBackLeft)<scaled
-                && Math.abs(motorFrontRight.getCurrentPosition()) <scaled
-                && Math.abs(motorBackLeft.getCurrentPosition())< scaled
-                && Math.abs(motorBackRight.getCurrentPosition()) < scaled;
+        return Math.abs(state.motorBackLeft.getCurrentPosition())<scaled
+                && Math.abs(state.motorFrontRight.getCurrentPosition()) <scaled
+                && Math.abs(state.motorBackLeft.getCurrentPosition())< scaled
+                && Math.abs(state.motorBackRight.getCurrentPosition()) < scaled;
     }
 
     @Override
@@ -58,8 +53,12 @@ public class MecMove extends Action {
     @Override
     boolean update(RobotState state) {
         return true;
-    }
+    }//implement gyro or compass to detect obstacles or change in
 
+    /**
+     *
+     * @return
+     */
     @Override
     boolean isDEVModeWrite()
     {
@@ -72,11 +71,16 @@ public class MecMove extends Action {
         return true;
     }
 
-    private void resetEncoders(){
-        motorFrontLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        motorFrontRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        motorBackLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        motorBackRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+    /**
+     * written  by eula on 4/28
+     * reset encoders under write mode
+     * @param state  hardware variables package
+     */
+    private void resetEncoders(RobotState state){
+        state.motorFrontLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        state.motorFrontRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        state.motorBackLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        state.motorBackRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
     }
 
 }

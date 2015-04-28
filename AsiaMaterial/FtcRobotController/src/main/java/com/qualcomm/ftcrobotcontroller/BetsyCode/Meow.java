@@ -23,18 +23,6 @@ public class Meow extends OpMode {
     static boolean isWrite; //false=should be in read mode, true=should be in write mode
 
 
-    DcMotor motorFrontRight;
-    DcMotor motorBackRight;
-    DcMotor motorThrower;
-    DcMotor motorLift;
-    DcMotor motorBackLeft;
-    DcMotor motorFrontLeft;
-
-    Servo grabber;
-    Servo hood;
-    Servo trigger;
-
-
     public Meow() {
 
     }

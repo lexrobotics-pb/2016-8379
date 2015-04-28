@@ -13,10 +13,6 @@ public class Meow extends OpMode {
 
     //define a list of movements
         Action movement1 = new MecMove(78.0, 0.0, 0.0, 20.0);
-
-
-
-
     LinkedList list = new LinkedList();
     static Queue<Action> actions=new LinkedList<Action>();
     static RobotState state=new RobotState();
@@ -75,12 +71,13 @@ public class Meow extends OpMode {
         if(isWrite && curAction.isDEVModeRead()) switchAllToWrite();
 
         if(curAction.isDEVModeRead()){
-            state.updateState(); //senses things
-            if(curAction.isFinished(state)){ //requires READMODE
-                actions.poll();
+//            state.updateState(); //senses things
+            if(curAction.update(state)){ //updates action variables and robotState variables
                 isWrite=true; //set mode to WRITE for action*
             }
-            else if(curAction.update(state)){
+            else if(curAction.isFinished(state)){ //requires READMODE
+                actions.poll();
+                state.updateState();
                 isWrite=true; //set mode to WRITE for action*
             }
         }

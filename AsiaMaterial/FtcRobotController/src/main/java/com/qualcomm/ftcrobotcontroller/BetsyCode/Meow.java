@@ -5,15 +5,12 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.Servo;
 
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Meow extends OpMode {
+public class Meow extends OpMode { /*Betsy 4-28*/
 
     //define a list of movements
-        Action movement1 = new MecMove(78.0, 0.0, 0.0, 20.0);
-    LinkedList list = new LinkedList();
     static Queue<Action> actions=new LinkedList<Action>();
     static RobotState state=new RobotState();
     static boolean isWrite; //false=should be in read mode, true=should be in write mode
@@ -32,7 +29,6 @@ public class Meow extends OpMode {
 
 
     public Meow() {
-
     }
 
     @Override
@@ -60,7 +56,7 @@ public class Meow extends OpMode {
 
         isWrite=true;
 
-        actions.add(movement1);
+        actions.add(new MecMove(78.0, 0.0, 0.0, 20.0));
     }
 
     @Override
@@ -72,7 +68,7 @@ public class Meow extends OpMode {
 
         if(curAction.isDEVModeRead()){
 //            state.updateState(); //senses things
-            if(curAction.update(state)){ //updates action variables and robotState variables
+            if(curAction.update(state)){ //updates action variables and RobotState variables
                 isWrite=true; //set mode to WRITE for action*
             }
             else if(curAction.isFinished(state)){ //requires READMODE

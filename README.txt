@@ -1,5 +1,8 @@
 ***************************************************************
-FIRST FTC TEAM #8379 REPOSITORY 2015-2016 SEASON
+FIRST FTC TEAM #8379 the Parity Bits
+SEASON 2015-2016 
+*Insert copyright message lk other software developers* ...Not for commecial use... *Insert Logo*
+NOTE TO READERS: A valid attempt was made to make this document useful and humorous, read through as much as you can 
 ***************************************************************
 # HELLO WORLD
 > Welcome to this wonderful document that guides you through the trek of software development

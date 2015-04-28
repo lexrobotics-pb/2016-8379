@@ -1,11 +1,14 @@
 package com.qualcomm.ftcrobotcontroller.BetsyCode;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 
 /**
- * Created by eula on 4/18/2015 from
- *
+ * Created by eula on 4/18/2015 from Betsy's template pseudo code in Movement.java
+ * This class extends from Meow.java and (hopefully) function the same way as the
+ * old MecMove in RobotC using encoders
+ * Status: not completed
+ * Future implementation: use gyro and/or compass sensors (in the update function
+ * in this class) to know if the robot deviates from the planned path
  */
 public class MecMove extends Action {
 
@@ -38,6 +41,13 @@ public class MecMove extends Action {
     }
 
 
+    /**
+     * check if the robot has travelled a certain amount of distance
+     * scaled: defined in the constructor
+     * @param
+     * @return true if reached, false means that the robot should keep running
+     */
+
     @Override
     boolean isFinished(RobotState state) {
         return Math.abs(state.motorBackLeft.getCurrentPosition())<scaled
@@ -46,14 +56,32 @@ public class MecMove extends Action {
                 && Math.abs(state.motorBackRight.getCurrentPosition()) < scaled;
     }
 
+    /**
+     * created by eula on 4/28/2015
+     * tell the robot/the four wheels to move according to a list of speed under write mode
+     * @param state
+     */
+
     @Override
     void doAction(RobotState state) {
+        state.motorFrontLeft.setPower(speedList[0]);
+        state.motorFrontRight.setPower(speedList[1]);
+        state.motorBackLeft.setPower(speedList[2]);
+        state.motorBackRight.setPower(speedList[3]);
     }
 
+    /**
+     * not implemented yet
+     * check if the robot is at the place of where it should be;
+     * if no, update SpeedList
+     * @param state
+     * @return return true if the path should be changed
+     */
     @Override
     boolean update(RobotState state) {
         return true;
-    }//implement gyro or compass to detect obstacles or change in
+    }//implement gyro or compass to detect obstacles or change in the path
+
 
     /**
      *

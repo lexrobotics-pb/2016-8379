@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Programming/2016-8379/AsiaMaterial/FtcCommon/build/intermediates/bundles/debug/res/values/values.xml -->
+    <!-- From: file:/C:/Programming/2016-8379/2015-worlds%20demo/AsiaMaterial/FtcCommon/build/intermediates/bundles/debug/res/values/values.xml -->
     <eat-comment/>
     <string name="app_name">FtcCommon</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">

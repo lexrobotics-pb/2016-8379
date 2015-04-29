@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Programming/2016-8379/AsiaMaterial/FtcDriverStation/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Programming/2016-8379/2015-worlds%20demo/AsiaMaterial/FtcDriverStation/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string-array name="pref_gamepad_type_entries">
     <item>@string/gamepad_logitech_f310</item>
     <item>@string/gamepad_microsoft_xbox_360</item>
     <item>@string/gamepad_android_standard</item>
   </string-array>
-    <!-- From: file:/C:/Programming/2016-8379/AsiaMaterial/FtcDriverStation/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Programming/2016-8379/2015-worlds%20demo/AsiaMaterial/FtcDriverStation/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="light_qcom_blue">#C1E2E4</color>
     <color name="medium_qcom_blue">#D6F0FA</color>
-    <!-- From: file:/C:/Programming/2016-8379/AsiaMaterial/FtcDriverStation/src/main/res/values/dimens.xml -->
+    <!-- From: file:/C:/Programming/2016-8379/2015-worlds%20demo/AsiaMaterial/FtcDriverStation/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/C:/Programming/2016-8379/AsiaMaterial/FtcDriverStation/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Programming/2016-8379/2015-worlds%20demo/AsiaMaterial/FtcDriverStation/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="about_activity">About</string>
     <string name="action_exit_app">Exit</string>
@@ -53,7 +53,7 @@
     <string name="wifi_direct_update_settings">
     Please wait while we update the Wifi Direct settings on this device.
   </string>
-    <!-- From: file:/C:/Programming/2016-8379/AsiaMaterial/FtcDriverStation/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/Programming/2016-8379/2015-worlds%20demo/AsiaMaterial/FtcDriverStation/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

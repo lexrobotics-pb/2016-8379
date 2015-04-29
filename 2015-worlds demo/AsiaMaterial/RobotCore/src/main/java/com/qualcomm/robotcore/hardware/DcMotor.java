@@ -38,186 +38,195 @@ package com.qualcomm.robotcore.hardware;
  */
 public class DcMotor {
 
-  /**
-   * Motor direction
-   */
-  public enum Direction { FORWARD, REVERSE };
+    /**
+     * Motor direction
+     */
+    public enum Direction {
+        FORWARD, REVERSE
+    }
 
-  protected Direction direction = Direction.FORWARD;
-  protected DcMotorController controller = null;
-  protected int portNumber = -1;
-  protected DcMotorController.RunMode mode = DcMotorController.RunMode.RUN_WITHOUT_ENCODERS;
-  protected DcMotorController.DeviceMode devMode = DcMotorController.DeviceMode.READ_WRITE;//used to be WRITE_ONLY
+    ;
 
-
-  /**
-   * Constructor
-   *
-   * @param controller DC motor controller this motor is attached to
-   * @param portNumber portNumber position on the controller
-   */
-  public DcMotor(DcMotorController controller, int portNumber) {
-    this(controller, portNumber, Direction.FORWARD);
-  }
-
-  /**
-   * Constructor
-   *
-   * @param controller DC motor controller this motor is attached to
-   * @param portNumber portNumber port number on the controller
-   * @param direction direction this motor should spin
-   */
-  public DcMotor(DcMotorController controller, int portNumber, Direction direction) {
-    this.controller = controller;
-    this.portNumber = portNumber;
-    this.direction = direction;
-  }
-
-  /**
-   * Get DC motor controller
-   *
-   * @return controller
-   */
-  public DcMotorController getController() {
-    return controller;
-  }
+    protected Direction direction = Direction.FORWARD;
+    protected DcMotorController controller = null;
+    protected int portNumber = -1;
+    protected DcMotorController.RunMode mode = DcMotorController.RunMode.RUN_WITHOUT_ENCODERS;
+    protected DcMotorController.DeviceMode devMode = DcMotorController.DeviceMode.READ_WRITE;//used to be WRITE_ONLY
 
 
-  /**
-   * Set the direction
-   * @param direction direction
-   */
-  public void setDirection(Direction direction) {
-    this.direction = direction;
-  }
+    /**
+     * Constructor
+     *
+     * @param controller DC motor controller this motor is attached to
+     * @param portNumber portNumber position on the controller
+     */
+    public DcMotor(DcMotorController controller, int portNumber) {
+        this(controller, portNumber, Direction.FORWARD);
+    }
 
-  /**
-   * Get the direction
-   * @return direction
-   */
-  public Direction getDirection() {
-    return direction;
-  }
+    /**
+     * Constructor
+     *
+     * @param controller DC motor controller this motor is attached to
+     * @param portNumber portNumber port number on the controller
+     * @param direction  direction this motor should spin
+     */
+    public DcMotor(DcMotorController controller, int portNumber, Direction direction) {
+        this.controller = controller;
+        this.portNumber = portNumber;
+        this.direction = direction;
+    }
 
-  /**
-   * Get port number
-   *
-   * @return portNumber
-   */
-  public int getPortNumber() {
-    return portNumber;
-  }
+    /**
+     * Get DC motor controller
+     *
+     * @return controller
+     */
+    public DcMotorController getController() {
+        return controller;
+    }
 
-  /**
-   * Set the current motor power
-   *
-   * @param power from -1.0 to 1.0
-   */
-  public void setPower(double power) {
-    if (direction == Direction.REVERSE) power *= -1;
-    if (mode == DcMotorController.RunMode.RUN_TO_POSITION) power = Math.abs(power);
-    controller.setMotorPower(portNumber, power);
-  }
 
-  /**
-   * Get the current motor power
-   *
-   * @return scaled from -1.0 to 1.0
-   */
-  public double getPower() {
-    double power = controller.getMotorPower(portNumber);
-    if (direction == Direction.REVERSE && power != 0.0) power *= -1;
-    return power;
-  }
+    /**
+     * Set the direction
+     *
+     * @param direction direction
+     */
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
 
-  /**
-   * Allow motor to float
-   */
-  public void setPowerFloat() {
-    controller.setMotorPowerFloat(portNumber);
-  }
+    /**
+     * Get the direction
+     *
+     * @return direction
+     */
+    public Direction getDirection() {
+        return direction;
+    }
 
-  /**
-   * Is motor power set to float?
-   *
-   * @return true of motor is set to float
-   */
-  public boolean getPowerFloat() {
-    return controller.getMotorPowerFloat(portNumber);
-  }
+    /**
+     * Get port number
+     *
+     * @return portNumber
+     */
+    public int getPortNumber() {
+        return portNumber;
+    }
 
-  /**
-   * Set the motor target position, where 1.0 is one full rotation
-   * Motor power should be positive if using run to position
-   *
-   * @param position range from Integer.MIN_VALUE to Integer.MAX_VALUE
-   *
-   * @param position
-   */
-  public void setTargetPosition(double position){
-    controller.setMotorTargetPosition(portNumber, position);
-  }
+    /**
+     * Set the current motor power
+     *
+     * @param power from -1.0 to 1.0
+     */
+    public void setPower(double power) {
+        if (direction == Direction.REVERSE) power *= -1;
+        if (mode == DcMotorController.RunMode.RUN_TO_POSITION) power = Math.abs(power);
+        controller.setMotorPower(portNumber, power);
+    }
 
-  /**
-   * Get the current motor target position
-   *
-   * @return scaled, where 1.0 is one full rotation
-   */
-  public double getTargetPosition(){
-    return controller.getMotorTargetPosition(portNumber);
-  }
+    /**
+     * Get the current motor power
+     *
+     * @return scaled from -1.0 to 1.0
+     */
+    public double getPower() {
+        double power = controller.getMotorPower(portNumber);
+        if (direction == Direction.REVERSE && power != 0.0) power *= -1;
+        return power;
+    }
 
-  /**
-   * Get the current encoder value
-   *
-   * @return double indicating current position
-   */
-  public double getCurrentPosition(){
-    return controller.getMotorCurrentPosition(portNumber);
-  }
+    /**
+     * Allow motor to float
+     */
+    public void setPowerFloat() {
+        controller.setMotorPowerFloat(portNumber);
+    }
 
-  /**
-   * Set the current channel mode
-   *
-   * @param mode run mode
-   */
-  public void setChannelMode(DcMotorController.RunMode mode) {
-    this.mode = mode;
-    controller.setMotorChannelMode(portNumber, mode);
-  }
+    /**
+     * Is motor power set to float?
+     *
+     * @return true of motor is set to float
+     */
+    public boolean getPowerFloat() {
+        return controller.getMotorPowerFloat(portNumber);
+    }
 
-    //hack
+    /**
+     * Set the motor target position, where 1.0 is one full rotation
+     * Motor power should be positive if using run to position
+     *
+     * @param position range from Integer.MIN_VALUE to Integer.MAX_VALUE
+     * @param position
+     */
+    public void setTargetPosition(double position) {
+        controller.setMotorTargetPosition(portNumber, position);
+    }
 
+    /**
+     * Get the current motor target position
+     *
+     * @return scaled, where 1.0 is one full rotation
+     */
+    public double getTargetPosition() {
+        return controller.getMotorTargetPosition(portNumber);
+    }
+
+    /**
+     * Get the current encoder value
+     *
+     * @return double indicating current position
+     */
+    public double getCurrentPosition() {
+        return controller.getMotorCurrentPosition(portNumber);
+    }
+
+    /**
+     * Set the current channel mode
+     *
+     * @param mode run mode
+     */
+    public void setChannelMode(DcMotorController.RunMode mode) {
+        this.mode = mode;
+        controller.setMotorChannelMode(portNumber, mode);
+    }
+
+
+    /**
+     * Set the current device mode
+     *
+     * @param mode device mode
+     */
     public void setDeviceMode(DcMotorController.DeviceMode mode) {
         this.devMode = mode;
         controller.setMotorControllerDeviceMode(mode);
     }
 
 
-  /**
-   * Get the current channel mode
-   *
-   * @return run mode
-   */
-  public DcMotorController.RunMode getChannelMode(){
-    return controller.getMotorChannelMode(portNumber);
-  }
-
-   public DcMotorController.DeviceMode getDeviceMode(){
-     return controller.getMotorControllerDeviceMode();
+    /**
+     * Get the current channel mode
+     *
+     * @return run mode
+     */
+    public DcMotorController.RunMode getChannelMode() {
+        return controller.getMotorChannelMode(portNumber);
     }
 
-  /**
-   * mock API
-   *
-   * TODO: decide if we want to remove or implement this API
-   */
+    public DcMotorController.DeviceMode getDeviceMode() {
+        return controller.getMotorControllerDeviceMode();
+    }
 
-  public interface MotorCallback {
-    public void encoder(int value);
-  }
+    /**
+     * mock API
+     * <p/>
+     * TODO: decide if we want to remove or implement this API
+     */
 
-  public void getEncoders(MotorCallback calllback) {
+    public interface MotorCallback {
+        public void encoder(int value);
+    }
 
-  }
+    public void getEncoders(MotorCallback calllback) {
+
+    }
 }

@@ -16,7 +16,14 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.qualcomm.ftcdriverstation" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0481e074-4855-4581-a8b9-7d6984a2be36" name="Default" comment="" />
+    <list default="true" id="0481e074-4855-4581-a8b9-7d6984a2be36" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecMoveSensor.java" />
+      <change type="MOVED" beforePath="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\src\main\java\com\qualcomm\ftcrobotcontroller\IntegratedSDK\GrabberMove.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/ServoMove.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecMove.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecMove.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Meow.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Meow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/RobotState.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/RobotState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="ftc_sdk.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,22 +45,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Action.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Action.java">
+      <file leaf-file-name="ServoMove.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/ServoMove.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3371105" vertical-offset="0" max-vertical-offset="353">
-              <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GrabberMove.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/GrabberMove.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="663">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="9" selection-end-column="3" />
+              <folding>
+                <element signature="e#527#528#0" expanded="true" />
+                <element signature="e#560#561#0" expanded="true" />
+                <element signature="e#766#767#0" expanded="true" />
+                <element signature="e#825#826#0" expanded="true" />
+                <element signature="e#988#989#0" expanded="true" />
+                <element signature="e#1037#1038#0" expanded="true" />
+                <element signature="e#1142#1143#0" expanded="true" />
+                <element signature="e#1169#1170#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,8 +67,18 @@
       <file leaf-file-name="MecMove.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecMove.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2040">
-              <caret line="0" column="54" selection-start-line="0" selection-start-column="54" selection-end-line="0" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="745" max-vertical-offset="1938">
+              <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MecMoveSensor.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecMoveSensor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6748634" vertical-offset="297" max-vertical-offset="1683">
+              <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -71,28 +87,8 @@
       <file leaf-file-name="Meow.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Meow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1972">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1921">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DcMotorController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/DcMotorController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="3638">
-              <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DcMotor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/DcMotor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3207" max-vertical-offset="3961">
-              <caret line="198" column="49" selection-start-line="198" selection-start-column="49" selection-end-line="198" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -101,8 +97,18 @@
       <file leaf-file-name="RobotState.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/RobotState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1173">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1173">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Servo.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/Servo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1164" max-vertical-offset="2295">
+              <caret line="118" column="5" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -2787,12 +2793,15 @@
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/K9TankDrive.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/K9TeleOp.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/BetsyCode/RobotState.java" />
+        <option value="$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/DcMotor.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Action.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/GrabberMove.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecMove.java" />
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/RobotState.java" />
-        <option value="$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/DcMotor.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Meow.java" />
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Action.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecTerminate.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/RobotState.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/ServoMove.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecMoveSensor.java" />
       </list>
     </option>
   </component>
@@ -2828,6 +2837,22 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="AndroidView">
+        <subPane />
+      </pane>
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ftc_sdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Changed Files" />
         <subPane subId="Project Files">
@@ -2928,6 +2953,84 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="FtcRobotController">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="FtcRobotController">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="FtcRobotController">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src/main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="FtcRobotController">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="FtcRobotController">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src/main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="com/qualcomm/ftcrobotcontroller">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="FtcRobotController">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="FtcRobotController">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src/main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="com/qualcomm/ftcrobotcontroller">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="IntegratedSDK">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -2936,22 +3039,6 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
-      </pane>
-      <pane id="AndroidView">
-        <subPane />
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ftc_sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane />
       </pane>
     </panes>
   </component>
@@ -2972,6 +3059,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\src\main\java\com\qualcomm\ftcrobotcontroller" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.qualcomm.ftcrobotcontroller.IntegratedSDK" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.FtcDriverStation">
@@ -3182,7 +3272,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -3197,10 +3287,10 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34412265" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32879046" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22995462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22995462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -3236,20 +3326,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/K9AutoTime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2057" max-vertical-offset="3366">
-          <caret line="121" column="20" selection-start-line="121" selection-start-column="20" selection-end-line="121" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/K9IrSeeker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1938" max-vertical-offset="3723">
-          <caret line="114" column="18" selection-start-line="114" selection-start-column="18" selection-end-line="114" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/K9Line.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2023" max-vertical-offset="3230">
@@ -3530,26 +3606,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/GrabberMove.java">
+    <entry file="file://$PROJECT_DIR$/../../../2015-worlds demo/AsiaMaterial/FtcRobotController/build/intermediates/res/debug/menu/menu_autoconfigure.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.38526914" vertical-offset="0" max-vertical-offset="353">
+          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/K9TankDrive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09289618" vertical-offset="0" max-vertical-offset="3910">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Action.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38526914" vertical-offset="0" max-vertical-offset="353">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecMove.java">
+    <entry file="file://$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/DcMotor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1938">
-          <caret line="0" column="54" selection-start-line="0" selection-start-column="54" selection-end-line="0" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/RobotState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.4644809" vertical-offset="2065" max-vertical-offset="3196">
+          <caret line="198" column="49" selection-start-line="198" selection-start-column="49" selection-end-line="198" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -3558,44 +3643,62 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="3162">
           <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/DcMotor.java">
+    <entry file="file://$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/Servo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3207" max-vertical-offset="3961">
-          <caret line="198" column="49" selection-start-line="198" selection-start-column="49" selection-end-line="198" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1164" max-vertical-offset="2295">
+          <caret line="118" column="5" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../2015-worlds demo/AsiaMaterial/FtcRobotController/build/intermediates/res/debug/menu/menu_autoconfigure.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38526914" vertical-offset="0" max-vertical-offset="353">
-          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Meow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1972">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1921">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/K9TankDrive.java">
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecMove.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09289618" vertical-offset="0" max-vertical-offset="3910">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="745" max-vertical-offset="1938">
+          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Action.java">
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/ServoMove.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3371105" vertical-offset="0" max-vertical-offset="353">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="9" selection-end-column="3" />
+          <folding>
+            <element signature="e#527#528#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+            <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#1037#1038#0" expanded="true" />
+            <element signature="e#1142#1143#0" expanded="true" />
+            <element signature="e#1169#1170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/RobotState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1173">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecMoveSensor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6748634" vertical-offset="297" max-vertical-offset="1683">
+          <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
           <folding />
         </state>
       </provider>

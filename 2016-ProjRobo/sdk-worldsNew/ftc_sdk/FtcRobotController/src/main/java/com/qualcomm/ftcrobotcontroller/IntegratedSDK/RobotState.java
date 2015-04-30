@@ -13,6 +13,7 @@ public class RobotState {
     DcMotor motorBackLeft;
     DcMotor motorFrontLeft;
     DcMotor motorLift;
+    Servo servo_1;
 
     Servo grabber;
     Servo hood;
@@ -23,7 +24,7 @@ public class RobotState {
     UltrasonicSensor USback;
 
     GyroSensor gyro;
-    double EFrontRight, EBackRight, EBackLeft, EFrontLeft, ELift,USFrontR, USBackR,GyroR;
+    double EFrontRight, EBackRight, EBackLeft, EFrontLeft, ELift,USFrontR, USBackR, GyroR, servoP;
 
     RobotState()
     {
@@ -40,9 +41,11 @@ public class RobotState {
 
         gyro = hardwareMap.gyroSensor.get("gyro");
 
+        servo_1 = hardwareMap.servo.get("servo");
+
         grabber = hardwareMap.servo.get("grabber");
         hood = hardwareMap.servo.get("hood");
-//        holder = hardwareMap.servo.get("holder");
+//      holder = hardwareMap.servo.get("holder");
         trigger = hardwareMap.servo.get("trigger");
 
     }
@@ -56,6 +59,7 @@ public class RobotState {
         USBackR = USfront.getUltrasonicLevel();
         USBackR = USback.getUltrasonicLevel();
         GyroR = gyro.getRotation();
+        servoP = servo_1.getPosition();
     }
 
 

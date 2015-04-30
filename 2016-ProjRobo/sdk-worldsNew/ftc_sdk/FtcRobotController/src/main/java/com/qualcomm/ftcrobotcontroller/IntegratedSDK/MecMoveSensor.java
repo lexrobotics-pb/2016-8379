@@ -3,36 +3,23 @@ package com.qualcomm.ftcrobotcontroller.IntegratedSDK;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 
 /**
- * Created by eula on 4/18/2015 from Betsy's template pseudo code in Movement.java
- * This class extends from Meow.java and (hopefully) function the same way as the
- * old MecMove in RobotC using encoders
- * Status: not completed
- * Future implementation: use gyro and/or compass sensors (in the update function
- * in this class) to know if the robot deviates from the planned path
+ * Contributor: Kara Luo
+ * Last Modified: 4/30/15
+ * Note: Refers to pseudo code framework by Betsy Pu
+ * Implements abstract methods in Action to control sensor-based wheel movement
  */
-public class MecMove extends Action {
 
-    final double encoderScale=1120.0;
-    final double wheelRadius=((9.7)/2);
-    final double wheelCircumference=Math.PI * 2 * wheelRadius;
-    double speed, radians, speedRotation, distance, min, scaled;
+public class MecMoveSensor extends Action {
+
+    double speed, radians, speedRotation, moveTo, scaled;
     double[] speedList = new double[4];//0: front left  1: front right  2: back left  3: back right
 
 
-    MecMove(double Mspeed, double Mdegrees, double MspeedRotation, double Mdistance){
+    MecMoveSensor(double Mspeed, double Mdegrees, double MspeedRotation, double threshold){
         speed = Mspeed;
         radians = Mdegrees/180.0*Math.PI;
         speedRotation = MspeedRotation;
-        distance = Mdistance;
-
-        if (Math.cos(radians) == 0.0 || Math.sin(radians) == 0.0)
-            min = 1.0;
-        else if (Math.abs(1.0/Math.cos(radians))<= Math.abs(1.0 / Math.sin(radians)))
-            min = 1.0/Math.cos(radians);
-        else
-            min = 1.0/Math.sin(radians);
-
-        scaled = Math.abs(encoderScale * (distance * min / wheelCircumference));
+        moveTo = threshold;
 
         speedList[0] = speed * Math.sin(radians + Math.PI/4) + speedRotation;//front left
         speedList[1] = speed * Math.cos(radians + Math.PI/4) - speedRotation; //front right
@@ -42,18 +29,16 @@ public class MecMove extends Action {
 
 
     /**
-     * check if the robot has travelled a certain amount of distance
-     * scaled: defined in the constructor
+     * Last Edit: Kara Luo 4/30/15
+     * 
      * @param
      * @return true if reached, false means that the robot should keep running
      */
 
     @Override
     boolean isFinished(RobotState state) {
-        return Math.abs(state.motorBackLeft.getCurrentPosition())< scaled
-                && Math.abs(state.motorFrontRight.getCurrentPosition()) < scaled
-                && Math.abs(state.motorFrontLeft.getCurrentPosition())< scaled //changed motorBackLeft to motorFrontLeft - Kara 4/30/15
-                && Math.abs(state.motorBackRight.getCurrentPosition()) < scaled;
+        return state.USback.getUltrasonicLevel()< moveTo ||
+                state.USfront.getUltrasonicLevel() < moveTo;
     }
 
     /**

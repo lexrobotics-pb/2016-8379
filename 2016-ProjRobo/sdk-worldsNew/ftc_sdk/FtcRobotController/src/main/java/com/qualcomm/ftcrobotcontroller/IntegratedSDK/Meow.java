@@ -23,6 +23,8 @@ public class Meow extends OpMode { /*Betsy 4-28*/
     DcMotor motorBackLeft;
     DcMotor motorFrontLeft;
 
+    Servo servo_1;
+
     Servo grabber;
     Servo hood;
     Servo arm;
@@ -48,6 +50,8 @@ public class Meow extends OpMode { /*Betsy 4-28*/
         motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //reverse front left motor
         motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");
+
+        servo_1 = hardwareMap.servo.get("servo");
 
         grabber = hardwareMap.servo.get("grabber");
         hood = hardwareMap.servo.get("hood");

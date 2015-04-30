@@ -32,10 +32,12 @@ NOTE TO READERS: A valid attempt was made to make this document useful and humor
 > Always pull before making any edits
 > Give descriptive commit messages
 > Read through merge messages before making decisions, don't overwrite other people's hardwork
+> When pushing a new project, make sure git doesn't eat up some files and make it not work for other people
 
 # TROUBLESHOOTING
   # Code
   > Project does not load correctly
+    > Check that you have all of the files
     > Restart Android studio
   > Unrecognized symbols: check import statement. 
     > If everything is imported correctly but the corresponding import statement is greyed out
@@ -44,9 +46,10 @@ NOTE TO READERS: A valid attempt was made to make this document useful and humor
   # CONNECTION
   > Power Cycling: first thing to try when there are issues finding devices
     > Disconnect Robot Controller from robot
-    > Restart robot from robot controller
+    > Close the app
     > Restart power module
-    > Plug in phone and load configuration file 
+    > Plug in phone to open the app naturally
+    > If still doesn't work, load configuration file and Restart Robot
   > Battery Level: Robot Controller still not recognizing devices after power cycling
     > Accompanied by symptoms including, but not limited to: robot hysteria, robot fatigue, and robot nausea
     > Involves difficut procedure of taking out battery and putting a fresh one in
@@ -55,7 +58,12 @@ NOTE TO READERS: A valid attempt was made to make this document useful and humor
   > Hardware: Trying to scapegoat hardware *cough* I meant, when above steps fail
     > Close the robot controller app and plug in to robot
     > If the app does not pop up, congrats, it is hardware's problem and just switch up the cables or related devices
+    > Make sure you are using the one with a tumor (ferrite choke) that is provided by our dear sponsor Qualcomm
     > If the app pops up, see next section
     > If following the next section doesn't work, it may still be the cable's problem, switch it up just to check
   > Configuration: 
     > Stop being lazy and reconfigure everything into a new file
+  > Potentially contact Josh or Tom for help
+
+  # SCREEN FLASHING
+  > If you didn't do anything crazy to our robot and our devices such as scaring it at midnight or forget to feed it when it needs to, it might be a valuable incident for Josh to investigate on

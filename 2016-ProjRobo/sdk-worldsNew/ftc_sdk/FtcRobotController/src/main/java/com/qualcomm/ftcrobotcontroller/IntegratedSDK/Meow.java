@@ -9,6 +9,16 @@ import com.qualcomm.robotcore.hardware.Servo;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * Created by Betsy and Eula
+ * Last Update date: 4/30/2015
+ * Purpose: the main class of the new looping system. Classes that are implemented in this class
+ * includes RobotState, Action, and all of the movement classes.It uses a queue object to sequent
+ * the actions that need to the accomplished in order. a new movement class is required if threading
+ * is involved (or potentially have a class just for threading in this framework?)
+ * Status: not completed
+ */
+
 public class Meow extends OpMode { /*Betsy 4-28*/
 
     //define a list of movements
@@ -65,7 +75,7 @@ public class Meow extends OpMode { /*Betsy 4-28*/
 
         isWrite=true;
 
-        actions.add(new MecMove(78.0, 0.0, 0.0, 20.0));
+        actions.add(new MecMove(78.0, 0.0, 0.0, 20.0));//add actions to the queue
     }
 
     @Override

@@ -212,6 +212,15 @@ public class DcMotor {
     }
 
     /**
+     * Get the current channel mode
+     *
+     * @return run mode
+     */
+    public DcMotorController.DeviceMode getChannelMode() {
+        return controller.getMotorChannelMode(portNumber);
+    }
+
+    /**
      * mock API
      * <p/>
      * TODO: decide if we want to remove or implement this API

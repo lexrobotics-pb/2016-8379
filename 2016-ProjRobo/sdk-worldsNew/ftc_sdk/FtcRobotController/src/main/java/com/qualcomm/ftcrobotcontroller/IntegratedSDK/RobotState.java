@@ -6,6 +6,13 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
 
+/**
+ * Created by Betsy and Eula from Betsy's pseudo codes
+ * Latest Update date: 4/30/2015
+ * Purpose of the class: store all of the configuration variables and potentially read from various sensor values
+ * Status: useful enough for now
+ */
+
 public class RobotState {
     HardwareMap hardwareMap = new HardwareMap();
     DcMotor motorFrontRight;
@@ -56,7 +63,7 @@ public class RobotState {
         EFrontRight = motorFrontRight.getCurrentPosition();
         EBackLeft = motorBackLeft.getCurrentPosition();
         ELift = motorLift.getCurrentPosition();
-        USBackR = USfront.getUltrasonicLevel();
+        USFrontR = USfront.getUltrasonicLevel();
         USBackR = USback.getUltrasonicLevel();
         GyroR = gyro.getRotation();
         servoP = servo_1.getPosition();

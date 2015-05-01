@@ -3,7 +3,7 @@ package com.qualcomm.ftcrobotcontroller.IntegratedSDK;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 
 /**
- * Created by eula from Betsy's template pseudo code in Movement.java
+ * Created by eula from Betsy's template pseudo code in Movement.java on 4/18
  * Last Update date: 4/18/2015
  * Purpose: This class extends from Meow.java and (hopefully) function the same way as the
  * old MecMove in RobotC using encoders
@@ -84,21 +84,6 @@ public class MecMove extends Action {
     }//implement gyro or compass to detect obstacles or change in the path
 
 
-    /**
-     *
-     * @return
-     */
-    @Override
-    boolean isDEVModeWrite()
-    {
-        return true;
-    }
-
-    @Override
-    boolean isDEVModeRead()
-    {
-        return true;
-    }
 
     /**
      * written  by eula on 4/28

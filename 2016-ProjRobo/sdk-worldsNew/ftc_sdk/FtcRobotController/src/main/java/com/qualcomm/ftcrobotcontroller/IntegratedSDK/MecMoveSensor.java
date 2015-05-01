@@ -67,23 +67,6 @@ public class MecMoveSensor extends Action {
         return true;
     }//implement gyro or compass to detect obstacles or change in the path
 
-
-    /**
-     *
-     * @return
-     */
-    @Override
-    boolean isDEVModeWrite()
-    {
-        return true;
-    }
-
-    @Override
-    boolean isDEVModeRead()
-    {
-        return true;
-    }
-
     /**
      * written  by eula on 4/28
      * reset encoders under write mode

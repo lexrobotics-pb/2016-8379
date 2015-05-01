@@ -216,8 +216,9 @@ public class DcMotor {
      *
      * @return run mode
      */
-    public DcMotorController.DeviceMode getChannelMode() {
-        return controller.getMotorChannelMode(portNumber);
+    //selfish implementation
+    public DcMotorController.DeviceMode getDeviceMode() {
+        return controller.getMotorControllerDeviceMode();
     }
 
     /**

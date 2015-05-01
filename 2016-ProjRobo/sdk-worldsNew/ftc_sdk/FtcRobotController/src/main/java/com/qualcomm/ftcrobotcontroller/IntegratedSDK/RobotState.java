@@ -1,14 +1,15 @@
 package com.qualcomm.ftcrobotcontroller.IntegratedSDK;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
 
 /**
- * Created by Betsy and Eula from Betsy's pseudo codes
- * Latest Update date: 4/30/2015
+ * Created by Betsy and Eula from Betsy's pseudo codes on 4/18
+ * Latest Update date: 5/1/2015
  * Purpose of the class: store all of the configuration variables and potentially read from various sensor values
  * Status: useful enough for now
  */
@@ -20,18 +21,17 @@ public class RobotState {
     DcMotor motorBackLeft;
     DcMotor motorFrontLeft;
     DcMotor motorLift;
-    Servo servo_1;
 
     Servo grabber;
     Servo hood;
-//    Servo holder;//nothing for continuous servo
     Servo trigger;
+    Servo arm;
 
     UltrasonicSensor USfront;
     UltrasonicSensor USback;
 
     GyroSensor gyro;
-    double EFrontRight, EBackRight, EBackLeft, EFrontLeft, ELift,USFrontR, USBackR, GyroR, servoP;
+    double EFrontRight, EBackRight, EBackLeft, EFrontLeft, ELift,USFrontR, USBackR, GyroR;
 
     RobotState()
     {
@@ -48,11 +48,9 @@ public class RobotState {
 
         gyro = hardwareMap.gyroSensor.get("gyro");
 
-        servo_1 = hardwareMap.servo.get("servo");
-
+        arm = hardwareMap.servo.get("arm");
         grabber = hardwareMap.servo.get("grabber");
         hood = hardwareMap.servo.get("hood");
-//      holder = hardwareMap.servo.get("holder");
         trigger = hardwareMap.servo.get("trigger");
 
     }
@@ -66,9 +64,42 @@ public class RobotState {
         USFrontR = USfront.getUltrasonicLevel();
         USBackR = USback.getUltrasonicLevel();
         GyroR = gyro.getRotation();
-        servoP = servo_1.getPosition();
     }
 
+
+    public boolean isDEVModeWrite()
+    {
+        return motorFrontRight.getDeviceMode().equals(DcMotorController.DeviceMode.WRITE_ONLY) &&
+                motorBackRight.getDeviceMode().equals(DcMotorController.DeviceMode.WRITE_ONLY) &&
+                motorBackLeft.getDeviceMode().equals(DcMotorController.DeviceMode.WRITE_ONLY) &&
+                motorFrontLeft.getDeviceMode().equals(DcMotorController.DeviceMode.WRITE_ONLY) &&
+                motorLift.getDeviceMode().equals(DcMotorController.DeviceMode.WRITE_ONLY);
+    }
+
+    public boolean isDEVModeRead()
+    {
+        return motorFrontRight.getDeviceMode().equals(DcMotorController.DeviceMode.READ_ONLY) &&
+                motorBackRight.getDeviceMode().equals(DcMotorController.DeviceMode.READ_ONLY) &&
+                motorBackLeft.getDeviceMode().equals(DcMotorController.DeviceMode.READ_ONLY) &&
+                motorFrontLeft.getDeviceMode().equals(DcMotorController.DeviceMode.READ_ONLY) &&
+                motorLift.getDeviceMode().equals(DcMotorController.DeviceMode.READ_ONLY);
+    }
+
+    public void switchAllToRead(){
+        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+        motorLift.setDeviceMode(DcMotorController.DeviceMode.READ_ONLY);
+    }
+
+    public void switchAllToWrite(){
+        motorFrontLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+        motorFrontRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+        motorBackLeft.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+        motorBackRight.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+        motorLift.setDeviceMode(DcMotorController.DeviceMode.WRITE_ONLY);
+    }
 
     //partially update something?
 }

@@ -9,8 +9,15 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Implements abstract methods in Action to control general servo movement
  */
 
-public class ServoMove extends Action {
+/**
+ * Contributor: eula
+ * Last Modified: 5/4/2015
+ * Note: deleted servo_1 and removed isDEVModeWrite and isDEVModeRead because it is not compiling correctly
+ * contructor also pass in a servo so it can control another servo from the RobotState class
+ */
 
+public class ServoMove extends Action {
+    Servo servo;
     double moveTo = 0.0;
 
     /**
@@ -18,7 +25,8 @@ public class ServoMove extends Action {
      * Constructor for ServoMove class
      * @param position desired position of servo
      */
-    ServoMove(double position){
+    ServoMove(Servo s,double position){
+        servo=s;//a servo from RobotState class
         moveTo = position;
     }
 
@@ -30,7 +38,8 @@ public class ServoMove extends Action {
 
     @Override
     boolean isFinished(RobotState state) {
-        return state.servo_1.getPosition()== moveTo;
+//        return servo.getPosition()== moveTo;
+        return true;// once the is set to move, we don't need to check whether it has reached there or not (not for continuous
     }
 
     /**
@@ -40,8 +49,8 @@ public class ServoMove extends Action {
      */
     @Override
     void doAction(RobotState state) {
-        state.servo_1.setPosition(moveTo);
-    }
+        servo.setPosition(moveTo);
+    }//eula: changed because we don't have servo_1 on the robot
 
     /**
      * @param state
@@ -52,20 +61,4 @@ public class ServoMove extends Action {
         return true;
     }
 
-
-    /**
-     *
-     * @return
-     */
-    @Override
-    boolean isDEVModeWrite()
-    {
-        return true;
-    }
-
-    @Override
-    boolean isDEVModeRead()
-    {
-        return true;
-    }
 }

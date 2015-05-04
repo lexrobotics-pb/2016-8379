@@ -33,6 +33,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpModeManager;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister;
+import com.qualcomm.ftcrobotcontroller.IntegratedSDK.*;
 
 /**
  * Register Op Modes
@@ -62,6 +63,7 @@ public class FtcOpModeRegister implements OpModeRegister {
       manager.register("K9Line", K9Line.class);
       manager.register("K9TankDrive", K9TankDrive.class);
       manager.register("NullOp", NullOp.class);
+      manager.register("Meow", Meow.class);
 
 /*
     manager.register("TeleOp", TeleOp.class);

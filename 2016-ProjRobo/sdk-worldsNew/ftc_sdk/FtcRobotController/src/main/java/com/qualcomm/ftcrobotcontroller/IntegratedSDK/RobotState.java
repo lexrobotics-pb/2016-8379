@@ -66,6 +66,12 @@ public class RobotState {
         GyroR = gyro.getRotation();
     }
 
+    public void updatePosition() {//update all parts of the robot
+        EFrontLeft = motorFrontLeft.getCurrentPosition();
+        EBackRight = motorBackRight.getCurrentPosition();
+        EFrontRight = motorFrontRight.getCurrentPosition();
+        EBackLeft = motorBackLeft.getCurrentPosition();
+    }
 
     public boolean isDEVModeWrite()
     {

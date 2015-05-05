@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
+import com.qualcomm.robotcore.robocol.Telemetry;
 
 /**
  * Created by Betsy and Eula from Betsy's pseudo codes on 4/18
@@ -15,6 +16,7 @@ import com.qualcomm.robotcore.hardware.UltrasonicSensor;
  */
 
 public class RobotState {
+    Telemetry telemetry = new Telemetry();
     HardwareMap hardwareMap = new HardwareMap();
     DcMotor motorFrontRight;
     DcMotor motorBackRight;
@@ -35,13 +37,23 @@ public class RobotState {
 
     RobotState()
     {
-        motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
+        try {
+            telemetry.addData("*", "hello, start initializing hardwaremap");
+            motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
+        }catch(Exception e){
+            System.out.println("JOIiseoiheroghreoighero");
+        }
+/*        motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
         motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //reverses back right motor
         motorLift = hardwareMap.dcMotor.get("motorLift");
         motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //reverse front left motor
         motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");
+        motorFrontLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        motorFrontRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        motorBackRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        motorBackLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
         USfront = hardwareMap.ultrasonicSensor.get("USfront");
         USback = hardwareMap.ultrasonicSensor.get("USback");
@@ -51,7 +63,7 @@ public class RobotState {
         arm = hardwareMap.servo.get("arm");
         grabber = hardwareMap.servo.get("grabber");
         hood = hardwareMap.servo.get("hood");
-        trigger = hardwareMap.servo.get("trigger");
+        trigger = hardwareMap.servo.get("trigger");*/
 
     }
 

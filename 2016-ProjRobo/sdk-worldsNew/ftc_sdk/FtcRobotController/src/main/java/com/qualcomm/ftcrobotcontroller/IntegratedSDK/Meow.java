@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.robocol.Telemetry;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -22,12 +23,10 @@ import java.util.Queue;
 public class Meow extends OpMode { /*Betsy 4-28*/
 
     //define a list of movements
+    Telemetry telemetry = new Telemetry();
     static Queue<Action> actions=new LinkedList<Action>();
     static RobotState state=new RobotState();
     static boolean isWrite; //false=should be in read mode, true=should be in write mode
-
-    public Meow() {
-    }
 
     @Override
     public void start()

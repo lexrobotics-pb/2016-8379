@@ -1,0 +1,19 @@
+Since FTC's quickstart guide is more like a start-textbook, here are a few short summaries.
+
+GETTING IT RUNNING [in progress]
+How to get Android Studio running on your own laptop.
+1. Install Android Studio. [***details forthcoming - special SDK Manager stuff possibly***]
+2. Connect the phone, then install the Android Phone device drivers.
+	Run > Device Manager. Go to Other, and right-click on the right one. Properties. Update Drivers. Browse to:
+		C:\Users\[You]\AppData\Local\Android\sdk\extras\google\usb_driver
+	and simply tell it to search that entire directory for drivers.
+3. Browse to and open the project (2016-8379/2016-ProjRobo as of 5/6/2015).
+4. Click the green right-pointing arrow to compile and download to the phone.
+You can now download any future programs in exactly the same way.
+
+WRITING A PROGRAM [in progress]
+How to write an OpMode and get it to run.
+-copy the format
+-register the opmode
+-compile & download
+

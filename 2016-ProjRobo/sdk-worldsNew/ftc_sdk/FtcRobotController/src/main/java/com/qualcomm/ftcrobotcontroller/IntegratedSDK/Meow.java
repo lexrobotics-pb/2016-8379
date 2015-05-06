@@ -53,7 +53,7 @@ public class Meow extends OpMode { /*Betsy 4-28*/
                 isWrite=true; //set mode to WRITE for action*
             }
         }
-        else if(state.isDEVModeWrite()){ //REQUIRE WRITEMODE
+        else if(state.isDEVModeWrite()){ //REQUIRES WRITEMODE
             curAction.doAction(state);//including the current action or updated action
             isWrite=false; //set mode to READ to check for action finish*
         }
@@ -62,6 +62,5 @@ public class Meow extends OpMode { /*Betsy 4-28*/
     @Override
     public void stop()
     {
-
     }
 }

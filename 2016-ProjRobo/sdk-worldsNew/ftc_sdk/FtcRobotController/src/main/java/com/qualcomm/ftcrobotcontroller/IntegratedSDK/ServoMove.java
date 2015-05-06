@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Contributor: eula
  * Last Modified: 5/4/2015
  * Note: deleted servo_1 and removed isDEVModeWrite and isDEVModeRead because it is not compiling correctly
- * contructor also pass in a servo so it can control another servo from the RobotState class
+ * constructor also pass in a servo so it can control another servo from the RobotState class
  */
 
 public class ServoMove extends Action {

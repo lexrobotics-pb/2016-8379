@@ -24,11 +24,6 @@ public class RobotState {
     DcMotor motorFrontLeft;
     DcMotor motorLift;
 
-    Servo grabber;
-    Servo hood;
-    Servo trigger;
-    Servo arm;
-
     UltrasonicSensor USfront;
     UltrasonicSensor USback;
 

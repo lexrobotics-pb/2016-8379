@@ -1,5 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.IntegratedSDK;
 
+import com.qualcomm.ftccommon.DbgLog;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.GyroSensor;
@@ -32,6 +33,8 @@ public class RobotState {
 
     RobotState()
     {
+        DbgLog.msg("run RobotState");
+        telemetry.addData("*","robotState");
         try {
             telemetry.addData("*", "hello, start initializing hardwaremap");
             motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
@@ -82,20 +85,20 @@ public class RobotState {
 
     public boolean isDEVModeWrite()
     {
-        return motorFrontRight.getDeviceMode().equals(DcMotorController.DeviceMode.WRITE_ONLY) &&
-                motorBackRight.getDeviceMode().equals(DcMotorController.DeviceMode.WRITE_ONLY) &&
-                motorBackLeft.getDeviceMode().equals(DcMotorController.DeviceMode.WRITE_ONLY) &&
-                motorFrontLeft.getDeviceMode().equals(DcMotorController.DeviceMode.WRITE_ONLY) &&
-                motorLift.getDeviceMode().equals(DcMotorController.DeviceMode.WRITE_ONLY);
+        return motorFrontRight.getDeviceMode()==(DcMotorController.DeviceMode.WRITE_ONLY) &&
+                motorBackRight.getDeviceMode()==(DcMotorController.DeviceMode.WRITE_ONLY) &&
+                motorBackLeft.getDeviceMode()==(DcMotorController.DeviceMode.WRITE_ONLY) &&
+                motorFrontLeft.getDeviceMode()==(DcMotorController.DeviceMode.WRITE_ONLY) &&
+                motorLift.getDeviceMode()==(DcMotorController.DeviceMode.WRITE_ONLY);
     }
 
     public boolean isDEVModeRead()
     {
-        return motorFrontRight.getDeviceMode().equals(DcMotorController.DeviceMode.READ_ONLY) &&
-                motorBackRight.getDeviceMode().equals(DcMotorController.DeviceMode.READ_ONLY) &&
-                motorBackLeft.getDeviceMode().equals(DcMotorController.DeviceMode.READ_ONLY) &&
-                motorFrontLeft.getDeviceMode().equals(DcMotorController.DeviceMode.READ_ONLY) &&
-                motorLift.getDeviceMode().equals(DcMotorController.DeviceMode.READ_ONLY);
+        return motorFrontRight.getDeviceMode()==(DcMotorController.DeviceMode.READ_ONLY) &&
+                motorBackRight.getDeviceMode()==(DcMotorController.DeviceMode.READ_ONLY) &&
+                motorBackLeft.getDeviceMode()==(DcMotorController.DeviceMode.READ_ONLY) &&
+                motorFrontLeft.getDeviceMode()==(DcMotorController.DeviceMode.READ_ONLY) &&
+                motorLift.getDeviceMode()==(DcMotorController.DeviceMode.READ_ONLY);
     }
 
     public void switchAllToRead(){

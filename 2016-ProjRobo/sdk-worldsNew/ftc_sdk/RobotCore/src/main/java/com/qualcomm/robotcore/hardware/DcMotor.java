@@ -45,7 +45,6 @@ public class DcMotor {
         FORWARD, REVERSE
     }
 
-
     protected Direction direction = Direction.FORWARD;
     protected DcMotorController controller = null;
     protected int portNumber = -1;

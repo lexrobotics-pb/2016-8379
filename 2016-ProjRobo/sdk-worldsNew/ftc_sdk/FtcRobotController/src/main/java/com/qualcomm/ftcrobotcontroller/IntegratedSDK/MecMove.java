@@ -72,7 +72,7 @@ public class MecMove extends Action {
 
         //Note by Kara: Does RunMode require one loop to implement like DeviceMode?
         // If so, can we just change the code in Meow such that RunMode is RUN_USING_ENCODERS by default?
-        
+
         /*state.motorFrontLeft.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);//assuming that this turns on the encoders
         state.motorFrontRight.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         state.motorBackRight.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);

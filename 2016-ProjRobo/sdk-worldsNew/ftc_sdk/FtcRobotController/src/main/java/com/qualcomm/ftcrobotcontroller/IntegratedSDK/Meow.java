@@ -1,14 +1,18 @@
 package com.qualcomm.ftcrobotcontroller.IntegratedSDK;
 
+import android.widget.TextView;
+
+import com.qualcomm.ftccommon.DbgLog;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.robocol.Telemetry;
-
 import java.util.LinkedList;
 import java.util.Queue;
+import android.util.Log;
+import android.widget.*;
 
 /**
  * Created by Betsy and Eula on 4/18
@@ -31,12 +35,15 @@ public class Meow extends OpMode { /*Betsy 4-28*/
     @Override
     public void start()
     {
+        DbgLog.msg("Start");
+        telemetry.addData("Test", "Start");
         isWrite=true;
         actions.add(new MecMove(78.0, 0.0, 0.0, 20.0));//add actions to the queue
     }
 
     @Override
     public void loop(){
+        telemetry.addData("*","run");
         if(actions.isEmpty()) return;
         Action curAction=actions.peek();
         if(!isWrite && state.isDEVModeWrite()) state.switchAllToRead();//might change each individual mode or change the all together?

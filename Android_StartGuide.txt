@@ -8,7 +8,7 @@ How to get Android Studio running on your own laptop.
 		C:\Users\[You]\AppData\Local\Android\sdk\extras\google\usb_driver
 	and simply tell it to search that entire directory for drivers.
 3. Browse to and open the project (2016-8379/2016-ProjRobo as of 5/6/2015).
-4. Click the green right-pointing arrow to compile and download to the phone.
+4. Select the correct device on the left side of the right-pointing arrow and click the green right-pointing arrow to compile and download to the phone.
 You can now download any future programs in exactly the same way.
 
 WRITING A PROGRAM [in progress]

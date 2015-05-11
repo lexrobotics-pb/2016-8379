@@ -35,7 +35,7 @@ public class Meow extends OpMode { /*Betsy 4-28*/
     @Override
     public void start()
     {
-        DbgLog.msg("Start");
+        DbgLog.msg("**** Start");
         telemetry.addData("Test", "Start");
         isWrite=true;
         actions.add(new MecMove(78.0, 0.0, 0.0, 20.0));//add actions to the queue

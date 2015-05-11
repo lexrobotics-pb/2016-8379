@@ -17,8 +17,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0481e074-4855-4581-a8b9-7d6984a2be36" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../Android_StartGuide.txt" afterPath="$PROJECT_DIR$/../../../Android_StartGuide.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/RobotState.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/RobotState.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ftc_sdk.iws" />
@@ -65,18 +64,8 @@
       <file leaf-file-name="Meow.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Meow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="727" max-vertical-offset="1343">
-              <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RobotState.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/RobotState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.625683" vertical-offset="756" max-vertical-offset="2040">
-              <caret line="108" column="60" selection-start-line="108" selection-start-column="60" selection-end-line="108" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1139">
+              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="47" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -92,11 +81,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="RobotState.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/RobotState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7896175" vertical-offset="306" max-vertical-offset="2074">
+              <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DcMotor.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/DcMotor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2751" max-vertical-offset="3332">
-              <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2700" max-vertical-offset="3332">
+              <caret line="216" column="28" selection-start-line="216" selection-start-column="28" selection-end-line="216" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -105,8 +104,8 @@
       <file leaf-file-name="DcMotorController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/DcMotorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2941" max-vertical-offset="3638">
-              <caret line="173" column="5" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="473" max-vertical-offset="3162">
+              <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -3168,7 +3167,11 @@
       <created>1430944921524</created>
       <updated>1430944921524</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Android_StartGuide edits on compiling app to phone">
+      <created>1431345171693</created>
+      <updated>1431345171693</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -3177,6 +3180,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3199,7 +3203,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3068493" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -3222,7 +3225,8 @@
     <MESSAGE value="New project for sdk integration, imported pseudocode and resolved conflicts" />
     <MESSAGE value="minor tweaks" />
     <MESSAGE value="troubleshoot" />
-    <option name="LAST_COMMIT_MESSAGE" value="troubleshoot" />
+    <MESSAGE value="Android_StartGuide edits on compiling app to phone" />
+    <option name="LAST_COMMIT_MESSAGE" value="Android_StartGuide edits on compiling app to phone" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -3526,6 +3530,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.7628866" vertical-offset="1983" max-vertical-offset="2565">
           <caret line="118" column="5" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3533,14 +3538,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1156">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecMoveSensor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="1411">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -3561,34 +3558,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/DcMotorController.java">
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/MecMoveSensor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2329" max-vertical-offset="3162">
-          <caret line="173" column="5" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="1411">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Meow.java">
+    <entry file="file://$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/DcMotorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="727" max-vertical-offset="1343">
-          <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="167" max-vertical-offset="3162">
+          <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RobotCore/src/main/java/com/qualcomm/robotcore/hardware/DcMotor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2751" max-vertical-offset="3332">
-          <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2700" max-vertical-offset="3332">
+          <caret line="216" column="28" selection-start-line="216" selection-start-column="28" selection-end-line="216" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/Meow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1139">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="47" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/IntegratedSDK/RobotState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.625683" vertical-offset="756" max-vertical-offset="2040">
-          <caret line="108" column="60" selection-start-line="108" selection-start-column="60" selection-end-line="108" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.7896175" vertical-offset="306" max-vertical-offset="2074">
+          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
           <folding />
         </state>
       </provider>

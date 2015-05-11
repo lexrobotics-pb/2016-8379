@@ -11,7 +11,8 @@ import com.qualcomm.robotcore.robocol.Telemetry;
 
 /**
  * Created by Betsy and Eula from Betsy's pseudo codes on 4/18
- * Latest Update date: 5/1/2015
+ * Latest Update date: 5/11/2015 8AM
+ * Latest Update by: Kara
  * Purpose of the class: store all of the configuration variables and potentially read from various sensor values
  * Status: useful enough for now
  */
@@ -33,15 +34,16 @@ public class RobotState {
 
     RobotState()
     {
-        DbgLog.msg("run RobotState");
-        telemetry.addData("*","robotState");
+        //DbgLog.msg("run RobotState");
+        //telemetry.addData("*","robotState");
         try {
-            telemetry.addData("*", "hello, start initializing hardwaremap");
+            //telemetry.addData("*", "hello, start initializing hardwaremap");
             motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
         }catch(Exception e){
-            System.out.println("JOIiseoiheroghreoighero");
+            DbgLog.msg("***** motorFrontRight failed to initialize");
         }
-/*        motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
+        // Kara 5/11/15 8:00 - Uncommented initialization statements to debug
+       motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
         motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //reverses back right motor
         motorLift = hardwareMap.dcMotor.get("motorLift");
@@ -58,7 +60,7 @@ public class RobotState {
 
         gyro = hardwareMap.gyroSensor.get("gyro");
 
-        arm = hardwareMap.servo.get("arm");
+        /*arm = hardwareMap.servo.get("arm");
         grabber = hardwareMap.servo.get("grabber");
         hood = hardwareMap.servo.get("hood");
         trigger = hardwareMap.servo.get("trigger");*/

@@ -39,9 +39,13 @@ public class Meow extends OpMode { /*Betsy 4-28*/
     public void start()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         DbgLog.msg("********Calling constructor");
         state = new RobotStateFix(hardware1);
         DbgLog.msg("**** Start");
+=======
+        DbgLog.msg("Start");
+>>>>>>> parent of 34ac1fe... Sensor classes
 =======
         DbgLog.msg("Start");
 >>>>>>> parent of 34ac1fe... Sensor classes

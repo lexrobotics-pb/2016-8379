@@ -1,6 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.IntegratedSDK;
 
 import com.qualcomm.ftccommon.DbgLog;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.GyroSensor;
@@ -8,6 +9,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
 import com.qualcomm.robotcore.robocol.Telemetry;
+import java.io.*;
 
 /**
  * Created by Betsy and Eula from Betsy's pseudo codes on 4/18
@@ -17,12 +19,12 @@ import com.qualcomm.robotcore.robocol.Telemetry;
  * Status: useful enough for now
  */
 
-public class RobotState {
+public class RobotStateFix{
     Telemetry telemetry = new Telemetry();
-    HardwareMap hardwareMap = new HardwareMap();
-    DcMotor motorFrontRight;
+    //HardwareMap hardwareMap = new HardwareMap();
     DcMotor motorBackRight;
     DcMotor motorBackLeft;
+    DcMotor motorFrontRight;
     DcMotor motorFrontLeft;
     DcMotor motorLift;
 
@@ -37,17 +39,18 @@ public class RobotState {
     GyroSensor gyro;
     double EFrontRight, EBackRight, EBackLeft, EFrontLeft, ELift,USFrontR, USBackR, GyroR;
 
-    RobotState()
+    public RobotStateFix(HardwareMap hardwareMap)
     {
-        //DbgLog.msg("run RobotState");
-        //telemetry.addData("*","robotState");
+        DbgLog.msg("run RobotStateFix");
         try {
             DbgLog.msg("********* start initializing hardwaremap");
-            motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
+            motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
+            DbgLog.msg("********* hhhhh failed to initialize");
+            motorBackRight.setDirection(DcMotor.Direction.REVERSE); //reverse front left motor
         }catch(Exception e){
-            DbgLog.msg("********* motorFrontRight failed to initialize");
+            String message = getStackTrace(e);
+            DbgLog.msg("*******"+message);
         }
-        // Kara 5/11/15 8:00 - Uncommented initialization statements to debug
        /*motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
         motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //reverses back right motor
@@ -69,7 +72,13 @@ public class RobotState {
         grabber = hardwareMap.servo.get("grabber");
         hood = hardwareMap.servo.get("hood");
         trigger = hardwareMap.servo.get("trigger");*/
+    }
 
+    public static String getStackTrace(final Throwable throwable) {
+        final StringWriter sw = new StringWriter();
+        final PrintWriter pw = new PrintWriter(sw, true);
+        throwable.printStackTrace(pw);
+        return sw.getBuffer().toString();
     }
 
     public void updateState(){//update all parts of the robot

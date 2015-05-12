@@ -50,7 +50,7 @@ public class MecMove extends Action {
      */
 
     @Override
-    boolean isFinished(RobotState state) {
+    boolean isFinished(RobotStateFix state) {
         return Math.abs(state.motorBackLeft.getCurrentPosition())< scaled
                 && Math.abs(state.motorFrontRight.getCurrentPosition()) < scaled
                 && Math.abs(state.motorFrontLeft.getCurrentPosition())< scaled //changed motorBackLeft to motorFrontLeft - Kara 4/30/15
@@ -64,7 +64,7 @@ public class MecMove extends Action {
      */
 
     @Override
-    void doAction(RobotState state) {
+    void doAction(RobotStateFix state) {
         state.motorFrontLeft.setPower(speedList[0]);
         state.motorFrontRight.setPower(speedList[1]);
         state.motorBackLeft.setPower(speedList[2]);
@@ -87,7 +87,7 @@ public class MecMove extends Action {
      * @return return true if the path should be changed
      */
     @Override
-    boolean update(RobotState state) {
+    boolean update(RobotStateFix state) {
         return false;
     }//implement gyro or compass to detect obstacles or change in the path
 

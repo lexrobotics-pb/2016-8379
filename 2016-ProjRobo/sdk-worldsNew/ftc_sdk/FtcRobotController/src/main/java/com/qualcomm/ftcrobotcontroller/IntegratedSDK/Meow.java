@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.GyroSensor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.robocol.Telemetry;
 import java.util.LinkedList;
@@ -29,12 +30,16 @@ public class Meow extends OpMode { /*Betsy 4-28*/
     //define a list of movements
     Telemetry telemetry = new Telemetry();
     static Queue<Action> actions=new LinkedList<Action>();
-    static RobotState state=new RobotState();
+    //static RobotState state=new RobotState();
+    HardwareMap hardware1 = new HardwareMap();
+    RobotStateFix state;
     static boolean isWrite; //false=should be in read mode, true=should be in write mode
 
     @Override
     public void start()
     {
+        DbgLog.msg("********Calling constructor");
+        state = new RobotStateFix(hardware1);
         DbgLog.msg("**** Start");
         telemetry.addData("Test", "Start");
         isWrite=true;

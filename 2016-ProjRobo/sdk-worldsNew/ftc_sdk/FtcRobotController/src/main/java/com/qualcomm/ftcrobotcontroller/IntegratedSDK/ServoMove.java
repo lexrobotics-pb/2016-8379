@@ -37,7 +37,7 @@ public class ServoMove extends Action {
      */
 
     @Override
-    boolean isFinished(RobotState state) {
+    boolean isFinished(RobotStateFix state) {
 //        return servo.getPosition()== moveTo;
         return true;// once the is set to move, we don't need to check whether it has reached there or not (not for continuous
     }
@@ -48,7 +48,7 @@ public class ServoMove extends Action {
      * @param state
      */
     @Override
-    void doAction(RobotState state) {
+    void doAction(RobotStateFix state) {
         servo.setPosition(moveTo);
     }//eula: changed because we don't have servo_1 on the robot
 
@@ -57,7 +57,7 @@ public class ServoMove extends Action {
      * @return
      */
     @Override
-    boolean update(RobotState state) {
+    boolean update(RobotStateFix state) {
         return true;
     }
 

@@ -31,11 +31,11 @@ public class dataProcessing {
         } catch (NoSuchMethodException e) {
             // ...
         }
-        try {
+        /*try {
             method.invoke(Sensors, sensorName);
         } catch (IllegalArgumentException e) {
         } catch (IllegalAccessException e){
-        }
+        }*/
 
         for(int i=0; i<loop; i++){
         }

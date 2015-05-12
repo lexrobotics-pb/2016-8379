@@ -35,7 +35,7 @@ public class MecMoveSensor extends Action {
      */
 
     @Override
-    boolean isFinished(RobotState state) {
+    boolean isFinished(RobotStateFix state) {
         return state.USback.getUltrasonicLevel() < moveTo ||
                 state.USfront.getUltrasonicLevel() < moveTo;
     }
@@ -48,7 +48,7 @@ public class MecMoveSensor extends Action {
      */
 
     @Override
-    void doAction(RobotState state) {
+    void doAction(RobotStateFix state) {
         state.motorFrontLeft.setPower(speedList[0]);
         state.motorFrontRight.setPower(speedList[1]);
         state.motorBackLeft.setPower(speedList[2]);
@@ -60,7 +60,7 @@ public class MecMoveSensor extends Action {
      * @return return true if the path should be changed
      */
     @Override
-    boolean update(RobotState state) {
+    boolean update(RobotStateFix state) {
         return true;
     }//implement gyro or compass to detect obstacles or change in the path
 
@@ -69,7 +69,7 @@ public class MecMoveSensor extends Action {
      * reset encoders under write mode
      * @param state hardware variables package
      */
-    private void resetEncoders(RobotState state) {
+    private void resetEncoders(RobotStateFix state) {
         state.motorFrontLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         state.motorFrontRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         state.motorBackLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);

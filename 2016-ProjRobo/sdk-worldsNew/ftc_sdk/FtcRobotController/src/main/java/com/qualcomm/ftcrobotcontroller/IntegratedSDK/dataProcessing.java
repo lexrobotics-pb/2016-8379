@@ -24,13 +24,13 @@ public class dataProcessing {
         double returnValue=0.0;
         String methodName="get"+typeName;
         Method method=null;
-        try {
-            method = Sensors.class.getMethod(methodName, sensorName.getClass());
+      /*  try {
+          //  method = Sensors.class.getMethod(methodName, sensorName.getClass());
         } catch (SecurityException e) {
             // ...
         } catch (NoSuchMethodException e) {
             // ...
-        }
+        }*/
         /*try {
             method.invoke(Sensors, sensorName);
         } catch (IllegalArgumentException e) {

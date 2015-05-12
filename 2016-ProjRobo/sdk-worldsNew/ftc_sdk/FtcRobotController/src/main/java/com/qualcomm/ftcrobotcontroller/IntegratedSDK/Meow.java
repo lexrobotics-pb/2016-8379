@@ -38,17 +38,14 @@ public class Meow extends OpMode { /*Betsy 4-28*/
     @Override
     public void start()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         DbgLog.msg("********Calling constructor");
         state = new RobotStateFix(hardware1);
         DbgLog.msg("**** Start");
-=======
+
         DbgLog.msg("Start");
->>>>>>> parent of 34ac1fe... Sensor classes
-=======
+
         DbgLog.msg("Start");
->>>>>>> parent of 34ac1fe... Sensor classes
+
         telemetry.addData("Test", "Start");
         isWrite=true;
         actions.add(new MecMove(78.0, 0.0, 0.0, 20.0));//add actions to the queue

@@ -3,7 +3,7 @@ package com.qualcomm.ftcrobotcontroller.IntegratedSDK;
 import com.qualcomm.robotcore.hardware.Servo;
 
 /**
- * Created by: Kara Luo
+ * Contributor: Kara Luo
  * Last Modified: 4/30/15
  * Note: Refers to pseudo code framework by Betsy Pu
  * Implements abstract methods in Action to control general servo movement
@@ -25,7 +25,7 @@ public class ServoMove extends Action {
      * Constructor for ServoMove class
      * @param position desired position of servo
      */
-    ServoMove(Servo s, double position){
+    ServoMove(Servo s,double position){
         servo=s;//a servo from RobotState class
         moveTo = position;
     }

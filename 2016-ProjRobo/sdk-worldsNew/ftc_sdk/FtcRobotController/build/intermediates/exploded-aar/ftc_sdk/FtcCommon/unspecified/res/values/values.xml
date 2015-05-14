@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/user/Documents/GitHub/2016-8379/2016-ProjRobo/sdk-worldsNew/ftc_sdk/FtcCommon/src/main/res/values/dimen.xml -->
+    <!-- From: file:/C:/Users/Robot2/Documents/GitHub/2016-8379/2016-ProjRobo/sdk-worldsNew/ftc_sdk/FtcCommon/src/main/res/values/dimen.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/C:/Users/user/Documents/GitHub/2016-8379/2016-ProjRobo/sdk-worldsNew/ftc_sdk/FtcCommon/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/Robot2/Documents/GitHub/2016-8379/2016-ProjRobo/sdk-worldsNew/ftc_sdk/FtcCommon/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_settings">Settings</string>
     <string name="app_name">FTC Robot Controller</string>
@@ -13,7 +13,7 @@
     <string name="wifi_direct_update_settings">
     Please wait while we update the Wifi Direct settings on this device.
   </string>
-    <!-- From: file:/C:/Users/user/Documents/GitHub/2016-8379/2016-ProjRobo/sdk-worldsNew/ftc_sdk/FtcCommon/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/Users/Robot2/Documents/GitHub/2016-8379/2016-ProjRobo/sdk-worldsNew/ftc_sdk/FtcCommon/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

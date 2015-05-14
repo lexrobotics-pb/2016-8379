@@ -52,11 +52,16 @@ public class MecMove extends Action {
 
     @Override
     boolean isFinished(RobotStateFix state) {
-        DbgLog.msg("************"+Math.abs(state.motorBackLeft.getCurrentPosition()));
-        return Math.abs(state.motorBackLeft.getCurrentPosition())< scaled
+        DbgLog.msg("*********************************************************MecMove*"+Math.abs(state.motorBackLeft.getCurrentPosition()));
+        if (Math.abs(state.motorBackLeft.getCurrentPosition())< scaled
                 && Math.abs(state.motorFrontRight.getCurrentPosition()) < scaled
                 && Math.abs(state.motorFrontLeft.getCurrentPosition())< scaled //changed motorBackLeft to motorFrontLeft - Kara 4/30/15
-                && Math.abs(state.motorBackRight.getCurrentPosition()) < scaled;
+                && Math.abs(state.motorBackRight.getCurrentPosition()) < scaled)
+        {
+            resetEncoders(state);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -67,7 +72,7 @@ public class MecMove extends Action {
 
     @Override
     void doAction(RobotStateFix state) {
-        DbgLog.msg("****speedList[0]="+speedList[0]+", speedList[1]="+speedList[1]);
+        DbgLog.msg("********************************************MecMove***speedList[0]="+speedList[0]+", speedList[1]="+speedList[1]);
         state.motorFrontLeft.setPower(speedList[0]);
         state.motorFrontRight.setPower(speedList[1]);
         state.motorBackLeft.setPower(speedList[2]);
@@ -76,10 +81,10 @@ public class MecMove extends Action {
         //Note by Kara: Does RunMode require one loop to implement like DeviceMode?
         // If so, can we just change the code in Meow such that RunMode is RUN_USING_ENCODERS by default?
 
-        /*state.motorFrontLeft.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);//assuming that this turns on the encoders
+        state.motorFrontLeft.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);//assuming that this turns on the encoders
         state.motorFrontRight.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         state.motorBackRight.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
-        state.motorBackLeft.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);*/
+        state.motorBackLeft.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
     }
 
     /**
@@ -101,7 +106,7 @@ public class MecMove extends Action {
      * reset encoders under write mode
      * @param state  hardware variables package
      */
-    private void resetEncoders(RobotState state){
+    private void resetEncoders(RobotStateFix state){
         state.motorFrontLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         state.motorFrontRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         state.motorBackLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);

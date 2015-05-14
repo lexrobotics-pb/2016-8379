@@ -43,9 +43,6 @@ public class Meow extends OpMode { /*Betsy 4-28*/
         state = new RobotStateFix(this.hardwareMap);
         DbgLog.msg("**** Start");
 
-        DbgLog.msg("Start");
-
-        DbgLog.msg("Start");
 
         telemetry.addData("Test", "Start");
         isWrite=true;
@@ -57,17 +54,26 @@ public class Meow extends OpMode { /*Betsy 4-28*/
         telemetry.addData("*","run");
         if(actions.isEmpty()) return;
         Action curAction=actions.peek();
-        if(!isWrite && state.isDEVModeWrite()) state.switchAllToRead();//might change each individual mode or change the all together?
-        if(isWrite && state.isDEVModeRead()) state.switchAllToWrite();
+        if(!isWrite && state.isDEVModeWrite())
+        {
+            DbgLog.msg("**************************************Meow*******DevMode1 = " + state.motorFrontRight.getDeviceMode());
+            state.switchAllToRead();//might change each individual mode or change the all together?
+        }
+        if(isWrite && state.isDEVModeRead())
+        {
+            DbgLog.msg("**************************************Meow*******DevMode2 = " + state.motorFrontRight.getDeviceMode());
+            state.switchAllToWrite();
+        }
 
         if(state.isDEVModeRead()){
+//            DbgLog.msg("**************************************Meow*******DevMode3 = " + state.motorFrontRight.getDeviceMode());
 //            state.updateState(); //senses things
             if(curAction.update(state)){ //updates action variables and RobotState variables
                 isWrite=true; //set mode to WRITE for action*
             }
             else if(curAction.isFinished(state)){ //requires READMODE
                 actions.poll();
-                state.updateState();
+                //state.updateState();
                 isWrite=true; //set mode to WRITE for action*
             }
         }

@@ -17,12 +17,13 @@ import android.widget.*;
 
 /**
  * Created by Betsy and Eula on 4/18
- * Last Update date: 5/1/2015
+ * Last Update date: 5/14/2015
+ * Last Update by:
  * Purpose: the main class of the new looping system. Classes that are implemented in this class
  * includes RobotState, Action, and all of the movement classes.It uses a queue object to sequent
  * the actions that need to the accomplished in order. a new movement class is required if threading
  * is involved (or potentially have a class just for threading in this framework?)
- * Status: not completed
+ * Status: inherited HardwareMap from OpMode; in mecmove, encoder works, somehow
  */
 
 public class Meow extends OpMode { /*Betsy 4-28*/
@@ -31,7 +32,7 @@ public class Meow extends OpMode { /*Betsy 4-28*/
     Telemetry telemetry = new Telemetry();
     static Queue<Action> actions=new LinkedList<Action>();
     //static RobotState state=new RobotState();
-    HardwareMap hardware1 = new HardwareMap();
+//    HardwareMap hardware1 = new HardwareMap();
     RobotStateFix state;
     static boolean isWrite; //false=should be in read mode, true=should be in write mode
 
@@ -39,7 +40,7 @@ public class Meow extends OpMode { /*Betsy 4-28*/
     public void start()
     {
         DbgLog.msg("********Calling constructor");
-        state = new RobotStateFix(hardware1);
+        state = new RobotStateFix(this.hardwareMap);
         DbgLog.msg("**** Start");
 
         DbgLog.msg("Start");
@@ -48,7 +49,7 @@ public class Meow extends OpMode { /*Betsy 4-28*/
 
         telemetry.addData("Test", "Start");
         isWrite=true;
-        actions.add(new MecMove(78.0, 0.0, 0.0, 20.0));//add actions to the queue
+        actions.add(new MecMove(0.78, 0.0, 0.0, 2.0));//add actions to the queue
     }
 
     @Override

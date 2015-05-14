@@ -36,8 +36,9 @@ public class MecMoveSensor extends Action {
 
     @Override
     boolean isFinished(RobotStateFix state) {
-        return state.USback.getUltrasonicLevel() < moveTo ||
-                state.USfront.getUltrasonicLevel() < moveTo;
+//        return state.USback.getUltrasonicLevel() < moveTo ||
+//                state.USfront.getUltrasonicLevel() < moveTo;
+        return true;
     }
 
     /**

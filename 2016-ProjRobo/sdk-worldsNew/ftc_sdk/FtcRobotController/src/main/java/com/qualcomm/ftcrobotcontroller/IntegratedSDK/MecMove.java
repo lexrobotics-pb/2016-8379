@@ -1,5 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.IntegratedSDK;
 
+import com.qualcomm.ftccommon.DbgLog;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 
 /**
@@ -45,12 +46,13 @@ public class MecMove extends Action {
     /**
      * check if the robot has travelled a certain amount of distance
      * scaled: defined in the constructor
-     * @param
+     * @dparam
      * @return true if reached, false means that the robot should keep running
      */
 
     @Override
     boolean isFinished(RobotStateFix state) {
+        DbgLog.msg("************"+Math.abs(state.motorBackLeft.getCurrentPosition()));
         return Math.abs(state.motorBackLeft.getCurrentPosition())< scaled
                 && Math.abs(state.motorFrontRight.getCurrentPosition()) < scaled
                 && Math.abs(state.motorFrontLeft.getCurrentPosition())< scaled //changed motorBackLeft to motorFrontLeft - Kara 4/30/15
@@ -65,6 +67,7 @@ public class MecMove extends Action {
 
     @Override
     void doAction(RobotStateFix state) {
+        DbgLog.msg("****speedList[0]="+speedList[0]+", speedList[1]="+speedList[1]);
         state.motorFrontLeft.setPower(speedList[0]);
         state.motorFrontRight.setPower(speedList[1]);
         state.motorBackLeft.setPower(speedList[2]);

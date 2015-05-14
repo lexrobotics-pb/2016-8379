@@ -33,10 +33,10 @@ public class RobotStateFix{
     Servo hood;
     Servo trigger;
 
-    UltrasonicSensor USfront;
-    UltrasonicSensor USback;
+//    UltrasonicSensor USfront;
+//    UltrasonicSensor USback;
 
-    GyroSensor gyro;
+//    GyroSensor gyro;
     double EFrontRight, EBackRight, EBackLeft, EFrontLeft, ELift,USFrontR, USBackR, GyroR;
 
     public RobotStateFix(HardwareMap hardwareMap)
@@ -51,7 +51,7 @@ public class RobotStateFix{
             String message = getStackTrace(e);
             DbgLog.msg("*******"+message);
         }
-       /*motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
+       motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
         motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //reverses back right motor
         motorLift = hardwareMap.dcMotor.get("motorLift");
@@ -63,10 +63,10 @@ public class RobotStateFix{
         motorBackRight.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         motorBackLeft.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
-        USfront = hardwareMap.ultrasonicSensor.get("USfront");
-        USback = hardwareMap.ultrasonicSensor.get("USback");
+//        USfront = hardwareMap.ultrasonicSensor.get("USfront");
+//        USback = hardwareMap.ultrasonicSensor.get("USback");
 
-        gyro = hardwareMap.gyroSensor.get("gyro");*/
+//        gyro = hardwareMap.gyroSensor.get("gyro");
 
         /*arm = hardwareMap.servo.get("arm");
         grabber = hardwareMap.servo.get("grabber");
@@ -87,9 +87,9 @@ public class RobotStateFix{
         EFrontRight = motorFrontRight.getCurrentPosition();
         EBackLeft = motorBackLeft.getCurrentPosition();
         ELift = motorLift.getCurrentPosition();
-        USFrontR = USfront.getUltrasonicLevel();
-        USBackR = USback.getUltrasonicLevel();
-        GyroR = gyro.getRotation();
+//        USFrontR = USfront.getUltrasonicLevel();
+//        USBackR = USback.getUltrasonicLevel();
+//        GyroR = gyro.getRotation();
     }
 
     public void updatePosition() {//update all parts of the robot

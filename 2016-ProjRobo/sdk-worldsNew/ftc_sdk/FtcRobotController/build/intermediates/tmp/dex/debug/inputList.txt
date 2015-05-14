@@ -1,6 +1,6 @@
-C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\classes\debug
-C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-f21f8799ced9e4260d3b12f0e054cecbb007b172.jar
-C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\classes-06456cccf87fce59f28b06ba52e2846c7276451b.jar
-C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\ModernRobotics-111423e974b62069fec461571fa2d114c63ddd77.jar
-C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-7384000c14f9f7f015742a7affed2eb04dd65b55.jar
-C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\classes-17f33422523f751d5aff4596627eb9245d3e43e5.jar
+C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\classes\debug
+C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-f355cff4478674e6da96fcbaf614bda91f015fb2.jar
+C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\classes-fba0ed8321a8c22bae0994a02fda8f40002ae6d9.jar
+C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\ModernRobotics-01188a0598452a0e038b8c5c99860ffb5500367e.jar
+C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-bd60bc1a1849c091dbeeb2842e092c14ec546c12.jar
+C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\classes-5b46b924c24c078756e609347b492d4d1b1dfd65.jar

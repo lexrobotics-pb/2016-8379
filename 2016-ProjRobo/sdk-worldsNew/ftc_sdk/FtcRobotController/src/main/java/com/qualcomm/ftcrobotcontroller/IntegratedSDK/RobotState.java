@@ -19,7 +19,7 @@ import com.qualcomm.robotcore.robocol.Telemetry;
 
 public class RobotState {
     Telemetry telemetry = new Telemetry();
-    HardwareMap hardwareMap = new HardwareMap();
+    HardwareMap hardwareMap;
     DcMotor motorFrontRight;
     DcMotor motorBackRight;
     DcMotor motorBackLeft;
@@ -32,10 +32,11 @@ public class RobotState {
     GyroSensor gyro;
     double EFrontRight, EBackRight, EBackLeft, EFrontLeft, ELift,USFrontR, USBackR, GyroR;
 
-    RobotState()
+    RobotState(HardwareMap hardwareMap1)
     {
         //DbgLog.msg("run RobotState");
         //telemetry.addData("*","robotState");
+        hardwareMap=hardwareMap1;
         try {
             DbgLog.msg("********* start initializing hardwaremap");
             motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
@@ -43,7 +44,7 @@ public class RobotState {
             DbgLog.msg("********* motorFrontRight failed to initialize");
         }
         // Kara 5/11/15 8:00 - Uncommented initialization statements to debug
-       /*motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
+       motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
         motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //reverses back right motor
         motorLift = hardwareMap.dcMotor.get("motorLift");
@@ -58,7 +59,7 @@ public class RobotState {
         USfront = hardwareMap.ultrasonicSensor.get("USfront");
         USback = hardwareMap.ultrasonicSensor.get("USback");
 
-        gyro = hardwareMap.gyroSensor.get("gyro");*/
+        gyro = hardwareMap.gyroSensor.get("gyro");
 
         /*arm = hardwareMap.servo.get("arm");
         grabber = hardwareMap.servo.get("grabber");

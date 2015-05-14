@@ -2,74 +2,39 @@
 <items version="2" >
 
     <item
-        jar="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="c5b9c477605257235e35ca397a3b82a9060ffa0c">
-        <dex dex="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\classes-06456cccf87fce59f28b06ba52e2846c7276451b.jar" />
-    </item>
-    <item
-        jar="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\exploded-aar\ftc_sdk\RobotCore\unspecified\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="b66fa05c18958f2360abf213be23609780857d79">
-        <dex dex="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-28d94f9f2a9e6d7b7f1dc3a91316c41c13a88561.jar" />
-    </item>
-    <item
-        jar="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\WirelessP2p.jar"
+        jar="C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\WirelessP2p.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="bc8108fd7a647c6fa73bfe048b624da7c3aa3ecc">
-        <dex dex="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-f21f8799ced9e4260d3b12f0e054cecbb007b172.jar" />
+        <dex dex="C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-f355cff4478674e6da96fcbaf614bda91f015fb2.jar" />
     </item>
     <item
-        jar="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\RobotCore\unspecified\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="b66fa05c18958f2360abf213be23609780857d79">
-        <dex dex="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\classes-17f33422523f751d5aff4596627eb9245d3e43e5.jar" />
-    </item>
-    <item
-        jar="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="c5b9c477605257235e35ca397a3b82a9060ffa0c">
-        <dex dex="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-af0306d48e9ebbe1f35dd7f8398712166f525f83.jar" />
-    </item>
-    <item
-        jar="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\WirelessP2p.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="bc8108fd7a647c6fa73bfe048b624da7c3aa3ecc">
-        <dex dex="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\WirelessP2p-6fceb49c97c55ae0230772fedb77ca182101c366.jar" />
-    </item>
-    <item
-        jar="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\d2xx.jar"
+        jar="C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\d2xx.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="549d88cce99830dc2ae951a13d5a8b897362351b">
-        <dex dex="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-7384000c14f9f7f015742a7affed2eb04dd65b55.jar" />
+        <dex dex="C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-bd60bc1a1849c091dbeeb2842e092c14ec546c12.jar" />
     </item>
     <item
-        jar="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\ModernRobotics.jar"
+        jar="C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6b8e8346ba8c160254d387e7f113161fc4a269bd">
+        <dex dex="C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\classes-fba0ed8321a8c22bae0994a02fda8f40002ae6d9.jar" />
+    </item>
+    <item
+        jar="C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\ModernRobotics.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="8110690346f57b98869092ee6a6c1bd2872a87c7">
-        <dex dex="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\ModernRobotics-111423e974b62069fec461571fa2d114c63ddd77.jar" />
+        <dex dex="C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\ModernRobotics-01188a0598452a0e038b8c5c99860ffb5500367e.jar" />
     </item>
     <item
-        jar="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\d2xx.jar"
+        jar="C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\exploded-aar\ftc_sdk\RobotCore\unspecified\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="549d88cce99830dc2ae951a13d5a8b897362351b">
-        <dex dex="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\d2xx-4b4b91d2797e8e7e235277544e846ed2c96a83d8.jar" />
-    </item>
-    <item
-        jar="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\exploded-aar\ftc_sdk\FtcCommon\unspecified\libs\ModernRobotics.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="8110690346f57b98869092ee6a6c1bd2872a87c7">
-        <dex dex="C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\ModernRobotics-cedf8571889ccb5a41898d236070e0639ba32297.jar" />
+        sha1="cc094787f35cf70c35979a2d1e81702cc59f2275">
+        <dex dex="C:\Users\user\Documents\GitHub\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcRobotController\build\intermediates\pre-dexed\debug\classes-5b46b924c24c078756e609347b492d4d1b1dfd65.jar" />
     </item>
 
 </items>

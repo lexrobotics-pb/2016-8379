@@ -7,9 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.GyroSensor;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.robocol.Telemetry;
 import java.util.LinkedList;
 import java.util.Queue;
 import android.util.Log;
@@ -29,10 +27,8 @@ import android.widget.*;
 public class Meow extends OpMode { /*Betsy 4-28*/
 
     //define a list of movements
-    Telemetry telemetry = new Telemetry();
     static Queue<Action> actions=new LinkedList<Action>();
     //static RobotState state=new RobotState();
-//    HardwareMap hardware1 = new HardwareMap();
     RobotStateFix state;
     static boolean isWrite; //false=should be in read mode, true=should be in write mode
 
@@ -42,16 +38,12 @@ public class Meow extends OpMode { /*Betsy 4-28*/
         DbgLog.msg("********Calling constructor");
         state = new RobotStateFix(this.hardwareMap);
         DbgLog.msg("**** Start");
-
-
-        telemetry.addData("Test", "Start");
         isWrite=true;
         actions.add(new MecMove(0.78, 0.0, 0.0, 2.0));//add actions to the queue
     }
 
     @Override
     public void loop(){
-        telemetry.addData("*","run");
         if(actions.isEmpty()) return;
         Action curAction=actions.peek();
         if(!isWrite && state.isDEVModeWrite())

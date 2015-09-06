@@ -1,0 +1,7 @@
+C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\Beta test 6.4.2015\ftc_app-master\FtcRobotController\build\intermediates\classes\debug
+C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\Beta test 6.4.2015\ftc_app-master\FtcRobotController\build\intermediates\pre-dexed\debug\classes-2e60f5ad9ee5d5d78a5112aeeac424fa394e7c7a.jar
+C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\Beta test 6.4.2015\ftc_app-master\FtcRobotController\build\intermediates\pre-dexed\debug\classes-356bad178de363920ce5b70407170076c6866dbd.jar
+C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\Beta test 6.4.2015\ftc_app-master\FtcRobotController\build\intermediates\pre-dexed\debug\classes-fa632b1979a7b33a6e9004ae2d0bc1c5ad8c69b9.jar
+C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\Beta test 6.4.2015\ftc_app-master\FtcRobotController\build\intermediates\pre-dexed\debug\classes-7c18bc684a851055095933335863ca4ab349b0cd.jar
+C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\Beta test 6.4.2015\ftc_app-master\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-f112f8ca25b8d684e0c348b63f5396efc36b48c9.jar
+C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\Beta test 6.4.2015\ftc_app-master\FtcRobotController\build\intermediates\pre-dexed\debug\classes-3d79138a6c0a12dec83c82240c5b26c6a925d5e8.jar

@@ -20,9 +20,9 @@ public class ChassisTest extends OpMode {
     @Override
     public void init()
     {
-        motorRight = hardwareMap.dcMotor.get("motorFrontRight");
+        motorRight = hardwareMap.dcMotor.get("motorRight");
         motorRight.setDirection(DcMotor.Direction.REVERSE); //reverses back right motor
-        motorLeft = hardwareMap.dcMotor.get("motorFrontLeft");
+        motorLeft = hardwareMap.dcMotor.get("motorLeft");
     }
 
     @Override
@@ -49,8 +49,8 @@ public class ChassisTest extends OpMode {
         }
 
               /*---------------------Movement----------------------------*/
-        motorLeft.setPower(gamepad1.left_stick_x);
-        motorRight.setPower(gamepad1.right_stick_x);
+        motorLeft.setPower(gamepad1.left_stick_y*0.9);
+        motorRight.setPower(gamepad1.right_stick_y*0.9);
         telemetry.addData("*************************", "Working");
     }
 

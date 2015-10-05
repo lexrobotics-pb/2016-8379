@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/8379NextGen3/FtcDriverStation/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/2015-worlds%20demo/8379NextGen3/FtcDriverStation/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string-array name="pref_gamepad_type_entries">
     <item>@string/gamepad_logitech_f310</item>
     <item>@string/gamepad_microsoft_xbox_360</item>
     <item>@string/gamepad_android_standard</item>
   </string-array>
-    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/8379NextGen3/FtcDriverStation/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/2015-worlds%20demo/8379NextGen3/FtcDriverStation/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="light_qcom_blue">#C1E2E4</color>
     <color name="medium_qcom_blue">#D6F0FA</color>
-    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/8379NextGen3/FtcDriverStation/src/main/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/2015-worlds%20demo/8379NextGen3/FtcDriverStation/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/8379NextGen3/FtcDriverStation/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/2015-worlds%20demo/8379NextGen3/FtcDriverStation/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="about_activity">About</string>
     <string name="action_exit_app">Exit</string>
@@ -34,10 +34,10 @@
     <string name="label_start">Start</string>
     <string name="label_start_timed">Start w/ Timer</string>
     <string name="label_stop">Stop</string>
-    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/8379NextGen3/FtcDriverStation/build/intermediates/exploded-aar/8379NextGen3/FtcCommon/unspecified/res/values/values.xml -->
+    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/2015-worlds%20demo/8379NextGen3/FtcDriverStation/build/intermediates/exploded-aar/8379NextGen3/FtcCommon/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="ok">OK</string>
-    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/8379NextGen3/FtcDriverStation/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/2015-worlds%20demo/8379NextGen3/FtcDriverStation/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="pair_instructions">        Make sure that the FTC Robot Controller app is open on your other device, and that both devices have wifi enabled</string>
     <string name="pair_wifi_direct">Pair With Robot Controller</string>
@@ -61,7 +61,7 @@
     <string name="wifi_direct_update_settings">
     Please wait while we update the Wifi Direct settings on this device.
   </string>
-    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/8379NextGen3/FtcDriverStation/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/Users/zht/Desktop/zlr/Robotics/Programming/2016-8379/2015-worlds%20demo/8379NextGen3/FtcDriverStation/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

@@ -23,7 +23,14 @@ public class BallCollectTest extends OpMode {
     @Override
     public void loop()
     {
-        rack.setPosition(1.0);
+        //rack.setDirection();
+        if (this.time < 10.0)
+            rack.setPosition(rack.MIN_POSITION);
+        else if (this.time < 20.0)
+        rack.setPosition(rack.MAX_POSITION);
+        else
+        rack.setPosition(rack.MIN_POSITION);
+
         Log.d("hello", rack.getPosition() + "**********************************");
 
     }

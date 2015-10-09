@@ -32,7 +32,7 @@ public class ColorTest extends OpMode {
         telemetry.addData("Red  ", color.red());
         telemetry.addData("Green", color.green());
         telemetry.addData("Blue ", color.blue());
-        telemetry.addData("Hue", hsvValues[0]);
+        telemetry.addData("Hue", hsvValues[0]);//every single loop it sorts the outputs alphabetically according to the tag
     }
 
     @Override

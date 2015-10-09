@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 /**
  * Created by zht on 4/2/2015.
  */
-public class CenterGoal extends OpMode {
+public class CenterGoal extends OpMode{
 
     private Robot robot = new Robot();
     DcMotor motorLift;

@@ -78,6 +78,35 @@ public class Robot extends OpMode {
     }
 
 
+    /**
+     * turn the robot on the spot
+     * @param speedrotation [-100,100]
+     * @param degrees angle in degree not in radians
+     */
+    public void turnMecGyro(double speedrotation, double degrees) {
+        double delTime = 0;
+        double curRate;
+        double currHeading = 0;
+        ElapsedTime Time1 = new ElapsedTime();
+        //no gyro initialization?
+        wait1Msec(200);
+        Stop();
+        mecJustMove (0, 0, speedrotation);//+ = right   - = turn left
+        while (Math.abs(currHeading) < Math.abs(degrees)) {
+            Time1.startTime();
+            curRate = gyro.getRotation();
+            if (Math.abs(curRate) > 3) {
+                currHeading += curRate * delTime; //Approximates the next heading by adding the rate*time.
+                if (currHeading > 360) currHeading -= 360;
+                else if (currHeading < -360) currHeading += 360;
+            }
+            wait1Msec(5);
+            delTime = ((double)Time1.time()) / 1000000; //set delta (zero first time around)
+        }
+        Stop();
+    }
+
+
 
 
 

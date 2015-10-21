@@ -59,6 +59,7 @@ public class FtcOpModeRegister implements OpModeRegister {
 
     manager.register("MatrixK9TeleOp", MatrixK9TeleOp.class);
     manager.register("K9TeleOp", K9TeleOp.class);
+    manager.register("LinearColor", LinearColorTest.class);
     manager.register ("PushBotAuto", PushBotAuto.class);
     manager.register ("PushBotManual", PushBotManual.class);
       manager.register ("ChassisTest", ChassisTest.class);

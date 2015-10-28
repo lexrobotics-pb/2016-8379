@@ -77,4 +77,5 @@ SECTION II
   > Might want to check the following
     > Under SDK Manager, all of the files under folder "Android 4.4.2" or "API 19" are downloaded
     > The project is loaded from the gradle.build file under FtcRobotController folder, not the one under ftc_app-master w/e
+    > Build the project at least once
     > WILL BE CONTINUED

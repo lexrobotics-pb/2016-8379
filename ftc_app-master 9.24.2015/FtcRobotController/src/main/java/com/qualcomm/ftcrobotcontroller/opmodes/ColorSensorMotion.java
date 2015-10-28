@@ -2,6 +2,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 /**
@@ -14,6 +15,8 @@ public class ColorSensorMotion extends OpMode {
 
     private ColorSensor color;
     private Servo servo;
+    private DcMotor motorLeft;
+    private DcMotor motorRight;
 
     public void ColorSensorMotion(ColorSensor sensor, Servo motion)
     {
@@ -30,7 +33,7 @@ public class ColorSensorMotion extends OpMode {
     public boolean IsBlueBR()
     {
         int red = 0, blue = 0;
-//        double position = servo.getPosition();
+//      double position = servo.getPosition();
         for (int x  = 0; x < 20; x++)
         {
             red += color.red();
@@ -45,10 +48,17 @@ public class ColorSensorMotion extends OpMode {
     }
 
     @Override
-    public void init(){}
+    public void init(){
+        color = hardwareMap.colorSensor.get("color");
+        motorLeft = hardwareMap.dcMotor.get("motorLeft");
+        motorRight = hardwareMap.dcMotor.get("motorRight");
+    }
 
     @Override
-    public void loop(){}
+    public void loop(){
+        color.enableLed(false);
+        IsBlueBR();
+    }
 
     @Override
     public void stop(){}

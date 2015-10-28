@@ -17,7 +17,7 @@ import com.qualcomm.robotcore.robocol.Telemetry;
 public class ColorTest extends OpMode {
     ColorSensor color;
     float hsvValues[] = {0,0,0};
-    final float values[] = hsvValues;
+    //final float values[] = hsvValues;
 
     @Override
     public void init()
@@ -27,12 +27,13 @@ public class ColorTest extends OpMode {
     @Override
     public void loop()
     {
+
         color.enableLed(false);
         telemetry.addData("Clear", color.alpha());
         telemetry.addData("Red  ", color.red());
         telemetry.addData("Green", color.green());
         telemetry.addData("Blue ", color.blue());
-        telemetry.addData("Hue", hsvValues[0]);//every single loop it sorts the outputs alphabetically according to the tag
+        //telemetry.addData("Hue", hsvValues[0]);//every single loop it sorts the outputs alphabetically according to the tag
     }
 
     @Override

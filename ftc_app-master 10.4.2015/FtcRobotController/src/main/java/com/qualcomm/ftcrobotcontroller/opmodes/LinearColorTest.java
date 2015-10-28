@@ -1,13 +1,13 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 
 /**
  * Created by Kara Luo on 10/7/2015.
  */
-public class ColorTest extends OpMode {
+public class LinearColorTest extends LinearOpMode {
     ColorSensor color;
     double CALIBRATE_RED = 0.0;
     double CALIBRATE_GREEN = 0.0;
@@ -16,25 +16,28 @@ public class ColorTest extends OpMode {
     //final float values[] = hsvValues;
 
     @Override
-    public void init() {
+    public void runOpMode() throws InterruptedException {
         color = hardwareMap.colorSensor.get("color");
-        //BlackCalibration();
-    }
 
-    @Override
-    public void loop() {
-        color.enableLed(false);
-        telemetry.addData("Clear", color.alpha());
-        telemetry.addData("Red  ", color.red());
-        telemetry.addData("Green", color.green());
-        telemetry.addData("Blue ", color.blue());
-        print(color.red(), color.blue());
+        waitOneFullHardwareCycle();
+        waitForStart();
+
+        CALIBRATE_RED = calibrateRed();
+        CALIBRATE_GREEN = calibrateGreen();
+        CALIBRATE_BLUE = calibrateBlue();
+
+        while (opModeIsActive()) {
+            color.enableLed(false);
+            telemetry.addData("Calibrate red", CALIBRATE_RED);
+            telemetry.addData("Calibrate blue ", CALIBRATE_BLUE);
+            telemetry.addData("Red  ", color.red() - CALIBRATE_RED);
+            telemetry.addData("Blue ", color.blue() - CALIBRATE_BLUE);
+            print(color.red(), color.blue());
+        }
+
+
+        waitOneFullHardwareCycle();
         //telemetry.addData("Hue", hsvValues[0]);//every single loop it sorts the outputs alphabetically according to the tag
-    }
-
-    @Override
-    public void stop() {
-
     }
 
     //Created by Kara Luo on 10/21/15
@@ -70,6 +73,7 @@ public class ColorTest extends OpMode {
 
         return red / 64.0;
     }
+
     public double calibrateGreen() {
         double green = 0.0;
         for (int i = 0; i < 64; i++) {

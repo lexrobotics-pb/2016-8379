@@ -67,3 +67,15 @@ NOTE TO READERS: A valid attempt was made to make this document useful and humor
 
   # SCREEN FLASHING
   > If you didn't do anything crazy to our robot and our devices such as scaring it at midnight or forget to feed it when it needs to, it might be a valuable incident for Josh to investigate on
+
+
+***************************************************************
+SECTION II
+# When the project doesn't load properly in our dear AS
+  > No matter what happens, stay classy, and blame Android
+  > Google is your best friend
+  > Might want to check the following
+    > Under SDK Manager, all of the files under folder "Android 4.4.2" or "API 19" are downloaded
+    > The project is loaded from the gradle.build file under FtcRobotController folder, not the one under ftc_app-master w/e
+    > Build the project at least once
+    > WILL BE CONTINUED

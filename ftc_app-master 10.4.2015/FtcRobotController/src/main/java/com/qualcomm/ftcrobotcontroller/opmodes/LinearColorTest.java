@@ -105,8 +105,6 @@ public class LinearColorTest extends LinearOpMode {
             telemetry.addData("compare", "indistinguishable");
         }
     }
-
-
 }
 
 

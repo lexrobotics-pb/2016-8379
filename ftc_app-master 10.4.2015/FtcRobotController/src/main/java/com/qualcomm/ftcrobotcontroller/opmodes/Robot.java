@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
+import com.qualcomm.robotcore.robocol.Telemetry;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
@@ -27,6 +28,7 @@ public class Robot extends OpMode {
     public void init(){
         //.initialize all hardware parts here
 
+
     }
 
     public void wait1Msec(double time)
@@ -47,10 +49,11 @@ public class Robot extends OpMode {
     {
 //        switchAllToWrite();
         double radians = toRadians(degrees);
-        motorFrontLeft.setPower(speed * Math.sin(radians + Math.PI/4) + speedRotation);
-        motorFrontRight.setPower(speed * Math.cos(radians + Math.PI/4) - speedRotation);
-        motorBackLeft.setPower(speed * Math.cos(radians + Math.PI/4) + speedRotation);
-        motorBackRight.setPower(speed * Math.sin(radians + Math.PI/4) -  speedRotation);
+        motorFrontLeft.setPower(speed);
+        motorFrontRight.setPower(speed;
+        motorBackLeft.setPower(speed);
+        motorBackRight.setPower(speed);
+
 //        switchAllToRead();
     }
 
@@ -68,8 +71,6 @@ public class Robot extends OpMode {
 
     }
 
-
-
     private double toRadians (double degrees)
     {
         double radians=degrees/180.0*Math.PI;
@@ -77,11 +78,33 @@ public class Robot extends OpMode {
     }
 
 
-
-
-
-
-
+    /**
+     * turn the robot on the spot
+     * @param speedrotation [-100,100]
+     * @param degrees angle in degree not in radians
+     */
+    public void turnMecGyro(double speedrotation, double degrees) {
+        double delTime = 0;
+        double curRate;
+        double currHeading = 0;
+        ElapsedTime Time1 = new ElapsedTime();
+        //no gyro initialization?
+        wait1Msec(200);
+        Stop();
+        mecJustMove (0, 0, speedrotation);//+ = right   - = turn left
+        while (Math.abs(currHeading) < Math.abs(degrees)) {
+            Time1.startTime();
+            curRate = gyro.getRotation();
+            if (Math.abs(curRate) > 3) {
+                currHeading += curRate * delTime; //Approximates the next heading by adding the rate*time.
+                if (currHeading > 360) currHeading -= 360;
+                else if (currHeading < -360) currHeading += 360;
+            }
+            wait1Msec(5);
+            delTime = ((double)Time1.time()) / 1000000; //set delta (zero first time around)
+        }
+        Stop();
+    }
 
     @Override
     public void loop(){}

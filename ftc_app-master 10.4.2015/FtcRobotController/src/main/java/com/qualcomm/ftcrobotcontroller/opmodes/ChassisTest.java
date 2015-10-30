@@ -13,8 +13,6 @@ public class ChassisTest extends OpMode {
     DcMotor motorRight;
     DcMotor motorLeft;
 
-    Telemetry telemetry = new Telemetry();
-
 
     @Override
     public void init()

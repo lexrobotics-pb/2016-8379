@@ -55,6 +55,7 @@ Telemetry telemetry = new Telemetry();
         motorBackLeft.setPower(gamepad1.left_stick_y*0.9);
         motorFrontRight.setPower(gamepad1.right_stick_y*0.9);
         motorBackRight.setPower(gamepad1.right_stick_y*0.9);
+
     }
 
     @Override

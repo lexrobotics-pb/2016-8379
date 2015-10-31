@@ -24,34 +24,32 @@ public class LinearScrimmage extends LinearOpMode {
     double ENCODER_F_L = 0;
     double ENCODER_B_R = 0;
     double ENCODER_B_L = 0;
-    GyroSensor gyro;
+    //GyroSensor gyro;
+
+    double circumference = 4.0 * 2.54 * Math.PI, encoderV = 1120.0;
+
 
     @Override
     public void runOpMode() throws InterruptedException {
         color = hardwareMap.colorSensor.get("color");
         motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
+        motorBackRight.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
         motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
+        motorFrontRight.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
         motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");
-        motorBackLeft.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
+        motorBackLeft.setDirection(DcMotor.Direction.FORWARD); //forwards back left motor
         motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft");
-        motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //forwards front left motor
-        gyro = hardwareMap.gyroSensor.get("gyro");
+        motorFrontLeft.setDirection(DcMotor.Direction.FORWARD); //forwards front left motor
+        //gyro = hardwareMap.gyroSensor.get("gyro");
 
         waitForStart();
         calibrate();
 
 
         while (opModeIsActive()) {
-            double leftEncoder = motorFrontLeft.getCurrentPosition();
-            double rightEncoder = motorFrontRight.getCurrentPosition();
-
-            motorBackLeft.setPower(0.9);
-            motorFrontLeft.setPower(-0.9);
-            while(motorBackLeft.getCurrentPosition()<leftEncoder+500) {
-            }
-
-            motorBackLeft.setPower(0.0);
-            motorFrontLeft.setPower(0.0);
+//            move(0.9,50.0);
+//            wait1Msec(10000);
+            //turnWithGyro(0.9,90);
 
             color.enableLed(true);
             telemetry.addData("Red  ", color.red() - CALIBRATE_RED);
@@ -61,8 +59,30 @@ public class LinearScrimmage extends LinearOpMode {
             telemetry.addData("Adjusted Red  ", color.red() - CALIBRATE_RED);
             telemetry.addData("Adjusted Blue ", color.blue() - CALIBRATE_BLUE);
             print(color.red(), color.blue());
-            waitOneFullHardwareCycle();
+//            waitOneFullHardwareCycle();
         }
+    }
+
+    /**
+     *
+     * @param speed [-1, 1],
+     * @param distance > 0, in cm
+     */
+    public void move(double speed, double distance)
+    {
+        resetEncoders();
+        JustMove(speed, speed);
+        int i=0;
+        while((motorBackLeft.getCurrentPosition()-ENCODER_B_L)/encoderV < distance/circumference)
+        {
+            i++;
+            telemetry.addData("ran", i);
+            telemetry.addData("cycles stop at",distance/circumference );
+            telemetry.addData("encoderBL",ENCODER_B_L);
+            telemetry.addData("current value", motorBackLeft.getCurrentPosition());
+            telemetry.addData("cycles",(motorBackLeft.getCurrentPosition()-ENCODER_B_L)/encoderV);
+        }
+        stop();
     }
 
     public void calibrate()
@@ -92,21 +112,17 @@ public class LinearScrimmage extends LinearOpMode {
 
     public void JustMove(double speedRight, double speedLeft)
     {
-//        switchAllToWrite();
-
         motorFrontLeft.setPower(speedLeft);
         motorBackLeft.setPower(speedLeft);
         motorBackRight.setPower(speedRight);
         motorFrontRight.setPower(speedRight);
-
-//        switchAllToRead();
     }
 
-    public void Stop()
+    public void Stop(double speed)
     {
-        motorBackLeft.setPower(0);
+        motorBackLeft.setPower(speed);
         motorBackRight.setPower(0);
-        motorFrontLeft.setPower(0);
+        motorFrontLeft.setPower(speed);
         motorFrontRight.setPower(0);
         resetEncoders();
     }
@@ -120,36 +136,41 @@ public class LinearScrimmage extends LinearOpMode {
 
     }
 
-
     /**
      * turn the robot on the spot
-     * @param speed [-1, 1], negative speed = ccw; positive = cw
-     * @param degrees angle in degree not in radians,
+     * @param speed [-1, 1]
+     * @param degrees angle in degree not in radians [-180, 180],positive = ccw, negative = cw
      */
-    public void turnWithGyro(double speed, double degrees) {
-        double initial = gyro.getRotation();
+    /*public void turnWithGyro(double speed, double degrees) {
+        double initial = gyro.getRotation();//the gyro is
         double current;
-        double speedRight;
-        double speedLeft;
-        if (degrees < 0) {
-            speedRight = speed;
-            speedLeft = -speed;
+
+
+        if (degrees > 0) {
+            RIGHT_SPEED = speed;
+            LEFT_SPEED = -speed;
         }
         else {
-            speedRight = -speed;
-            speedLeft = speed;
+            RIGHT_SPEED = -speed;
+            LEFT_SPEED = speed;
         }
-        JustMove(speedRight,speedLeft);
+        JustMove(RIGHT_SPEED,LEFT_SPEED);
         do {
             current = gyro.getRotation();
-            if (current > )
-        }
-
-        while (gyro.getRotation() - initial <= degrees)
-        {}
+            if (degrees > 0)
+                if (current <= initial)
+                    current += 255;
+            else
+                 if (current >= initial)
+                     current -= 255;
+        }while (Math.abs(current - initial) <= Math.abs(degrees));
         Stop();
-    }
+    }*/
 
+    /**
+     *
+     * @param time in 1/1000 sec
+     */
     public void wait1Msec(double time)
     {
         ElapsedTime waitTime = new ElapsedTime();

@@ -50,7 +50,7 @@ public class Robot extends OpMode {
 //        switchAllToWrite();
         double radians = toRadians(degrees);
         motorFrontLeft.setPower(speed);
-        motorFrontRight.setPower(speed;
+        motorFrontRight.setPower(speed);
         motorBackLeft.setPower(speed);
         motorBackRight.setPower(speed);
 

@@ -5,6 +5,8 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.hardware.I2cDeviceReader;
+import com.qualcomm.robotcore.hardware.I2cDevice;
 
 
 /**
@@ -24,7 +26,7 @@ public class LinearScrimmage extends LinearOpMode {
     double ENCODER_F_L = 0;
     double ENCODER_B_R = 0;
     double ENCODER_B_L = 0;
-    //GyroSensor gyro;
+    I2cDevice gyro;
 
     double circumference = 4.0 * 2.54 * Math.PI, encoderV = 1120.0;
 
@@ -40,16 +42,21 @@ public class LinearScrimmage extends LinearOpMode {
         motorBackLeft.setDirection(DcMotor.Direction.FORWARD); //forwards back left motor
         motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.FORWARD); //forwards front left motor
-        //gyro = hardwareMap.gyroSensor.get("gyro");
+        gyro = hardwareMap.i2cDevice.get("gyro");
+        gyro.enableI2cReadMode(0x20,0x05,1);
+        gyro.enableI2cWriteMode(0x20,0x30,1);
+//       I2cDeviceReader gyroReading = new I2cDeviceReader(gyro, 0x20, 0x70, 1);
 
         waitForStart();
         calibrate();
 
 
-        while (opModeIsActive()) {
+//        while (opModeIsActive()) {
 //            move(0.9,50.0);
 //            wait1Msec(10000);
             //turnWithGyro(0.9,90);
+            telemetry.addData("gyro", gyro.getCopyOfReadBuffer());
+
 
             color.enableLed(true);
             telemetry.addData("Red  ", color.red() - CALIBRATE_RED);
@@ -60,7 +67,7 @@ public class LinearScrimmage extends LinearOpMode {
             telemetry.addData("Adjusted Blue ", color.blue() - CALIBRATE_BLUE);
             print(color.red(), color.blue());
 //            waitOneFullHardwareCycle();
-        }
+//        }
     }
 
     /**
@@ -82,7 +89,7 @@ public class LinearScrimmage extends LinearOpMode {
             telemetry.addData("current value", motorBackLeft.getCurrentPosition());
             telemetry.addData("cycles",(motorBackLeft.getCurrentPosition()-ENCODER_B_L)/encoderV);
         }
-        stop();
+        Stop();
     }
 
     public void calibrate()
@@ -118,11 +125,11 @@ public class LinearScrimmage extends LinearOpMode {
         motorFrontRight.setPower(speedRight);
     }
 
-    public void Stop(double speed)
+    public void Stop()
     {
-        motorBackLeft.setPower(speed);
+        motorBackLeft.setPower(0);
         motorBackRight.setPower(0);
-        motorFrontLeft.setPower(speed);
+        motorFrontLeft.setPower(0);
         motorFrontRight.setPower(0);
         resetEncoders();
     }
@@ -139,24 +146,24 @@ public class LinearScrimmage extends LinearOpMode {
     /**
      * turn the robot on the spot
      * @param speed [-1, 1]
-     * @param degrees angle in degree not in radians [-180, 180],positive = ccw, negative = cw
+     * @param degrees angle in degree not in radians [-180, 180],positive = cw, negative = ccw
      */
-    /*public void turnWithGyro(double speed, double degrees) {
-        double initial = gyro.getRotation();//the gyro is
+    public void turnWithGyro(double speed, double degrees) {
+        double initial = gyro.getCopyOfReadBuffer()[0];//the gyro is
         double current;
 
 
         if (degrees > 0) {
-            RIGHT_SPEED = speed;
-            LEFT_SPEED = -speed;
-        }
-        else {
             RIGHT_SPEED = -speed;
             LEFT_SPEED = speed;
         }
+        else {
+            RIGHT_SPEED = speed;
+            LEFT_SPEED = -speed;
+        }
         JustMove(RIGHT_SPEED,LEFT_SPEED);
         do {
-            current = gyro.getRotation();
+            current = gyro.getCopyOfReadBuffer()[0];
             if (degrees > 0)
                 if (current <= initial)
                     current += 255;
@@ -165,7 +172,11 @@ public class LinearScrimmage extends LinearOpMode {
                      current -= 255;
         }while (Math.abs(current - initial) <= Math.abs(degrees));
         Stop();
-    }*/
+
+        byte[] command = new byte[1];
+        command[0] = 0x52;
+
+    }
 
     /**
      *

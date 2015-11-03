@@ -67,6 +67,7 @@ public class FtcOpModeRegister implements OpModeRegister {
     manager.register("BallCollectTest", BallCollectTest.class);
     manager.register("ScrimmageTeleOp", ScrimmageTeleOp.class);
     manager.register("LinearScrimmage", LinearScrimmage.class);
+    manager.register("Meet1 Auto", Meet1Auto.class);
 
     /*
      * Uncomment any of the following lines if you want to register an op mode.

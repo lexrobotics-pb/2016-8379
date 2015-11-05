@@ -10,10 +10,7 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 public class ColorTest extends OpMode {
     ColorSensor color;
     double CALIBRATE_RED = 0.0;
-    double CALIBRATE_GREEN = 0.0;
     double CALIBRATE_BLUE = 0.0;
-    //float hsvValues[] = {0,0,0};
-    //final float values[] = hsvValues;
 
     @Override
     public void init() {

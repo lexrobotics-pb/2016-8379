@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="HiTechnic">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/FtcCommon/libs/HiTechnic.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

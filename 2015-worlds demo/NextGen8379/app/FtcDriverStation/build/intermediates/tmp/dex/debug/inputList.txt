@@ -1,6 +1,0 @@
-C:\Programming\2016-8379\NextGen8379\app\FtcDriverStation\build\intermediates\classes\debug
-C:\Programming\2016-8379\NextGen8379\app\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-6c8b2cc85a2afb1b73476d04314504070ea22177.jar
-C:\Programming\2016-8379\NextGen8379\app\FtcDriverStation\build\intermediates\pre-dexed\debug\WirelessP2p-29087db2235442938370671bc253c74ceba7ded8.jar
-C:\Programming\2016-8379\NextGen8379\app\FtcDriverStation\build\intermediates\pre-dexed\debug\HiTechnic-fecf8c1633adddda475480a701b9576b988ad7f3.jar
-C:\Programming\2016-8379\NextGen8379\app\FtcDriverStation\build\intermediates\pre-dexed\debug\d2xx-21e63484001710dda00592411d51ca732fbd8ba2.jar
-C:\Programming\2016-8379\NextGen8379\app\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-daa0a7003d5430f2c8f742c739b6b77fc19127bb.jar

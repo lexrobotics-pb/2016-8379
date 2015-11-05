@@ -1,6 +1,0 @@
-C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\classes\debug
-C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\classes-b60dfd15d6f7c53b33cb96217853b943271b5f42.jar
-C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-6f89ad32cf738e1e6b44bcc0b6ed9dc59d26c522.jar
-C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\ModernRobotics-73cdddfd79f9bc690ff94a08f9a3fd3b085c4a34.jar
-C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-f6dd31edbc04d28376b09fda096f0fffb1c124e8.jar
-C:\Programming\2016-8379\AsiaMaterial\FtcRobotController\build\intermediates\pre-dexed\debug\classes-cea72a0c8b98f2e506de615b5edc2470face25e6.jar

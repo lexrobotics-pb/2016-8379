@@ -1,6 +1,0 @@
-C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\8379NextGen3\FtcRobotController\build\intermediates\classes\debug
-C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\8379NextGen3\FtcRobotController\build\intermediates\pre-dexed\debug\WirelessP2p-74d86dd0ab77bda3049f0a0a300d9b33e3751c47.jar
-C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\8379NextGen3\FtcRobotController\build\intermediates\pre-dexed\debug\classes-47cd2e0dc3c4b72e402f12670397d38cd1c5c2fa.jar
-C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\8379NextGen3\FtcRobotController\build\intermediates\pre-dexed\debug\ModernRobotics-285dd5d839d8c5cfd7da6df717cfdbc8b7eb0000.jar
-C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\8379NextGen3\FtcRobotController\build\intermediates\pre-dexed\debug\d2xx-83b7009d4edfaf0fce189cf47709e4bec74892ab.jar
-C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\8379NextGen3\FtcRobotController\build\intermediates\pre-dexed\debug\classes-aebb1ef2e90660fc001adabb0ca7b0d9d0cfdac1.jar

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- From: file:/C:/Programming/2016-8379/2016-ProjRobo/sdk-worldsNew/ftc_sdk/FtcDriverStation/build/intermediates/exploded-aar/ftc_sdk/FtcCommon/unspecified/res/values-w820dp-v13/values.xml -->
-    <eat-comment/>
-    <dimen name="activity_horizontal_margin">64dp</dimen>
-</resources>

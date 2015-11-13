@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/8379NextGen3.iml" filepath="$PROJECT_DIR$/8379NextGen3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FtcCommon/FtcCommon.iml" filepath="$PROJECT_DIR$/FtcCommon/FtcCommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FtcDriverStation/FtcDriverStation.iml" filepath="$PROJECT_DIR$/FtcDriverStation/FtcDriverStation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" filepath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RobotCore/RobotCore.iml" filepath="$PROJECT_DIR$/RobotCore/RobotCore.iml" />
+    </modules>
+  </component>
+</project>
+

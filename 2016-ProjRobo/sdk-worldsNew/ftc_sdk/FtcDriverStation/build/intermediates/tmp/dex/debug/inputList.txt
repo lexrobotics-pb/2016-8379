@@ -1,6 +1,0 @@
-C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\classes\debug
-C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\WirelessP2p-6fceb49c97c55ae0230772fedb77ca182101c366.jar
-C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-af0306d48e9ebbe1f35dd7f8398712166f525f83.jar
-C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\ModernRobotics-cedf8571889ccb5a41898d236070e0639ba32297.jar
-C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\d2xx-4b4b91d2797e8e7e235277544e846ed2c96a83d8.jar
-C:\Programming\2016-8379\2016-ProjRobo\sdk-worldsNew\ftc_sdk\FtcDriverStation\build\intermediates\pre-dexed\debug\classes-28d94f9f2a9e6d7b7f1dc3a91316c41c13a88561.jar

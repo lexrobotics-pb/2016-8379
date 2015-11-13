@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="unspecified"><source path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\build\intermediates\exploded-aar\8379NextGen3\RobotCore\unspecified\res"><file path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\build\intermediates\exploded-aar\8379NextGen3\RobotCore\unspecified\res\values\values.xml" qualifiers=""><style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style><string name="app_name">RobotCore</string><style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style></file><file path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\build\intermediates\exploded-aar\8379NextGen3\RobotCore\unspecified\res\values-v11\values.xml" qualifiers="v11"><style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <!-- API 11 theme customizations can go here. -->
+    </style></file><file path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\build\intermediates\exploded-aar\8379NextGen3\RobotCore\unspecified\res\values-v14\values.xml" qualifiers="v14"><style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- API 14 theme customizations can go here. -->
+    </style></file></source></dataSet><dataSet config="debug"><source path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\build\intermediates\bundles\debug\res"><file name="activity_config_wifi_direct" path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\build\intermediates\bundles\debug\res\layout\activity_config_wifi_direct.xml" qualifiers="" type="layout"/><file path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\build\intermediates\bundles\debug\res\values\values.xml" qualifiers=""><dimen name="activity_vertical_margin">16dp</dimen><style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style><string name="action_settings">Settings</string><dimen name="activity_horizontal_margin">16dp</dimen><string name="app_name">FTC Robot Controller</string><string name="wifi_direct_update_settings">
+    Please wait while we update the Wifi Direct settings on this device.
+  </string><string name="title_activity_config_wifi_direct">Configure Wifi Direct</string><string name="ok">OK</string><style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style></file><file path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\build\intermediates\bundles\debug\res\values-v11\values.xml" qualifiers="v11"><style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <!-- API 11 theme customizations can go here. -->
+    </style></file><file path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\build\intermediates\bundles\debug\res\values-v14\values.xml" qualifiers="v14"><style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- API 14 theme customizations can go here. -->
+    </style></file><file path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\build\intermediates\bundles\debug\res\values-w820dp-v13\values.xml" qualifiers="w820dp-v13"><dimen name="activity_horizontal_margin">64dp</dimen></file></source></dataSet><dataSet config="main"><source path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\src\androidTest\res"/><source path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\build\generated\res\rs\test\debug"/><source path="C:\Users\zht\Desktop\zlr\Robotics\Programming\2016-8379\2015-worlds demo\8379NextGen3\FtcCommon\build\generated\res\generated\test\debug"/></dataSet><mergedItems/></merger>

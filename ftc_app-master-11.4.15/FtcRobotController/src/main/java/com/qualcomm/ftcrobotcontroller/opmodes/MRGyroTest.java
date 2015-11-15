@@ -78,6 +78,7 @@ public class MRGyroTest extends LinearOpMode {
     // make sure the gyro is calibrated.
     while (sensorGyro.isCalibrating())  {
       Thread.sleep(50);
+      telemetry.addData("log", "calibrating");
     }
 
     while (opModeIsActive())  {

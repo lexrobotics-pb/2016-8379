@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.AnalogInput;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
+import com.qualcomm.robotcore.robocol.Telemetry;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -18,14 +19,14 @@ public class LinearScrimmage extends LinearOpMode {
     DcMotor motorFrontLeft;
     DcMotor motorBackRight;
     DcMotor motorBackLeft;
-//    AnalogInput light;
+    //    AnalogInput light;
     double CALIBRATE_RED = 0.0;
     double CALIBRATE_BLUE = 0.0;
     double ENCODER_F_R = 0;
     double ENCODER_F_L = 0;
     double ENCODER_B_R = 0;
     double ENCODER_B_L = 0;
-//    I2cDevice gyro;
+    //    I2cDevice gyro;
     GyroSensor gyro;
     Servo push;
 
@@ -42,18 +43,18 @@ public class LinearScrimmage extends LinearOpMode {
         motorBackLeft.setDirection(DcMotor.Direction.FORWARD); //forwards back left motor
         motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.FORWARD); //forwards front left motor
-//        light = hardwareMap.analogInput.get("light");
+
         gyro = hardwareMap.gyroSensor.get("gyro");
         push = hardwareMap.servo.get("push");
         gyro.calibrate();
 
         waitForStart();
 
-        while (opModeIsActive()&&gyro.isCalibrating()) {
+        while (gyro.isCalibrating()) {
+            telemetry.addData("log", "calibrating");
             Thread.sleep(50);
         }
 
-//        calibrate();
 
         push.setPosition(0.7);
         my_wait(1.0);
@@ -67,21 +68,21 @@ public class LinearScrimmage extends LinearOpMode {
         telemetry.addData("done", "done");
         sleep(1000);
 
-        while (opModeIsActive()) {
-            telemetry.addData("gyro?", gyro.isCalibrating());
-            telemetry.addData("gyro", gyro.getHeading());
+        turnWithGyro(0.5, 90);
 
-            waitOneFullHardwareCycle();
+        while (opModeIsActive()) {
+            telemetry.addData("gyro", gyro.getHeading());
+            Thread.sleep(100);
         }
 //            telemetry.addData("gyro2", gyro.getRotation());
 //            push.setPosition(0);
-            //           turnWithGyro(0.9, 90.0);
-            //move(0.9, 50.0);
-            //wait1Msec(10000);
-            //turnWithGyro(0.9, 90);
-            //turnWithGyro(0.9,90);m
-            //telemetry.addData("gyro", gyro.getCopyOfReadBuffer());
-            //color.enableLed(true);
+        //           turnWithGyro(0.9, 90.0);
+        //move(0.9, 50.0);
+        //wait1Msec(10000);
+        //turnWithGyro(0.9, 90);
+        //turnWithGyro(0.9,90);
+        //telemetry.addData("gyro", gyro.getCopyOfReadBuffer());
+        //color.enableLed(true);
             /*telemetry.addData("Red  ", color.red() - CALIBRATE_RED);
             telemetry.addData("Blue ", color.blue() - CALIBRATE_BLUE);
             telemetry.addData("Calibrate red", CALIBRATE_RED);
@@ -91,6 +92,7 @@ public class LinearScrimmage extends LinearOpMode {
             print(color.red(), color.blue());*/
 //        }
     }
+
     /**
      * @param speed    [-1, 1],
      * @param distance > 0, in cm
@@ -169,14 +171,10 @@ public class LinearScrimmage extends LinearOpMode {
 //        }
 //        double initial = gyro.getCopyOfReadBuffer()[0];
 //
-        gyro.calibrate();
+        gyro.resetZAxisIntegrator();
         telemetry.addData("Gyro", gyro.getHeading());
 
-
-        double initial = gyro.getHeading();
-        double current;
-        double left;
-        double right;
+        double left, right;
 
         if (degrees > 0) {
             right = -speed;
@@ -185,25 +183,17 @@ public class LinearScrimmage extends LinearOpMode {
             right = speed;
             left = -speed;
         }
-        JustMove(right, left);
-        do {
-//            current = gyro.getCopyOfReadBuffer()[0];
-            current = gyro.getHeading();
 
-            if (degrees > 0)
-                if (current <= initial)
-                    current += 255;
-                else if (current >= initial)
-                    current -= 255;
-        } while (opModeIsActive()&&Math.abs(current - initial) <= Math.abs(degrees));
+        JustMove(right, left);
+        while (opModeIsActive() && gyro.getHeading() < degrees) {
+        }
         Stop();
     }
 
-    public void my_wait(double sec)
-    {
+    public void my_wait(double sec) {
         double current = this.time;
-        while(this.opModeIsActive()&&(this.time - current) < sec)
-        {}
+        while (this.opModeIsActive() && (this.time - current) < sec) {
+        }
     }
 }
 

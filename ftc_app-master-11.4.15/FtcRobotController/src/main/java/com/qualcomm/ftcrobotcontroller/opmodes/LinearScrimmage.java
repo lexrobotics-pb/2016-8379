@@ -68,12 +68,13 @@ public class LinearScrimmage extends LinearOpMode {
         telemetry.addData("done", "done");
         sleep(1000);
 
-        turnWithGyro(0.5, 90);
 
-        while (opModeIsActive()) {
-            telemetry.addData("gyro", gyro.getHeading());
-            Thread.sleep(100);
-        }
+//        turnWithGyro(0.5, 90);
+//
+//        while (opModeIsActive()) {
+//            telemetry.addData("gyro", gyro.getHeading());
+//            Thread.sleep(100);
+//        }
 //            telemetry.addData("gyro2", gyro.getRotation());
 //            push.setPosition(0);
         //           turnWithGyro(0.9, 90.0);

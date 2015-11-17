@@ -1,12 +1,9 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.AnalogInput;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
-import com.qualcomm.robotcore.robocol.Telemetry;
-import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
@@ -52,47 +49,47 @@ public class Meet1Auto extends LinearOpMode {
 
         waitForStart();
 
+        calibrate();
+
         while (gyro.isCalibrating()) {
             telemetry.addData("log", "calibrating");
             Thread.sleep(50);
         }
 
+        //set the robot perpendicular to the wall
+        move(0.5, 60);
+        my_wait(0.1);
+        turnWithGyro(0.5, 45); // parallel to diagonal
+        my_wait(0.1);
+        move(0.9, 128);
+        my_wait(0.1);
+        turnWithGyro(-0.5, 45); // parallel to wall
+        Stop();
+        //move(0.9, 30); // approach beacon
+//        push.setPosition(0.3);
+//        my_wait(1);
+//        push.setPosition(0.5);
 
-        push.setPosition(0.7);
-        my_wait(1.0);
+        boolean search = true;
+
+        JustMove(0.1, 0.1);
+        while((color.blue()-CALIBRATE_BLUE)<=(color.red()-CALIBRATE_RED)) {
+        }
+//        do {
+//            if ((color.blue()-CALIBRATE_BLUE)>(color.red()-CALIBRATE_RED))
+//            {
+//                Stop();
+//                if (isBlue())
+//                    search = false;
+//                else
+//                    JustMove(0.5, 0.5);
+//            }
+//        }while(this.opModeIsActive() && search);
+        Stop();
         push.setPosition(0.3);
         my_wait(3.5);
         push.setPosition(0.5);
 
-        telemetry.addData("done", "setting position");
-
-        gyro.resetZAxisIntegrator();
-        telemetry.addData("done", "done");
-        sleep(1000);
-
-        turnWithGyro(0.5, 90);
-
-        while (opModeIsActive()) {
-            telemetry.addData("gyro", gyro.getHeading());
-            Thread.sleep(100);
-        }
-//            telemetry.addData("gyro2", gyro.getRotation());
-//            push.setPosition(0);
-        //           turnWithGyro(0.9, 90.0);
-        //move(0.9, 50.0);
-        //wait1Msec(10000);
-        //turnWithGyro(0.9, 90);
-        //turnWithGyro(0.9,90);
-        //telemetry.addData("gyro", gyro.getCopyOfReadBuffer());
-        //color.enableLed(true);
-            /*telemetry.addData("Red  ", color.red() - CALIBRATE_RED);
-            telemetry.addData("Blue ", color.blue() - CALIBRATE_BLUE);
-            telemetry.addData("Calibrate red", CALIBRATE_RED);
-            telemetry.addData("Calibrate blue ", CALIBRATE_BLUE);
-            telemetry.addData("Adjusted Red  ", color.red() - CALIBRATE_RED);
-            telemetry.addData("Adjusted Blue ", color.blue() - CALIBRATE_BLUE);
-            print(color.red(), color.blue());*/
-//        }
     }
 
     /**
@@ -103,7 +100,7 @@ public class Meet1Auto extends LinearOpMode {
         resetEncoders();
         JustMove(speed, speed);
         int i = 0;
-        while (opModeIsActive() && (motorBackLeft.getCurrentPosition() - ENCODER_B_L) / encoderV < distance / circumference) {
+        while (this.opModeIsActive() && (motorBackLeft.getCurrentPosition() - ENCODER_B_L) / encoderV < distance / circumference) {
             i++;
             telemetry.addData("ran", i);
             telemetry.addData("cycles stop at", distance / circumference);
@@ -154,6 +151,7 @@ public class Meet1Auto extends LinearOpMode {
     }
 
     public void resetEncoders() {
+        telemetry.addData("encoder", "reset");
         ENCODER_F_R = motorFrontRight.getCurrentPosition();
         ENCODER_F_L = motorFrontLeft.getCurrentPosition();
         ENCODER_B_R = motorBackRight.getCurrentPosition();
@@ -174,20 +172,30 @@ public class Meet1Auto extends LinearOpMode {
 //        double initial = gyro.getCopyOfReadBuffer()[0];
 //
         gyro.resetZAxisIntegrator();
-        telemetry.addData("Gyro", gyro.getHeading());
+        telemetry.addData("turning", "");
+        my_wait(1);
 
         double left, right;
 
-        if (degrees > 0) {
-            right = -speed;
-            left = speed;
-        } else {
-            right = speed;
-            left = -speed;
-        }
+        right = -speed;
+        left = speed;
 
-        JustMove(right, left);
-        while (opModeIsActive() && gyro.getHeading() < degrees) {
+        if(speed<0){
+            degrees=360-degrees;
+            JustMove(right, left);
+            my_wait(0.5);
+            while (this.opModeIsActive() && gyro.getHeading() > degrees)
+            {
+            }
+            Stop();
+            telemetry.addData("in func gyro", gyro.getHeading());
+            my_wait(3);
+        }
+        else
+        {
+            JustMove(right, left);
+            while (opModeIsActive() && gyro.getHeading() < degrees) {
+            }
         }
         Stop();
     }
@@ -196,6 +204,23 @@ public class Meet1Auto extends LinearOpMode {
         double current = this.time;
         while (this.opModeIsActive() && (this.time - current) < sec) {
         }
+    }
+
+    public boolean isBlue()
+    {
+        Stop();
+        double blue = 0.0, red = 0.0;
+        for (int x = 0; x < 20; x++)
+        {
+            blue += color.blue();
+            red +=color.red();
+            my_wait(0.1);
+        }
+        blue/=20;
+        red/=20;
+        blue-=CALIBRATE_BLUE;
+        red -= CALIBRATE_RED;
+        return blue>red;
     }
 }
 

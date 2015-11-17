@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.robocol.Telemetry;
 
 /**
  * Created by khushisoni1 on 10/28/15.
- * Edited by Kara on 11/14/15, set for meet 1
+ * Edited by Kara on 11/14/15, set for meet 1, skirt and climber button implemented
  */
 public class ScrimmageTeleOp extends OpMode {
 
@@ -19,8 +19,11 @@ final static double DEADZONE= 0.1;
     DcMotor motorBackLeft;
 
     Servo skirts;
+    Servo resq;
+    Servo push;
 
-Telemetry telemetry = new Telemetry();
+    double resqPos;
+    double skirtsPos;
 
 
     @Override
@@ -35,17 +38,21 @@ Telemetry telemetry = new Telemetry();
         motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //backwards front left motor
 
-        skirts=hardwareMap.servo.get("skirts");
+        skirts = hardwareMap.servo.get("skirts");
+        resq = hardwareMap.servo.get("resq");
+        push = hardwareMap.servo.get("push");
     }
 
     @Override
     public void loop()
     {
-        double skirtsPos = 0.5;
-        if (Math.abs(gamepad1.left_stick_x) < DEADZONE*100){
+        skirtsPos = 0.5;
+        push.setPosition(0.5);
+
+        if (Math.abs(gamepad1.left_stick_x) < DEADZONE){
             gamepad1.left_stick_x = 0;
         }
-        if (Math.abs(gamepad1.left_stick_y) < DEADZONE*100){
+        if (Math.abs(gamepad1.left_stick_y) < DEADZONE){
             gamepad1.left_stick_y = 0;
         }
         if (Math.abs(gamepad1.right_stick_x) < DEADZONE){
@@ -60,6 +67,16 @@ Telemetry telemetry = new Telemetry();
 
         if (gamepad1.y){
             skirtsPos = 0.7;
+        }
+
+        if(gamepad1.x){
+            resqPos = 0.3;
+            resq.setPosition(resqPos);
+        }
+
+        if(gamepad1.b){
+            resqPos = 0.7;
+            resq.setPosition(resqPos);
         }
 
               /*---------------------Movement----------------------------*/
@@ -84,4 +101,3 @@ Telemetry telemetry = new Telemetry();
     }
 
 }
-// created by Khushi

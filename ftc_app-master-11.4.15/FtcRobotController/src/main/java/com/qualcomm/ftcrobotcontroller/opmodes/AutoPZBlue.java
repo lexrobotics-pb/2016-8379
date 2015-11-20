@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Created by Eula on 11/18/2015.
  */
 
-public class AutoPZRed extends LinearOpMode {
+public class AutoPZBlue extends LinearOpMode {
     DcMotor motorFrontRight;
     DcMotor motorFrontLeft;
     DcMotor motorBackRight;
@@ -121,6 +121,7 @@ public class AutoPZRed extends LinearOpMode {
 
     /**
      * turn the robot on the spot
+     *
      * @param speed   [-1, 1]
      * @param degrees angle in degree not in radians [0, 180]
      *                adjust cw and ccw using speed positive = cw, negative = ccw
@@ -133,18 +134,18 @@ public class AutoPZRed extends LinearOpMode {
         right = -speed;
         left = speed;
 
-        if(speed<0){
-            degrees=360-degrees;
+        if (speed < 0) {
+            degrees = 360 - degrees;
             JustMove(right, left);
 //            while(this.opModeIsActive() && gyro.getHeading() >= 0)
 //            {}
             my_wait(0.5);
-            while (this.opModeIsActive() && gyro.getHeading() > degrees){}
-        }
-        else
-        {
+            while (this.opModeIsActive() && gyro.getHeading() > degrees) {
+            }
+        } else {
             JustMove(right, left);
-            while (this.opModeIsActive() && gyro.getHeading() < degrees) {}
+            while (this.opModeIsActive() && gyro.getHeading() < degrees) {
+            }
         }
         Stop();
     }
@@ -154,3 +155,4 @@ public class AutoPZRed extends LinearOpMode {
         while (this.opModeIsActive() && (this.time - current) < sec) {
         }
     }
+}

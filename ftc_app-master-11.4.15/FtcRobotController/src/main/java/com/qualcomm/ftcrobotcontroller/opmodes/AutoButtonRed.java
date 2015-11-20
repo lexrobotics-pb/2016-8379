@@ -65,7 +65,6 @@ public class AutoButtonRed extends LinearOpMode {
         gyro.calibrate();
 
         waitForStart();
-        calibrate();
 
         while (gyro.isCalibrating()) {
             telemetry.addData("log", "calibrating");
@@ -75,15 +74,19 @@ public class AutoButtonRed extends LinearOpMode {
         //set the robot perpendicular to the wall
         move(0.5, 60);
         my_wait(0.3);
-        turnWithGyro(-0.5, 40); // parallel to diagonal
+        turnWithGyro(-0.5, 39); // parallel to diagonal
         my_wait(0.1);
-        move(0.9, 140);
+        move(0.9, 150);
         my_wait(0.1);
         turnWithGyro(-0.5, 120); // parallel to wall
+        my_wait(0.1);
+        move(0.5, 10);
+        calibrate();
         Stop();
 
         boolean search = true;
 
+        double now = this.time;
         JustMove(-0.1, -0.1);
         do {
             if ((color.blue()-CALIBRATE_BLUE)<(color.red()-CALIBRATE_RED))
@@ -94,12 +97,22 @@ public class AutoButtonRed extends LinearOpMode {
                 else
                     JustMove(-0.1, -0.1);
             }
-        }while(this.opModeIsActive() && search);
+        }while(this.opModeIsActive() && search && this.time - now < 2.0);
+        telemetry.addData("done red", color.red()-CALIBRATE_RED);
+        telemetry.addData("done blue", color.blue()-CALIBRATE_BLUE);
+        my_wait(3);
         move(0.1, 5.0);
         my_wait(1.0);
         push.setPosition(0.1);
         my_wait(3.5);
         push.setPosition(0.5);
+        my_wait(2);
+        push.setPosition(0.7);
+        my_wait(2);
+        push.setPosition(0.5);
+        move(0.5, 70);
+
+//        move(0.9, 120);
 
     }
 
@@ -135,6 +148,9 @@ public class AutoButtonRed extends LinearOpMode {
         }
         CALIBRATE_RED = red / 64.0;
         CALIBRATE_BLUE = blue / 64.0;
+        telemetry.addData("red color", CALIBRATE_RED );
+        telemetry.addData("blue color", CALIBRATE_RED );
+        my_wait(5.0);
     }
 
     public void JustMove(double speedRight, double speedLeft) {

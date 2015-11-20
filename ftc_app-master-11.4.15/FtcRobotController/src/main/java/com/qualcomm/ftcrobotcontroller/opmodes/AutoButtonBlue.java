@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * 2015 Autonomous program for pushing button on the blue Alliance Side
  * Created by Kara Luo on 11/14/2015.
- * Updated by Eula on 11/18/2015
+ * Updated by Eula on 11/19/2015
  * Status: All configuration organized in the Robot Class
  */
 public class AutoButtonBlue extends LinearOpMode {

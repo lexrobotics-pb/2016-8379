@@ -1,21 +1,16 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
-
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.robocol.Telemetry;
 
 /**
- * Created by Eula on 10/8/2015.
- * Last Update: 2015/11/19 by Eula
- * Use this class to configure all robot parts and store main movement of the robot for Autonomous
- * Status: Updating for Meet 1
+ * 2015 Autonomous program for parking in the Park Zone right next to the ramp on the Red Alliance Side
+ * Created by Eula on 11/19/2015.
  */
 
-public class Robot extends LinearOpMode {
+public class AutoPZRed extends LinearOpMode {
     DcMotor motorFrontRight;
     DcMotor motorFrontLeft;
     DcMotor motorBackRight;
@@ -38,9 +33,9 @@ public class Robot extends LinearOpMode {
 
     double circumference = 4.0 * 2.54 * Math.PI, encoderV = 1120.0;
 
-    public Robot(HardwareMap hardwareMap2, Telemetry telemetry2){
-        telemetry = telemetry2;
-        hardwareMap = hardwareMap2;
+    @Override
+    public void runOpMode() throws InterruptedException {
+
         color = hardwareMap.colorSensor.get("color");
         motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
@@ -66,17 +61,23 @@ public class Robot extends LinearOpMode {
         gyro = hardwareMap.gyroSensor.get("gyro");
 
         gyro.calibrate();
-        my_wait(1.0);
+        waitForStart();
+
+        while (gyro.isCalibrating()) {
+            telemetry.addData("log", "calibrating");
+            Thread.sleep(50);
+        }
+
+        //set the robot perpendicular to the wall
+        move(0.5, 60);
+        my_wait(0.1);
+        turnWithGyro(-0.5, 45); // parallel to diagonal
+        my_wait(0.1);
+        move(0.9, 128);//reach the park zone
     }
 
-
-    @Override
-    public void runOpMode(){}
-
-    //====================================All Functions=====================================================================================================
-
     /**
-     * @param speed    [-1, 1]
+     * @param speed    [-1, 1],
      * @param distance > 0, in cm
      */
     public void move(double speed, double distance) {
@@ -92,20 +93,6 @@ public class Robot extends LinearOpMode {
             telemetry.addData("cycles", (motorBackLeft.getCurrentPosition() - ENCODER_B_L) / encoderV);
         }
         Stop();
-    }
-
-    public void calibrate() {
-        double red = 0.0;
-        double blue = 0.0;
-        for (int i = 0; i < 64; i++) {
-            red += color.red();
-            blue += color.blue();
-            double time = this.time;
-            while (this.time < time + 0.05) {
-            }
-        }
-        CALIBRATE_RED = red / 64.0;
-        CALIBRATE_BLUE = blue / 64.0;
     }
 
     public void JustMove(double speedRight, double speedLeft) {
@@ -136,17 +123,11 @@ public class Robot extends LinearOpMode {
      * turn the robot on the spot
      * @param speed   [-1, 1]
      * @param degrees angle in degree not in radians [0, 180]
-     *                adjust cw and ccw using speed only, positive = cw, negative = ccw
+     *                adjust cw and ccw using speed positive = cw, negative = ccw
      */
     public void turnWithGyro(double speed, double degrees) {
-//        if(!gyro.isI2cPortInReadMode()){
-//            gyro.enableI2cReadMode(0x20, 0x05, 1);
-//        }
-//        double initial = gyro.getCopyOfReadBuffer()[0];
-//
         gyro.resetZAxisIntegrator();
-        my_wait(1);
-
+        my_wait(0.5);
         double left, right;
 
         right = -speed;
@@ -158,43 +139,23 @@ public class Robot extends LinearOpMode {
 //            while(this.opModeIsActive() && gyro.getHeading() >= 0)
 //            {}
             my_wait(0.5);
-            while (this.opModeIsActive() && gyro.getHeading() > degrees)
-            {
-            }
-            Stop();
+            while (this.opModeIsActive() && gyro.getHeading() > degrees){}
         }
         else
         {
             JustMove(right, left);
-            while (opModeIsActive() && gyro.getHeading() < degrees) {}
+            while (this.opModeIsActive() && gyro.getHeading() < degrees) {}
         }
         Stop();
     }
 
-    /**
-     * wait without stopping the thread
-     * @param sec in seconds instead of milliseconds
-     */
     public void my_wait(double sec) {
         double current = this.time;
         while (this.opModeIsActive() && (this.time - current) < sec) {
         }
     }
 
-    public boolean isBlue()
-    {
-        Stop();
-        double blue = 0.0, red = 0.0;
-        for (int x = 0; x < 20; x++)
-        {
-            blue += color.blue();
-            red +=color.red();
-            my_wait(0.1);
-        }
-        blue/=20;
-        red/=20;
-        blue-=CALIBRATE_BLUE;
-        red -= CALIBRATE_RED;
-        return blue>red;
-    }
+
 }
+
+

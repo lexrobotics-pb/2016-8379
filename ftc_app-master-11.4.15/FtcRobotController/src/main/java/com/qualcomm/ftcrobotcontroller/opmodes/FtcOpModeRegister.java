@@ -56,14 +56,12 @@ public class FtcOpModeRegister implements OpModeRegister {
      */
 
     manager.register("NullOp", NullOp.class);
-
-    manager.register("LinearColor", LinearColorTest.class);
-    manager.register ("ChassisTest", ChassisTest.class);
-    manager.register("testGyro", MRGyroTest.class);
-    manager.register("BallCollectTest", BallCollectTest.class);
     manager.register("ScrimmageTeleOp", ScrimmageTeleOp.class);
-    manager.register("LinearScrimmage", LinearScrimmage.class);
     manager.register("Meet1 Auto", Meet1Auto.class);
+      manager.register("AutoButtonBlue", AutoButtonBlue.class);
+      manager.register("AutoButtonRed", AutoButtonRed.class);
+      manager.register("AutoPZBlue", AutoPZBlue.class);
+      manager.register("AutoPZRed", AutoPZRed.class);
 
     /*
      * Uncomment any of the following lines if you want to register an op mode.

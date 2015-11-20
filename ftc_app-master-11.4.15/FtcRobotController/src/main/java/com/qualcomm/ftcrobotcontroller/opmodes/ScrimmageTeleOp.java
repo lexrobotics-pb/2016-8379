@@ -19,11 +19,12 @@ final static double DEADZONE= 0.1;
     DcMotor motorBackLeft;
 
     Servo skirts;
-    Servo resq;
+    Servo LeftTrigger;
+    Servo RightTrigger;
     Servo push;
 
-    double resqPos;
     double skirtsPos;
+    double pushPos;
 
 
     @Override
@@ -39,16 +40,20 @@ final static double DEADZONE= 0.1;
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //backwards front left motor
 
         skirts = hardwareMap.servo.get("skirts");
-        resq = hardwareMap.servo.get("resq");
+        LeftTrigger = hardwareMap.servo.get("LeftTrigger");
+        RightTrigger = hardwareMap.servo.get("RightTrigger");
         push = hardwareMap.servo.get("push");
+
+        LeftTrigger.setPosition(0.0);
+        RightTrigger.setPosition(1.0);
+        push.setPosition(0.5);
+        skirts.setPosition(0.5);
     }
 
     @Override
     public void loop()
     {
-        skirtsPos = 0.5;
-        push.setPosition(0.5);
-
+        //===================Movement==================================================
         if (Math.abs(gamepad1.left_stick_x) < DEADZONE){
             gamepad1.left_stick_x = 0;
         }
@@ -61,43 +66,44 @@ final static double DEADZONE= 0.1;
         if (Math.abs(gamepad1.right_stick_y) < DEADZONE){
             gamepad1.right_stick_y = 0;
         }
-        if (gamepad1.a){
-            skirtsPos = 0.3;
-        }
-
-        if (gamepad1.y){
-            skirtsPos = 0.7;
-        }
-
-        if(gamepad1.x){
-            resqPos = 0.3;
-            resq.setPosition(resqPos);
-        }
-
-        if(gamepad1.b){
-            resqPos = 0.7;
-            resq.setPosition(resqPos);
-        }
-
-              /*---------------------Movement----------------------------*/
         motorFrontLeft.setPower(gamepad1.left_stick_y*0.9);
         motorBackLeft.setPower(gamepad1.left_stick_y * 0.9);
         motorFrontRight.setPower(gamepad1.right_stick_y*0.9);
         motorBackRight.setPower(gamepad1.right_stick_y * 0.9);
+
+        skirtsPos = 0.5;
+        pushPos = 0.5;
+
+        if(gamepad2.x)
+            pushPos = 0.7;
+
+        if(gamepad2.b)
+            pushPos = 0.3;
+
+        if (gamepad2.a)
+            skirtsPos = 0.3;
+
+        if (gamepad2.y)
+            skirtsPos = 0.7;
+
+        if(gamepad2.left_trigger > 0.1)
+            LeftTrigger.setPosition(0.95);
+
+        if(gamepad2.left_bumper)
+            LeftTrigger.setPosition(0.0);
+
+        if(gamepad2.right_trigger > 0.1)
+            RightTrigger.setPosition(0.0);
+
+        if(gamepad2.right_bumper)
+            RightTrigger.setPosition(0.95);
+
+        push.setPosition(pushPos);
         skirts.setPosition(skirtsPos);
     }
 
     @Override
     public void stop()
-    {
-
-    }
-
-    public void my_wait(double seconds)
-    {
-        double current = this.time;
-        while ((this.time - current) < seconds) {
-        }
-    }
+    {}
 
 }

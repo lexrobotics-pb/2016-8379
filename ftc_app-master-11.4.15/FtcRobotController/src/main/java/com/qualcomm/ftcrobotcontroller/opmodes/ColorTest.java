@@ -15,17 +15,14 @@ public class ColorTest extends OpMode {
     @Override
     public void init() {
         color = hardwareMap.colorSensor.get("color");
+        calibrate();
         //BlackCalibration();
     }
 
     @Override
     public void loop() {
-        color.enableLed(false);
-        telemetry.addData("Clear", color.alpha());
-        telemetry.addData("Red  ", color.red());
-        telemetry.addData("Green", color.green());
-        telemetry.addData("Blue ", color.blue());
-        print(color.red(), color.blue());
+        telemetry.addData("Red  ", color.red() - CALIBRATE_RED);
+        telemetry.addData("Blue ", color.blue() - CALIBRATE_BLUE);
         //telemetry.addData("Hue", hsvValues[0]);//every single loop it sorts the outputs alphabetically according to the tag
     }
 
@@ -56,49 +53,54 @@ public class ColorTest extends OpMode {
 
     }*/
 
-    public double calibrateRed() {
+    public void calibrate() {
         double red = 0.0;
-        for (int i = 0; i < 64; i++) {
-            red += color.red();
-            double time = this.time;
-            while (this.time < time + 0.1) {
-            }
-        }
-
-        return red / 64.0;
-    }
-    public double calibrateGreen() {
-        double green = 0.0;
-        for (int i = 0; i < 64; i++) {
-            green += color.green();
-            double time = this.time;
-            while (this.time < time + 0.1) {
-            }
-        }
-        return green / 64.0;
-    }
-
-    public double calibrateBlue() {
         double blue = 0.0;
         for (int i = 0; i < 64; i++) {
+            red += color.red();
             blue += color.blue();
             double time = this.time;
-            while (this.time < time + 0.1) {
+            while (this.time < time + 0.05) {
             }
         }
-        return blue / 64.0;
+        CALIBRATE_RED = red / 64.0;
+        CALIBRATE_BLUE = blue / 64.0;
+        telemetry.addData("red color", CALIBRATE_RED );
+        telemetry.addData("blue color", CALIBRATE_RED );
+        //my_wait(5.0);
     }
-
-    public void print(double red, double blue) {
-        if (red - CALIBRATE_RED > blue - CALIBRATE_BLUE) {
-            telemetry.addData("compare", "red");
-        } else if (red - CALIBRATE_RED > blue - CALIBRATE_BLUE) {
-            telemetry.addData("compare", blue);
-        } else {
-            telemetry.addData("compare", "indistinguishable");
-        }
-    }
-
+//    public double calibrateGreen() {
+//        double green = 0.0;
+//        for (int i = 0; i < 64; i++) {
+//            green += color.green();
+//            double time = this.time;
+//            while (this.time < time + 0.1) {
+//            }
+//        }
+//        return green / 64.0;
+//    }
+//
+//    public double calibrateBlue() {
+//        double blue = 0.0;
+//        for (int i = 0; i < 64; i++) {
+//            blue += color.blue();
+//            double time = this.time;
+//            while (this.time < time + 0.1) {
+//            }
+//        }
+//        return blue / 64.0;
+//    }
+//
+//    public void print(double red, double blue) {
+//        if (red - CALIBRATE_RED > blue - CALIBRATE_BLUE) {
+//            telemetry.addData("compare", "red");
+//        } else if (red - CALIBRATE_RED > blue - CALIBRATE_BLUE) {
+//            telemetry.addData("compare", blue);
+//        } else {
+//            telemetry.addData("compare", "indistinguishable");
+//        }
+//    }
+//
 
 }
 

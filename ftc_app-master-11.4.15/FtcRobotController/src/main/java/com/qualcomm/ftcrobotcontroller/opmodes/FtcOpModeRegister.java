@@ -62,6 +62,8 @@ public class FtcOpModeRegister implements OpModeRegister {
       manager.register("AutoButtonRed", AutoButtonRed.class);
       manager.register("AutoPZBlue", AutoPZBlue.class);
       manager.register("AutoPZRed", AutoPZRed.class);
+      manager.register("ColorTestLin", ColorTestLin.class);
+      manager.register("ColorTest", ColorTest.class);
 
     /*
      * Uncomment any of the following lines if you want to register an op mode.

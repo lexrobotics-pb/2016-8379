@@ -7,12 +7,12 @@ import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 /**
- * 2015 Autonomous program for pushing button on the blue Alliance Side
+ * 2015 Autonomous program for pushing button on the Red Alliance Side
  * Created by Kara Luo on 11/14/2015.
- * Updated by Eula on 11/19/2015
+ * Updated by Eula on 11/18/2015
  * Status: All configuration organized in the Robot Class
  */
-public class AutoButtonBlue extends LinearOpMode {
+public class ColorTestLin extends LinearOpMode {
     DcMotor motorFrontRight;
     DcMotor motorFrontLeft;
     DcMotor motorBackRight;
@@ -65,51 +65,11 @@ public class AutoButtonBlue extends LinearOpMode {
         gyro.calibrate();
 
         waitForStart();
-
-        while (gyro.isCalibrating()) {
-            telemetry.addData("log", "calibrating");
-            Thread.sleep(50);
-        }
-
-        //set the robot perpendicular to the wall
-        move(0.5, 60);
-        my_wait(0.3);
-        turnWithGyro(0.5, 40); // parallel to diagonal
-        my_wait(0.1);
-        move(0.9, 153);
-        my_wait(0.1);
-        turnWithGyro(-0.5, 40); // parallel to wall
-        my_wait(0.1);
-        move(-0.5, 10);
-        stop();
         calibrate();
-        Stop();
-
-        boolean search = true;
-        double now = this.time;
-
-        JustMove(0.1, 0.1);
-        do {
-            if ((color.blue()-CALIBRATE_BLUE)>= 1.0)
-            {
-                Stop();
-                if (isBlue())
-                    search = false;
-                else
-                    JustMove(0.1, 0.1);
-            }
-        }while(this.opModeIsActive() && search && this.time - now < 5.0);
-        move(-0.1, 5.0);
-        my_wait(1.0);
-        push.setPosition(0.1);
-        my_wait(3.5);
-        push.setPosition(0.5);
-        my_wait(2);
-        push.setPosition(0.7);
-        my_wait(2);
-        push.setPosition(0.5);
-        move(-0.5, 90);
-
+        while (opModeIsActive()) {
+            telemetry.addData("red", color.red() - CALIBRATE_RED);
+            telemetry.addData("blue", color.blue() - CALIBRATE_BLUE);
+        }
     }
 
 
@@ -144,6 +104,9 @@ public class AutoButtonBlue extends LinearOpMode {
         }
         CALIBRATE_RED = red / 64.0;
         CALIBRATE_BLUE = blue / 64.0;
+        telemetry.addData("red color", CALIBRATE_RED );
+        telemetry.addData("blue color", CALIBRATE_RED );
+        my_wait(5.0);
     }
 
     public void JustMove(double speedRight, double speedLeft) {
@@ -222,7 +185,10 @@ public class AutoButtonBlue extends LinearOpMode {
 
         blue-=CALIBRATE_BLUE;
         red -= CALIBRATE_RED;
-        return blue>=1;
+        telemetry.addData("red color", red);
+        telemetry.addData("blue color", blue);
+        my_wait(2.0);
+        return blue>red;
     }
 
     public boolean isRed()
@@ -243,7 +209,6 @@ public class AutoButtonBlue extends LinearOpMode {
         telemetry.addData("red color", red);
         telemetry.addData("blue color", blue);
         my_wait(2.0);
-        //return red - blue > 1;
         return blue<red;
     }
 }

@@ -15,12 +15,11 @@ import com.qualcomm.robotcore.robocol.Telemetry;
  * Status: Updating for Meet 1
  */
 
-public class Robot extends LinearOpMode {
+public class Robot {
     DcMotor motorFrontRight;
     DcMotor motorFrontLeft;
     DcMotor motorBackRight;
     DcMotor motorBackLeft;
-
 
     ColorSensor color;
     double CALIBRATE_RED = 0.0;
@@ -32,64 +31,55 @@ public class Robot extends LinearOpMode {
 
     GyroSensor gyro;
     Servo push;
-    Servo skirt;
     Servo LeftTrigger;
     Servo RightTrigger;
 
+    Telemetry my_telemetry;
+    LinearOpMode waiter;
+
     double circumference = 4.0 * 2.54 * Math.PI, encoderV = 1120.0;
 
-    public Robot(HardwareMap hardwareMap2, Telemetry telemetry2){
-        telemetry = telemetry2;
-        hardwareMap = hardwareMap2;
-        color = hardwareMap.colorSensor.get("color");
-        motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
+    public Robot(LinearOpMode hello){
+        waiter = hello;
+        color = hello.hardwareMap.colorSensor.get("color");
+        motorBackRight = hello.hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
-        motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
+        motorFrontRight = hello.hardwareMap.dcMotor.get("motorFrontRight");
         motorFrontRight.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
-        motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");
+        motorBackLeft = hello.hardwareMap.dcMotor.get("motorBackLeft");
         motorBackLeft.setDirection(DcMotor.Direction.FORWARD); //forwards back left motor
-        motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft");
+        motorFrontLeft = hello.hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.FORWARD); //forwards front left motor
 
-        skirt = hardwareMap.servo.get("skirts");
-        LeftTrigger = hardwareMap.servo.get("LeftTrigger");
-        RightTrigger = hardwareMap.servo.get("RightTrigger");
-        push = hardwareMap.servo.get("push");
+        LeftTrigger = hello.hardwareMap.servo.get("LeftTrigger");
+        RightTrigger = hello.hardwareMap.servo.get("RightTrigger");
+        push = hello.hardwareMap.servo.get("push");
 
         LeftTrigger.setPosition(0.0);
         RightTrigger.setPosition(1.0);
         push.setPosition(0.5);
-        skirt.setPosition(0.5);
 
+  //      my_telemetry = telemetry2;
 
-        telemetry.addData("ran", "hello");
-        gyro = hardwareMap.gyroSensor.get("gyro");
+        gyro = hello.hardwareMap.gyroSensor.get("gyro");
 
         gyro.calibrate();
         my_wait(1.0);
     }
-
-
-    @Override
-    public void runOpMode(){}
+    
 
     //====================================All Functions=====================================================================================================
 
     /**
-     * @param speed    [-1, 1]
+     * @param speed    [-1, 1],
      * @param distance > 0, in cm
      */
     public void move(double speed, double distance) {
         resetEncoders();
         JustMove(speed, speed);
         int i = 0;
-        while (this.opModeIsActive() && (motorBackLeft.getCurrentPosition() - ENCODER_B_L) / encoderV < distance / circumference) {
+        while (waiter.opModeIsActive() && (motorBackLeft.getCurrentPosition() - ENCODER_B_L) / encoderV < distance / circumference) {
             i++;
-            telemetry.addData("ran", i);
-            telemetry.addData("cycles stop at", distance / circumference);
-            telemetry.addData("encoderBL", ENCODER_B_L);
-            telemetry.addData("current value", motorBackLeft.getCurrentPosition());
-            telemetry.addData("cycles", (motorBackLeft.getCurrentPosition() - ENCODER_B_L) / encoderV);
         }
         Stop();
     }
@@ -100,9 +90,9 @@ public class Robot extends LinearOpMode {
         for (int i = 0; i < 64; i++) {
             red += color.red();
             blue += color.blue();
-            double time = this.time;
-            while (this.time < time + 0.05) {
-            }
+            //double time = Time;
+            //while (this.time < time + 0.05) {
+            //}
         }
         CALIBRATE_RED = red / 64.0;
         CALIBRATE_BLUE = blue / 64.0;
@@ -124,7 +114,6 @@ public class Robot extends LinearOpMode {
     }
 
     public void resetEncoders() {
-        telemetry.addData("encoder", "reset");
         ENCODER_F_R = motorFrontRight.getCurrentPosition();
         ENCODER_F_L = motorFrontLeft.getCurrentPosition();
         ENCODER_B_R = motorBackRight.getCurrentPosition();
@@ -136,17 +125,11 @@ public class Robot extends LinearOpMode {
      * turn the robot on the spot
      * @param speed   [-1, 1]
      * @param degrees angle in degree not in radians [0, 180]
-     *                adjust cw and ccw using speed only, positive = cw, negative = ccw
+     *                adjust cw and ccw using speed positive = cw, negative = ccw
      */
     public void turnWithGyro(double speed, double degrees) {
-//        if(!gyro.isI2cPortInReadMode()){
-//            gyro.enableI2cReadMode(0x20, 0x05, 1);
-//        }
-//        double initial = gyro.getCopyOfReadBuffer()[0];
-//
         gyro.resetZAxisIntegrator();
-        my_wait(1);
-
+        my_wait(0.5);
         double left, right;
 
         right = -speed;
@@ -155,46 +138,48 @@ public class Robot extends LinearOpMode {
         if(speed<0){
             degrees=360-degrees;
             JustMove(right, left);
-//            while(this.opModeIsActive() && gyro.getHeading() >= 0)
-//            {}
             my_wait(0.5);
-            while (this.opModeIsActive() && gyro.getHeading() > degrees)
-            {
-            }
-            Stop();
+            while (waiter.opModeIsActive() && gyro.getHeading() > degrees){}
         }
         else
         {
             JustMove(right, left);
-            while (opModeIsActive() && gyro.getHeading() < degrees) {}
+            while (waiter.opModeIsActive() && gyro.getHeading() < degrees) {}
         }
         Stop();
     }
 
-    /**
-     * wait without stopping the thread
-     * @param sec in seconds instead of milliseconds
-     */
     public void my_wait(double sec) {
-        double current = this.time;
-        while (this.opModeIsActive() && (this.time - current) < sec) {
+        double current = waiter.time;
+        while (waiter.opModeIsActive() && (waiter.time - current) < sec) {
         }
     }
 
     public boolean isBlue()
     {
         Stop();
-        double blue = 0.0, red = 0.0;
+        double blue = 0.0;
         for (int x = 0; x < 20; x++)
         {
             blue += color.blue();
-            red +=color.red();
             my_wait(0.1);
         }
         blue/=20;
+        blue -= CALIBRATE_BLUE;
+        return blue>=1.0;
+    }
+
+    public boolean isRed()
+    {
+        Stop();
+        double red = 0.0;
+        for (int x = 0; x < 20; x++)
+        {
+            red +=color.red();
+            my_wait(0.1);
+        }
         red/=20;
-        blue-=CALIBRATE_BLUE;
         red -= CALIBRATE_RED;
-        return blue>red;
+        return red>=1.0;
     }
 }

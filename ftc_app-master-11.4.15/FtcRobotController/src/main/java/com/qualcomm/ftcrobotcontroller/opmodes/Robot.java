@@ -15,7 +15,7 @@ import com.qualcomm.robotcore.robocol.Telemetry;
  * Status: Updating for Meet 1
  */
 
-public class Robot {
+public class Robot{
     DcMotor motorFrontRight;
     DcMotor motorFrontLeft;
     DcMotor motorBackRight;
@@ -41,32 +41,30 @@ public class Robot {
 
     public Robot(LinearOpMode hello){
         waiter = hello;
-        color = hello.hardwareMap.colorSensor.get("color");
-        motorBackRight = hello.hardwareMap.dcMotor.get("motorBackRight");
+        color = waiter.hardwareMap.colorSensor.get("color");
+        motorBackRight = waiter.hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
-        motorFrontRight = hello.hardwareMap.dcMotor.get("motorFrontRight");
+        motorFrontRight = waiter.hardwareMap.dcMotor.get("motorFrontRight");
         motorFrontRight.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
-        motorBackLeft = hello.hardwareMap.dcMotor.get("motorBackLeft");
+        motorBackLeft = waiter.hardwareMap.dcMotor.get("motorBackLeft");
         motorBackLeft.setDirection(DcMotor.Direction.FORWARD); //forwards back left motor
-        motorFrontLeft = hello.hardwareMap.dcMotor.get("motorFrontLeft");
+        motorFrontLeft = waiter.hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.FORWARD); //forwards front left motor
 
-        LeftTrigger = hello.hardwareMap.servo.get("LeftTrigger");
-        RightTrigger = hello.hardwareMap.servo.get("RightTrigger");
+        LeftTrigger = waiter.hardwareMap.servo.get("LeftTrigger");
+        RightTrigger = waiter.hardwareMap.servo.get("RightTrigger");
         push = hello.hardwareMap.servo.get("push");
+
+        gyro = waiter.hardwareMap.gyroSensor.get("gyro");
 
         LeftTrigger.setPosition(0.0);
         RightTrigger.setPosition(1.0);
         push.setPosition(0.5);
 
-  //      my_telemetry = telemetry2;
-
-        gyro = hello.hardwareMap.gyroSensor.get("gyro");
-
         gyro.calibrate();
         my_wait(1.0);
     }
-    
+
 
     //====================================All Functions=====================================================================================================
 

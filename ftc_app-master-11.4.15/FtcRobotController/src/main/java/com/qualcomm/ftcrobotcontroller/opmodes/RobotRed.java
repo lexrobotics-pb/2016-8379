@@ -8,14 +8,17 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
  * Updated by Eula on 11/18/2015
  * Status: All configuration organized in the Robot Class
  */
-public class RobotRed extends LinearOpMode {
-    Robot robot = new Robot(this);
+public class RobotRed extends LinearOpMode{
 
     double circumference = 4.0 * 2.54 * Math.PI, encoderV = 1120.0;
 
     @Override
     public void runOpMode() throws InterruptedException {
+        Robot robot = new Robot(this);
+        telemetry.addData("init", "complete");
+        robot.my_wait(3);
 
+        waitForStart();
         while (robot.gyro.isCalibrating()) {
             telemetry.addData("log", "calibrating");
             Thread.sleep(50);
@@ -30,23 +33,23 @@ public class RobotRed extends LinearOpMode {
         robot.turnWithGyro(-0.5, 120); // parallel to wall
         robot.my_wait(0.1);
         robot.move(0.5, 10);
-        robot.calibrate();
+        //robot.calibrate();
         robot.Stop();
 
         boolean search = true;
 
-        double now = this.time;
-        robot.JustMove(-0.1, -0.1);
-        do {
-            if ((robot.color.red()-robot.CALIBRATE_RED)>=1)
-            {
-                robot.Stop();
-                if (robot.isRed())
-                    search = false;
-                else
-                    robot.JustMove(-0.1, -0.1);
-            }
-        }while(this.opModeIsActive() && search && this.time - now < 5.0);
+//        double now = this.time;
+//        robot.JustMove(-0.1, -0.1);
+//        do {
+//            if ((robot.color.red()-robot.CALIBRATE_RED)>=1)
+//            {
+//                robot.Stop();
+//                if (robot.isRed())
+//                    search = false;
+//                else
+//                    robot.JustMove(-0.1, -0.1);
+//            }
+//        }while(this.opModeIsActive() && search && this.time - now < 5.0);
         robot.move(0.1, 5.0);
         robot.my_wait(1.0);
         robot.push.setPosition(0.1);

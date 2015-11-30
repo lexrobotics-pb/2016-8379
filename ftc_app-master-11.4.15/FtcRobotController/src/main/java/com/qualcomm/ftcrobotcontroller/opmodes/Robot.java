@@ -4,8 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.robocol.Telemetry;
 
 /**
@@ -31,40 +31,35 @@ public class Robot{
 
     GyroSensor gyro;
     Servo push;
-    Servo LeftTrigger;
-    Servo RightTrigger;
 
-    Telemetry my_telemetry;
-    LinearOpMode waiter;
+    static LinearOpMode waiter;
 
     double circumference = 4.0 * 2.54 * Math.PI, encoderV = 1120.0;
 
     public Robot(LinearOpMode hello){
         waiter = hello;
-        color = waiter.hardwareMap.colorSensor.get("color");
-        motorBackRight = waiter.hardwareMap.dcMotor.get("motorBackRight");
+        color = hello.hardwareMap.colorSensor.get("color");
+        motorBackRight = hello.hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
-        motorFrontRight = waiter.hardwareMap.dcMotor.get("motorFrontRight");
+        motorFrontRight = hello.hardwareMap.dcMotor.get("motorFrontRight");
         motorFrontRight.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
-        motorBackLeft = waiter.hardwareMap.dcMotor.get("motorBackLeft");
+        motorBackLeft = hello.hardwareMap.dcMotor.get("motorBackLeft");
         motorBackLeft.setDirection(DcMotor.Direction.FORWARD); //forwards back left motor
-        motorFrontLeft = waiter.hardwareMap.dcMotor.get("motorFrontLeft");
+        motorFrontLeft = hello.hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.FORWARD); //forwards front left motor
 
-        LeftTrigger = waiter.hardwareMap.servo.get("LeftTrigger");
-        RightTrigger = waiter.hardwareMap.servo.get("RightTrigger");
         push = hello.hardwareMap.servo.get("push");
 
-        gyro = waiter.hardwareMap.gyroSensor.get("gyro");
+        gyro = hello.hardwareMap.gyroSensor.get("gyro");
 
-        LeftTrigger.setPosition(0.0);
-        RightTrigger.setPosition(1.0);
         push.setPosition(0.5);
 
         gyro.calibrate();
         my_wait(1.0);
-    }
 
+        hello.telemetry.addData("robot init", "complete");
+        my_wait(3);
+    }
 
     //====================================All Functions=====================================================================================================
 

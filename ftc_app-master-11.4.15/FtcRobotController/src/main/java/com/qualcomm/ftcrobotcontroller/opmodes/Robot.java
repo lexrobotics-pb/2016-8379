@@ -4,9 +4,11 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
-import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.robocol.Telemetry;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
 
 /**
  * Created by Eula on 10/8/2015.
@@ -15,13 +17,16 @@ import com.qualcomm.robotcore.robocol.Telemetry;
  * Status: Updating for Meet 1
  */
 
-public class Robot{
+public class Robot {
     DcMotor motorFrontRight;
     DcMotor motorFrontLeft;
     DcMotor motorBackRight;
     DcMotor motorBackLeft;
 
     ColorSensor color;
+    OpticalDistanceSensor ods;
+
+    double CALIBRATE_ODS = 0.0;
     double CALIBRATE_RED = 0.0;
     double CALIBRATE_BLUE = 0.0;
     double ENCODER_F_R = 0;
@@ -36,7 +41,7 @@ public class Robot{
 
     double circumference = 4.0 * 2.54 * Math.PI, encoderV = 1120.0;
 
-    public Robot(LinearOpMode hello){
+    public Robot(LinearOpMode hello) {
         waiter = hello;
         color = hello.hardwareMap.colorSensor.get("color");
         motorBackRight = hello.hardwareMap.dcMotor.get("motorBackRight");
@@ -51,6 +56,7 @@ public class Robot{
         push = hello.hardwareMap.servo.get("push");
 
         gyro = hello.hardwareMap.gyroSensor.get("gyro");
+        ods = hello.hardwareMap.opticalDistanceSensor.get("ods");
 
         push.setPosition(0.5);
 
@@ -62,6 +68,21 @@ public class Robot{
     }
 
     //====================================All Functions=====================================================================================================
+    public void detectWhiteLine() {
+        JustMove(0.1, 0.1);
+        double prev = 0.001;
+        /*while (ods.getLightDetected() < 0.01) {
+            waiter.telemetry.addData("ODS current", ods.getLightDetected());
+        }*/
+        while ((ods.getLightDetected() - prev) < prev * 1000) {
+            prev = 0.9 * ods.getLightDetected() + 0.1 * prev;
+            waiter.telemetry.addData("ODS curr", ods.getLightDetected());
+            waiter.telemetry.addData("ODS prev", prev);
+        }
+        Stop();
+        waiter.telemetry.addData("ODS", ods.getLightDetected());
+        my_wait(3);
+    }
 
     /**
      * @param speed    [-1, 1],
@@ -116,6 +137,7 @@ public class Robot{
 
     /**
      * turn the robot on the spot
+     *
      * @param speed   [-1, 1]
      * @param degrees angle in degree not in radians [0, 180]
      *                adjust cw and ccw using speed positive = cw, negative = ccw
@@ -128,16 +150,16 @@ public class Robot{
         right = -speed;
         left = speed;
 
-        if(speed<0){
-            degrees=360-degrees;
+        if (speed < 0) {
+            degrees = 360 - degrees;
             JustMove(right, left);
             my_wait(0.5);
-            while (waiter.opModeIsActive() && gyro.getHeading() > degrees){}
-        }
-        else
-        {
+            while (waiter.opModeIsActive() && gyro.getHeading() > degrees) {
+            }
+        } else {
             JustMove(right, left);
-            while (waiter.opModeIsActive() && gyro.getHeading() < degrees) {}
+            while (waiter.opModeIsActive() && gyro.getHeading() < degrees) {
+            }
         }
         Stop();
     }
@@ -148,31 +170,27 @@ public class Robot{
         }
     }
 
-    public boolean isBlue()
-    {
+    public boolean isBlue() {
         Stop();
         double blue = 0.0;
-        for (int x = 0; x < 20; x++)
-        {
+        for (int x = 0; x < 20; x++) {
             blue += color.blue();
             my_wait(0.1);
         }
-        blue/=20;
+        blue /= 20;
         blue -= CALIBRATE_BLUE;
-        return blue>=1.0;
+        return blue >= 1.0;
     }
 
-    public boolean isRed()
-    {
+    public boolean isRed() {
         Stop();
         double red = 0.0;
-        for (int x = 0; x < 20; x++)
-        {
-            red +=color.red();
+        for (int x = 0; x < 20; x++) {
+            red += color.red();
             my_wait(0.1);
         }
-        red/=20;
+        red /= 20;
         red -= CALIBRATE_RED;
-        return red>=1.0;
+        return red >= 1.0;
     }
 }

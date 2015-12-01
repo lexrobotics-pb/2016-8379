@@ -23,7 +23,10 @@ public class RobotRed extends LinearOpMode{
             telemetry.addData("log", "calibrating");
             Thread.sleep(50);
         }
-        //set the robot perpendicular to the wall
+
+        //robot.calibrate_ods();
+        robot.detectWhiteLine();
+/*        //set the robot perpendicular to the wall
         robot.move(0.5, 60);
         robot.my_wait(0.3);
         robot.turnWithGyro(-0.5, 39); // parallel to diagonal
@@ -61,6 +64,6 @@ public class RobotRed extends LinearOpMode{
         robot.push.setPosition(0.5);
         robot.move(0.5, 90);
 
-
+*/
     }
 }

@@ -23,9 +23,9 @@ public class RobotRed extends LinearOpMode{
             telemetry.addData("log", "calibrating");
             Thread.sleep(50);
         }
-
-        //robot.calibrate_ods();
-        robot.detectWhiteLine();
+        telemetry.clearData();
+        //robot.detectWhiteLine();
+        robot.printValues();
 /*        //set the robot perpendicular to the wall
         robot.move(0.5, 60);
         robot.my_wait(0.3);

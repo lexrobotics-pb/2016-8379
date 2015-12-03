@@ -9,6 +9,10 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.robocol.Telemetry;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 
 /**
  * Created by Eula on 10/8/2015.
@@ -68,20 +72,57 @@ public class Robot {
     }
 
     //====================================All Functions=====================================================================================================
+    public void printValues(){
+        while(waiter.opModeIsActive()){
+            waiter.telemetry.addData("ODS", ods.getLightDetected());
+        }
+    }
+
     public void detectWhiteLine() {
-        JustMove(0.1, 0.1);
-        double prev = 0.001;
         /*while (ods.getLightDetected() < 0.01) {
             waiter.telemetry.addData("ODS current", ods.getLightDetected());
         }*/
-        while ((ods.getLightDetected() - prev) < prev * 1000) {
-            prev = 0.9 * ods.getLightDetected() + 0.1 * prev;
-            waiter.telemetry.addData("ODS curr", ods.getLightDetected());
-            waiter.telemetry.addData("ODS prev", prev);
+        ArrayList<Double> list = new ArrayList<Double>();
+        int rounds = 10;
+        String print="";
+        for (int i = 0; i < rounds; i++) {
+            if(ods.getLightDetected()<0.001) list.add(0.0);
+            else list.add(ods.getLightDetected());
+            print+=(String.valueOf(list.get(i))+" ");
+
+        }
+        waiter.telemetry.addData("list", print);
+        my_wait(3);
+        JustMove(0.1, 0.1);
+        double sum = 0;
+        double prevSum = 0;
+        while (true) {
+            sum = 0;
+            prevSum = 0;
+            for (int i = 0; i < rounds / 2; i++) {
+                prevSum += list.get(i);
+                sum += list.get(i + rounds/2);
+            }
+            waiter.telemetry.addData("prevSum", prevSum);
+            waiter.telemetry.addData("sum", sum);
+            if (sum > prevSum*100) {
+                break;
+            }
+            list.remove(0);
+            if(ods.getLightDetected()<0.001) list.add(0.0);
+            else list.add(ods.getLightDetected());
         }
         Stop();
-        waiter.telemetry.addData("ODS", ods.getLightDetected());
-        my_wait(3);
+        print="";
+        for (int i = 0; i < rounds; i++) {
+            list.add(ods.getLightDetected());
+            print+=(String.valueOf(list.get(i))+" ");
+        }
+        waiter.telemetry.clearData();
+        waiter.telemetry.addData("list", print);
+        waiter.telemetry.addData("prevSum", prevSum);
+        waiter.telemetry.addData("sum", sum);
+        my_wait(5);
     }
 
     /**

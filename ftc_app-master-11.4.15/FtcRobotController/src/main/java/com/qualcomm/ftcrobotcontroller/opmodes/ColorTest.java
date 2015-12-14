@@ -15,15 +15,14 @@ public class ColorTest extends OpMode {
     @Override
     public void init() {
         color = hardwareMap.colorSensor.get("color");
+        color.enableLed(false);
         calibrate();
         //BlackCalibration();
     }
 
     @Override
     public void loop() {
-        telemetry.addData("Red  ", color.red() - CALIBRATE_RED);
-        telemetry.addData("Blue ", color.blue() - CALIBRATE_BLUE);
-        //telemetry.addData("Hue", hsvValues[0]);//every single loop it sorts the outputs alphabetically according to the tag
+        color.enableLed(true);
     }
 
     @Override

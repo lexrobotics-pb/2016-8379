@@ -24,37 +24,39 @@ public class RobotRed extends LinearOpMode{
             Thread.sleep(50);
         }
         telemetry.clearData();
-        //robot.detectWhiteLine();
-        robot.printValues();
-/*        //set the robot perpendicular to the wall
-        robot.move(0.5, 60);
+        //robot.printValues();
+        //set the robot perpendicular to the wall
+        robot.move(0.5, 65);
         robot.my_wait(0.3);
-        robot.turnWithGyro(-0.5, 39); // parallel to diagonal
+        robot.turnWithGyro(-0.5, 43); // parallel to diagonal
         robot.my_wait(0.1);
-        robot.move(0.9, 152);
+        robot.move(0.9, 155);
         robot.my_wait(0.1);
-        robot.turnWithGyro(-0.5, 120); // parallel to wall
-        robot.my_wait(0.1);
-        robot.move(0.5, 10);
-        //robot.calibrate();
+        robot.turnWithGyro(-0.5, 115); // parallel to wall
         robot.Stop();
 
-        boolean search = true;
+        robot.move(0.5, 10);
+        robot.calibrate();
+        robot.my_wait(3.0);
+        robot.detectWhiteLine(-0.1);
+        //dump dump dump dummmmmmp
+        //color sense
+        //potentially extend for color sense
+        if(!robot.isRed()){
+            robot.move(0.2, 10);
+        }
 
-//        double now = this.time;
-//        robot.JustMove(-0.1, -0.1);
-//        do {
-//            if ((robot.color.red()-robot.CALIBRATE_RED)>=1)
-//            {
-//                robot.Stop();
-//                if (robot.isRed())
-//                    search = false;
-//                else
-//                    robot.JustMove(-0.1, -0.1);
-//            }
-//        }while(this.opModeIsActive() && search && this.time - now < 5.0);
-        robot.move(0.1, 5.0);
-        robot.my_wait(1.0);
+        //push button
+        robot.push.setPosition(0.1);
+        robot.my_wait(2.0);
+        robot.push.setPosition(0.5);
+        robot.my_wait(0.2);
+        if(!robot.isRed()){
+            robot.move(0.1,10);
+//            robot.Stop();
+        }
+
+        //push button
         robot.push.setPosition(0.1);
         robot.my_wait(3.5);
         robot.push.setPosition(0.5);
@@ -64,6 +66,6 @@ public class RobotRed extends LinearOpMode{
         robot.push.setPosition(0.5);
         robot.move(0.5, 90);
 
-*/
+
     }
 }

@@ -28,6 +28,7 @@ public class Robot {
     DcMotor motorBackLeft;
 
     ColorSensor color;
+    ColorSensor line;
     OpticalDistanceSensor ods;
 
     double CALIBRATE_ODS = 0.0;
@@ -48,6 +49,9 @@ public class Robot {
     public Robot(LinearOpMode hello) {
         waiter = hello;
         color = hello.hardwareMap.colorSensor.get("color");
+        line = hello.hardwareMap.colorSensor.get("line");
+        gyro = hello.hardwareMap.gyroSensor.get("gyro");
+
         motorBackRight = hello.hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
         motorFrontRight = hello.hardwareMap.dcMotor.get("motorFrontRight");
@@ -59,9 +63,7 @@ public class Robot {
 
         push = hello.hardwareMap.servo.get("push");
 
-        gyro = hello.hardwareMap.gyroSensor.get("gyro");
-        ods = hello.hardwareMap.opticalDistanceSensor.get("ods");
-
+        line.setI2cAddress(0x70);
         push.setPosition(0.5);
 
         gyro.calibrate();
@@ -72,57 +74,28 @@ public class Robot {
     }
 
     //====================================All Functions=====================================================================================================
-    public void printValues(){
-        while(waiter.opModeIsActive()){
-            waiter.telemetry.addData("ODS", ods.getLightDetected());
+    public void printValues() {
+        color.enableLed(true);
+        while (waiter.opModeIsActive()) {
+            waiter.telemetry.addData("color", color.red());
+            waiter.telemetry.addData("line", line.red());
         }
     }
 
-    public void detectWhiteLine() {
-        /*while (ods.getLightDetected() < 0.01) {
-            waiter.telemetry.addData("ODS current", ods.getLightDetected());
-        }*/
-        ArrayList<Double> list = new ArrayList<Double>();
-        int rounds = 10;
-        String print="";
-        for (int i = 0; i < rounds; i++) {
-            if(ods.getLightDetected()<0.001) list.add(0.0);
-            else list.add(ods.getLightDetected());
-            print+=(String.valueOf(list.get(i))+" ");
-
-        }
-        waiter.telemetry.addData("list", print);
-        my_wait(3);
-        JustMove(0.1, 0.1);
-        double sum = 0;
-        double prevSum = 0;
-        while (true) {
-            sum = 0;
-            prevSum = 0;
-            for (int i = 0; i < rounds / 2; i++) {
-                prevSum += list.get(i);
-                sum += list.get(i + rounds/2);
-            }
-            waiter.telemetry.addData("prevSum", prevSum);
-            waiter.telemetry.addData("sum", sum);
-            if (sum > prevSum*100) {
+    public void detectWhiteLine(double speed) {
+        line.enableLed(true);
+        JustMove(speed, speed);
+        while (true && waiter.opModeIsActive()) {
+            if (line.red()>=10 && line.blue()>=10) {
+                waiter.telemetry.addData("line red", line.red());
+                waiter.telemetry.addData("line blue", line.blue());
                 break;
             }
-            list.remove(0);
-            if(ods.getLightDetected()<0.001) list.add(0.0);
-            else list.add(ods.getLightDetected());
+            try {
+                Thread.sleep(50);
+            }catch (InterruptedException e){}
         }
         Stop();
-        print="";
-        for (int i = 0; i < rounds; i++) {
-            list.add(ods.getLightDetected());
-            print+=(String.valueOf(list.get(i))+" ");
-        }
-        waiter.telemetry.clearData();
-        waiter.telemetry.addData("list", print);
-        waiter.telemetry.addData("prevSum", prevSum);
-        waiter.telemetry.addData("sum", sum);
-        my_wait(5);
     }
 
     /**
@@ -145,9 +118,6 @@ public class Robot {
         for (int i = 0; i < 64; i++) {
             red += color.red();
             blue += color.blue();
-            //double time = Time;
-            //while (this.time < time + 0.05) {
-            //}
         }
         CALIBRATE_RED = red / 64.0;
         CALIBRATE_BLUE = blue / 64.0;

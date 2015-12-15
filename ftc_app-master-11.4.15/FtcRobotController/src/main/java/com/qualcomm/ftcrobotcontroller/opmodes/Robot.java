@@ -46,7 +46,7 @@ public class Robot {
     Servo push;
     Servo LeftTrigger;
     Servo RightTrigger;
-    Servo dump;
+//    Servo dump;
 
     static LinearOpMode waiter;
 
@@ -70,18 +70,24 @@ public class Robot {
         gyro = hello.hardwareMap.gyroSensor.get("gyro");
 
         push = hello.hardwareMap.servo.get("push");
-        dump = hello.hardwareMap.servo.get("dump");
+        //dump = hello.hardwareMap.servo.get("dump");
         LeftTrigger = hello.hardwareMap.servo.get("LeftTrigger");
         RightTrigger = hello.hardwareMap.servo.get("RightTrigger");
         RightTrigger.setPosition(0.95);
         LeftTrigger.setPosition(0.15);
-        dump.setPosition(0.0);
+      //  dump.setPosition(0.0);
 
         line.setI2cAddress(0x70);
         push.setPosition(0.5);
 
         line.enableLed(false);
         gyro.calibrate();
+        while(gyro.isCalibrating())
+        {
+            hello.telemetry.addData("gyro calibration", gyro.isCalibrating());
+            my_wait(0.1);
+        }
+        my_wait(1.0);
 
         hello.telemetry.addData("robot init", "complete");
         my_wait(1);
@@ -231,7 +237,7 @@ public class Robot {
     }
 
     public void dump(){
-        dump.setPosition(0.59);
+//        dump.setPosition(0.59);
         my_wait(2);
     }
 }

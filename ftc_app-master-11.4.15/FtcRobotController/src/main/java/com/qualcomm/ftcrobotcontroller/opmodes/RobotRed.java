@@ -19,10 +19,9 @@ public class RobotRed extends LinearOpMode{
         robot.my_wait(3);
 
         waitForStart();
-        while (robot.gyro.isCalibrating()) {
-            telemetry.addData("log", "calibrating");
-            Thread.sleep(50);
-        }
+
+//        robot.dump();
+//
         telemetry.clearData();
         //robot.printValues();
         //set the robot perpendicular to the wall
@@ -40,8 +39,8 @@ public class RobotRed extends LinearOpMode{
         robot.my_wait(3.0);
         robot.detectWhiteLine(-0.1);
         //dump dump dump dummmmmmp
+
         //color sense
-        //potentially extend for color sense
         if(!robot.isRed()){
             robot.move(0.2, 10);
         }
@@ -51,21 +50,10 @@ public class RobotRed extends LinearOpMode{
         robot.my_wait(2.0);
         robot.push.setPosition(0.5);
         robot.my_wait(0.2);
-        if(!robot.isRed()){
-            robot.move(0.1,10);
-//            robot.Stop();
+        if(!robot.isRed()) {
+            robot.move(0.1, 10);
         }
-
-        //push button
-        robot.push.setPosition(0.1);
-        robot.my_wait(3.5);
-        robot.push.setPosition(0.5);
-        robot.my_wait(2);
-        robot.push.setPosition(0.7);
-        robot.my_wait(2);
-        robot.push.setPosition(0.5);
+        robot.pushButton();
         robot.move(0.5, 90);
-
-
     }
 }

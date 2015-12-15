@@ -26,12 +26,15 @@ public class Robot {
     DcMotor motorFrontLeft;
     DcMotor motorBackRight;
     DcMotor motorBackLeft;
+    DcMotor Flipper;
+    DcMotor Lift;
+
 
     ColorSensor color;
     ColorSensor line;
-    OpticalDistanceSensor ods;
+//    OpticalDistanceSensor ods;
 
-    double CALIBRATE_ODS = 0.0;
+//    double CALIBRATE_ODS = 0.0;
     double CALIBRATE_RED = 0.0;
     double CALIBRATE_BLUE = 0.0;
     double ENCODER_F_R = 0;
@@ -41,6 +44,9 @@ public class Robot {
 
     GyroSensor gyro;
     Servo push;
+    Servo LeftTrigger;
+    Servo RightTrigger;
+    Servo dump;
 
     static LinearOpMode waiter;
 
@@ -48,29 +54,37 @@ public class Robot {
 
     public Robot(LinearOpMode hello) {
         waiter = hello;
+
+        motorBackRight = hello.hardwareMap.dcMotor.get("motorBackRight");
+        motorBackRight.setDirection(DcMotor.Direction.FORWARD); //forwards back left motor
+        motorFrontRight = hello.hardwareMap.dcMotor.get("motorFrontRight");
+        motorFrontRight.setDirection(DcMotor.Direction.FORWARD); //forwards back left motor
+        motorBackLeft = hello.hardwareMap.dcMotor.get("motorBackLeft");
+        motorBackLeft.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
+        motorFrontLeft = hello.hardwareMap.dcMotor.get("motorFrontLeft");
+        motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //forwards front left motor
+
+
         color = hello.hardwareMap.colorSensor.get("color");
         line = hello.hardwareMap.colorSensor.get("line");
         gyro = hello.hardwareMap.gyroSensor.get("gyro");
 
-        motorBackRight = hello.hardwareMap.dcMotor.get("motorBackRight");
-        motorBackRight.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
-        motorFrontRight = hello.hardwareMap.dcMotor.get("motorFrontRight");
-        motorFrontRight.setDirection(DcMotor.Direction.REVERSE); //forwards back left motor
-        motorBackLeft = hello.hardwareMap.dcMotor.get("motorBackLeft");
-        motorBackLeft.setDirection(DcMotor.Direction.FORWARD); //forwards back left motor
-        motorFrontLeft = hello.hardwareMap.dcMotor.get("motorFrontLeft");
-        motorFrontLeft.setDirection(DcMotor.Direction.FORWARD); //forwards front left motor
-
         push = hello.hardwareMap.servo.get("push");
+        dump = hello.hardwareMap.servo.get("dump");
+        LeftTrigger = hello.hardwareMap.servo.get("LeftTrigger");
+        RightTrigger = hello.hardwareMap.servo.get("RightTrigger");
+        RightTrigger.setPosition(0.95);
+        LeftTrigger.setPosition(0.15);
+        dump.setPosition(0.0);
 
         line.setI2cAddress(0x70);
         push.setPosition(0.5);
 
+        line.enableLed(false);
         gyro.calibrate();
-        my_wait(1.0);
 
         hello.telemetry.addData("robot init", "complete");
-        my_wait(3);
+        my_wait(1);
     }
 
     //====================================All Functions=====================================================================================================
@@ -86,9 +100,10 @@ public class Robot {
         line.enableLed(true);
         JustMove(speed, speed);
         while (true && waiter.opModeIsActive()) {
-            if (line.red()>=10 && line.blue()>=10) {
+            if (line.red()>=10 && line.blue()>=10 && line.green()>=10) {
                 waiter.telemetry.addData("line red", line.red());
                 waiter.telemetry.addData("line blue", line.blue());
+                waiter.telemetry.addData("line green", line.green());
                 break;
             }
             try {
@@ -106,7 +121,7 @@ public class Robot {
         resetEncoders();
         JustMove(speed, speed);
         int i = 0;
-        while (waiter.opModeIsActive() && (motorBackLeft.getCurrentPosition() - ENCODER_B_L) / encoderV < distance / circumference) {
+        while (waiter.opModeIsActive() && (motorFrontLeft.getCurrentPosition() - ENCODER_F_L) / encoderV < distance / circumference) {
             i++;
         }
         Stop();
@@ -203,5 +218,20 @@ public class Robot {
         red /= 20;
         red -= CALIBRATE_RED;
         return red >= 1.0;
+    }
+
+    public void pushButton(){
+        push.setPosition(0.1);
+        my_wait(3.5);
+        push.setPosition(0.5);
+        my_wait(2);
+        push.setPosition(0.7);
+        my_wait(2);
+        push.setPosition(0.5);
+    }
+
+    public void dump(){
+        dump.setPosition(0.59);
+        my_wait(2);
     }
 }

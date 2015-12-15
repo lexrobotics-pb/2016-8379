@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
-import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
+import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.robocol.Telemetry;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -31,7 +31,7 @@ public class Robot {
 
 
     ColorSensor color;
-    ColorSensor line;
+    otherColor line;
 //    OpticalDistanceSensor ods;
 
 //    double CALIBRATE_ODS = 0.0;
@@ -46,7 +46,7 @@ public class Robot {
     Servo push;
     Servo LeftTrigger;
     Servo RightTrigger;
-//    Servo dump;
+    Servo dump;
 
     static LinearOpMode waiter;
 
@@ -64,23 +64,22 @@ public class Robot {
         motorFrontLeft = hello.hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //forwards front left motor
 
-
         color = hello.hardwareMap.colorSensor.get("color");
-        line = hello.hardwareMap.colorSensor.get("line");
+        line = new otherColor(hello.hardwareMap.deviceInterfaceModule.get("Device Interface Module 1"), 0);
         gyro = hello.hardwareMap.gyroSensor.get("gyro");
 
         push = hello.hardwareMap.servo.get("push");
-        //dump = hello.hardwareMap.servo.get("dump");
+        dump = hello.hardwareMap.servo.get("dump");
         LeftTrigger = hello.hardwareMap.servo.get("LeftTrigger");
         RightTrigger = hello.hardwareMap.servo.get("RightTrigger");
         RightTrigger.setPosition(0.95);
         LeftTrigger.setPosition(0.15);
-      //  dump.setPosition(0.0);
+        dump.setPosition(0.3);
+        //hello.telemetry.addData("lineIP", line.getI2cAddress());
 
-        line.setI2cAddress(0x70);
         push.setPosition(0.5);
 
-        line.enableLed(false);
+        //line.enableLed(false);
         gyro.calibrate();
         while(gyro.isCalibrating())
         {

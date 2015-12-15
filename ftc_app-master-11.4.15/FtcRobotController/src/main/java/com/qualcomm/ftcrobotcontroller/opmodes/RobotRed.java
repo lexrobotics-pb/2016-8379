@@ -15,6 +15,9 @@ public class RobotRed extends LinearOpMode{
     @Override
     public void runOpMode() throws InterruptedException {
         Robot robot = new Robot(this);
+        waitForStart();
+
+
         telemetry.addData("init", "complete");
         robot.my_wait(3);
 

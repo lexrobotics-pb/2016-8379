@@ -229,11 +229,11 @@ public class Robot {
 
     public void pushButton(){
         push.setPosition(0.1);
-        my_wait(4);
+        my_wait(7);
         push.setPosition(0.5);
         my_wait(2);
-        push.setPosition(0.7);
-        my_wait(2);
+        push.setPosition(0.9);
+        my_wait(4);
         push.setPosition(0.5);
     }
 

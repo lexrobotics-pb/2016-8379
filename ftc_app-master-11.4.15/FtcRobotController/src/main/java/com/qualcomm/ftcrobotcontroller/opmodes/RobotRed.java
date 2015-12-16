@@ -15,8 +15,6 @@ public class RobotRed extends LinearOpMode{
     @Override
     public void runOpMode() throws InterruptedException {
         Robot robot = new Robot(this);
-        waitForStart();
-
 
         telemetry.addData("init", "complete");
         robot.my_wait(3);
@@ -34,9 +32,9 @@ public class RobotRed extends LinearOpMode{
         //set the robot perpendicular to the wall
         robot.move(0.5, 65);
         robot.my_wait(0.3);
-        robot.turnWithGyro(-0.5, 40); // parallel to diagonal
+        robot.turnWithGyro(-0.5, 41); // parallel to diagonal
         robot.my_wait(0.1);
-        robot.move(0.9, 150);
+        robot.move(0.9, 147);
         robot.my_wait(0.1);
         robot.turnWithGyro(-0.5, 115); // parallel to wall
         robot.Stop();
@@ -45,21 +43,18 @@ public class RobotRed extends LinearOpMode{
         robot.calibrate();
         robot.my_wait(3.0);
         robot.detectWhiteLine(-0.1);
+        robot.my_wait(0.5);
         //dump dump dump dummmmmmp
+        robot.move(0.2, 10);
+        robot.Stop();
 
         //color sense
-        if(!robot.isRed()){
+        if(!robot.isRed())
             robot.move(0.2, 10);
-        }
+        else
+            robot.move(-0.2, 2);
 
         //push button
-        robot.push.setPosition(0.1);
-        robot.my_wait(2.0);
-        robot.push.setPosition(0.5);
-        robot.my_wait(0.2);
-        if(!robot.isRed()) {
-            robot.move(0.1, 10);
-        }
         robot.pushButton();
         robot.move(0.5, 90);
     }

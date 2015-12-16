@@ -238,7 +238,7 @@ public class Robot {
     }
 
     public void dump(){
-//        dump.setPosition(0.59);
+        dump.setPosition(0.59);
         my_wait(2);
     }
 }

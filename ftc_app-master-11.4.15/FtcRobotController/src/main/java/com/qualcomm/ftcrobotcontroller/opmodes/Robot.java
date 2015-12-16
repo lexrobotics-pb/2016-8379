@@ -75,11 +75,9 @@ public class Robot {
         RightTrigger.setPosition(0.95);
         LeftTrigger.setPosition(0.15);
         dump.setPosition(0.3);
-        //hello.telemetry.addData("lineIP", line.getI2cAddress());
 
         push.setPosition(0.5);
 
-        //line.enableLed(false);
         gyro.calibrate();
         while(gyro.isCalibrating())
         {
@@ -104,8 +102,12 @@ public class Robot {
     public void detectWhiteLine(double speed) {
         line.enableLed(true);
         JustMove(speed, speed);
-        while (true && waiter.opModeIsActive()) {
-            if (line.red()>=10 && line.blue()>=10 && line.green()>=10) {
+        double now = waiter.time;
+        while (true && waiter.opModeIsActive() && waiter.time - now < 5) {
+            waiter.telemetry.addData("line red", line.red());
+            waiter.telemetry.addData("line blue", line.blue());
+            waiter.telemetry.addData("line green", line.green());
+            if (line.red()!=0 || line.blue()!=0 && line.green()!=0) {
                 waiter.telemetry.addData("line red", line.red());
                 waiter.telemetry.addData("line blue", line.blue());
                 waiter.telemetry.addData("line green", line.green());
@@ -227,7 +229,7 @@ public class Robot {
 
     public void pushButton(){
         push.setPosition(0.1);
-        my_wait(3.5);
+        my_wait(4);
         push.setPosition(0.5);
         my_wait(2);
         push.setPosition(0.7);

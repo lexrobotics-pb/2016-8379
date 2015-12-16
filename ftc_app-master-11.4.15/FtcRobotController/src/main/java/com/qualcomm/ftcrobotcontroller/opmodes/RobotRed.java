@@ -22,17 +22,21 @@ public class RobotRed extends LinearOpMode{
         robot.my_wait(3);
 
         waitForStart();
+        robot.line.enableLed(true);
+        robot.color.enableLed(true);
+
 
 //        robot.dump();
 //
+
         telemetry.clearData();
         //robot.printValues();
         //set the robot perpendicular to the wall
         robot.move(0.5, 65);
         robot.my_wait(0.3);
-        robot.turnWithGyro(-0.5, 43); // parallel to diagonal
+        robot.turnWithGyro(-0.5, 40); // parallel to diagonal
         robot.my_wait(0.1);
-        robot.move(0.9, 155);
+        robot.move(0.9, 150);
         robot.my_wait(0.1);
         robot.turnWithGyro(-0.5, 115); // parallel to wall
         robot.Stop();

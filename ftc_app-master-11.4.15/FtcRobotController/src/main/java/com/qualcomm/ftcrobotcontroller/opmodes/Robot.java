@@ -235,6 +235,12 @@ public class Robot {
         my_wait(2);
         push.setPosition(0.1);
         my_wait(3);
+        push.setPosition(0.1);
+        my_wait(7);
+        push.setPosition(0.5);
+        my_wait(2);
+        push.setPosition(0.9);
+        my_wait(4);
         push.setPosition(0.5);
     }
 
@@ -242,5 +248,7 @@ public class Robot {
         dump.setPosition(0.85);
         my_wait(3);
         dump.setPosition(0.3);
+        dump.setPosition(0.59);
+        my_wait(2);
     }
 }

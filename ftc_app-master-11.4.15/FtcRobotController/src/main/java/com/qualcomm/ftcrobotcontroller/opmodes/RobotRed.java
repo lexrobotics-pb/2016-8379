@@ -25,10 +25,6 @@ public class RobotRed extends LinearOpMode{
         robot.line.enableLed(true);
         robot.color.enableLed(true);
 
-
-//        robot.dump();
-//
-
         telemetry.clearData();
         //robot.printValues();
         //set the robot perpendicular to the wall
@@ -36,7 +32,7 @@ public class RobotRed extends LinearOpMode{
         robot.my_wait(0.3);
         robot.turnWithGyro(-0.5, 40); // parallel to diagonal
         robot.my_wait(0.1);
-        robot.move(0.9, 150);
+        robot.move(0.9, 155);
         robot.my_wait(0.1);
         robot.turnWithGyro(-0.5, 115); // parallel to wall
         robot.Stop();
@@ -45,22 +41,19 @@ public class RobotRed extends LinearOpMode{
         robot.calibrate();
         robot.my_wait(3.0);
         robot.detectWhiteLine(-0.1);
-        //dump dump dump dummmmmmp
+        robot.move(0.2, 8);
+        robot.my_wait(1);
+        robot.push.setPosition(0.7);
+        robot.my_wait(2);
+        //robot.dump();
+        //robot.my_wait(1);
 
         //color sense
         if(!robot.isRed()){
             robot.move(0.2, 10);
         }
 
-        //push button
-        robot.push.setPosition(0.1);
-        robot.my_wait(2.0);
-        robot.push.setPosition(0.5);
-        robot.my_wait(0.2);
-        if(!robot.isRed()) {
-            robot.move(0.1, 10);
-        }
         robot.pushButton();
-        robot.move(0.5, 90);
+        robot.move(0.5, 70);
     }
 }

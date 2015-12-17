@@ -143,6 +143,7 @@ public class Robot {
         }
         CALIBRATE_RED = red / 64.0;
         CALIBRATE_BLUE = blue / 64.0;
+        waiter.telemetry.addData("calibrate", "complete");
     }
 
     public void JustMove(double speedRight, double speedLeft) {
@@ -206,9 +207,9 @@ public class Robot {
     public boolean isBlue() {
         Stop();
         double blue = 0.0;
-        for (int x = 0; x < 20; x++) {
+        for (int x = 0; x < 15; x++) {
             blue += color.blue();
-            my_wait(0.1);
+            my_wait(0.05);
         }
         blue /= 20;
         blue -= CALIBRATE_BLUE;
@@ -218,9 +219,9 @@ public class Robot {
     public boolean isRed() {
         Stop();
         double red = 0.0;
-        for (int x = 0; x < 20; x++) {
+        for (int x = 0; x < 15; x++) {
             red += color.red();
-            my_wait(0.1);
+            my_wait(0.05);
         }
         red /= 20;
         red -= CALIBRATE_RED;
@@ -228,17 +229,18 @@ public class Robot {
     }
 
     public void pushButton(){
-        push.setPosition(0.1);
-        my_wait(4);
+        push.setPosition(0.6);
+        my_wait(6);
         push.setPosition(0.5);
         my_wait(2);
-        push.setPosition(0.7);
-        my_wait(2);
+        push.setPosition(0.1);
+        my_wait(3);
         push.setPosition(0.5);
     }
 
     public void dump(){
-//        dump.setPosition(0.59);
-        my_wait(2);
+        dump.setPosition(0.85);
+        my_wait(3);
+        dump.setPosition(0.3);
     }
 }

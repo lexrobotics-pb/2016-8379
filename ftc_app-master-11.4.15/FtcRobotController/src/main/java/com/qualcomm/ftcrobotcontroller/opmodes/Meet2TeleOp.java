@@ -72,10 +72,10 @@ public class Meet2TeleOp extends OpMode {
         if (Math.abs(gamepad1.right_stick_y) < DEADZONE) {
             gamepad1.right_stick_y = 0;
         }
-        motorFrontLeft.setPower(gamepad1.left_stick_y * 0.9);
-        motorBackLeft.setPower(gamepad1.left_stick_y * 0.9);
-        motorFrontRight.setPower(gamepad1.right_stick_y * 0.9);
-        motorBackRight.setPower(gamepad1.right_stick_y * 0.9);
+        motorFrontLeft.setPower(gamepad1.left_stick_y * 0.75);
+        motorBackLeft.setPower(gamepad1.left_stick_y * 0.75);
+        motorFrontRight.setPower(gamepad1.right_stick_y * 0.75);
+        motorBackRight.setPower(gamepad1.right_stick_y * 0.75);
 
 
         if(gamepad1.y)

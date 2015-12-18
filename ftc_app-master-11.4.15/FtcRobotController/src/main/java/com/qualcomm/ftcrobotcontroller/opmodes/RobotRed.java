@@ -26,48 +26,34 @@ public class RobotRed extends LinearOpMode{
         telemetry.clearData();
         //robot.printValues();
         //set the robot perpendicular to the wall
-        robot.move(0.5, 65);
+        robot.move(0.7, 65);
         robot.my_wait(0.3);
-        robot.turnWithGyro(-0.5, 41); // parallel to diagonal
+        robot.turnWithGyro(-0.8, 44); // parallel to diagonal
         robot.my_wait(0.1);
-<<<<<<< HEAD
         robot.move(0.9, 155);
-=======
-        robot.move(0.9, 147);
->>>>>>> 7139a21307d12d34ac7ab5b4031319e6c4c712b5
+
         robot.my_wait(0.1);
-        robot.turnWithGyro(-0.5, 115); // parallel to wall
+        robot.turnWithGyro(-0.8, 120); // parallel to wall
         robot.Stop();
 
-        robot.move(0.5, 10);
+        robot.move(0.7, 10);
         robot.calibrate();
         robot.my_wait(3.0);
-        robot.detectWhiteLine(-0.1);
-<<<<<<< HEAD
-        robot.move(0.2, 8);
+        robot.detectWhiteLine(-0.2);
+        robot.move(0.5, 8);
         robot.my_wait(1);
         robot.push.setPosition(0.7);
         robot.my_wait(2);
         //robot.dump();
         //robot.my_wait(1);
-=======
-        robot.my_wait(0.5);
-        //dump dump dump dummmmmmp
-        robot.move(0.2, 10);
-        robot.Stop();
->>>>>>> 7139a21307d12d34ac7ab5b4031319e6c4c712b5
+
 
         //color sense
         if(!robot.isRed())
-            robot.move(0.2, 10);
+            robot.move(0.5, 10);
         else
-            robot.move(-0.2, 2);
-
-<<<<<<< HEAD
-=======
-        //push button
->>>>>>> 7139a21307d12d34ac7ab5b4031319e6c4c712b5
+            robot.move(-0.8, 2);
         robot.pushButton();
-        robot.move(0.5, 70);
+        robot.move(0.7, 70);
     }
 }

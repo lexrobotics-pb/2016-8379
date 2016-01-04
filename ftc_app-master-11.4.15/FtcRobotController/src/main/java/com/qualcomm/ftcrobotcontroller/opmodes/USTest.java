@@ -133,15 +133,16 @@ public class USTest extends LinearOpMode {
             JustMove(speedR, speedL);
             direction = true;
         }
-        else {
+        else if (US1.getValue() < US2.getValue()){
             JustMove(speedR * -1, speedL * -1);
             direction = false;
         }
+        else
+            direction = true;
 
         double now = this.time;
-        while((US1.getValue() > US2.getValue()) == direction && (this.time - now) < 1.0){//limit each turn < 1 sec && if the it still requires turning
-            telemetry.addData("US1",US1.getValue());
-            telemetry.addData("US2",US2.getValue());
+        while(((US1.getValue() > US2.getValue()) == direction) && (this.time - now) < 1.0){//limit each turn < 1 sec && if the it still requires turning
+            sleep(50);
         }
         Stop();
         sleep(200);

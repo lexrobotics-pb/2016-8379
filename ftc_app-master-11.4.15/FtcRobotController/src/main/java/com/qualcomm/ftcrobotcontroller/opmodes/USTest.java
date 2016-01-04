@@ -40,6 +40,8 @@ public class USTest extends LinearOpMode {
 //            my_wait(0.05);
 //        }
 //        parallel(0.2);
+        telemetry.addData("US1",US1.getValue());
+        telemetry.addData("US2",US2.getValue());
         ParallelRecursion(0, 0.25);
         telemetry.addData("US1",US1.getValue());
         telemetry.addData("US2",US2.getValue());
@@ -114,10 +116,11 @@ public class USTest extends LinearOpMode {
 
     public void ParallelRecursion(int x, double speed) throws InterruptedException
     {
-        if (x == 10)//limit only to
+        //base case: max adjustment or parallel
+        if (x >= 10)//limit only to
             return;
         double usL = 0, usR = 0;
-        for (int y = 0; y < 5; y++)//sometimes they fluctuates
+        for (int y = 0; y < 5; y++)//sometimes they fluctuate
         {
             usL += US1.getValue();
             usR += US2.getValue();
@@ -128,7 +131,6 @@ public class USTest extends LinearOpMode {
 
         double speedL = speed, speedR = speed*-1;//clock wise
         boolean direction;//true = US1 > US2
-//Simplify a bit?
         if (US1.getValue() > US2.getValue()) {
             JustMove(speedR, speedL);
             direction = true;
@@ -141,16 +143,17 @@ public class USTest extends LinearOpMode {
             direction = true;
 
         double now = this.time;
-        while(((US1.getValue() > US2.getValue()) == direction) && (this.time - now) < 1.0){//limit each turn < 1 sec && if the it still requires turning
+        while(this.opModeIsActive()&&((US1.getValue() > US2.getValue()) == direction) && (this.time - now) < 1.0-0.07*(10-x)){//limit each turn < 1 sec && if the it still requires turning
             sleep(50);
         }
         Stop();
-        sleep(200);
+        //sleep(200);
+        x++;
 
         if (speed > minSpeed)
-            ParallelRecursion(x++, speed-=0.03);//getting slower for minor adjustments
+            ParallelRecursion(x, speed-=0.03);//getting slower for minor adjustments
         else
-            ParallelRecursion(x++, speed);
+            ParallelRecursion(x, speed);
     }
 }
 

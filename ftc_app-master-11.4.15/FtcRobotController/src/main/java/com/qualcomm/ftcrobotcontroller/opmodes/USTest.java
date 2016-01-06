@@ -119,7 +119,7 @@ public class USTest extends LinearOpMode {
         //base case: max adjustment or parallel
         if (x >= 10)//limit only to
             return;
-        double usL = 0, usR = 0;
+        int usL = 0, usR = 0;
         for (int y = 0; y < 5; y++)//sometimes they fluctuate
         {
             usL += US1.getValue();

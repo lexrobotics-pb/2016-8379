@@ -260,6 +260,8 @@ public class Robot {
         {
             usL += US1.getValue();
             usR += US2.getValue();
+            waiter.telemetry.addData("US1", US1.getValue());
+            waiter.telemetry.addData("US2", US2.getValue());
             waiter.sleep(50);//break required between each reading
         }
         if (usL == usR)
@@ -286,7 +288,7 @@ public class Robot {
         Stop();
 
         if (speed > minSpeed)
-            ParallelRecursion(x+1, speed-0.03);//getting slower for minor adjustments
+            ParallelRecursion(x+1, speed-0.01);//getting slower for minor adjustments
         else
             ParallelRecursion(x, speed);
     }

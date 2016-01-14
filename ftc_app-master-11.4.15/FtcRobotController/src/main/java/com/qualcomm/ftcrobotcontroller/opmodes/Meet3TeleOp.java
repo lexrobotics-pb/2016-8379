@@ -83,11 +83,17 @@ public class Meet3TeleOp extends OpMode {
             motorBackLeft.setPower(gamepad1.right_stick_y * speedFactor*-1);
         }
 
-        if (gamepad1.right_bumper)
-            gate.setPosition(0.0);
+        //===========Triggers============================
+        if(gamepad1.left_bumper)
+            LeftTrigger.setPosition(0.15);
+        else if(gamepad1.left_trigger > 0.3)
+            LeftTrigger.setPosition(0.95);
 
-        if (gamepad1.right_trigger>0.3)
-            gate.setPosition(0.3);
+        if(gamepad1.right_bumper)
+            RightTrigger.setPosition(0.95);
+        else if(gamepad1.right_trigger > 0.3)
+            RightTrigger.setPosition(0.15);
+
 
         if (gamepad1.right_stick_button)
         {
@@ -115,12 +121,6 @@ public class Meet3TeleOp extends OpMode {
         if(gamepad1.a)  Flipper.setPower(0.0);
         if(gamepad1.x)  Flipper.setPower(-0.8);
 
-//============push====================
-        pushPosition = 0.5;
-        if (gamepad1.left_bumper)    pushPosition = 0.3;
-        if (gamepad1.left_trigger>0.3)  pushPosition = 0.85;
-        push.setPosition(pushPosition);
-
 
 //************************ Gamepad 2 ***********************************
 //========conveyor=============================
@@ -142,16 +142,20 @@ public class Meet3TeleOp extends OpMode {
 
         dump.setPosition(dumpPosition);
 
-//===========Triggers============================
-        if(gamepad2.left_bumper)
-            LeftTrigger.setPosition(0.15);
-        else if(gamepad2.left_trigger > 0.3)
-            LeftTrigger.setPosition(0.95);//needs to be changed
+//===========gate=====================
+        if (gamepad2.right_bumper)
+            gate.setPosition(0.0);
 
-        if(gamepad2.right_bumper)
-            RightTrigger.setPosition(0.95);
-        else if(gamepad2.right_trigger > 0.3)
-            RightTrigger.setPosition(0.15);
+        if (gamepad2.right_trigger>0.3)
+            gate.setPosition(0.3);
+
+//============push====================
+        pushPosition = 0.5;
+        if (gamepad2.left_bumper)    pushPosition = 0.3;
+        if (gamepad2.left_trigger>0.3)  pushPosition = 0.85;
+        push.setPosition(pushPosition);
+
+
 
     }
 

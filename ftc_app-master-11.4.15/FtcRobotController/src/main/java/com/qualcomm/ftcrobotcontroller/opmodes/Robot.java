@@ -4,15 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
-import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.robocol.Telemetry;
-import com.qualcomm.robotcore.hardware.HardwareMap;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-
+import com.qualcomm.robotcore.hardware.AnalogInput;
 
 /**
  * Created by Eula on 10/8/2015.
@@ -27,14 +20,20 @@ public class Robot {
     DcMotor motorBackRight;
     DcMotor motorBackLeft;
     DcMotor Flipper;
-    DcMotor Lift;
-
+    DcMotor Box;
+//    DcMotor Conveyor;
+    Servo LeftTrigger;
+    Servo RightTrigger;
+    Servo dump;
+    Servo push;
+    Servo gate;
 
     ColorSensor color;
     otherColor line;
-//    OpticalDistanceSensor ods;
+    AnalogInput US1;
+    AnalogInput US2;
+    GyroSensor gyro;
 
-//    double CALIBRATE_ODS = 0.0;
     double CALIBRATE_RED = 0.0;
     double CALIBRATE_BLUE = 0.0;
     double ENCODER_F_R = 0;
@@ -42,11 +41,9 @@ public class Robot {
     double ENCODER_B_R = 0;
     double ENCODER_B_L = 0;
 
-    GyroSensor gyro;
-    Servo push;
-    Servo LeftTrigger;
-    Servo RightTrigger;
-    Servo dump;
+
+    double minSpeed = 0.15;
+    double USfactor = 1.2;//actual_distance / reading
 
     static LinearOpMode waiter;
 
@@ -64,19 +61,27 @@ public class Robot {
         motorFrontLeft = hello.hardwareMap.dcMotor.get("motorFrontLeft");
         motorFrontLeft.setDirection(DcMotor.Direction.REVERSE); //forwards front left motor
 
+        Flipper = hello.hardwareMap.dcMotor.get("Flipper");
+        Box = hello.hardwareMap.dcMotor.get("Box");
+//        Conveyor = hello.hardwareMap.dcMotor.get("Conveyor");
+
         color = hello.hardwareMap.colorSensor.get("color");
-        line = new otherColor(hello.hardwareMap.deviceInterfaceModule.get("Device Interface Module 1"), 0);
+        line = new otherColor(hello.hardwareMap.deviceInterfaceModule.get("Device Interface Module"), 0);
         gyro = hello.hardwareMap.gyroSensor.get("gyro");
+        US1 = hello.hardwareMap.analogInput.get("US1");
+        US2 = hello.hardwareMap.analogInput.get("US2");
 
         push = hello.hardwareMap.servo.get("push");
         dump = hello.hardwareMap.servo.get("dump");
         LeftTrigger = hello.hardwareMap.servo.get("LeftTrigger");
         RightTrigger = hello.hardwareMap.servo.get("RightTrigger");
-        RightTrigger.setPosition(0.95);
-        LeftTrigger.setPosition(0.15);
-        dump.setPosition(0.3);
+        gate=hello.hardwareMap.servo.get("gate");
 
+        RightTrigger.setPosition(0.15);
+        LeftTrigger.setPosition(0.8);
+        dump.setPosition(0.5);
         push.setPosition(0.5);
+        gate.setPosition(0.9);
 
         gyro.calibrate();
         while(gyro.isCalibrating())
@@ -84,10 +89,9 @@ public class Robot {
             hello.telemetry.addData("gyro calibration", gyro.isCalibrating());
             my_wait(0.1);
         }
-        my_wait(1.0);
+        my_wait(3.0);
 
         hello.telemetry.addData("robot init", "complete");
-        my_wait(1);
     }
 
     //====================================All Functions=====================================================================================================
@@ -99,7 +103,7 @@ public class Robot {
         }
     }
 
-    public void detectWhiteLine(double speed) {
+    public void detectWhiteLine(double speed) throws InterruptedException{
         line.enableLed(true);
         JustMove(speed, speed);
         double now = waiter.time;
@@ -113,9 +117,7 @@ public class Robot {
                 waiter.telemetry.addData("line green", line.green());
                 break;
             }
-            try {
-                Thread.sleep(50);
-            }catch (InterruptedException e){}
+            Thread.sleep(50);
         }
         Stop();
     }
@@ -128,7 +130,7 @@ public class Robot {
         resetEncoders();
         JustMove(speed, speed);
         int i = 0;
-        while (waiter.opModeIsActive() && (motorFrontLeft.getCurrentPosition() - ENCODER_F_L) / encoderV < distance / circumference) {
+        while (waiter.opModeIsActive() && Math.abs(motorBackLeft.getCurrentPosition() - ENCODER_B_L) / encoderV < distance / circumference) {
             i++;
         }
         Stop();
@@ -171,7 +173,6 @@ public class Robot {
 
     /**
      * turn the robot on the spot
-     *
      * @param speed   [-1, 1]
      * @param degrees angle in degree not in radians [0, 180]
      *                adjust cw and ccw using speed positive = cw, negative = ccw
@@ -229,26 +230,88 @@ public class Robot {
     }
 
     public void pushButton(){
-        push.setPosition(0.6);
-        my_wait(6);
+        push.setPosition(0.7);
+        dump.setPosition(0.7);
+        my_wait(6.0);
         push.setPosition(0.5);
-        my_wait(2);
+        dump.setPosition(0.5);
+        my_wait(1.0);
         push.setPosition(0.1);
-        my_wait(3);
-        push.setPosition(0.1);
-        my_wait(7);
+        dump.setPosition(0.1);
+        my_wait(3.0);
         push.setPosition(0.5);
-        my_wait(2);
-        push.setPosition(0.9);
-        my_wait(4);
-        push.setPosition(0.5);
+        dump.setPosition(0.5);
     }
 
-    public void dump(){
-        dump.setPosition(0.85);
-        my_wait(3);
-        dump.setPosition(0.3);
-        dump.setPosition(0.59);
-        my_wait(2);
+    /**
+     * parallels the robot to the wall using recursion
+     * @param x iteration counter
+     * @param speed [0, 1] > minSpeed
+     * @throws InterruptedException for sleep()
+     */
+    public void ParallelRecursion(int x, double speed) throws InterruptedException
+    {
+
+        //base case: max adjustment or parallel
+        if (x >= 10)//limit only to
+            return;
+        int usL = 0, usR = 0;
+        for (int y = 0; y < 5; y++)//sometimes they fluctuate
+        {
+            usL += US1.getValue();
+            usR += US2.getValue();
+            waiter.sleep(50);//break required between each reading
+        }
+        if (usL == usR)
+            return;
+
+        double speedL = speed, speedR = speed*-1;//clock wise
+        boolean direction;//true = US1 > US2
+        if (US1.getValue() > US2.getValue()) {
+            JustMove(speedR, speedL);
+            direction = true;
+        }
+        else if (US1.getValue() < US2.getValue()){
+            JustMove(speedR * -1, speedL * -1);
+            direction = false;
+        }
+        else
+            direction = true;
+
+        double now = waiter.time;
+        while(waiter.opModeIsActive()&&((US1.getValue() > US2.getValue()) == direction) &&
+                (waiter.time - now) < 1.0-0.05*(10-x)){//limit each turn < 1 sec && if the it still requires turning
+            waiter.sleep(50);
+        }
+        Stop();
+
+        if (speed > minSpeed)
+            ParallelRecursion(x+1, speed-0.03);//getting slower for minor adjustments
+        else
+            ParallelRecursion(x, speed);
+    }
+
+    /**
+     *not very accurate? reading < actual?
+     * @param speed [-1.0, 1.0]
+     * @param threshold in cm, >20cm
+     */
+    public void MoveTillUS(double speed, double threshold)
+    {
+        int x = 0;
+        double[] data = new double[20];
+//        String output = " ";
+        JustMove(speed, speed);
+        do
+        {
+            if (x % 2 == 0)
+                data[x/2] = US1.getValue()*USfactor;
+            my_wait(0.05);
+            x++;
+        }while(waiter.opModeIsActive()&& (US1.getValue()*USfactor)> threshold);
+//        for (int y= 0; y< 20; y++)
+//            output = output + data[y] + " ";
+//        waiter.telemetry.addData("US1", output);
+        Stop();
     }
 }

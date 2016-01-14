@@ -16,14 +16,14 @@ public class Meet3TeleOp extends OpMode {
     DcMotor motorBackLeft;
     DcMotor Flipper;
     DcMotor Box;
+    DcMotor Conveyor;
 
 
     Servo LeftTrigger;
     Servo RightTrigger;
     Servo dump;
     Servo push;
-    Servo conveyor;
-    Servo US;
+    Servo gate;
 
     double conveyorPower;
     double current;
@@ -48,19 +48,19 @@ public class Meet3TeleOp extends OpMode {
         motorFrontLeft.setDirection(DcMotor.Direction.FORWARD); //forwards front left motor
         Flipper = hardwareMap.dcMotor.get("Flipper");
         Box = hardwareMap.dcMotor.get("Box");
+        Conveyor = hardwareMap.dcMotor.get("Conveyor");
 
         push = hardwareMap.servo.get("push");
         dump = hardwareMap.servo.get("dump");
         LeftTrigger = hardwareMap.servo.get("LeftTrigger");
         RightTrigger = hardwareMap.servo.get("RightTrigger");
-        conveyor = hardwareMap.servo.get("conveyor");
-        US = hardwareMap.servo.get("US1S");
+        gate = hardwareMap.servo.get("gate");
 
         RightTrigger.setPosition(0.15);
-        LeftTrigger.setPosition(0.6);
+        LeftTrigger.setPosition(0.95);
         dump.setPosition(0.5);
         push.setPosition(0.5);
-        conveyor.setPosition(0.5);
+        gate.setPosition(0);
     }
 
     @Override
@@ -77,27 +77,37 @@ public class Meet3TeleOp extends OpMode {
             motorFrontRight.setPower(gamepad1.right_stick_y * speedFactor);
             motorBackRight.setPower(gamepad1.right_stick_y * speedFactor);}
         else{
-            motorFrontRight.setPower(gamepad1.left_stick_y * speedFactor);
-            motorBackRight.setPower(gamepad1.left_stick_y * speedFactor);
-            motorFrontLeft.setPower(gamepad1.right_stick_y * speedFactor);
-            motorBackLeft.setPower(gamepad1.right_stick_y * speedFactor);
+            motorFrontRight.setPower(gamepad1.left_stick_y * speedFactor*-1);
+            motorBackRight.setPower(gamepad1.left_stick_y * speedFactor*-1);
+            motorFrontLeft.setPower(gamepad1.right_stick_y * speedFactor*-1);
+            motorBackLeft.setPower(gamepad1.right_stick_y * speedFactor*-1);
         }
 
+        if (gamepad1.right_bumper)
+            gate.setPosition(0.0);
 
-        if (gamepad1.y) {
+        if (gamepad1.right_trigger>0.3)
+            gate.setPosition(0.3);
+
+        if (gamepad1.right_stick_button)
+        {
             if (direction)
                 direction = false;
             else
                 direction = true;
         }
 
-        if (gamepad1.right_bumper){
+        if (gamepad1.left_stick_button)
+        {
             if (speed)
-            {   speed = false;
-                speedFactor = speedFactor/0.9*0.75;}
-            else
-            {   speed = true;
-                speedFactor = speedFactor/0.75*0.9;}
+            {
+                speed = false;
+                speedFactor = 0.75;
+            }
+            else{
+                speed = true;
+                speedFactor = 0.9;
+            }
         }
 
 //==========Flipper=====================
@@ -114,11 +124,11 @@ public class Meet3TeleOp extends OpMode {
 
 //************************ Gamepad 2 ***********************************
 //========conveyor=============================
-        conveyorPower = 0.5;
+        conveyorPower = 0.0;
         current = gamepad2.left_stick_x;
         if (Math.abs(current) > 0.5)//right = going to the right when on the ramp
-            conveyorPower = 0.5 + Math.abs(current)/current*0.45;
-        conveyor.setPosition(conveyorPower);
+            conveyorPower = Math.abs(current) / current * 0.2;
+        Conveyor.setPower(conveyorPower);
 //==========Box==============================
         boxPower = 0.0;
         if (gamepad2.a) boxPower = -0.2;
@@ -134,12 +144,12 @@ public class Meet3TeleOp extends OpMode {
 
 //===========Triggers============================
         if(gamepad2.left_bumper)
-            LeftTrigger.setPosition(0.0);
+            LeftTrigger.setPosition(0.15);
         else if(gamepad2.left_trigger > 0.3)
-            LeftTrigger.setPosition(0.6);//needs to be changed
+            LeftTrigger.setPosition(0.95);//needs to be changed
 
         if(gamepad2.right_bumper)
-            RightTrigger.setPosition(0.8);
+            RightTrigger.setPosition(0.95);
         else if(gamepad2.right_trigger > 0.3)
             RightTrigger.setPosition(0.15);
 
@@ -155,7 +165,6 @@ public class Meet3TeleOp extends OpMode {
         Box.setPower(0.0);
         dump.setPosition(0.5);
         push.setPosition(0.5);
-        conveyor.setPosition(0.5);
     }
 
     public void my_wait(double sec) {

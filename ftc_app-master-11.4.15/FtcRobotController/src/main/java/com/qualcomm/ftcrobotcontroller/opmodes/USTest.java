@@ -156,5 +156,3 @@ public class USTest extends LinearOpMode {
             ParallelRecursion(x, speed);
     }
 }
-
-

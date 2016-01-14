@@ -16,16 +16,13 @@ public class RobotRed extends LinearOpMode{
     public void runOpMode() throws InterruptedException {
         Robot robot = new Robot(this);
 
-        telemetry.addData("init", "complete");
-        robot.my_wait(3);
-
         waitForStart();
         robot.line.enableLed(true);
         robot.color.enableLed(true);
 
         telemetry.clearData();
         //robot.printValues();
-        //set the robot perpendicular to the wall
+        //set the robot perpendicular to the wall, Flipper forward
         robot.move(0.7, 65);
         robot.my_wait(0.3);
         robot.turnWithGyro(-0.8, 44); // parallel to diagonal
@@ -33,7 +30,7 @@ public class RobotRed extends LinearOpMode{
         robot.move(0.9, 155);
 
         robot.my_wait(0.1);
-        robot.turnWithGyro(-0.8, 120); // parallel to wall
+        robot.turnWithGyro(-0.8, 45); // parallel to wall
         robot.Stop();
 
         robot.move(0.7, 10);
@@ -44,10 +41,6 @@ public class RobotRed extends LinearOpMode{
         robot.my_wait(1);
         robot.push.setPosition(0.7);
         robot.my_wait(2);
-        //robot.dump();
-        //robot.my_wait(1);
-
-
         //color sense
         if(!robot.isRed())
             robot.move(0.5, 10);

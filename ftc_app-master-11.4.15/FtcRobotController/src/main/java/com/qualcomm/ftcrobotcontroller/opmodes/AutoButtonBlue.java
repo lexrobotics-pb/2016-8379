@@ -15,43 +15,38 @@ public class AutoButtonBlue extends LinearOpMode{
     @Override
     public void runOpMode() throws InterruptedException {
         Robot robot = new Robot(this);
-        waitForStart();
-
-
-        telemetry.addData("init", "complete");
-        robot.my_wait(3);
 
         waitForStart();
         robot.line.enableLed(true);
         robot.color.enableLed(true);
 
-        telemetry.clearData();
-
-        //set the robot perpendicular to the wall
-        robot.move(0.5, 65);
+        //robot.printValues();
+        //set the robot perpendicular to the wall, Flipper forward
+        robot.move(-0.5, 55);
         robot.my_wait(0.3);
-        robot.turnWithGyro(0.5, 40); // parallel to diagonal
+        robot.turnWithGyro(0.6, 45); // parallel to diagonal
         robot.my_wait(0.1);
-        robot.move(0.9, 155);
-        robot.my_wait(0.1);
-        robot.turnWithGyro(0.5, 115); // parallel to wall
-        robot.Stop();
+        robot.move(-0.5, 145);
 
-        robot.move(0.5, 10);
+        robot.my_wait(0.1);
+        robot.turnWithGyro(-0.5, 45); // parallel to wall
+        robot.Stop();
+        robot.my_wait(0.5);
+        robot.ParallelRecursion(0, 0.35);
+//        robot.move(-0.4, 10);
         robot.calibrate();
         robot.my_wait(3.0);
-        robot.detectWhiteLine(-0.1);
-        robot.move(0.2, 8);
+        robot.detectWhiteLine(-0.3);
+        robot.move(0.4, 8);
         robot.my_wait(1);
         robot.push.setPosition(0.7);
         robot.my_wait(2);
-
         //color sense
-        if(!robot.isRed()){
-            robot.move(0.2, 10);
-        }
-
+        if(!robot.isBlue())
+            robot.move(0.5, 10);
+        else
+            robot.move(-0.8, 2);
         robot.pushButton();
-        robot.move(0.5, 70);
+        robot.move(-0.7, 70);
     }
 }

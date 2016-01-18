@@ -21,7 +21,8 @@ public class Robot {
     DcMotor motorBackLeft;
     DcMotor Flipper;
     DcMotor Box;
-//    DcMotor Conveyor;
+    DcMotor Conveyor;
+
     Servo LeftTrigger;
     Servo RightTrigger;
     Servo dump;
@@ -63,7 +64,7 @@ public class Robot {
 
         Flipper = hello.hardwareMap.dcMotor.get("Flipper");
         Box = hello.hardwareMap.dcMotor.get("Box");
-//        Conveyor = hello.hardwareMap.dcMotor.get("Conveyor");
+        Conveyor = hello.hardwareMap.dcMotor.get("Conveyor");
 
         color = hello.hardwareMap.colorSensor.get("color");
         line = new otherColor(hello.hardwareMap.deviceInterfaceModule.get("Device Interface Module"), 0);
@@ -78,20 +79,10 @@ public class Robot {
         gate=hello.hardwareMap.servo.get("gate");
 
         RightTrigger.setPosition(0.15);
-        LeftTrigger.setPosition(0.8);
+        LeftTrigger.setPosition(0.95);
         dump.setPosition(0.5);
         push.setPosition(0.5);
-        gate.setPosition(0.9);
-
-        gyro.calibrate();
-        while(gyro.isCalibrating())
-        {
-            hello.telemetry.addData("gyro calibration", gyro.isCalibrating());
-            my_wait(0.1);
-        }
-        my_wait(3.0);
-
-        hello.telemetry.addData("robot init", "complete");
+        gate.setPosition(0.0);
     }
 
     //====================================All Functions=====================================================================================================
@@ -179,7 +170,7 @@ public class Robot {
      */
     public void turnWithGyro(double speed, double degrees) {
         gyro.resetZAxisIntegrator();
-        my_wait(0.5);
+        my_wait(1.0);
         double left, right;
 
         right = -speed;
@@ -230,14 +221,16 @@ public class Robot {
     }
 
     public void pushButton(){
-        push.setPosition(0.7);
-        dump.setPosition(0.7);
-        my_wait(6.0);
+//        push.setPosition(0.3);
+        dump.setPosition(0.3);
+        my_wait(2.0);
+        push.setPosition(0.3);
+        my_wait(2.0);
         push.setPosition(0.5);
         dump.setPosition(0.5);
         my_wait(1.0);
-        push.setPosition(0.1);
-        dump.setPosition(0.1);
+        push.setPosition(0.8);
+        dump.setPosition(0.8);
         my_wait(3.0);
         push.setPosition(0.5);
         dump.setPosition(0.5);

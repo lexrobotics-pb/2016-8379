@@ -16,37 +16,50 @@ public class AutoButtonRed extends LinearOpMode{
     public void runOpMode() throws InterruptedException {
         Robot robot = new Robot(this);
 
-        waitForStart();
-        robot.line.enableLed(true);
+        robot.gyro.calibrate();
         robot.color.enableLed(true);
-
-        telemetry.clearData();
-        //robot.printValues();
-        //set the robot perpendicular to the wall, Flipper forward
-        robot.move(0.7, 65);
-        robot.my_wait(0.3);
-        robot.turnWithGyro(-0.8, 44); // parallel to diagonal
-        robot.my_wait(0.1);
-        robot.move(0.9, 155);
-
-        robot.my_wait(0.1);
-        robot.turnWithGyro(-0.8, 45); // parallel to wall
-        robot.Stop();
-
-        robot.move(0.7, 10);
-        robot.calibrate();
+        robot.line.enableLed(true);
+        waitForStart();
+        while(robot.gyro.isCalibrating())
+        {
+            telemetry.addData("gyro calibration", robot.gyro.isCalibrating());
+            robot.my_wait(0.1);
+        }
         robot.my_wait(3.0);
-        robot.detectWhiteLine(-0.2);
-        robot.move(0.5, 8);
-        robot.my_wait(1);
-        robot.push.setPosition(0.7);
-        robot.my_wait(2);
-        //color sense
-        if(!robot.isRed())
-            robot.move(0.5, 10);
-        else
-            robot.move(-0.8, 2);
+        telemetry.addData("robot init", "complete");
+//        while (opModeIsActive())
+//        {
+//            telemetry.addData("US1", robot.US1.getValue());
+//            telemetry.addData("US2", robot.US2.getValue());
+//        }
+
+
+        //set the robot perpendicular to the wall, Flipper forward
+        robot.move(0.5, 46);
+        robot.my_wait(0.1);
+        robot.turnWithGyro(-0.6, 44); // parallel to diagonal
+        robot.my_wait(0.1);
+        robot.Flipper.setPower(-0.6);
+        robot.move(0.2, 150);
+        robot.my_wait(0.1);
+        robot.Flipper.setPower(0);
+        robot.turnWithGyro(0.5, 45); // parallel to wall
+        robot.my_wait(0.2);
+        robot.ParallelRecursion(0, 0.3);
+//        robot.move(-0.4, 10);
+        robot.calibrate();
+        robot.my_wait(0.5);
+        robot.detectWhiteLine(0.15);
+        robot.move(0.2, 5);
+        robot.my_wait(0.1);
+//        robot.push.setPosition(0.2);
+//        robot.my_wait(2);
+//        //color sense
+//        if(!robot.isBlue())
+//            robot.move(0.5, 2);
+//        else
+//            robot.move(-0.5, 10);
         robot.pushButton();
-        robot.move(0.7, 70);
+//        robot.move(0.7, 100);
     }
 }

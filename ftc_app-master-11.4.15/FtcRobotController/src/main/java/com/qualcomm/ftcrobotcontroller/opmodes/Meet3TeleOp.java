@@ -155,8 +155,6 @@ public class Meet3TeleOp extends OpMode {
         if (gamepad2.left_trigger>0.3)  pushPosition = 0.85;
         push.setPosition(pushPosition);
 
-
-
     }
 
     @Override

@@ -36,8 +36,8 @@ public class RobotRed extends LinearOpMode{
         robot.move(0.7, 10);
         robot.calibrate();
         robot.my_wait(3.0);
-        robot.detectWhiteLine(-0.2);
-        robot.move(0.5, 8);
+        robot.detectWhiteLine(0.2);
+        robot.move(-0.5, 8);
         robot.my_wait(1);
         robot.push.setPosition(0.7);
         robot.my_wait(2);

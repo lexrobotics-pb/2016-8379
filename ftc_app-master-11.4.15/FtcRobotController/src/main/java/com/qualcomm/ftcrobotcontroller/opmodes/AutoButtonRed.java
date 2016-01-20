@@ -15,10 +15,9 @@ public class AutoButtonRed extends LinearOpMode{
     @Override
     public void runOpMode() throws InterruptedException {
         Robot robot = new Robot(this);
-
         robot.gyro.calibrate();
-        robot.color.enableLed(true);
         robot.line.enableLed(true);
+
         waitForStart();
         while(robot.gyro.isCalibrating())
         {
@@ -27,12 +26,6 @@ public class AutoButtonRed extends LinearOpMode{
         }
         robot.my_wait(3.0);
         telemetry.addData("robot init", "complete");
-//        while (opModeIsActive())
-//        {
-//            telemetry.addData("US1", robot.US1.getValue());
-//            telemetry.addData("US2", robot.US2.getValue());
-//        }
-
 
         //set the robot perpendicular to the wall, Flipper forward
         robot.move(0.5, 46);
@@ -46,7 +39,7 @@ public class AutoButtonRed extends LinearOpMode{
         robot.turnWithGyro(0.5, 45); // parallel to wall
         robot.my_wait(0.2);
         robot.ParallelRecursion(0, 0.3);
-//        robot.move(-0.4, 10);
+
         robot.calibrate();
         robot.my_wait(0.5);
         robot.detectWhiteLine(0.15);
@@ -60,6 +53,5 @@ public class AutoButtonRed extends LinearOpMode{
 //        else
 //            robot.move(-0.5, 10);
         robot.pushButton();
-//        robot.move(0.7, 100);
     }
 }

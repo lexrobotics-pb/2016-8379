@@ -244,23 +244,21 @@ public class Robot {
      */
     public void ParallelRecursion(int x, double speed) throws InterruptedException
     {
+        double speedL = speed, speedR = speed*-1;//clock wise
 
         //base case: max adjustment or parallel
-        if (x >= 10)//limit only to
+        if (x >= 10)//limit only to 10
             return;
         int usL = 0, usR = 0;
         for (int y = 0; y < 5; y++)//sometimes they fluctuate
         {
             usL += US1.getValue();
             usR += US2.getValue();
-            waiter.telemetry.addData("US1", US1.getValue());
-            waiter.telemetry.addData("US2", US2.getValue());
-            waiter.sleep(50);//break required between each reading
+            waiter.sleep(50); //break required between each reading
         }
         if (usL == usR)
             return;
 
-        double speedL = speed, speedR = speed*-1;//clock wise
         boolean direction;//true = US1 > US2
         if (US1.getValue() > US2.getValue()) {
             JustMove(speedR, speedL);
@@ -274,8 +272,9 @@ public class Robot {
             direction = true;
 
         double now = waiter.time;
-        while(waiter.opModeIsActive()&&((US1.getValue() > US2.getValue()) == direction) &&
-                (waiter.time - now) < 1.0-0.05*(10-x)){//limit each turn < 1 sec && if the it still requires turning
+        while(waiter.opModeIsActive()
+                &&((US1.getValue() > US2.getValue()) == direction)
+                && (waiter.time - now) < 1.0-0.05*(10-x)){
             waiter.sleep(50);
         }
         Stop();
@@ -304,9 +303,6 @@ public class Robot {
             my_wait(0.05);
             x++;
         }while(waiter.opModeIsActive()&& (US1.getValue()*USfactor)> threshold);
-//        for (int y= 0; y< 20; y++)
-//            output = output + data[y] + " ";
-//        waiter.telemetry.addData("US1", output);
         Stop();
     }
 }

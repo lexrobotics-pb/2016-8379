@@ -95,22 +95,24 @@ public class Robot {
     }
 
     public void detectWhiteLine(double speed) throws InterruptedException{
-        line.enableLed(true);
-        JustMove(speed, speed);
-        double now = waiter.time;
-        while (true && waiter.opModeIsActive() && waiter.time - now < 5) {
-            waiter.telemetry.addData("line red", line.red());
-            waiter.telemetry.addData("line blue", line.blue());
-            waiter.telemetry.addData("line green", line.green());
-            if (line.red()!=0 || line.blue()!=0 && line.green()!=0) {
+        if(waiter.opModeIsActive()) {
+            line.enableLed(true);
+            JustMove(speed, speed);
+            double now = waiter.time;
+            while (true && waiter.opModeIsActive() && waiter.time - now < 5) {
                 waiter.telemetry.addData("line red", line.red());
                 waiter.telemetry.addData("line blue", line.blue());
                 waiter.telemetry.addData("line green", line.green());
-                break;
+                if (line.red() != 0 || line.blue() != 0 && line.green() != 0) {
+                    waiter.telemetry.addData("line red", line.red());
+                    waiter.telemetry.addData("line blue", line.blue());
+                    waiter.telemetry.addData("line green", line.green());
+                    break;
+                }
+                Thread.sleep(50);
             }
-            Thread.sleep(50);
+            Stop();
         }
-        Stop();
     }
 
     /**
@@ -118,48 +120,57 @@ public class Robot {
      * @param distance > 0, in cm
      */
     public void move(double speed, double distance) {
-        resetEncoders();
-        JustMove(speed, speed);
-        int i = 0;
-        while (waiter.opModeIsActive() && Math.abs(motorBackLeft.getCurrentPosition() - ENCODER_B_L) / encoderV < distance / circumference) {
-            i++;
+        if(waiter.opModeIsActive()) {
+            resetEncoders();
+            JustMove(speed, speed);
+            int i = 0;
+            while (waiter.opModeIsActive() && Math.abs(motorBackLeft.getCurrentPosition() - ENCODER_B_L) / encoderV < distance / circumference) {
+                i++;
+            }
+            Stop();
         }
-        Stop();
     }
 
     public void calibrate() {
-        double red = 0.0;
-        double blue = 0.0;
-        for (int i = 0; i < 64; i++) {
-            red += color.red();
-            blue += color.blue();
+        if(waiter.opModeIsActive()) {
+            double red = 0.0;
+            double blue = 0.0;
+            for (int i = 0; i < 64; i++) {
+                red += color.red();
+                blue += color.blue();
+            }
+            CALIBRATE_RED = red / 64.0;
+            CALIBRATE_BLUE = blue / 64.0;
+            waiter.telemetry.addData("calibrate", "complete");
         }
-        CALIBRATE_RED = red / 64.0;
-        CALIBRATE_BLUE = blue / 64.0;
-        waiter.telemetry.addData("calibrate", "complete");
     }
 
     public void JustMove(double speedRight, double speedLeft) {
-        motorFrontLeft.setPower(speedLeft);
-        motorBackLeft.setPower(speedLeft);
-        motorBackRight.setPower(speedRight);
-        motorFrontRight.setPower(speedRight);
+        if(waiter.opModeIsActive()) {
+            motorFrontLeft.setPower(speedLeft);
+            motorBackLeft.setPower(speedLeft);
+            motorBackRight.setPower(speedRight);
+            motorFrontRight.setPower(speedRight);
+        }
     }
 
     public void Stop() {
-        motorBackLeft.setPower(0);
-        motorBackRight.setPower(0);
-        motorFrontLeft.setPower(0);
-        motorFrontRight.setPower(0);
-        resetEncoders();
+        if(waiter.opModeIsActive()) {
+            motorBackLeft.setPower(0);
+            motorBackRight.setPower(0);
+            motorFrontLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            resetEncoders();
+        }
     }
 
     public void resetEncoders() {
-        ENCODER_F_R = motorFrontRight.getCurrentPosition();
-        ENCODER_F_L = motorFrontLeft.getCurrentPosition();
-        ENCODER_B_R = motorBackRight.getCurrentPosition();
-        ENCODER_B_L = motorBackLeft.getCurrentPosition();
-
+        if(waiter.opModeIsActive()) {
+            ENCODER_F_R = motorFrontRight.getCurrentPosition();
+            ENCODER_F_L = motorFrontLeft.getCurrentPosition();
+            ENCODER_B_R = motorBackRight.getCurrentPosition();
+            ENCODER_B_L = motorBackLeft.getCurrentPosition();
+        }
     }
 
     /**
@@ -169,30 +180,34 @@ public class Robot {
      *                adjust cw and ccw using speed positive = cw, negative = ccw
      */
     public void turnWithGyro(double speed, double degrees) {
-        gyro.resetZAxisIntegrator();
-        my_wait(1.0);
-        double left, right;
+        if(waiter.opModeIsActive()) {
+            gyro.resetZAxisIntegrator();
+            my_wait(1.0);
+            double left, right;
 
-        right = -speed;
-        left = speed;
+            right = -speed;
+            left = speed;
 
-        if (speed < 0) {
-            degrees = 360 - degrees;
-            JustMove(right, left);
-            my_wait(0.5);
-            while (waiter.opModeIsActive() && gyro.getHeading() > degrees) {
+            if (speed < 0) {
+                degrees = 360 - degrees;
+                JustMove(right, left);
+                my_wait(0.5);
+                while (waiter.opModeIsActive() && gyro.getHeading() > degrees) {
+                }
+            } else {
+                JustMove(right, left);
+                while (waiter.opModeIsActive() && gyro.getHeading() < degrees) {
+                }
             }
-        } else {
-            JustMove(right, left);
-            while (waiter.opModeIsActive() && gyro.getHeading() < degrees) {
-            }
+            Stop();
         }
-        Stop();
     }
 
     public void my_wait(double sec) {
-        double current = waiter.time;
-        while (waiter.opModeIsActive() && (waiter.time - current) < sec) {
+        if(waiter.opModeIsActive()) {
+            double current = waiter.time;
+            while (waiter.opModeIsActive() && (waiter.time - current) < sec) {
+            }
         }
     }
 
@@ -222,18 +237,20 @@ public class Robot {
 
     public void pushButton(){
 //        push.setPosition(0.3);
-        dump.setPosition(0.3);
-        my_wait(2.0);
-        push.setPosition(0.3);
-        my_wait(2.0);
-        push.setPosition(0.5);
-        dump.setPosition(0.5);
-        my_wait(1.0);
-        push.setPosition(0.8);
-        dump.setPosition(0.8);
-        my_wait(3.0);
-        push.setPosition(0.5);
-        dump.setPosition(0.5);
+        if(waiter.opModeIsActive()) {
+            dump.setPosition(0.3);
+            my_wait(2.0);
+            push.setPosition(0.3);
+            my_wait(2.0);
+            push.setPosition(0.5);
+            dump.setPosition(0.5);
+            my_wait(1.0);
+            push.setPosition(0.8);
+            dump.setPosition(0.8);
+            my_wait(3.0);
+            push.setPosition(0.5);
+            dump.setPosition(0.5);
+        }
     }
 
     /**
@@ -244,45 +261,45 @@ public class Robot {
      */
     public void ParallelRecursion(int x, double speed) throws InterruptedException
     {
-        double speedL = speed, speedR = speed*-1;//clock wise
+        if(waiter.opModeIsActive()) {
+            double speedL = speed, speedR = speed * -1;//clock wise
 
-        //base case: max adjustment or parallel
-        if (x >= 10)//limit only to 10
-            return;
-        int usL = 0, usR = 0;
-        for (int y = 0; y < 5; y++)//sometimes they fluctuate
-        {
-            usL += US1.getValue();
-            usR += US2.getValue();
-            waiter.sleep(50); //break required between each reading
-        }
-        if (usL == usR)
-            return;
+            //base case: max adjustment or parallel
+            if (x >= 10)//limit only to 10
+                return;
+            int usL = 0, usR = 0;
+            for (int y = 0; y < 5; y++)//sometimes they fluctuate
+            {
+                usL += US1.getValue();
+                usR += US2.getValue();
+                waiter.sleep(50); //break required between each reading
+            }
+            if (usL == usR)
+                return;
 
-        boolean direction;//true = US1 > US2
-        if (US1.getValue() > US2.getValue()) {
-            JustMove(speedR, speedL);
-            direction = true;
-        }
-        else if (US1.getValue() < US2.getValue()){
-            JustMove(speedR * -1, speedL * -1);
-            direction = false;
-        }
-        else
-            direction = true;
+            boolean direction;//true = US1 > US2
+            if (US1.getValue() > US2.getValue()) {
+                JustMove(speedR, speedL);
+                direction = true;
+            } else if (US1.getValue() < US2.getValue()) {
+                JustMove(speedR * -1, speedL * -1);
+                direction = false;
+            } else
+                direction = true;
 
-        double now = waiter.time;
-        while(waiter.opModeIsActive()
-                &&((US1.getValue() > US2.getValue()) == direction)
-                && (waiter.time - now) < 1.0-0.05*(10-x)){
-            waiter.sleep(50);
-        }
-        Stop();
+            double now = waiter.time;
+            while (waiter.opModeIsActive()
+                    && ((US1.getValue() > US2.getValue()) == direction)
+                    && (waiter.time - now) < 1.0 - 0.05 * (10 - x)) {
+                waiter.sleep(50);
+            }
+            Stop();
 
-        if (speed > minSpeed)
-            ParallelRecursion(x+1, speed-0.01);//getting slower for minor adjustments
-        else
-            ParallelRecursion(x, speed);
+            if (speed > minSpeed)
+                ParallelRecursion(x + 1, speed - 0.01);//getting slower for minor adjustments
+            else
+                ParallelRecursion(x, speed);
+        }
     }
 
     /**

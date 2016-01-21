@@ -58,7 +58,7 @@ public class FtcOpModeRegister implements OpModeRegister {
         manager.register("NullOp", NullOp.class);
         manager.register("AutoButtonBlue", AutoButtonBlue.class);
         manager.register("AutoButtonRed", AutoButtonRed.class);
-        manager.register("Meet3TeleOp", Meet3TeleOp.class);
+        manager.register("LeagueChampTeleOp", LeagueChampTeleOp.class);
 
     }
 }

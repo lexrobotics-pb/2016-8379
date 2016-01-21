@@ -112,8 +112,8 @@ public class LeagueChampTeleOp extends OpMode {
 
 //==========Box==============================
         boxPower = 0.0;
-        if (gamepad2.right_stick_y < -0.5) boxPower = -0.2;//in
-        if (gamepad2.right_stick_y > 0.5) boxPower = 0.2;//out
+        if (gamepad2.right_stick_y < -0.5) boxPower = 0.2;//in
+        if (gamepad2.right_stick_y > 0.5) boxPower = -0.2;//out
 
         Box.setPower(boxPower);
 
@@ -129,7 +129,7 @@ public class LeagueChampTeleOp extends OpMode {
             gate.setPosition(0.0);//up
 
         if (gamepad2.b)
-            gate.setPosition(0.3);//down
+            gate.setPosition(0.6);//down
 
 //===========Triggers============================
         if(gamepad2.left_bumper)

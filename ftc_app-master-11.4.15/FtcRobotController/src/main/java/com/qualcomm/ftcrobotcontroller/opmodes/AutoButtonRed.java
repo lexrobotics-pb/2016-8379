@@ -22,17 +22,17 @@ public class AutoButtonRed extends LinearOpMode{
         while(robot.gyro.isCalibrating())
         {
             telemetry.addData("gyro calibration", robot.gyro.isCalibrating());
-            robot.my_wait(0.1);
+            Thread.sleep(50);
         }
         robot.my_wait(3.0);
         telemetry.addData("robot init", "complete");
 
         //set the robot perpendicular to the wall, Flipper forward
-        robot.move(0.5, 65);
-        robot.my_wait(0.1);
-        robot.turnWithGyro(-0.6, 44.0); // parallel to diagonal
-        robot.my_wait(0.1);
         robot.Flipper.setPower(-0.6);
+        robot.move(0.5, 65);
+        robot.my_wait(0.2);
+        robot.turnWithGyro(-0.6, 44.0); // parallel to diagonal
+        robot.my_wait(0.2);
         robot.move(0.2, 140);
         robot.my_wait(0.1);
         robot.Flipper.setPower(0);
@@ -44,7 +44,7 @@ public class AutoButtonRed extends LinearOpMode{
         robot.calibrate();
         robot.my_wait(0.5);
         robot.detectWhiteLine(0.15);
-        robot.move(0.2, 7);
+        robot.move(-0.2, 7);
         robot.my_wait(0.1);
 //        robot.push.setPosition(0.2);
 //        robot.my_wait(2);

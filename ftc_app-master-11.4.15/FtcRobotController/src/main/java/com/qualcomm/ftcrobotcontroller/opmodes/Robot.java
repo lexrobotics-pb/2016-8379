@@ -180,9 +180,10 @@ public class Robot {
      *                adjust cw and ccw using speed positive = cw, negative = ccw
      */
     public void turnWithGyro(double speed, double degrees) {
+        waiter.telemetry.addData("turn", waiter.opModeIsActive());
         if(waiter.opModeIsActive()) {
             gyro.resetZAxisIntegrator();
-            my_wait(1.0);
+            my_wait(2.0);
             double left, right;
 
             right = -speed;
@@ -207,6 +208,7 @@ public class Robot {
         if(waiter.opModeIsActive()) {
             double current = waiter.time;
             while (waiter.opModeIsActive() && (waiter.time - current) < sec) {
+                waiter.telemetry.addData("active",waiter.opModeIsActive());
             }
         }
     }

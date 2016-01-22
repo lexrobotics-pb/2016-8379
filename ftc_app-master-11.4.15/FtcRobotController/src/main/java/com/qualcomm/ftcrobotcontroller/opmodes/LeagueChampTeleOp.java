@@ -112,8 +112,8 @@ public class LeagueChampTeleOp extends OpMode {
 
 //==========Box==============================
         boxPower = 0.0;
-        if (gamepad2.right_stick_y < -0.5) boxPower = 0.2;//in
-        if (gamepad2.right_stick_y > 0.5) boxPower = -0.2;//out
+        if (gamepad2.right_stick_y < -0.5) boxPower = 0.3;//in
+        if (gamepad2.right_stick_y > 0.5) boxPower = -0.3;//out
 
         Box.setPower(boxPower);
 

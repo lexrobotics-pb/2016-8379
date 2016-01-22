@@ -30,7 +30,7 @@ public class AutoButtonBlue extends LinearOpMode{
         //set the robot perpendicular to the wall, Flipper forward
         robot.move(0.5, 65);
         robot.my_wait(0.1);
-        robot.turnWithGyro(0.6, 44.0); // parallel to diagonal
+        robot.turnWithGyro(0.6, 45.0); // parallel to diagonal
         robot.my_wait(0.1);
         robot.Flipper.setPower(-0.6);
         robot.move(0.2, 140);

@@ -236,7 +236,6 @@ public class Robot {
     }
 
     public void pushButton(){
-//        push.setPosition(0.3);
         if(waiter.opModeIsActive()) {
             dump.setPosition(0.3);
             my_wait(2.0);

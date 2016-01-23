@@ -132,14 +132,14 @@ public class LeagueChampTeleOp extends OpMode {
             gate.setPosition(0.6);//down
 
 //===========Triggers============================
-        if(gamepad2.left_bumper)
+        if(gamepad2.right_bumper)//because the robot gets up the ramp in the opposite direction
             LeftTrigger.setPosition(0.15);
-        else if(gamepad2.left_trigger > 0.3)
+        else if(gamepad2.right_trigger > 0.3)
             LeftTrigger.setPosition(0.95);
 
-        if(gamepad2.right_bumper)
+        if(gamepad2.left_bumper)
             RightTrigger.setPosition(0.95);
-        else if(gamepad2.right_trigger > 0.3)
+        else if(gamepad2.left_trigger > 0.3)
             RightTrigger.setPosition(0.15);
     }
 

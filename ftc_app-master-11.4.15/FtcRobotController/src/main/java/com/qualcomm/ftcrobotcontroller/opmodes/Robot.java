@@ -239,10 +239,10 @@ public class Robot {
 
     public void pushButton(){
         if(waiter.opModeIsActive()) {
-            dump.setPosition(0.3);
-            my_wait(2.5);
-            push.setPosition(0.3);
-            my_wait(2.5);
+            dump.setPosition(0.1);
+            my_wait(2.0);
+            push.setPosition(0.1);
+            my_wait(2.0);
             push.setPosition(0.5);
             dump.setPosition(0.5);
             my_wait(1.0);

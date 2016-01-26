@@ -78,11 +78,11 @@ public class Robot {
         RightTrigger = hello.hardwareMap.servo.get("RightTrigger");
         gate=hello.hardwareMap.servo.get("gate");
 
-        RightTrigger.setPosition(0.15);
-        LeftTrigger.setPosition(0.95);
+        RightTrigger.setPosition(0.1);
+        LeftTrigger.setPosition(0.98);
         dump.setPosition(0.5);
         push.setPosition(0.5);
-        gate.setPosition(0.0);
+        gate.setPosition(0.3);
     }
 
     //====================================All Functions=====================================================================================================
@@ -181,9 +181,9 @@ public class Robot {
      */
     public void turnWithGyro(double speed, double degrees) {
         waiter.telemetry.addData("turn", waiter.opModeIsActive());
-        if(waiter.opModeIsActive()) {
+        //if(waiter.opModeIsActive()) {
             gyro.resetZAxisIntegrator();
-            my_wait(2.0);
+            my_wait(1.0);
             double left, right;
 
             right = -speed;
@@ -202,7 +202,7 @@ public class Robot {
             }
             Stop();
         }
-    }
+    //}
 
     public void my_wait(double sec) {
         if(waiter.opModeIsActive()) {
@@ -239,15 +239,15 @@ public class Robot {
 
     public void pushButton(){
         if(waiter.opModeIsActive()) {
-            dump.setPosition(0.3);
+            dump.setPosition(0.15);
             my_wait(2.5);
-            push.setPosition(0.3);
-            my_wait(2.5);
+            push.setPosition(0.15);
+            my_wait(3.0);
             push.setPosition(0.5);
             dump.setPosition(0.5);
             my_wait(1.0);
-            push.setPosition(0.8);
-            dump.setPosition(0.8);
+            push.setPosition(0.9);
+            dump.setPosition(0.9);
             my_wait(3.0);
             push.setPosition(0.5);
             dump.setPosition(0.5);
@@ -266,7 +266,7 @@ public class Robot {
             double speedL = speed, speedR = speed * -1;//clock wise
 
             //base case: max adjustment or parallel
-            if (x >= 10)//limit only to 10
+            if (x >= 6)//limit only to 10
                 return;
             int usL = 0, usR = 0;
             for (int y = 0; y < 5; y++)//sometimes they fluctuate

@@ -9,9 +9,9 @@ import com.qualcomm.robotcore.hardware.AnalogInput;
 
 /**
  * Created by Eula on 10/8/2015.
- * Last Update: 2015/11/19 by Eula
+ * Last Update: 2016/2/11 by Eula
  * Use this class to configure all robot parts and store main movement of the robot for Autonomous
- * Status: Updating for Meet 1
+ * Status: Configuration updated for State
  */
 
 public class Robot {
@@ -21,13 +21,12 @@ public class Robot {
     DcMotor motorBackLeft;
     DcMotor Flipper;
     DcMotor Box;
-    DcMotor Conveyor;
 
+    Servo conveyor;
     Servo LeftTrigger;
     Servo RightTrigger;
     Servo dump;
     Servo push;
-    Servo gate;
 
     ColorSensor color;
     otherColor line;
@@ -64,8 +63,8 @@ public class Robot {
 
         Flipper = hello.hardwareMap.dcMotor.get("Flipper");
         Box = hello.hardwareMap.dcMotor.get("Box");
-        Conveyor = hello.hardwareMap.dcMotor.get("Conveyor");
 
+        conveyor = hello.hardwareMap.servo.get("conveyor");
         color = hello.hardwareMap.colorSensor.get("color");
         line = new otherColor(hello.hardwareMap.deviceInterfaceModule.get("Device Interface Module"), 0);
         gyro = hello.hardwareMap.gyroSensor.get("gyro");
@@ -76,24 +75,15 @@ public class Robot {
         dump = hello.hardwareMap.servo.get("dump");
         LeftTrigger = hello.hardwareMap.servo.get("LeftTrigger");
         RightTrigger = hello.hardwareMap.servo.get("RightTrigger");
-        gate=hello.hardwareMap.servo.get("gate");
 
-        RightTrigger.setPosition(0.1);
-        LeftTrigger.setPosition(0.98);
+        RightTrigger.setPosition(0.95);
+        LeftTrigger.setPosition(0.15);
         dump.setPosition(0.5);
         push.setPosition(0.5);
-        gate.setPosition(0.3);
+        conveyor.setPosition(0.5);
     }
 
     //====================================All Functions=====================================================================================================
-    public void printValues() {
-        color.enableLed(true);
-        while (waiter.opModeIsActive()) {
-            waiter.telemetry.addData("color", color.red());
-            waiter.telemetry.addData("line", line.red());
-        }
-    }
-
     public void detectWhiteLine(double speed) throws InterruptedException{
         if(waiter.opModeIsActive()) {
             line.enableLed(true);
@@ -123,9 +113,7 @@ public class Robot {
         if(waiter.opModeIsActive()) {
             resetEncoders();
             JustMove(speed, speed);
-            int i = 0;
             while (waiter.opModeIsActive() && Math.abs(motorBackLeft.getCurrentPosition() - ENCODER_B_L) / encoderV < distance / circumference) {
-                i++;
             }
             Stop();
         }
@@ -310,16 +298,9 @@ public class Robot {
      */
     public void MoveTillUS(double speed, double threshold)
     {
-        int x = 0;
-        double[] data = new double[20];
-//        String output = " ";
         JustMove(speed, speed);
-        do
-        {
-            if (x % 2 == 0)
-                data[x/2] = US1.getValue()*USfactor;
-            my_wait(0.05);
-            x++;
+        do{
+
         }while(waiter.opModeIsActive()&& (US1.getValue()*USfactor)> threshold);
         Stop();
     }

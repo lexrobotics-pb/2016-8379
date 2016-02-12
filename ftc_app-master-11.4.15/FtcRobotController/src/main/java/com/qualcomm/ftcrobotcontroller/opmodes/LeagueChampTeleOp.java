@@ -1,7 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
-        import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-        import com.qualcomm.robotcore.hardware.DcMotor;
-        import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 /**
  * Created by Eula on 1/11/16.
@@ -16,13 +16,12 @@ public class LeagueChampTeleOp extends OpMode {
     DcMotor motorBackLeft;
     DcMotor Flipper;
     DcMotor Box;
-    DcMotor Conveyor;
+    Servo conveyor;
 
     Servo LeftTrigger;
     Servo RightTrigger;
     Servo dump;
     Servo push;
-    Servo gate;
 
     double conveyorPower;
     double current;
@@ -48,19 +47,18 @@ public class LeagueChampTeleOp extends OpMode {
         motorFrontLeft.setDirection(DcMotor.Direction.FORWARD); //forwards front left motor
         Flipper = hardwareMap.dcMotor.get("Flipper");
         Box = hardwareMap.dcMotor.get("Box");
-        Conveyor = hardwareMap.dcMotor.get("Conveyor");
 
+        conveyor = hardwareMap.servo.get("conveyor");
         push = hardwareMap.servo.get("push");
         dump = hardwareMap.servo.get("dump");
         LeftTrigger = hardwareMap.servo.get("LeftTrigger");
         RightTrigger = hardwareMap.servo.get("RightTrigger");
-        gate = hardwareMap.servo.get("gate");
 
         RightTrigger.setPosition(0.15);
         LeftTrigger.setPosition(0.95);
         dump.setPosition(0.5);
         push.setPosition(0.5);
-        gate.setPosition(0);
+        conveyor.setPosition(0.5);
     }
 
     @Override
@@ -106,9 +104,9 @@ public class LeagueChampTeleOp extends OpMode {
         conveyorPower = 0.0;
         current = gamepad2.left_stick_x;
         if (Math.abs(current) > 0.5)//right = going to the right when on the ramp
-            conveyorPower = Math.abs(current) / current * 0.2;
+            conveyorPower = current / 2.5 + 0.5;
 
-        Conveyor.setPower(conveyorPower);
+        conveyor.setPosition(conveyorPower);
 
 //==========Box==============================
         boxPower = 0.0;
@@ -123,13 +121,6 @@ public class LeagueChampTeleOp extends OpMode {
         if (gamepad2.a) dumpPosition = 0.85;
 
         dump.setPosition(dumpPosition);
-
-//===========gate=====================
-        if (gamepad2.x)
-            gate.setPosition(0.0);//up
-
-        if (gamepad2.b)
-            gate.setPosition(0.6);//down
 
 //===========Triggers============================
         if(gamepad2.left_bumper)
@@ -153,11 +144,6 @@ public class LeagueChampTeleOp extends OpMode {
         Box.setPower(0.0);
         dump.setPosition(0.5);
         push.setPosition(0.5);
-    }
-
-    public void my_wait(double sec) {
-        double current = this.time;
-        while ((this.time - current) < sec) {
-        }
+        conveyor.setPosition(0.5);
     }
 }

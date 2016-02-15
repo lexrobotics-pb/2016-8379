@@ -19,33 +19,34 @@ public class AutoButtonBlue extends LinearOpMode{
         robot.line.enableLed(true);
 
         waitForStart();
-        while(robot.gyro.isCalibrating())
-        {
-            telemetry.addData("gyro calibration", robot.gyro.isCalibrating());
-            Thread.sleep(50);
-        }
-        robot.my_wait(1.0);
-        telemetry.addData("robot init", "complete");
-
-        //set the robot perpendicular to the wall, Flipper forward
-        robot.Flipper.setPower(-0.6);
-        robot.move(0.7, 65);
-        robot.my_wait(0.1);
-        robot.turnWithGyro(0.6, 45.0); // parallel to diagonal
-        robot.my_wait(0.1);
-        robot.move(0.2, 145);
-        robot.my_wait(0.1);
-        robot.Flipper.setPower(0);
-        robot.my_wait(0.1);
-        robot.turnWithGyro(0.5, 133); // parallel to wall
-        robot.my_wait(0.1);
-        robot.ParallelRecursion(0, 0.4);
-
-        robot.my_wait(0.5);
-        robot.detectWhiteLine(-0.15);
-        robot.move(-0.6, 7);
-        robot.my_wait(0.1);
-        robot.pushButton();
+        robot.Conveyor.setPosition(0.1);
+//        while(robot.gyro.isCalibrating())
+//        {
+//            telemetry.addData("gyro calibration", robot.gyro.isCalibrating());
+//            Thread.sleep(50);
+//        }
+//        robot.my_wait(1.0);
+//        telemetry.addData("robot init", "complete");
+//
+//        //set the robot perpendicular to the wall, Flipper forward
+//        robot.Flipper.setPower(-0.6);
+//        robot.move(0.7, 65);
+//        robot.my_wait(0.1);
+//        robot.turnWithGyro(0.6, 45.0); // parallel to diagonal
+//        robot.my_wait(0.1);
+//        robot.move(0.2, 145);
+//        robot.my_wait(0.1);
+//        robot.Flipper.setPower(0);
+//        robot.my_wait(0.1);
+//        robot.turnWithGyro(0.5, 133); // parallel to wall
+//        robot.my_wait(0.1);
+//        robot.ParallelRecursion(0, 0.4);
+//
+//        robot.my_wait(0.5);
+//        robot.detectWhiteLine(-0.15);
+//        robot.move(-0.6, 7);
+//        robot.my_wait(0.1);
+//        robot.pushButton();
     }
     //        robot.push.setPosition(0.2);
 //        robot.my_wait(2);

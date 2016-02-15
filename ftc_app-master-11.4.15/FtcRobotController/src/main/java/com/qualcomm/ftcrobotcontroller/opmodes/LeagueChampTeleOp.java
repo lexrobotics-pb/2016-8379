@@ -16,13 +16,13 @@ public class LeagueChampTeleOp extends OpMode {
     DcMotor motorBackLeft;
     DcMotor Flipper;
     DcMotor Box;
-    DcMotor Conveyor;
 
     Servo LeftTrigger;
     Servo RightTrigger;
     Servo dump;
     Servo push;
     Servo gate;
+    Servo Conveyor;
 
     double conveyorPower;
     double current;
@@ -48,19 +48,18 @@ public class LeagueChampTeleOp extends OpMode {
         motorFrontLeft.setDirection(DcMotor.Direction.FORWARD); //forwards front left motor
         Flipper = hardwareMap.dcMotor.get("Flipper");
         Box = hardwareMap.dcMotor.get("Box");
-        Conveyor = hardwareMap.dcMotor.get("Conveyor");
+        Conveyor = hardwareMap.servo.get("conveyor");
 
         push = hardwareMap.servo.get("push");
         dump = hardwareMap.servo.get("dump");
         LeftTrigger = hardwareMap.servo.get("LeftTrigger");
         RightTrigger = hardwareMap.servo.get("RightTrigger");
-        gate = hardwareMap.servo.get("gate");
 
         RightTrigger.setPosition(0.15);
         LeftTrigger.setPosition(0.95);
         dump.setPosition(0.5);
         push.setPosition(0.5);
-        gate.setPosition(0);
+        Conveyor.setPosition(0.5);
     }
 
     @Override
@@ -103,12 +102,8 @@ public class LeagueChampTeleOp extends OpMode {
 
 //************************ Gamepad 2 ***********************************
 //========conveyor=============================
-        conveyorPower = 0.0;
-        current = gamepad2.left_stick_x;
-        if (Math.abs(current) > 0.5)//right = going to the right when on the ramp
-            conveyorPower = Math.abs(current) / current * 0.2;
-
-        Conveyor.setPower(conveyorPower);
+        conveyorPower = gamepad2.left_stick_x * 0.5+0.5;
+        Conveyor.setPosition(conveyorPower);
 
 //==========Box==============================
         boxPower = 0.0;
@@ -124,22 +119,22 @@ public class LeagueChampTeleOp extends OpMode {
 
         dump.setPosition(dumpPosition);
 
-//===========gate=====================
-        if (gamepad2.x)
-            gate.setPosition(0.0);//up
-
-        if (gamepad2.b)
-            gate.setPosition(0.6);//down
+////===========gate=====================
+//        if (gamepad2.x)
+//            gate.setPosition(0.0);//up
+//
+//        if (gamepad2.b)
+//            gate.setPosition(0.6);//down
 
 //===========Triggers============================
-        if(gamepad2.left_bumper)
+        if(gamepad2.right_bumper)//because the robot gets up the ramp in the opposite direction
             LeftTrigger.setPosition(0.15);
-        else if(gamepad2.left_trigger > 0.3)
+        else if(gamepad2.right_trigger > 0.3)
             LeftTrigger.setPosition(0.95);
 
-        if(gamepad2.right_bumper)
+        if(gamepad2.left_bumper)
             RightTrigger.setPosition(0.95);
-        else if(gamepad2.right_trigger > 0.3)
+        else if(gamepad2.left_trigger > 0.3)
             RightTrigger.setPosition(0.15);
     }
 

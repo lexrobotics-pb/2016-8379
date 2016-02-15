@@ -21,13 +21,13 @@ public class Robot {
     DcMotor motorBackLeft;
     DcMotor Flipper;
     DcMotor Box;
-    DcMotor Conveyor;
 
     Servo LeftTrigger;
     Servo RightTrigger;
     Servo dump;
     Servo push;
     Servo gate;
+    Servo Conveyor;
 
     ColorSensor color;
     otherColor line;
@@ -64,7 +64,7 @@ public class Robot {
 
         Flipper = hello.hardwareMap.dcMotor.get("Flipper");
         Box = hello.hardwareMap.dcMotor.get("Box");
-        Conveyor = hello.hardwareMap.dcMotor.get("Conveyor");
+        Conveyor = hello.hardwareMap.servo.get("conveyor");
 
         color = hello.hardwareMap.colorSensor.get("color");
         line = new otherColor(hello.hardwareMap.deviceInterfaceModule.get("Device Interface Module"), 0);

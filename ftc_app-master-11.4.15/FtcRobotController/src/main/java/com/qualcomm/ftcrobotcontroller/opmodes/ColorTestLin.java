@@ -19,7 +19,7 @@ public class ColorTestLin extends LinearOpMode{
         telemetry.addData("init", "complete");
         robot.my_wait(3);
         waitForStart();
-        robot.printValues();
+//        robot.printValues();
 
     }
 }

@@ -1,7 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
-        import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-        import com.qualcomm.robotcore.hardware.DcMotor;
-        import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 /**
  * Created by Eula on 1/11/16.
@@ -17,11 +17,11 @@ public class LeagueChampTeleOp extends OpMode {
     DcMotor Flipper;
     DcMotor Box;
 
+    Servo conveyor;
     Servo LeftTrigger;
     Servo RightTrigger;
     Servo dump;
     Servo push;
-    Servo gate;
     Servo Conveyor;
 
     double conveyorPower;
@@ -50,6 +50,7 @@ public class LeagueChampTeleOp extends OpMode {
         Box = hardwareMap.dcMotor.get("Box");
         Conveyor = hardwareMap.servo.get("conveyor");
 
+        conveyor = hardwareMap.servo.get("conveyor");
         push = hardwareMap.servo.get("push");
         dump = hardwareMap.servo.get("dump");
         LeftTrigger = hardwareMap.servo.get("LeftTrigger");
@@ -59,7 +60,7 @@ public class LeagueChampTeleOp extends OpMode {
         LeftTrigger.setPosition(0.95);
         dump.setPosition(0.5);
         push.setPosition(0.5);
-        Conveyor.setPosition(0.5);
+        conveyor.setPosition(0.5);
     }
 
     @Override
@@ -103,7 +104,9 @@ public class LeagueChampTeleOp extends OpMode {
 //************************ Gamepad 2 ***********************************
 //========conveyor=============================
         conveyorPower = gamepad2.left_stick_x * 0.5+0.5;
-        Conveyor.setPosition(conveyorPower);
+        conveyor.setPosition(conveyorPower);
+
+        conveyor.setPosition(conveyorPower);
 
 //==========Box==============================
         boxPower = 0.0;
@@ -148,11 +151,6 @@ public class LeagueChampTeleOp extends OpMode {
         Box.setPower(0.0);
         dump.setPosition(0.5);
         push.setPosition(0.5);
-    }
-
-    public void my_wait(double sec) {
-        double current = this.time;
-        while ((this.time - current) < sec) {
-        }
+        conveyor.setPosition(0.5);
     }
 }

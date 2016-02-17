@@ -103,15 +103,15 @@ public class LeagueChampTeleOp extends OpMode {
 
 //************************ Gamepad 2 ***********************************
 //========conveyor=============================
-        conveyorPower = gamepad2.left_stick_x * 0.5+0.5;
+        conveyorPower = Math.abs(gamepad2.left_stick_x * 0.5-0.5);
         conveyor.setPosition(conveyorPower);
 
         conveyor.setPosition(conveyorPower);
 
 //==========Box==============================
         boxPower = 0.0;
-        if (gamepad2.right_stick_y < -0.5) boxPower = 0.6;//in
-        if (gamepad2.right_stick_y > 0.5) boxPower = -0.6;//out
+        if (gamepad2.right_stick_y < -0.5) boxPower = -0.6;//in
+        if (gamepad2.right_stick_y > 0.5) boxPower = 0.6;//out
 
         Box.setPower(boxPower);
 

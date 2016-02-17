@@ -30,7 +30,7 @@ public class Robot {
 
 
     ColorSensor color;
-    otherColor line;
+    ColorSensor line;
     AnalogInput US1;
     AnalogInput US2;
     GyroSensor gyro;
@@ -53,6 +53,7 @@ public class Robot {
     public Robot(LinearOpMode hello) {
         waiter = hello;
 
+        line.setI2cAddress(0x70);
         motorBackRight = hello.hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.FORWARD); //forwards back left motor
         motorFrontRight = hello.hardwareMap.dcMotor.get("motorFrontRight");
@@ -67,7 +68,7 @@ public class Robot {
 
         conveyor = hello.hardwareMap.servo.get("conveyor");
         color = hello.hardwareMap.colorSensor.get("color");
-        line = new otherColor(hello.hardwareMap.deviceInterfaceModule.get("Device Interface Module"), 0);
+        line = hello.hardwareMap.colorSensor.get("line");
         gyro = hello.hardwareMap.gyroSensor.get("gyro");
         US1 = hello.hardwareMap.analogInput.get("US1");
         US2 = hello.hardwareMap.analogInput.get("US2");

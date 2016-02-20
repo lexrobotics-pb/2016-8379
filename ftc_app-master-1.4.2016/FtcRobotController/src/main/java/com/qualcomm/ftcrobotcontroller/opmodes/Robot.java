@@ -31,8 +31,8 @@ public class Robot {
 
     ColorSensor color;
     ColorSensor line;
-    AnalogInput US1;
-    AnalogInput US2;
+    AnalogInput US1;//left when facing outward
+    AnalogInput US2;//right
     GyroSensor gyro;
 
     double CALIBRATE_RED = 0.0;
@@ -53,7 +53,6 @@ public class Robot {
     public Robot(LinearOpMode hello) {
         waiter = hello;
 
-        line.setI2cAddress(0x70);
         motorBackRight = hello.hardwareMap.dcMotor.get("motorBackRight");
         motorBackRight.setDirection(DcMotor.Direction.FORWARD); //forwards back left motor
         motorFrontRight = hello.hardwareMap.dcMotor.get("motorFrontRight");
@@ -66,9 +65,9 @@ public class Robot {
         Flipper = hello.hardwareMap.dcMotor.get("Flipper");
         Box = hello.hardwareMap.dcMotor.get("Box");
 
-        conveyor = hello.hardwareMap.servo.get("conveyor");
         color = hello.hardwareMap.colorSensor.get("color");
         line = hello.hardwareMap.colorSensor.get("line");
+        line.setI2cAddress(0x70);
         gyro = hello.hardwareMap.gyroSensor.get("gyro");
         US1 = hello.hardwareMap.analogInput.get("US1");
         US2 = hello.hardwareMap.analogInput.get("US2");
@@ -77,9 +76,10 @@ public class Robot {
         dump = hello.hardwareMap.servo.get("dump");
         LeftTrigger = hello.hardwareMap.servo.get("LeftTrigger");
         RightTrigger = hello.hardwareMap.servo.get("RightTrigger");
+        conveyor = hello.hardwareMap.servo.get("conveyor");
 
-        RightTrigger.setPosition(0.95);
-        LeftTrigger.setPosition(0.15);
+        RightTrigger.setPosition(0.15);
+        LeftTrigger.setPosition(0.95);
         dump.setPosition(0.5);
         push.setPosition(0.5);
         conveyor.setPosition(0.5);
@@ -231,9 +231,9 @@ public class Robot {
 
     public void pushButton(){
         if(waiter.opModeIsActive()) {
-            dump.setPosition(0.15);
+            dump.setPosition(0.1);
             my_wait(2.5);
-            push.setPosition(0.15);
+            push.setPosition(0.1);
             my_wait(3.0);
             push.setPosition(0.5);
             dump.setPosition(0.5);

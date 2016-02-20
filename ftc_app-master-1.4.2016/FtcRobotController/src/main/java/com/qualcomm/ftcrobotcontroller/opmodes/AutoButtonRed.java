@@ -29,22 +29,22 @@ public class AutoButtonRed extends LinearOpMode{
 
         //set the robot perpendicular to the wall, Flipper forward
         robot.Flipper.setPower(-0.6);
-        robot.move(0.7, 65);
+        robot.move(0.8, 65);
         robot.my_wait(0.1);
-        robot.turnWithGyro(-0.6, 44.0); // parallel to diagonal
+        robot.turnWithGyro(-0.8, 44.0); // parallel to diagonal
         robot.my_wait(0.1);
-        robot.move(0.2, 145);
+        robot.move(0.95, 145);
         robot.my_wait(0.1);
         robot.Flipper.setPower(0);
         robot.my_wait(0.1);
-        robot.turnWithGyro(0.5, 45); // parallel to wall
+        robot.turnWithGyro(0.8, 45); // parallel to wall
         robot.my_wait(0.1);
         robot.ParallelRecursion(0, 0.4);
 
         //robot.calibrate();
         robot.my_wait(0.5);
-        robot.detectWhiteLine(0.15);
-        robot.move(-0.6, 7);
+        robot.detectWhiteLine(0.1);
+        robot.move(-0.8, 7);
         robot.my_wait(0.1);
 //        robot.push.setPosition(0.2);
 //        robot.my_wait(2);

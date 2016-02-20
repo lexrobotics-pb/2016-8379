@@ -46,7 +46,7 @@ public class AutoButtonBlue extends LinearOpMode{
         robot.detectWhiteLine(-0.1);
         robot.move(-0.8, 7);
         robot.my_wait(0.1);
-        robot.pushButton();
+//        robot.pushButton();
     }
     //        robot.push.setPosition(0.2);
 //        robot.my_wait(2);

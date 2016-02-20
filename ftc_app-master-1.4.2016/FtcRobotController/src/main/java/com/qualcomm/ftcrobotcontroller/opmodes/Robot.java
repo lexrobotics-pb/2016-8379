@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.AnalogInput;
+import com.qualcomm.robotcore.hardware.TouchSensor;
 
 /**
  * Created by Eula on 10/8/2015.
@@ -34,6 +35,7 @@ public class Robot {
     AnalogInput US1;//left when facing outward
     AnalogInput US2;//right
     GyroSensor gyro;
+    TouchSensor touch;
 
     double CALIBRATE_RED = 0.0;
     double CALIBRATE_BLUE = 0.0;
@@ -71,6 +73,7 @@ public class Robot {
         gyro = hello.hardwareMap.gyroSensor.get("gyro");
         US1 = hello.hardwareMap.analogInput.get("US1");
         US2 = hello.hardwareMap.analogInput.get("US2");
+        touch = hello.hardwareMap.touchSensor.get("touch");
 
         push = hello.hardwareMap.servo.get("push");
         dump = hello.hardwareMap.servo.get("dump");
@@ -95,7 +98,7 @@ public class Robot {
                 waiter.telemetry.addData("line red", line.red());
                 waiter.telemetry.addData("line blue", line.blue());
                 waiter.telemetry.addData("line green", line.green());
-                if (line.red() != 0 || line.blue() != 0 && line.green() != 0) {
+                if (line.red() != 0) {
                     waiter.telemetry.addData("line red", line.red());
                     waiter.telemetry.addData("line blue", line.blue());
                     waiter.telemetry.addData("line green", line.green());
@@ -229,21 +232,26 @@ public class Robot {
         return red >= 1.0;
     }
 
-    public void pushButton(){
+    public void pushButton1(){
         if(waiter.opModeIsActive()) {
-            dump.setPosition(0.1);
-            my_wait(2.5);
-            push.setPosition(0.1);
-            my_wait(3.0);
+            dump.setPosition(0.05);
+            push.setPosition(0.05);
+            my_wait(2.0);
             push.setPosition(0.5);
-            dump.setPosition(0.5);
-            my_wait(1.0);
-            push.setPosition(0.9);
-            dump.setPosition(0.9);
-            my_wait(3.0);
-            push.setPosition(0.5);
-            dump.setPosition(0.5);
+            //detect color and then stop the dump
         }
+    }
+
+    public void pushButton2(){
+        dump.setPosition(0.9);
+        double current = waiter.time;
+        while(waiter.opModeIsActive()&& !touch.isPressed() && waiter.time - current < 2.0){}
+        my_wait(0.5);
+        push.setPosition(0.9);
+        dump.setPosition(0.9);
+        my_wait(3.0);
+        push.setPosition(0.5);
+        dump.setPosition(0.5);
     }
 
     /**
@@ -307,5 +315,10 @@ public class Robot {
 
         }while(waiter.opModeIsActive()&& (US1.getValue()*USfactor)> threshold);
         Stop();
+    }
+
+    public void push()
+    {
+
     }
 }

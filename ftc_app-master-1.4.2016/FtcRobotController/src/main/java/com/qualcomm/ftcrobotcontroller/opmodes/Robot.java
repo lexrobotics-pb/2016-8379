@@ -242,16 +242,39 @@ public class Robot {
         }
     }
 
+    public void colorSenseRed(){
+        if(isRed()) {
+            my_wait(0.5);
+            dump.setPosition(0.5);
+            move(0.5, 2);
+        }
+        else {
+            my_wait(0.5);
+            dump.setPosition(0.5);
+            move(-0.5, 10);
+        }
+    }
+
+    public void colorSenseBlue(){
+        if(isBlue()) {
+            my_wait(0.5);
+            dump.setPosition(0.5);
+            move(-0.5, 10);
+        }
+        else {
+            my_wait(0.5);
+            dump.setPosition(0.5);
+            move(0.5, 2);
+        }
+    }
+
     public void pushButton2(){
-        dump.setPosition(0.9);
+        push.setPosition(0.05);
         double current = waiter.time;
         while(waiter.opModeIsActive()&& !touch.isPressed() && waiter.time - current < 2.0){}
         my_wait(0.5);
         push.setPosition(0.9);
         dump.setPosition(0.9);
-        my_wait(3.0);
-        push.setPosition(0.5);
-        dump.setPosition(0.5);
     }
 
     /**

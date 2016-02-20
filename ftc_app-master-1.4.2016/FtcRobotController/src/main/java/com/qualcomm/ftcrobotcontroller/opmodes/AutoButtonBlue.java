@@ -19,16 +19,14 @@ public class AutoButtonBlue extends LinearOpMode{
         robot.line.enableLed(true);
 
         waitForStart();
-//        robot.conveyor.setPosition(0.1);
-//        while(robot.gyro.isCalibrating())
-//        {
-//            telemetry.addData("gyro calibration", robot.gyro.isCalibrating());
-//            Thread.sleep(50);
-//        }
-//        robot.my_wait(1.0);
-//        telemetry.addData("robot init", "complete");
-//
-//        //set the robot perpendicular to the wall, Flipper forward
+        while(robot.gyro.isCalibrating())
+        {
+            telemetry.addData("gyro calibration", robot.gyro.isCalibrating());
+            Thread.sleep(50);
+        }
+        telemetry.addData("robot init", "complete");
+
+        //set the robot perpendicular to the wall, Flipper forward
         robot.Flipper.setPower(-0.6);
         robot.move(0.8, 65);
         robot.my_wait(0.1);
@@ -44,15 +42,14 @@ public class AutoButtonBlue extends LinearOpMode{
 
         robot.my_wait(0.5);
         robot.detectWhiteLine(-0.1);
-        robot.move(-0.8, 7);
-        robot.my_wait(0.1);
-//        robot.pushButton();
+        robot.move(-0.8, 5);
+        robot.pushButton1();
+        robot.colorSenseBlue();
+        robot.pushButton2();
+        robot.move(-0.8, 50);
+        robot.my_wait(2);
+        robot.push.setPosition(0.5);
+        robot.dump.setPosition(0.5);
     }
-    //        robot.push.setPosition(0.2);
-//        robot.my_wait(2);
-//        //color sense
-//        if(!robot.isBlue())
-//            robot.move(0.5, 2);
-//        else
-//            robot.move(-0.5, 10);
+
 }

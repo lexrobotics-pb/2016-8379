@@ -25,18 +25,17 @@ public class AutoButtonBlue extends LinearOpMode{
             Thread.sleep(50);
         }
         telemetry.addData("robot init", "complete");
-
         //set the robot perpendicular to the wall, Flipper forward
         robot.Flipper.setPower(-0.6);
         robot.move(0.8, 65);
         robot.my_wait(0.1);
-        robot.turnWithGyro(0.8, 46.0); // parallel to diagonal
+        robot.turnWithGyro(0.8, 45.0); // parallel to diagonal
         robot.my_wait(0.1);
-        robot.move(0.95, 145);
+        robot.move(0.95, 143);
         robot.my_wait(0.1);
         robot.Flipper.setPower(0);
         robot.my_wait(0.1);
-        robot.turnWithGyro(0.8, 133); // parallel to wall
+        robot.turnWithGyro(0.7, 128); // parallel to wall
         robot.my_wait(0.1);
         robot.ParallelRecursion(0, 0.4);
 
@@ -46,8 +45,8 @@ public class AutoButtonBlue extends LinearOpMode{
         robot.pushButton1();
         robot.colorSenseBlue();
         robot.pushButton2();
-        robot.move(-0.8, 50);
-        robot.my_wait(2);
+        robot.my_wait(2.5);
+        robot.move(0.8, 50);
         robot.push.setPosition(0.5);
         robot.dump.setPosition(0.5);
     }

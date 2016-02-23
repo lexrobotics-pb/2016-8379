@@ -27,11 +27,10 @@ public class Robot {
     Servo RightTrigger;
     Servo dump;
     Servo push;
-<<<<<<< HEAD
+
     Servo gate;
     Servo Conveyor;
-=======
->>>>>>> 00e5b4d6c46948c06e650848cd4cc23a0a932bb1
+
 
     ColorSensor color;
     otherColor line;
@@ -68,10 +67,7 @@ public class Robot {
 
         Flipper = hello.hardwareMap.dcMotor.get("Flipper");
         Box = hello.hardwareMap.dcMotor.get("Box");
-<<<<<<< HEAD
         Conveyor = hello.hardwareMap.servo.get("conveyor");
-=======
->>>>>>> 00e5b4d6c46948c06e650848cd4cc23a0a932bb1
 
         conveyor = hello.hardwareMap.servo.get("conveyor");
         color = hello.hardwareMap.colorSensor.get("color");

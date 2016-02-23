@@ -31,7 +31,7 @@ public class Robot {
 
 
     ColorSensor color;
-    ColorSensor line;
+    otherColor line;
     AnalogInput US1;//left when facing outward
     AnalogInput US2;//right
     GyroSensor gyro;
@@ -68,8 +68,9 @@ public class Robot {
         Box = hello.hardwareMap.dcMotor.get("Box");
 
         color = hello.hardwareMap.colorSensor.get("color");
-        line = hello.hardwareMap.colorSensor.get("line");
-        line.setI2cAddress(0x70);
+        line = new otherColor(hello.hardwareMap.deviceInterfaceModule.get("Device Interface Module"), 0);
+        //line = hello.hardwareMap.colorSensor.get("line");
+        //line.setI2cAddress(0x70);
         gyro = hello.hardwareMap.gyroSensor.get("gyro");
         US1 = hello.hardwareMap.analogInput.get("US1");
         US2 = hello.hardwareMap.analogInput.get("US2");
@@ -94,7 +95,7 @@ public class Robot {
             line.enableLed(true);
             JustMove(speed, speed);
             double now = waiter.time;
-            while (true && waiter.opModeIsActive() && waiter.time - now < 5) {
+            while (true && waiter.opModeIsActive() && waiter.time - now < 2) {
                 waiter.telemetry.addData("line red", line.red());
                 waiter.telemetry.addData("line blue", line.blue());
                 waiter.telemetry.addData("line green", line.green());
@@ -175,29 +176,42 @@ public class Robot {
     public void turnWithGyro(double speed, double degrees) {
         waiter.telemetry.addData("turn", waiter.opModeIsActive());
         //if(waiter.opModeIsActive()) {
-            gyro.resetZAxisIntegrator();
-            my_wait(1.0);
-            double left, right;
+        gyro.resetZAxisIntegrator();
+        my_wait(1.0);
+        double left, right;
 
-            right = -speed;
-            left = speed;
+        right = -speed;
+        left = speed;
 
-            if (speed < 0) {
-                degrees = 360 - degrees;
-                JustMove(right, left);
-                my_wait(0.5);
-                while (waiter.opModeIsActive() && gyro.getHeading() > degrees) {
-                    my_wait(0.01);
-                }
-            } else {
-                JustMove(right, left);
-                while (waiter.opModeIsActive() && gyro.getHeading() < degrees) {
-                    my_wait(0.01);
-                }
-            }
+        JustMove(right, left);
+        int current;
+        while(waiter.opModeIsActive()){
+            current = gyro.getHeading();
+            if (current > 180)
+                current = 360 - current;
+            if (current > degrees)
+                break;
+        }
+
+//            if (speed < 0) {
+//
+//                degrees = 360 - degrees;
+//                my_wait(0.5);
+//                while (waiter.opModeIsActive() && gyro.getHeading() > degrees) {
+//                    my_wait(0.01);
+//                }
+//            } else {
+//                JustMove(right, left);
+//                while(waiter.opModeIsActive()){
+//                 current = gyro.getHeading();
+//                    if (current > 180)
+//                        current = 360 - current;
+//                    if (current > degrees)
+//                        break;
+//                }
+//            }
             Stop();
         }
-    //}
 
     public void my_wait(double sec) {
         if(waiter.opModeIsActive()) {
@@ -259,19 +273,19 @@ public class Robot {
         if(isBlue()) {
             my_wait(0.5);
             dump.setPosition(0.5);
-            move(-0.5, 10);
+            move(0.5, 2);
         }
         else {
             my_wait(0.5);
             dump.setPosition(0.5);
-            move(0.5, 2);
+            move(-0.5, 10);
         }
     }
 
     public void pushButton2(){
         push.setPosition(0.05);
         double current = waiter.time;
-        while(waiter.opModeIsActive()&& !touch.isPressed() && waiter.time - current < 2.0){}
+        while(waiter.opModeIsActive()&& !touch.isPressed() && (waiter.time - current) < 2.5){}
         my_wait(0.5);
         push.setPosition(0.9);
         dump.setPosition(0.9);
@@ -298,6 +312,8 @@ public class Robot {
                 usR += US2.getValue();
                 waiter.sleep(50); //break required between each reading
             }
+            waiter.telemetry.addData("ÜS1", US1.getValue());
+            waiter.telemetry.addData("ÜS2", US2.getValue());
             if (usL == usR)
                 return;
 

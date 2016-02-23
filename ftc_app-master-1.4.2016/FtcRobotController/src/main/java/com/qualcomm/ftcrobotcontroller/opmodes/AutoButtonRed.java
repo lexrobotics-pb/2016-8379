@@ -41,7 +41,7 @@ public class AutoButtonRed extends LinearOpMode{
         robot.ParallelRecursion(0, 0.4);
 
         robot.my_wait(0.5);
-        robot.detectWhiteLine(0.1);
+        robot.detectWhiteLine(0.15);
         robot.move(-0.8, 5);
         robot.pushButton1();
         robot.colorSenseRed();

@@ -25,14 +25,12 @@ public class LeagueChampTeleOp extends OpMode {
     Servo Conveyor;
 
     double conveyorPower;
-    double current;
     double boxPower;
     double dumpPosition;
     double pushPosition;
     double speedFactor = 0.9;
     double flipperPower;
-
-    boolean speed = true;
+    
     boolean direction = true;
 
 

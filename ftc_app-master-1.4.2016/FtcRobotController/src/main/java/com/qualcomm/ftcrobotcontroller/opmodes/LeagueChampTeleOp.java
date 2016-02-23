@@ -30,7 +30,7 @@ public class LeagueChampTeleOp extends OpMode {
     double pushPosition;
     double speedFactor = 0.9;
     double flipperPower;
-    
+
     boolean direction = true;
 
 
@@ -104,8 +104,6 @@ public class LeagueChampTeleOp extends OpMode {
         conveyorPower = Math.abs(gamepad2.left_stick_x * 0.5-0.5);
         conveyor.setPosition(conveyorPower);
 
-        conveyor.setPosition(conveyorPower);
-
 //==========Box==============================
         boxPower = 0.0;
         if (gamepad2.right_stick_y < -0.5) boxPower = -0.6;//in
@@ -119,14 +117,6 @@ public class LeagueChampTeleOp extends OpMode {
         if (gamepad2.a) dumpPosition = 0.85;
 
         dump.setPosition(dumpPosition);
-
-////===========gate=====================
-//        if (gamepad2.x)
-//            gate.setPosition(0.0);//up
-//
-//        if (gamepad2.b)
-//            gate.setPosition(0.6);//down
-
 //===========Triggers============================
         if(gamepad2.right_bumper)//because the robot gets up the ramp in the opposite direction
             LeftTrigger.setPosition(0.15);

@@ -211,7 +211,7 @@ public class Robot {
             blue += color.blue();
             my_wait(0.05);
         }
-        blue /= 20;
+        blue /= 15;
         blue -= CALIBRATE_BLUE;
         return blue >= 1.0;
     }
@@ -223,7 +223,7 @@ public class Robot {
             red += color.red();
             my_wait(0.05);
         }
-        red /= 20;
+        red /= 15;
         red -= CALIBRATE_RED;
         return red >= 1.0;
     }

@@ -192,26 +192,8 @@ public class Robot {
             if (current > degrees)
                 break;
         }
-
-//            if (speed < 0) {
-//
-//                degrees = 360 - degrees;
-//                my_wait(0.5);
-//                while (waiter.opModeIsActive() && gyro.getHeading() > degrees) {
-//                    my_wait(0.01);
-//                }
-//            } else {
-//                JustMove(right, left);
-//                while(waiter.opModeIsActive()){
-//                 current = gyro.getHeading();
-//                    if (current > 180)
-//                        current = 360 - current;
-//                    if (current > degrees)
-//                        break;
-//                }
-//            }
             Stop();
-        }
+    }
 
     public void my_wait(double sec) {
         if(waiter.opModeIsActive()) {
@@ -248,12 +230,21 @@ public class Robot {
 
     public void pushButton1(){
         if(waiter.opModeIsActive()) {
-            dump.setPosition(0.05);
-            push.setPosition(0.05);
+            dump.setPosition(0.9);
+            push.setPosition(0.9);
             my_wait(2.0);
             push.setPosition(0.5);
             //detect color and then stop the dump
         }
+    }
+
+    public void pushButton2(){
+        push.setPosition(0.9);
+        double current = waiter.time;
+        while(waiter.opModeIsActive()&& !touch.isPressed() && (waiter.time - current) < 2.5){}
+        my_wait(0.5);
+        push.setPosition(0.05);
+        dump.setPosition(0.05);
     }
 
     public void colorSenseRed(){
@@ -281,16 +272,6 @@ public class Robot {
             move(-0.5, 10);
         }
     }
-
-    public void pushButton2(){
-        push.setPosition(0.05);
-        double current = waiter.time;
-        while(waiter.opModeIsActive()&& !touch.isPressed() && (waiter.time - current) < 2.5){}
-        my_wait(0.5);
-        push.setPosition(0.9);
-        dump.setPosition(0.9);
-    }
-
     /**
      * parallels the robot to the wall using recursion
      * @param x iteration counter
@@ -312,8 +293,8 @@ public class Robot {
                 usR += US2.getValue();
                 waiter.sleep(50); //break required between each reading
             }
-            waiter.telemetry.addData("ÜS1", US1.getValue());
-            waiter.telemetry.addData("ÜS2", US2.getValue());
+            waiter.telemetry.addData("US1", US1.getValue());
+            waiter.telemetry.addData("US2", US2.getValue());
             if (usL == usR)
                 return;
 
@@ -356,8 +337,4 @@ public class Robot {
         Stop();
     }
 
-    public void push()
-    {
-
-    }
 }

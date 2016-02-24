@@ -88,8 +88,8 @@ public class LeagueChampTeleOp extends OpMode {
 
 //============push====================
         pushPosition = 0.5;
-        if (gamepad1.left_bumper)    pushPosition = 0.3;
-        if (gamepad1.left_trigger>0.3)  pushPosition = 0.85;
+        if (gamepad1.left_bumper)    pushPosition = 0.85;
+        if (gamepad1.left_trigger>0.3)  pushPosition = 0.3;
         push.setPosition(pushPosition);
 
 //==========Flipper=====================
@@ -113,8 +113,8 @@ public class LeagueChampTeleOp extends OpMode {
 
 //===========dump=====================
         dumpPosition = 0.5;
-        if (gamepad2.y) dumpPosition = 0.3;
-        if (gamepad2.a) dumpPosition = 0.85;
+        if (gamepad2.y) dumpPosition = 0.85;
+        if (gamepad2.a) dumpPosition = 0.3;
 
         dump.setPosition(dumpPosition);
 //===========Triggers============================

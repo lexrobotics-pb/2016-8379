@@ -95,11 +95,11 @@ public class Robot {
             line.enableLed(true);
             JustMove(speed, speed);
             double now = waiter.time;
-            while (true && waiter.opModeIsActive() && waiter.time - now < 2) {
+            while (waiter.opModeIsActive() && waiter.time - now < 2) {
                 waiter.telemetry.addData("line red", line.red());
                 waiter.telemetry.addData("line blue", line.blue());
                 waiter.telemetry.addData("line green", line.green());
-                if (line.red() != 0) {
+                if ((line.red() != 0 && line.blue() !=0) || (line.red() != 0 && line.green() !=0) || (line.green() != 0 && line.blue() !=0)) {
                     waiter.telemetry.addData("line red", line.red());
                     waiter.telemetry.addData("line blue", line.blue());
                     waiter.telemetry.addData("line green", line.green());

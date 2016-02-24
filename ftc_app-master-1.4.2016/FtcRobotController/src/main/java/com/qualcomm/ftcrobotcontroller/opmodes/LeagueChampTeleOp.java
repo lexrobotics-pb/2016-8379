@@ -28,7 +28,7 @@ public class LeagueChampTeleOp extends OpMode {
     double boxPower;
     double dumpPosition;
     double pushPosition;
-    double speedFactor = 0.9;
+    double speedFactor = 0.95;
     double flipperPower;
 
     boolean direction = true;

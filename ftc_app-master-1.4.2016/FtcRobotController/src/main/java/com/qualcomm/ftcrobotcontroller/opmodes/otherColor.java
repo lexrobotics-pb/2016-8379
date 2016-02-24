@@ -15,14 +15,6 @@ import java.util.concurrent.locks.Lock;
  * Since we can't register this class in the RC configuration.
  * You need to manually create your object with this class.
  *
- * ColorSensor myPassiveCorlorSensor = new ptherColor(cdim, 3);
- *
- * The port is where your second color sensor plugged in on the i2c module.
- *
- * The I2CAddress is hard coded to 0x42, you need to change it to yours.
- *
- * @author TEAM 9915 on 10/12/2015.
- *
  */
 public class otherColor extends ColorSensor implements I2cController.I2cPortReadyCallback {
     public static volatile int ADDRESS_I2C = 0x70;

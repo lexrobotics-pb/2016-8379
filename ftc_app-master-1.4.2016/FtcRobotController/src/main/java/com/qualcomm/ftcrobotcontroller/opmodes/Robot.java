@@ -43,6 +43,7 @@ public class Robot {
     double ENCODER_F_L = 0;
     double ENCODER_B_R = 0;
     double ENCODER_B_L = 0;
+    double degree=0;
 
 
     double minSpeed = 0.15;
@@ -195,6 +196,17 @@ public class Robot {
             Stop();
     }
 
+    public void niceTurn(double speed, double degrees) throws InterruptedException {
+        my_wait(0.5);
+        degree = (Math.signum(degrees)*degrees+degree) % 360;
+        JustMove(-speed, speed);
+        int current = gyro.getHeading();
+        while(waiter.opModeIsActive() && Math.abs(current - degree) > 3){
+            current = gyro.getHeading();
+            Thread.sleep(20);
+        }
+    }
+
     public void my_wait(double sec) {
         if(waiter.opModeIsActive()) {
             double current = waiter.time;
@@ -242,7 +254,7 @@ public class Robot {
         push.setPosition(0.9);
         double current = waiter.time;
         while(waiter.opModeIsActive()&& !touch.isPressed() && (waiter.time - current) < 2.5){}
-        my_wait(0.5);
+        my_wait(1.0);
         push.setPosition(0.05);
         dump.setPosition(0.05);
     }
@@ -251,12 +263,12 @@ public class Robot {
         if(isRed()) {
             my_wait(0.5);
             dump.setPosition(0.5);
-            move(0.5, 2);
+            //move(0.5, 2);
         }
         else {
             my_wait(0.5);
             dump.setPosition(0.5);
-            move(-0.5, 10);
+            move(-0.5, 13);
         }
     }
 
@@ -264,12 +276,12 @@ public class Robot {
         if(isBlue()) {
             my_wait(0.5);
             dump.setPosition(0.5);
-            move(0.5, 2);
+            //move(0.5, 2);
         }
         else {
             my_wait(0.5);
             dump.setPosition(0.5);
-            move(-0.5, 10);
+            move(-0.5, 13);
         }
     }
     /**

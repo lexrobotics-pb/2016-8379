@@ -10,8 +10,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
  */
 public class AutoButtonBlue extends LinearOpMode{
 
-    double circumference = 4.0 * 2.54 * Math.PI, encoderV = 1120.0;
-
     @Override
     public void runOpMode() throws InterruptedException {
         Robot robot = new Robot(this);

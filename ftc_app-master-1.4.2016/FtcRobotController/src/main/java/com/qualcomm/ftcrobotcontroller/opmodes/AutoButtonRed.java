@@ -10,8 +10,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
  */
 public class AutoButtonRed extends LinearOpMode{
 
-    double circumference = 4.0 * 2.54 * Math.PI, encoderV = 1120.0;
-
     @Override
     public void runOpMode() throws InterruptedException {
         Robot robot = new Robot(this);
@@ -28,21 +26,21 @@ public class AutoButtonRed extends LinearOpMode{
 
         //set the robot perpendicular to the wall, Flipper forward
         robot.Flipper.setPower(-0.6);
-        robot.move(0.8, 65);
+        robot.move(0.8, 70);
         robot.my_wait(0.1);
-        robot.turnWithGyro(-0.8, 44.0); // parallel to diagonal
+        robot.niceTurn(-0.6, 41.0); // parallel to diagonal
         robot.my_wait(0.1);
-        robot.move(0.95, 145);
+        robot.move(0.95, 125);
         robot.my_wait(0.1);
         robot.Flipper.setPower(0);
         robot.my_wait(0.1);
-        robot.turnWithGyro(0.8, 45); // parallel to wall
+        robot.niceTurn(0.5, 25); // parallel to wall
         robot.my_wait(0.1);
         robot.ParallelRecursion(0, 0.4);
 
         robot.my_wait(0.5);
         robot.detectWhiteLine(0.15);
-        robot.move(-0.8, 5);
+        robot.move(-0.8, 7);
         robot.pushButton1();
         robot.colorSenseRed();
         robot.pushButton2();

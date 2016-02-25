@@ -197,14 +197,17 @@ public class Robot {
     }
 
     public void niceTurn(double speed, double degrees) throws InterruptedException {
-        my_wait(0.5);
-        degree = (Math.signum(degrees)*degrees+degree) % 360;
+        my_wait(0.3);
+        degree = (Math.signum(speed)*degrees+degree+360) % 360;
         JustMove(-speed, speed);
         int current = gyro.getHeading();
-        while(waiter.opModeIsActive() && Math.abs(current - degree) > 3){
+        while(waiter.opModeIsActive() && Math.abs(current - degree) > 2){
+            waiter.telemetry.addData("gyro", gyro.getHeading());
             current = gyro.getHeading();
-            Thread.sleep(20);
+            Thread.sleep(10);
         }
+        //degree = gyro.getHeading();
+        my_wait(0.05);
     }
 
     public void my_wait(double sec) {

@@ -28,13 +28,13 @@ public class AutoButtonRed extends LinearOpMode{
         robot.Flipper.setPower(-0.6);
         robot.move(0.8, 70);
         robot.my_wait(0.1);
-        robot.niceTurn(-0.6, 41.0); // parallel to diagonal
+        robot.niceTurn(-0.6, 40.0); // parallel to diagonal
         robot.my_wait(0.1);
-        robot.move(0.95, 126);
+        robot.move(0.95, 127);
         robot.my_wait(0.1);
         robot.Flipper.setPower(0);
         robot.my_wait(0.1);
-        robot.niceTurn(0.5, 25); // parallel to wall
+        robot.niceTurn(0.5, 18); // parallel to wall
         robot.my_wait(0.1);
         robot.ParallelRecursion(0, 0.4);
 

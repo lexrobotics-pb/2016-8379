@@ -62,6 +62,7 @@ public class FtcOpModeRegister implements OpModeRegister {
     manager.register("AutoButtonRed", AutoButtonRed.class);
     manager.register("LeagueChampTeleOp", LeagueChampTeleOp.class);
     manager.register("AutoAltBlue", AutoAltBlue.class);
+    manager.register("AutoAltRed", AutoAltRed.class);
     manager.register("FlipperTest", FlipperTest.class);
     manager.register("USTest", USTest.class);
     manager.register("gyroTest", gyroTEst.class);

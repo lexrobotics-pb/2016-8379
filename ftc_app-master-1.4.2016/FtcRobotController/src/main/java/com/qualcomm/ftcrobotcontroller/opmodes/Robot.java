@@ -245,8 +245,8 @@ public class Robot {
 
     public void pushButton1(){
         if(waiter.opModeIsActive()) {
-            dump.setPosition(0.9);
-            push.setPosition(0.9);
+            dump.setPosition(0.8);
+            push.setPosition(0.95);
             my_wait(2.0);
             push.setPosition(0.5);
             //detect color and then stop the dump
@@ -256,8 +256,8 @@ public class Robot {
     public void pushButton2(){
         push.setPosition(0.9);
         double current = waiter.time;
-        while(waiter.opModeIsActive()&& !touch.isPressed() && (waiter.time - current) < 2.5){}
-        my_wait(1.0);
+        while(waiter.opModeIsActive() && !touch.isPressed() && (waiter.time - current) < 3.0){}
+        my_wait(1.5);
         push.setPosition(0.05);
         dump.setPosition(0.05);
     }
@@ -271,7 +271,7 @@ public class Robot {
         else {
             my_wait(0.5);
             dump.setPosition(0.5);
-            move(-0.5, 13);
+            move(-0.5, 11);
         }
     }
 
@@ -284,7 +284,7 @@ public class Robot {
         else {
             my_wait(0.5);
             dump.setPosition(0.5);
-            move(-0.5, 13);
+            move(-0.5, 11);
         }
     }
     /**

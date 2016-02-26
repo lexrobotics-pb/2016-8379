@@ -30,7 +30,7 @@ public class AutoButtonRed extends LinearOpMode{
         robot.my_wait(0.1);
         robot.niceTurn(-0.6, 41.0); // parallel to diagonal
         robot.my_wait(0.1);
-        robot.move(0.95, 125);
+        robot.move(0.95, 126);
         robot.my_wait(0.1);
         robot.Flipper.setPower(0);
         robot.my_wait(0.1);
@@ -40,7 +40,7 @@ public class AutoButtonRed extends LinearOpMode{
 
         robot.my_wait(0.5);
         robot.detectWhiteLine(0.15);
-        robot.move(-0.8, 7);
+        robot.move(-0.8, 5);
         robot.pushButton1();
         robot.colorSenseRed();
         robot.pushButton2();

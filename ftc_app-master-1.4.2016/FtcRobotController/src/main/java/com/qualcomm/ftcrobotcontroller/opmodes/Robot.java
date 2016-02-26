@@ -247,7 +247,7 @@ public class Robot {
         if(waiter.opModeIsActive()) {
             dump.setPosition(0.8);
             push.setPosition(0.95);
-            my_wait(2.0);
+            my_wait(1.5);
             push.setPosition(0.5);
             //detect color and then stop the dump
         }
@@ -264,12 +264,12 @@ public class Robot {
 
     public void colorSenseRed(){
         if(isRed()) {
-            my_wait(0.5);
+            my_wait(1.0);
             dump.setPosition(0.5);
             //move(0.5, 2);
         }
         else {
-            my_wait(0.5);
+            my_wait(1.0);
             dump.setPosition(0.5);
             move(-0.5, 11);
         }
@@ -277,14 +277,14 @@ public class Robot {
 
     public void colorSenseBlue(){
         if(isBlue()) {
-            my_wait(0.5);
+            my_wait(1.0);
             dump.setPosition(0.5);
             //move(0.5, 2);
         }
         else {
-            my_wait(0.5);
+            my_wait(1.0);
             dump.setPosition(0.5);
-            move(-0.5, 11);
+            move(-0.5, 10);
         }
     }
     /**

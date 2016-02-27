@@ -196,6 +196,13 @@ public class Robot {
             Stop();
     }
 
+    /**
+     * instead of controlling every single turn, it keeps track of the expected orientation that the
+     * robot should be and turn based on that
+     * @param speed + = cw and - = ccw
+     * @param degrees always positive
+     * @throws InterruptedException for sleep function
+     */
     public void niceTurn(double speed, double degrees) throws InterruptedException {
         my_wait(0.3);
         degree = (Math.signum(speed)*degrees+degree+360) % 360;
@@ -206,7 +213,6 @@ public class Robot {
             current = gyro.getHeading();
             Thread.sleep(10);
         }
-        //degree = gyro.getHeading();
         my_wait(0.05);
     }
 

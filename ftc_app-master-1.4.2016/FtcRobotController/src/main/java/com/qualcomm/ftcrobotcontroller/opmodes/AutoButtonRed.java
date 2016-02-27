@@ -44,8 +44,8 @@ public class AutoButtonRed extends LinearOpMode{
         robot.pushButton1();
         robot.colorSenseRed();
         robot.pushButton2();
-        //robot.move(-0.8, 50);
         robot.my_wait(2);
+        robot.move(-0.8, 50);
         robot.push.setPosition(0.5);
         robot.dump.setPosition(0.5);
     }
